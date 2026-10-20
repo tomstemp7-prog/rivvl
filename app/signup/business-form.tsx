@@ -54,7 +54,7 @@ export function BusinessForm({ initial }: { initial: Profile }) {
     current?.status === "invalid"
       ? "We can’t find that postcode. Check it and try again."
       : submitted && !shaped
-        ? "Enter a full UK postcode, like RG1 3EU"
+        ? "Enter a full UK postcode, like SL6 7AA"
         : null;
   // Launched towns count real businesses, so ask the server; fall back to the sample count meanwhile.
   const [nearby, setNearby] = useState<{ key: string; count: number } | null>(null);
@@ -111,7 +111,7 @@ export function BusinessForm({ initial }: { initial: Profile }) {
             className={input}
             value={postcode}
             onChange={(e) => setPostcode(e.target.value)}
-            placeholder="e.g. RG1 3EU"
+            placeholder="e.g. SL6 7AA"
             autoComplete="postal-code"
             aria-invalid={!!postcodeError}
           />

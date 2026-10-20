@@ -100,15 +100,21 @@ export const RIVALS: Rival[] = [
     firstSeen: "2025-04", source: "public website", checked: "2026-07-30" },
 ];
 
-/** Shown when someone lands on the dashboard without going through sign-up (e.g. "Log in"). */
+/**
+ * Shown when someone lands on the dashboard without going through sign-up (e.g. "Log in").
+ * A fictional gym in Maidenhead, so the demo shows real local businesses and prices.
+ */
 export const DEMO_PROFILE: Profile = {
   name: "Iron & Oak Fitness",
   sector: "Gym",
-  postcode: "RG1 3EU",
+  postcode: "SL6 7AA",
   radius: "3 miles",
   shared: true,
   prices: MOCK_YOUR_PRICES,
 };
+
+/** The same gym placed outside a launched town, to show sample reports with a year of history. */
+export const SAMPLE_PROFILE: Profile = { ...DEMO_PROFILE, postcode: "RG1 3EU" };
 
 export const radiusMiles = (radius: string) => parseFloat(radius);
 

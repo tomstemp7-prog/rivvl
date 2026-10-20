@@ -10,6 +10,7 @@ import {
   priceAt,
   quarterName,
   REPORTS,
+  SAMPLE_PROFILE,
   rivalName,
   rivalsAt,
   type Report,
@@ -160,7 +161,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
               <Link href={`/dashboard?${profileQuery(profile)}`} className="rounded-xl bg-ink px-5 py-3 font-bold text-paper hover:bg-ink-3">
                 See today’s market
               </Link>
-              <Link href="/dashboard/reports" className="rounded-xl border-[1.5px] border-ink px-5 py-3 font-bold text-ink hover:bg-paper">
+              <Link href={`/dashboard/reports?${profileQuery(SAMPLE_PROFILE)}`} className="rounded-xl border-[1.5px] border-ink px-5 py-3 font-bold text-ink hover:bg-paper">
                 See a sample report
               </Link>
             </div>

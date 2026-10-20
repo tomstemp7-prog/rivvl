@@ -127,7 +127,7 @@ export default function Home() {
               <input
                 name="postcode"
                 type="text"
-                placeholder="e.g. RG1 3EU"
+                placeholder="e.g. SL6 7AA"
                 className="w-full min-w-0 bg-transparent p-0 text-[17px] font-medium text-ink outline-offset-4"
               />
             </label>
