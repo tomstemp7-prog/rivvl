@@ -1,5 +1,7 @@
 # Rivl website concept: design reference
 
+**Picking up this project? Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) first.**
+
 Eight page designs (in `design/`) for Rivl, exported from the Claude design canvas. Use them as the visual reference when building the real site in Claude Code.
 
 ## Pages
