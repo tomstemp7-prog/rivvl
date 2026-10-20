@@ -34,7 +34,7 @@ const PLANS = [
     price: "[£__]",
     per: "/month",
     features: ["Everything in Pro, for every location", "Custom areas and site comparisons", "Team access and exports", "API access"],
-    cta: { label: "Talk to us", href: "/contact" },
+    cta: { label: "Talk to us", href: "/#waitlist" },
   },
 ];
 

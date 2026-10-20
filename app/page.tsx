@@ -2,6 +2,7 @@ import Form from "next/form";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { SECTORS } from "@/lib/sectors";
 
 const HOME_SECTORS = SECTORS.slice(0, 5);
@@ -316,6 +317,22 @@ export default function Home() {
               <p className="mt-3 mb-0 text-base leading-[1.55] text-body">{a}</p>
             </details>
           ))}
+        </div>
+      </section>
+
+      {/* Waitlist */}
+      <section id="waitlist" className="mx-auto max-w-[1240px] scroll-mt-6 px-4 pb-14 sm:px-8">
+        <div className="flex flex-wrap items-start gap-10 rounded-[32px] border border-line bg-surface px-6 py-12 sm:px-12">
+          <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
+            <p className="eyebrow text-data-dark">Join the waitlist</p>
+            <h2 className="m-0 font-display text-4xl leading-[1.1] font-semibold tracking-[-1px]">Get Rivl for your area first.</h2>
+            <p className="m-0 text-[17px] leading-[1.55] text-body">
+              We’re starting with [LAUNCH TOWN]. Leave your email and we’ll tell you as soon as real prices are live near you.
+            </p>
+          </div>
+          <div className="min-w-0 flex-[2_1_440px]">
+            <WaitlistForm />
+          </div>
         </div>
       </section>
 
