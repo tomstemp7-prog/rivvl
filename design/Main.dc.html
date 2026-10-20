@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rivl home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0;background:#F6F3EC}
+a{color:#1F3FB8}a:hover{color:#12141C}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #12141C; background: #F6F3EC">
+
+<header style="max-width: 1240px; margin: 0 auto; padding: 24px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.5px; color: #12141C; text-decoration: none">Rivl<span style="color: {{accent}}">.</span></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 16px; font-weight: 500">
+<a href="#how" style="color: #12141C; text-decoration: none">How it works</a>
+<a href="#sectors" style="color: #12141C; text-decoration: none">Sectors</a>
+<a href="Pricing.dc.html" style="color: #12141C; text-decoration: none">Pricing</a>
+<a href="Dashboard.dc.html" style="color: #12141C; text-decoration: none">Log in</a>
+<a href="Signup.dc.html" style="background: #12141C; color: #F6F3EC; text-decoration: none; padding: 12px 20px; border-radius: 999px; font-weight: 600">Get started free</a>
+</nav>
+</header>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 56px 32px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 28px; min-width: 0">
+<p style="margin: 0; align-self: flex-start; background: #E3E9FF; color: #1F3FB8; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px">Local pricing intelligence for small businesses</p>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 68px; line-height: 1.02; letter-spacing: -2px; font-weight: 600">Know what every business on your street charges.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #4A4E59; max-width: 540px">Pick your sector, enter your postcode and see what comparable businesses nearby charge, where you sit, and how local prices move month to month.</p>
+<form aria-label="Find your local market" style="display: flex; flex-wrap: wrap; gap: 10px; background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 10px; box-shadow: 0 12px 32px rgba(18,20,28,0.08)">
+<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 4px; padding: 8px 14px; font-size: 13px; color: #5B5F6A; font-weight: 600">Business type
+<select style="border: none; background: transparent; font: inherit; font-size: 17px; color: #12141C; font-weight: 500; padding: 0">
+<option>Gym</option><option>Hair salon</option><option>Barber</option><option>Coffee shop</option><option>Beauty salon</option>
+</select>
+</label>
+<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 4px; padding: 8px 14px; font-size: 13px; color: #5B5F6A; font-weight: 600; border-left: 1px solid #E3DDD0">Postcode
+<input type="text" placeholder="e.g. RG1 3EU" style="border: none; background: transparent; font: inherit; font-size: 17px; color: #12141C; font-weight: 500; padding: 0; outline-offset: 4px">
+</label>
+<a href="Signup.dc.html" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; background: {{accent}}; color: #12141C; font-weight: 700; font-size: 16px; text-decoration: none; border-radius: 14px">See my local market</a>
+</form>
+<p style="margin: 0; font-size: 14px; color: #5B5F6A">Free to start. Share your own prices to unlock more detail.</p>
+</div>
+
+<div style="flex: 1 1 460px; min-width: 0; position: relative; height: 520px; border-radius: 28px; overflow: hidden; background: #12141C">
+<svg aria-hidden="true" viewBox="0 0 560 520" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<path d="M-20 400 C 120 350, 220 470, 360 420 S 520 330, 600 360" stroke="#2E5BFF" stroke-opacity="0.35" stroke-width="30" fill="none"></path>
+<g stroke="#232735" stroke-width="5" fill="none"><path d="M0 250 L560 230"></path><path d="M190 0 L215 520"></path><path d="M400 0 L385 520"></path></g>
+<g stroke="#2B2F3D" stroke-width="14" fill="none" stroke-linecap="round"><path d="M70 0 L130 520"></path><path d="M0 160 L560 120"></path><path d="M0 330 L560 300"></path><path d="M300 0 L280 520"></path><path d="M490 0 L520 520"></path></g>
+<circle cx="290" cy="270" r="150" fill="#2E5BFF" fill-opacity="0.08" stroke="#2E5BFF" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="8 8"></circle>
+<g fill="#FF6A3D" stroke="#12141C" stroke-width="3"><circle cx="160" cy="200" r="10"></circle><circle cx="390" cy="170" r="10"></circle><circle cx="230" cy="380" r="10"></circle><circle cx="420" cy="330" r="10"></circle><circle cx="340" cy="420" r="10"></circle></g>
+<circle cx="290" cy="270" r="14" fill="#2E5BFF" stroke="#F6F3EC" stroke-width="4"></circle>
+</svg>
+<p style="position: absolute; left: 13%; top: 30%; margin: 0; background: #F6F3EC; padding: 6px 12px; border-radius: 10px; font-weight: 700; font-size: 15px">£34</p>
+<p style="position: absolute; left: 63%; top: 25%; margin: 0; background: #F6F3EC; padding: 6px 12px; border-radius: 10px; font-weight: 700; font-size: 15px">£45</p>
+<p style="position: absolute; left: 33%; top: 66%; margin: 0; background: #F6F3EC; padding: 6px 12px; border-radius: 10px; font-weight: 700; font-size: 15px">£29</p>
+<p style="position: absolute; left: 70%; top: 56%; margin: 0; background: #F6F3EC; padding: 6px 12px; border-radius: 10px; font-weight: 700; font-size: 15px">£55</p>
+<p style="position: absolute; left: 49%; top: 46%; margin: 0; background: #2E5BFF; color: #FFFFFF; padding: 6px 12px; border-radius: 10px; font-weight: 700; font-size: 15px">You · £39</p>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; flex-wrap: wrap; gap: 12px; background: #FFFDF8; border-radius: 18px; padding: 18px 20px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #5B5F6A; font-weight: 600">Gyms within 3 miles · monthly membership</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Area median £42</span></div>
+<span style="background: #FFE3D9; color: #9A2E0A; font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: 999px">You’re £3 below median</span>
+</div>
+</div>
+</section>
+
+<section id="sectors" style="border-top: 1px solid #E3DDD0; border-bottom: 1px solid #E3DDD0; background: #FFFDF8">
+<div style="max-width: 1240px; margin: 0 auto; padding: 28px 32px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #5B5F6A">Built for</p>
+<span style="font-size: 17px; font-weight: 600">Gyms</span><span style="font-size: 17px; font-weight: 600">Hair salons</span><span style="font-size: 17px; font-weight: 600">Barbers</span><span style="font-size: 17px; font-weight: 600">Coffee shops</span><span style="font-size: 17px; font-weight: 600">Beauty salons</span><span style="font-size: 17px; font-weight: 600">Nail bars</span><span style="font-size: 17px; font-weight: 600">Yoga and pilates</span><span style="font-size: 17px; font-weight: 600">Physio</span>
+</div>
+</section>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 112px 32px 48px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1F3FB8">Why local matters</p>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.08; letter-spacing: -1.2px; font-weight: 600">National averages hide what your customers actually compare.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #12141C; color: #F6F3EC; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 600; color: #FF6A3D; letter-spacing: -1px">£69.81 vs £35.52</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #D5D7DD">Average monthly gym membership in London vs Yorkshire and the Humber.</p>
+<p style="margin: 0; font-size: 13px; color: #A9ADB8">Leisure DB, State of the UK Fitness Industry 2023</p>
+</div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 600; color: #1F3FB8; letter-spacing: -1px">£9 vs £17</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #4A4E59">Average men’s haircut in Stoke-on-Trent vs Glasgow.</p>
+<p style="margin: 0; font-size: 13px; color: #5B5F6A">Ripe Hair &amp; Beauty analysis, 2025</p>
+</div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 600; color: #1F3FB8; letter-spacing: -1px">1 in 3</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #4A4E59">UK firms say pricing off competitors is ‘very important’.</p>
+<p style="margin: 0; font-size: 13px; color: #5B5F6A">Bank of England price-setting survey, 2008</p>
+</div>
+</div>
+</section>
+
+<section id="how" style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1F3FB8">How it works</p>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.08; letter-spacing: -1.2px; font-weight: 600">From postcode to pricing decision in three steps.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #12141C; color: #F6F3EC; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px">1</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Tell us your business</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4A4E59">Choose your sector, enter your postcode and how far your customers travel. Rivl finds the businesses you compete with.</p>
+</div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 48px; height: 48px; border-radius: 14px; background: #12141C; color: #F6F3EC; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px">2</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">See your local market</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4A4E59">A map and ranked list of rivals’ prices for the same items, plus where you sit against the area low, median and high.</p>
+</div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span style="width: 48px; height: 48px; border-radius: 14px; background: {{accent}}; color: #12141C; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px">3</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Get a monthly report</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4A4E59">Who changed price, who opened nearby, and how your position moved, in your inbox every month with a quarterly review.</p>
+</div>
+</div>
+</section>
+
+<section style="background: #12141C; color: #F6F3EC">
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #FF6A3D">Decisions, not just data</p>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.08; letter-spacing: -1.2px; font-weight: 600; color: #F6F3EC">Price with confidence when it counts.</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px; font-size: 17px; line-height: 1.5; color: #D5D7DD">
+<li><strong style="color: #F6F3EC">Annual price review.</strong> Raise prices with evidence before costs force your hand.</li>
+<li><strong style="color: #F6F3EC">New service.</strong> Price a new class, treatment or menu item against local rivals.</li>
+<li><strong style="color: #F6F3EC">Second site.</strong> Compare price levels across postcodes before you expand.</li>
+<li><strong style="color: #F6F3EC">New competitor.</strong> See their prices and how the local median shifts.</li>
+</ul>
+</div>
+<div style="flex: 1 1 520px; min-width: 0; background: #1B1E29; border: 1px solid #2B2F3D; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px"><span style="font-weight: 700; font-size: 16px">Your benchmark</span><span style="font-size: 14px; color: #A9ADB8">7 gyms within 3 miles · illustrative</span></div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px">
+<thead><tr style="color: #A9ADB8; text-align: right"><th style="text-align: left; font-weight: 600; padding: 10px 0">Price item</th><th style="font-weight: 600; padding: 10px 0; color: #8FA6FF">You</th><th style="font-weight: 600; padding: 10px 0">Low</th><th style="font-weight: 600; padding: 10px 0">Median</th><th style="font-weight: 600; padding: 10px 0">High</th></tr></thead>
+<tbody style="text-align: right">
+<tr style="border-top: 1px solid #2B2F3D"><td style="text-align: left; padding: 14px 0">Monthly membership</td><td style="color: #8FA6FF; font-weight: 700">£39</td><td>£24.99</td><td>£42</td><td>£80</td></tr>
+<tr style="border-top: 1px solid #2B2F3D"><td style="text-align: left; padding: 14px 0">Off-peak membership</td><td style="color: #8FA6FF; font-weight: 700">£29</td><td>£19.99</td><td>£30</td><td>£60</td></tr>
+<tr style="border-top: 1px solid #2B2F3D"><td style="text-align: left; padding: 14px 0">Day pass</td><td style="color: #8FA6FF; font-weight: 700">£10</td><td>£6</td><td>£10</td><td>£15</td></tr>
+<tr style="border-top: 1px solid #2B2F3D"><td style="text-align: left; padding: 14px 0">PT session (1 hour)</td><td style="color: #8FA6FF; font-weight: 700">£40</td><td>£30</td><td>£42</td><td>£60</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 104px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1F3FB8">Give to get</p>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.1; letter-spacing: -1px; font-weight: 600">Share your prices, see the full picture.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4A4E59">Rivl starts with publicly listed prices. Add your own and you unlock named rivals, full history and your monthly report. Shared prices only ever appear in area averages, never against your name.</p>
+</div>
+<div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 700">Public prices</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4E59">Collected from websites, menus and booking pages, timestamped and mapped.</p></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 700">Owner-shared prices</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4E59">Verified by the business, so the benchmark stays accurate and fresh.</p></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 700">Like for like</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4E59">Every price is matched to a standard item for its sector, with what’s included.</p></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 700">Connect later</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4E59">Link your booking or till system so your prices update automatically.</p></div>
+</div>
+</section>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 32px 32px 104px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 40px; letter-spacing: -1px; font-weight: 600">Questions</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 48px">
+<details style="border-top: 1px solid #D6CFBF; padding: 22px 0"><summary style="font-size: 18px; font-weight: 600; cursor: pointer">Where does the data come from?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.55; color: #4A4E59">Publicly listed prices from websites, menus and booking pages, plus prices businesses choose to share with Rivl.</p></details>
+<details style="border-top: 1px solid #D6CFBF; padding: 22px 0"><summary style="font-size: 18px; font-weight: 600; cursor: pointer">Will competitors see my prices?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.55; color: #4A4E59">Prices you share only feed area averages. Rivl never shows your shared prices against your name.</p></details>
+<details style="border-top: 1px solid #D6CFBF; padding: 22px 0"><summary style="font-size: 18px; font-weight: 600; cursor: pointer">How often is it updated?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.55; color: #4A4E59">Prices are refreshed regularly and summarised in a monthly report, with a deeper quarterly review.</p></details>
+<details style="border-top: 1px solid #D6CFBF; padding: 22px 0"><summary style="font-size: 18px; font-weight: 600; cursor: pointer">Which areas do you cover?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.55; color: #4A4E59">We’re starting with [LAUNCH TOWN] and adding areas sector by sector. Join the waitlist to hear when yours is live.</p></details>
+</div>
+</section>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 96px">
+<div style="background: {{accent}}; border-radius: 32px; padding: 64px 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.05; letter-spacing: -1.2px; font-weight: 600; max-width: 640px; color: #12141C">See where you stand in two minutes.</h2>
+<a href="Signup.dc.html" style="background: #12141C; color: #F6F3EC; text-decoration: none; padding: 18px 30px; border-radius: 999px; font-weight: 700; font-size: 17px">Get started free</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E3DDD0">
+<div style="max-width: 1240px; margin: 0 auto; padding: 40px 32px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; font-size: 15px; color: #5B5F6A">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: #12141C">Rivl<span style="color: {{accent}}">.</span></span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 24px"><a href="Pricing.dc.html" style="color: #4A4E59; text-decoration: none">Pricing</a><a href="#how" style="color: #4A4E59; text-decoration: none">How it works</a><a href="#" style="color: #4A4E59; text-decoration: none">Privacy</a><a href="#" style="color: #4A4E59; text-decoration: none">Contact</a></nav>
+<span>© 2026 Rivl</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF6A3D","options":["#FF6A3D","#FFB020","#2E5BFF","#2FBF71"]},"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#FF6A3D' };
+}
+}
+</script>
+</body>
+</html>

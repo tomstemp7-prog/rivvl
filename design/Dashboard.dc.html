@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rivl dashboard: local market map</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0;background:#F6F3EC}
+a{color:#1F3FB8}a:hover{color:#12141C}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #12141C; background: #F6F3EC; min-height: 1160px; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 240px; max-width: 280px; background: #12141C; color: #F6F3EC; padding: 28px 20px; display: flex; flex-direction: column; gap: 32px; min-width: 0">
+<a href="Main.dc.html" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: #F6F3EC; text-decoration: none; padding: 0 12px">Rivl<span style="color: #FF6A3D">.</span></a>
+<nav aria-label="App" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; font-weight: 600">
+<a href="Dashboard.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #262A38; color: #FFFFFF; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg>Market map</a>
+<a href="Benchmark.dc.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C3C6CE; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>Benchmark</a>
+<a href="Competitor.dc.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C3C6CE; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21 20c0-2.6-1.7-4.9-4-5.7"></path></svg>Competitors</a>
+<a href="Report.dc.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C3C6CE; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 12h7M9 16h7"></path></svg>Reports</a>
+<a href="SharePrices.dc.html" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C3C6CE; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>Your prices</a>
+</nav>
+<div style="flex: 1"></div>
+<div style="background: #1B1E29; border: 1px solid #2B2F3D; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 15px; font-weight: 700">Iron &amp; Oak Fitness</span>
+<span style="font-size: 13px; color: #A9ADB8">Gym · RG1 3EU · Pro</span>
+</div>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 32px 40px 48px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-size: 14px; color: #5B5F6A; font-weight: 600">Gyms within 3 miles of RG1 3EU · updated [DATE]</p>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 36px; letter-spacing: -0.8px; font-weight: 600">Your local market</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 700; color: #5B5F6A">Price item
+<select style="font: inherit; font-size: 15px; font-weight: 600; color: #12141C; min-height: 44px; padding: 0 12px; border: 1.5px solid #CFC8B8; border-radius: 10px; background: #FFFDF8"><option>Monthly membership</option><option>Off-peak membership</option><option>Day pass</option><option>Personal training</option></select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 700; color: #5B5F6A">Radius
+<select style="font: inherit; font-size: 15px; font-weight: 600; color: #12141C; min-height: 44px; padding: 0 12px; border: 1.5px solid #CFC8B8; border-radius: 10px; background: #FFFDF8"><option>3 miles</option><option>1 mile</option><option>5 miles</option><option>10 miles</option></select>
+</label>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="background: #12141C; color: #F6F3EC; border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #A9ADB8">Your price</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">£39</span><span style="font-size: 13px; color: #C3C6CE">Monthly membership</span></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #5B5F6A">Area median</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">£42</span><span style="font-size: 13px; color: #9A2E0A; font-weight: 700">You’re £3 below</span></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #5B5F6A">Your position</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">3rd of 7</span><span style="font-size: 13px; color: #5B5F6A">Cheapest first</span></div>
+<div style="background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: #5B5F6A">Changes this quarter</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">2</span><a href="Report.dc.html" style="font-size: 13px; font-weight: 700">See October report</a></div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<div style="flex: 999 1 520px; min-width: 0; position: relative; height: 600px; border-radius: 22px; overflow: hidden; background: #E6E1D3" role="img" aria-label="Map of 7 gyms around RG1 3EU with their monthly prices">
+<svg aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<rect x="0" y="0" width="800" height="600" fill="#E6E1D3"></rect>
+<rect x="560" y="300" width="150" height="110" rx="18" fill="#D3DEC4"></rect>
+<path d="M0 540 C 200 490, 380 590, 560 530 S 740 470, 800 490" stroke="#B9C7F0" stroke-width="26" fill="none"></path>
+<g stroke="#F6F3EC" stroke-width="7" fill="none" stroke-linecap="round"><path d="M0 300 L800 280"></path><path d="M240 0 L320 600"></path><path d="M600 0 L580 600"></path></g>
+<g stroke="#FFFDF8" stroke-width="16" fill="none" stroke-linecap="round"><path d="M0 120 L800 90"></path><path d="M0 460 L800 500"></path><path d="M100 0 L150 600"></path><path d="M440 0 L410 600"></path><path d="M700 0 L760 600"></path></g>
+<circle cx="400" cy="300" r="230" fill="#2E5BFF" fill-opacity="0.06" stroke="#2E5BFF" stroke-width="2" stroke-dasharray="10 8"></circle>
+</svg>
+<p style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; background: #2E5BFF; color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 8px 14px; border-radius: 12px; box-shadow: 0 6px 16px rgba(46,91,255,0.35)">You · £39</p>
+<a href="Competitor.dc.html" style="position: absolute; left: 30%; top: 24%; background: #FFFDF8; color: #12141C; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.15); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>FlexiGym · £24.99</a>
+<a href="Competitor.dc.html" style="position: absolute; left: 58%; top: 16%; background: #FFFDF8; color: #12141C; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.15); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>Kennet · £42</a>
+<a href="Competitor.dc.html" style="position: absolute; left: 68%; top: 38%; background: #FFFDF8; color: #12141C; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.15); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>Peak · £55</a>
+<a href="Competitor.dc.html" style="position: absolute; left: 12%; top: 50%; background: #FFFDF8; color: #12141C; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.15); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>Northside · £80</a>
+<a href="Competitor.dc.html" style="position: absolute; left: 34%; top: 68%; background: #12141C; color: #F6F3EC; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.25); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>Forge · £45</a>
+<a href="Competitor.dc.html" style="position: absolute; left: 60%; top: 62%; background: #FFFDF8; color: #12141C; text-decoration: none; font-weight: 700; font-size: 14px; padding: 7px 12px; border-radius: 12px; box-shadow: 0 4px 12px rgba(18,20,28,0.15); display: flex; gap: 8px; align-items: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FF6A3D"></span>Riverside · £32</a>
+<div style="position: absolute; left: 16px; bottom: 16px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="background: #FFFDF8; border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; color: #33363F">Dashed ring: 3-mile radius</span>
+<span style="background: #FFFDF8; border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; color: #33363F">Illustrative data</span>
+</div>
+<div style="position: absolute; right: 16px; top: 16px; display: flex; flex-direction: column; gap: 6px">
+<button type="button" aria-label="Zoom in" style="width: 44px; height: 44px; border-radius: 12px; border: none; background: #FFFDF8; font-size: 22px; font-weight: 600; color: #12141C; cursor: pointer">+</button>
+<button type="button" aria-label="Zoom out" style="width: 44px; height: 44px; border-radius: 12px; border: none; background: #FFFDF8; font-size: 22px; font-weight: 600; color: #12141C; cursor: pointer">−</button>
+</div>
+</div>
+
+<div style="flex: 1 1 300px; min-width: 0; background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 6px 12px"><h2 style="margin: 0; font-size: 17px; font-weight: 700">Ranked by price</h2><span style="font-size: 13px; color: #5B5F6A">Monthly</span></div>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none; border-top: 1px solid #EFEAE0"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">FlexiGym 24/7</span><span style="font-size: 13px; color: #5B5F6A">0.9 miles · budget</span></span><span style="font-weight: 700">£24.99</span></a>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none; border-top: 1px solid #EFEAE0"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Riverside Leisure Centre</span><span style="font-size: 13px; color: #5B5F6A">1.4 miles · council</span></span><span style="font-weight: 700">£32</span></a>
+<div style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; background: #E3E9FF; color: #1F3FB8"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Iron &amp; Oak Fitness (you)</span><span style="font-size: 13px">Your gym</span></span><span style="font-weight: 700">£39</span></div>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Kennet Yoga &amp; Fitness</span><span style="font-size: 13px; color: #5B5F6A">1.1 miles · mid-market</span></span><span style="font-weight: 700">£42</span></a>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none; border-top: 1px solid #EFEAE0"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Forge Strength Club</span><span style="font-size: 13px; color: #9A2E0A; font-weight: 600">Up £3 in Sep</span></span><span style="font-weight: 700">£45</span></a>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none; border-top: 1px solid #EFEAE0"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Peak Performance Studio</span><span style="font-size: 13px; color: #5B5F6A">2.2 miles · boutique</span></span><span style="font-weight: 700">£55</span></a>
+<a href="Competitor.dc.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 12px; border-radius: 12px; color: #12141C; text-decoration: none; border-top: 1px solid #EFEAE0"><span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Northside Functional</span><span style="font-size: 13px; color: #1F3FB8; font-weight: 600">New in your area</span></span><span style="font-weight: 700">£80</span></a>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1160}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #12141c;
+  --color-ink-2: #1b1e29;
+  --color-ink-3: #262a38;
+  --color-ink-line: #2b2f3d;
+  --color-paper: #f6f3ec;
+  --color-surface: #fffdf8;
+  --color-sand: #efeae0;
+  --color-line: #e3ddd0;
+  --color-line-strong: #cfc8b8;
+  --color-line-faq: #d6cfbf;
+  --color-map: #e6e1d3;
+  --color-muted: #5b5f6a;
+  --color-body: #4a4e59;
+  --color-body-strong: #33363f;
+  --color-on-dark: #d5d7dd;
+  --color-on-dark-2: #c3c6ce;
+  --color-on-dark-muted: #a9adb8;
+  --color-accent: #ff6a3d;
+  --color-accent-tint: #ffe3d9;
+  --color-accent-dark: #9a2e0a;
+  --color-data: #2e5bff;
+  --color-data-dark: #1f3fb8;
+  --color-data-tint: #e3e9ff;
+  --color-data-light: #8fa6ff;
+
+  --font-sans: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+}
+
+/* Small reusable patterns from the designs */
+@utility eyebrow {
+  @apply m-0 text-sm font-bold uppercase tracking-[1.5px];
+}
+@utility pill-toggle {
+  @apply min-h-12 cursor-pointer rounded-full border-[1.5px] px-5 text-base font-semibold transition-colors;
+}

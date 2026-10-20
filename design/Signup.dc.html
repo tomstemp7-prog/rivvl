@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rivl sign up: your business</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0;background:#F6F3EC}
+a{color:#1F3FB8}a:hover{color:#12141C}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: #12141C; background: #F6F3EC; min-height: 1080px; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 380px; background: #12141C; color: #F6F3EC; padding: 40px 48px; display: flex; flex-direction: column; gap: 48px; min-width: 0">
+<a href="Main.dc.html" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; color: #F6F3EC; text-decoration: none">Rivl<span style="color: #FF6A3D">.</span></a>
+<ol aria-label="Sign-up steps" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 28px">
+<li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 36px; height: 36px; border-radius: 50%; background: #FF6A3D; color: #12141C; display: flex; align-items: center; justify-content: center; font-weight: 700">1</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 17px">Your business</strong><span style="font-size: 15px; color: #A9ADB8">Sector, postcode and catchment</span></div></li>
+<li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 36px; height: 36px; border-radius: 50%; border: 1.5px solid #5B5F6A; color: #A9ADB8; display: flex; align-items: center; justify-content: center; font-weight: 700">2</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 17px; color: #D5D7DD">Your prices</strong><span style="font-size: 15px; color: #A9ADB8">Share to unlock more detail</span></div></li>
+<li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 36px; height: 36px; border-radius: 50%; border: 1.5px solid #5B5F6A; color: #A9ADB8; display: flex; align-items: center; justify-content: center; font-weight: 700">3</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 17px; color: #D5D7DD">Your local market</strong><span style="font-size: 15px; color: #A9ADB8">See every rival’s price</span></div></li>
+</ol>
+<div style="flex: 1"></div>
+<div style="background: #1B1E29; border: 1px solid #2B2F3D; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 15px; font-weight: 700">Your data stays yours</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #C3C6CE">Prices you share only feed area averages. Rivl never shows them against your name.</p>
+</div>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 72px 64px; display: flex; flex-direction: column; gap: 40px; max-width: 820px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1F3FB8">Step 1 of 3</p>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.1; letter-spacing: -1px; font-weight: 600">Tell us about your business</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4A4E59">We use this to find the businesses your customers compare you with.</p>
+</div>
+
+<fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+<legend style="font-size: 17px; font-weight: 700; padding: 0; margin-bottom: 14px">What type of business are you?</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{sectors}}" as="s" hint-placeholder-count="8">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="{{s.style}}">{{s.label}}</button>
+</sc-for>
+</div>
+</fieldset>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<label style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 700">Business name
+<input type="text" value="Iron &amp; Oak Fitness" style="font: inherit; font-weight: 500; font-size: 17px; padding: 14px 16px; border: 1.5px solid #CFC8B8; border-radius: 12px; background: #FFFDF8; color: #12141C">
+</label>
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 700">Postcode
+<input type="text" value="RG1 3EU" style="font: inherit; font-weight: 500; font-size: 17px; padding: 14px 16px; border: 1.5px solid #CFC8B8; border-radius: 12px; background: #FFFDF8; color: #12141C">
+</label>
+</div>
+
+<fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+<legend style="font-size: 17px; font-weight: 700; padding: 0; margin-bottom: 14px">How far do your customers travel?</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{radii}}" as="r" hint-placeholder-count="4">
+<button type="button" onClick="{{r.pick}}" aria-pressed="{{r.pressed}}" style="{{r.style}}">{{r.label}}</button>
+</sc-for>
+</div>
+</fieldset>
+
+<div style="background: #E3E9FF; border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: center">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3FB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+<p style="margin: 0; font-size: 16px; color: #1F3FB8; font-weight: 600">We found [7] {{sectorPlural}} within {{radiusLabel}} of RG1 3EU.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center">
+<a href="SharePrices.dc.html" style="display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 32px; background: #12141C; color: #F6F3EC; text-decoration: none; border-radius: 14px; font-weight: 700; font-size: 16px">Continue</a>
+<a href="Main.dc.html" style="font-size: 16px; font-weight: 600; color: #4A4E59">Back</a>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sector: 'Gym', radius: '3 miles' };
+}
+renderVals() {
+const base = 'font: inherit; font-size: 16px; font-weight: 600; min-height: 48px; padding: 0 20px; border-radius: 999px; cursor: pointer;';
+const on = base + ' background: #12141C; color: #F6F3EC; border: 1.5px solid #12141C;';
+const off = base + ' background: #FFFDF8; color: #12141C; border: 1.5px solid #CFC8B8;';
+const sectorList = ['Gym', 'Hair salon', 'Barber', 'Coffee shop', 'Beauty salon', 'Nail bar', 'Yoga and pilates', 'Physio'];
+const plurals = { 'Gym': 'gyms', 'Hair salon': 'hair salons', 'Barber': 'barbers', 'Coffee shop': 'coffee shops', 'Beauty salon': 'beauty salons', 'Nail bar': 'nail bars', 'Yoga and pilates': 'yoga and pilates studios', 'Physio': 'physios' };
+const radiusList = ['1 mile', '3 miles', '5 miles', '10 miles'];
+return {
+sectors: sectorList.map((label) => ({ label, pressed: String(this.state.sector === label), style: this.state.sector === label ? on : off, pick: () => this.setState({ sector: label }) })),
+radii: radiusList.map((label) => ({ label, pressed: String(this.state.radius === label), style: this.state.radius === label ? on : off, pick: () => this.setState({ radius: label }) })),
+sectorPlural: plurals[this.state.sector],
+radiusLabel: this.state.radius,
+};
+}
+}
+</script>
+</body>
+</html>
