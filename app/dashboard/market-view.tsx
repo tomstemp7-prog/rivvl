@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { median, MOCK_UPDATED, radiusMiles, rivalsWithin, type Rival } from "@/lib/mock-market";
+import { StreetMap } from "@/components/street-map";
+import { areaLabel, type Place } from "@/lib/postcode";
 import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor, RADII } from "@/lib/sectors";
 
@@ -51,19 +53,25 @@ function layoutPins(pins: { x: number; y: number; label: string }[]) {
   return pts;
 }
 
-export function MarketView({ profile }: { profile: Profile }) {
+export function MarketView({ profile, place }: { profile: Profile; place: Place | null }) {
   const items = itemsFor(profile.sector);
   const [itemId, setItemId] = useState(items[0].id);
   const [radius, setRadius] = useState(profile.radius);
   const [zoom, setZoom] = useState(1);
   const [mapWidth, setMapWidth] = useState(800);
+  const [mapHeight, setMapHeight] = useState(600);
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = mapRef.current;
     if (!el) return;
-    setMapWidth(el.getBoundingClientRect().width);
-    const ro = new ResizeObserver(([entry]) => setMapWidth(entry.contentRect.width));
+    const rect = el.getBoundingClientRect();
+    setMapWidth(rect.width);
+    setMapHeight(rect.height);
+    const ro = new ResizeObserver(([entry]) => {
+      setMapWidth(entry.contentRect.width);
+      setMapHeight(entry.contentRect.height);
+    });
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
@@ -119,7 +127,7 @@ export function MarketView({ profile }: { profile: Profile }) {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {profile.postcode} · updated {MOCK_UPDATED}
+            {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {areaLabel(profile.postcode, place)} · updated {MOCK_UPDATED}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Your local market</h1>
         </div>
@@ -199,26 +207,30 @@ export function MarketView({ profile }: { profile: Profile }) {
         {/* Map */}
         <div
           role="img"
-          aria-label={`Map of ${entries.length} ${plural} around ${profile.postcode} with their ${item.label.toLowerCase()} prices`}
+          aria-label={`Map of ${entries.length} ${plural} around ${areaLabel(profile.postcode, place)} with their ${item.label.toLowerCase()} prices`}
           ref={mapRef}
           className="relative h-[480px] min-w-0 flex-[999_1_520px] overflow-hidden rounded-[22px] bg-map sm:h-[600px]"
         >
-          <svg aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
-            <rect x="560" y="300" width="150" height="110" rx="18" fill="#D3DEC4" />
-            <path d="M0 540 C 200 490, 380 590, 560 530 S 740 470, 800 490" stroke="#B9C7F0" strokeWidth="26" fill="none" />
-            <g stroke="#F6F3EC" strokeWidth="7" fill="none" strokeLinecap="round">
-              <path d="M0 300 L800 280" />
-              <path d="M240 0 L320 600" />
-              <path d="M600 0 L580 600" />
-            </g>
-            <g stroke="#FFFDF8" strokeWidth="16" fill="none" strokeLinecap="round">
-              <path d="M0 120 L800 90" />
-              <path d="M0 460 L800 500" />
-              <path d="M100 0 L150 600" />
-              <path d="M440 0 L410 600" />
-              <path d="M700 0 L760 600" />
-            </g>
-          </svg>
+          {place ? (
+            <StreetMap lat={place.lat} lng={place.lng} metersPerPx={(maxMiles * 1609.34) / ringPx} width={mapWidth} height={mapHeight} />
+          ) : (
+            <svg aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
+              <rect x="560" y="300" width="150" height="110" rx="18" fill="#D3DEC4" />
+              <path d="M0 540 C 200 490, 380 590, 560 530 S 740 470, 800 490" stroke="#B9C7F0" strokeWidth="26" fill="none" />
+              <g stroke="#F6F3EC" strokeWidth="7" fill="none" strokeLinecap="round">
+                <path d="M0 300 L800 280" />
+                <path d="M240 0 L320 600" />
+                <path d="M600 0 L580 600" />
+              </g>
+              <g stroke="#FFFDF8" strokeWidth="16" fill="none" strokeLinecap="round">
+                <path d="M0 120 L800 90" />
+                <path d="M0 460 L800 500" />
+                <path d="M100 0 L150 600" />
+                <path d="M440 0 L410 600" />
+                <path d="M700 0 L760 600" />
+              </g>
+            </svg>
+          )}
           <div
             aria-hidden="true"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-data bg-data/6 transition-all"

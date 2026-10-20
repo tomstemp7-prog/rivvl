@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { rivalsWithin } from "@/lib/mock-market";
+import { lookupPostcode, normalisePostcode, POSTCODE_SHAPE, type Lookup } from "@/lib/postcode";
 import { profileQuery, type Profile } from "@/lib/profile";
 import { pluralFor, RADII, SECTORS } from "@/lib/sectors";
-
-const POSTCODE = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
 
 const input =
   "rounded-xl border-[1.5px] border-line-strong bg-surface px-4 py-3.5 text-[17px] font-medium text-ink aria-invalid:border-accent-dark";
@@ -32,17 +31,39 @@ export function BusinessForm({ initial }: { initial: Profile }) {
   const [name, setName] = useState(initial.name);
   const [postcode, setPostcode] = useState(initial.postcode);
   const [submitted, setSubmitted] = useState(false);
+  // Result of checking the postcode against the real UK list, keyed by what was checked.
+  const [lookup, setLookup] = useState<{ for: string; result: Lookup } | null>(null);
+
+  const shaped = POSTCODE_SHAPE.test(postcode.trim());
+  const normalised = normalisePostcode(postcode);
+  const current = lookup?.for === normalised ? lookup.result : null;
+  const checking = shaped && !current;
+  const place = current?.status === "found" ? current.place : null;
+
+  useEffect(() => {
+    if (!shaped) return;
+    const timer = setTimeout(async () => {
+      const result = await lookupPostcode(normalised);
+      setLookup({ for: normalised, result });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [shaped, normalised]);
 
   const nameError = submitted && !name.trim() ? "Enter your business name" : null;
-  const postcodeError = submitted && !POSTCODE.test(postcode.trim()) ? "Enter a full UK postcode, like RG1 3EU" : null;
-  const validPostcode = POSTCODE.test(postcode.trim());
+  const postcodeError =
+    current?.status === "invalid"
+      ? "We can’t find that postcode. Check it and try again."
+      : submitted && !shaped
+        ? "Enter a full UK postcode, like RG1 3EU"
+        : null;
   const found = rivalsWithin(radius).length;
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
-    if (!name.trim() || !validPostcode) return;
-    router.push(`/signup/prices?${profileQuery({ name: name.trim(), sector, postcode: postcode.trim().toUpperCase(), radius })}`);
+    // If postcodes.io is unreachable, don't block sign-up; the shape check still applies.
+    if (!name.trim() || !shaped || checking || current?.status === "invalid") return;
+    router.push(`/signup/prices?${profileQuery({ name: name.trim(), sector, postcode: place?.postcode ?? normalised, radius })}`);
   }
 
   return (
@@ -102,9 +123,13 @@ export function BusinessForm({ initial }: { initial: Profile }) {
           <circle cx="12" cy="10" r="2.5" />
         </svg>
         <p className="m-0 text-base font-semibold text-data-dark">
-          {validPostcode
-            ? `We found ${found} ${pluralFor(sector)} within ${radius} of ${postcode.trim().toUpperCase()}.`
-            : `Enter your postcode to see how many ${pluralFor(sector)} are within ${radius}.`}
+          {place
+            ? `We found ${found} ${pluralFor(sector)} within ${radius} of ${place.postcode}, ${place.district}.`
+            : checking
+              ? "Checking your postcode…"
+              : shaped && current?.status === "unavailable"
+                ? `We found ${found} ${pluralFor(sector)} within ${radius} of ${normalised}.`
+                : `Enter your postcode to see how many ${pluralFor(sector)} are within ${radius}.`}
         </p>
       </div>
 

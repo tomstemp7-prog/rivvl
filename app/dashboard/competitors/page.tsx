@@ -3,6 +3,7 @@ import Link from "next/link";
 import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
 import { LimitedBanner } from "@/components/limited-banner";
 import { MOCK_UPDATED, radiusMiles, RIVALS, rivalName, SEGMENT_LABELS } from "@/lib/mock-market";
+import { areaLabel, placeFor } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = { title: "Competitors · Rivl" };
 export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = profileOrDemo(await searchParams);
   const query = profileQuery(profile);
+  const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
   const items = itemsFor(profile.sector);
   const plural = pluralFor(profile.sector);
@@ -23,7 +25,7 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {inside} of {rivals.length} {plural} within {profile.radius} of {profile.postcode} · updated {MOCK_UPDATED}
+            {inside} of {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} · updated {MOCK_UPDATED}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Competitors</h1>
         </div>

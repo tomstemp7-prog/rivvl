@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
 import { median, MOCK_TODAY, rivalsWithin } from "@/lib/mock-market";
+import { areaLabel, placeFor } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 
@@ -16,6 +17,7 @@ const DAY = 24 * 60 * 60 * 1000;
 export default async function BenchmarkPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = profileOrDemo(await searchParams);
   const query = profileQuery(profile);
+  const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
   const rivals = rivalsWithin(profile.radius);
   const plural = pluralFor(profile.sector);
@@ -57,7 +59,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {rivals.length} {plural} within {profile.radius} · illustrative data
+            {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} · illustrative data
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Where you sit</h1>
         </div>

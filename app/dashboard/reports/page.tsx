@@ -12,6 +12,7 @@ import {
   rivalsAt,
   type Report,
 } from "@/lib/mock-market";
+import { areaLabel, placeFor, type Place } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 import { ReportView, type ReportData } from "./report-view";
@@ -27,7 +28,7 @@ function ordinal(n: number) {
 }
 
 /** Works out everything a report shows from the mock market history. */
-function buildReport(report: Report, profile: Profile): ReportData {
+function buildReport(report: Report, profile: Profile, place: Place | null): ReportData {
   const { radius, sector } = profile;
   const items = itemsFor(sector);
   const item = items[0];
@@ -86,7 +87,7 @@ function buildReport(report: Report, profile: Profile): ReportData {
     id: report.id,
     label: report.label,
     kind: report.kind,
-    scope: `${pluralFor(sector)[0].toUpperCase()}${pluralFor(sector).slice(1)} within ${radius} of ${profile.postcode}`,
+    scope: `${pluralFor(sector)[0].toUpperCase()}${pluralFor(sector).slice(1)} within ${radius} of ${areaLabel(profile.postcode, place)}`,
     headline: medianMove + youLine,
     stats: {
       changed: `${changed} of ${rivals.length}`,
@@ -128,10 +129,11 @@ function buildReport(report: Report, profile: Profile): ReportData {
 
 export default async function ReportsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = profileOrDemo(await searchParams);
+  const place = await placeFor(profile.postcode);
 
   return (
     <DashboardShell current="/dashboard/reports" profile={profile}>
-      <ReportView reports={REPORTS.map((r) => buildReport(r, profile))} query={profileQuery(profile)} />
+      <ReportView reports={REPORTS.map((r) => buildReport(r, profile, place))} query={profileQuery(profile)} />
     </DashboardShell>
   );
 }
