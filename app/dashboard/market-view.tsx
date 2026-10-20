@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { median, MOCK_UPDATED, radiusMiles, rivalsWithin, type Rival } from "@/lib/mock-market";
+import type { Market } from "@/lib/markets";
+import { median, MOCK_UPDATED, monthName, radiusMiles, rivalName, rivalsWithin, type Rival } from "@/lib/mock-market";
 import { StreetMap } from "@/components/street-map";
 import { areaLabel, type Place } from "@/lib/postcode";
 import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
@@ -53,7 +54,7 @@ function layoutPins(pins: { x: number; y: number; label: string }[]) {
   return pts;
 }
 
-export function MarketView({ profile, place }: { profile: Profile; place: Place | null }) {
+export function MarketView({ profile, place, market }: { profile: Profile; place: Place | null; market: Market }) {
   const items = itemsFor(profile.sector);
   const [itemId, setItemId] = useState(items[0].id);
   const [radius, setRadius] = useState(profile.radius);
@@ -82,14 +83,21 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
   const plural = pluralFor(profile.sector);
   const query = profileQuery(profile);
 
-  const rivals = rivalsWithin(radius).filter((r) => r.prices[item.id] !== undefined);
-  const entries: Entry[] = rivals.map((r, i) => ({
+  const nearby = rivalsWithin(radius, market.rivals);
+  const rivals = nearby.filter((r) => r.prices[item.id] !== undefined);
+  // Real businesses that don't publish this price still belong on the map, just without a price.
+  const unpriced = market.real ? nearby.filter((r) => r.prices[item.id] === undefined) : [];
+  const anyPrices = market.rivals.some((r) => Object.keys(r.prices).length > 0);
+  const latestCheck = market.real && anyPrices
+    ? market.rivals.filter((r) => r.real?.priceUrl).map((r) => r.checked).sort().at(-1) ?? market.fetched
+    : null;
+  const entries: Entry[] = rivals.map((r) => ({
     id: r.id,
     // The limited view hides who's who until the owner shares their prices.
-    name: limited ? `${profile.sector} ${String.fromCharCode(65 + i)}` : r.name,
-    short: limited ? String.fromCharCode(65 + i) : r.short,
+    name: rivalName(r, profile, false, market.rivals),
+    short: rivalName(r, profile, true, market.rivals),
     price: r.prices[item.id],
-    detail: r.note && !limited ? r.note.text : `${r.miles} miles · ${r.segment}`,
+    detail: r.note && !limited ? r.note.text : [`${r.miles} miles`, r.segment].filter(Boolean).join(" · "),
     tone: limited ? undefined : r.note?.tone,
     rival: r,
   }));
@@ -121,18 +129,27 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
       const maxX = Math.max(0, mapWidth / 2 - p.w / 2 - 8);
       return { ...p, x: Math.max(-maxX, Math.min(maxX, p.x)) };
     });
+  const dots = unpriced.map((r) => {
+    const rad = (r.bearing * Math.PI) / 180;
+    const d = (r.miles / maxMiles) * ringPx;
+    const clamp = (v: number, half: number) => Math.max(-half + 10, Math.min(half - 10, v));
+    return { r, x: clamp(Math.cos(rad) * d, mapWidth / 2), y: clamp(Math.sin(rad) * d, mapHeight / 2) };
+  });
 
   return (
     <main className="flex min-w-0 flex-[999_1_640px] flex-col gap-6 px-4 pt-8 pb-12 sm:px-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {areaLabel(profile.postcode, place)} · updated {MOCK_UPDATED}
+            {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {areaLabel(profile.postcode, place)} ·{" "}
+            {market.real
+              ? `${anyPrices ? "prices checked" : "businesses as of"} ${new Date(latestCheck ?? market.fetched).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`
+              : `updated ${MOCK_UPDATED}`}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Your local market</h1>
         </div>
         <div className="flex flex-wrap gap-2.5">
-          <label className="flex flex-col gap-1 text-xs font-bold text-muted">
+          <label className={`flex flex-col gap-1 text-xs font-bold text-muted ${anyPrices ? "" : "hidden"}`}>
             Price item
             <select className={select} value={itemId} onChange={(e) => setItemId(e.target.value)}>
               {items.map((i) => (
@@ -153,6 +170,15 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
         </div>
       </div>
 
+      {market.real && (
+        <p className="m-0 rounded-2xl border border-line bg-surface px-5 py-4 text-[15px] text-body">
+          <strong className="text-ink">Real {market.town} businesses.</strong>{" "}
+          {anyPrices
+            ? `Prices are each business’s own published prices, with the source on its page. ${unpriced.length ? "Businesses that don’t publish this price show as grey dots." : ""}`
+            : `We haven’t collected ${plural} prices in ${market.town} yet, so this shows who’s near you. Prices are coming soon.`}
+        </p>
+      )}
+
       {limited && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-data-tint px-5 py-4 text-data-dark">
           <p className="m-0 text-[15px] font-semibold">
@@ -164,7 +190,7 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
         </div>
       )}
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+      <div className={`grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 ${anyPrices ? "" : "hidden"}`}>
         <div className="flex flex-col gap-1.5 rounded-[18px] bg-ink px-5.5 py-5 text-paper">
           <span className="text-[13px] font-semibold text-on-dark-muted">Your price</span>
           <span className={statValue}>{yourPrice !== null ? formatPrice(yourPrice) : "—"}</span>
@@ -194,13 +220,23 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
           <span className={statValue}>{position ? `${ordinal(position)} of ${entries.length}` : "—"}</span>
           <span className="text-[13px] text-muted">Cheapest first</span>
         </div>
-        <div className={statCard}>
-          <span className={statLabel}>Changes this quarter</span>
-          <span className={statValue}>{changes}</span>
-          <Link href={`/dashboard/reports?${query}`} className="text-[13px] font-bold text-data-dark hover:text-ink">
-            See October report
-          </Link>
-        </div>
+        {market.real ? (
+          <div className={statCard}>
+            <span className={statLabel}>Tracking prices since</span>
+            <span className={statValue}>{monthName(market.fetched.slice(0, 7), "axis")}</span>
+            <Link href={`/dashboard/reports?${query}`} className="text-[13px] font-bold text-data-dark hover:text-ink">
+              When reports start
+            </Link>
+          </div>
+        ) : (
+          <div className={statCard}>
+            <span className={statLabel}>Changes this quarter</span>
+            <span className={statValue}>{changes}</span>
+            <Link href={`/dashboard/reports?${query}`} className="text-[13px] font-bold text-data-dark hover:text-ink">
+              See October report
+            </Link>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-wrap items-stretch gap-5">
@@ -236,6 +272,16 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-data bg-data/6 transition-all"
             style={{ width: ringPx * 2, height: ringPx * 2 }}
           />
+          {dots.map(({ r, x, y }) => (
+            <Link
+              key={r.id}
+              href={`/dashboard/competitors/${r.id}?${query}`}
+              title={`${rivalName(r, profile, false, market.rivals)}: no published price`}
+              aria-label={`${rivalName(r, profile, false, market.rivals)}, ${r.miles} miles, no published price`}
+              className="absolute h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-muted shadow-[0_2px_6px_rgba(18,20,28,0.25)] hover:z-10 hover:scale-150"
+              style={{ left: `calc(50% + ${x.toFixed(1)}px)`, top: `calc(50% + ${y.toFixed(1)}px)` }}
+            />
+          ))}
           {mapped.map((e, i) => {
               const dark = e.tone === "up";
               return (
@@ -259,7 +305,9 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
             <span className="rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong">
               Dashed ring: {radius.replace(" miles", "-mile").replace(" mile", "-mile")} radius
             </span>
-            <span className="rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong">Illustrative data</span>
+            <span className="rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong">
+              {market.real ? `Real ${market.town} businesses` : "Illustrative data"}
+            </span>
           </div>
           <div className="absolute top-4 right-4 flex flex-col gap-1.5">
             <button
@@ -286,10 +334,14 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
         {/* Ranked list */}
         <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-1 rounded-[22px] border border-line bg-surface p-5">
           <div className="flex items-center justify-between gap-3 px-1.5 pt-1 pb-3">
-            <h2 className="m-0 text-[17px] font-bold whitespace-nowrap">Ranked by price</h2>
-            <span className="truncate text-[13px] text-muted">{item.label}</span>
+            <h2 className="m-0 text-[17px] font-bold whitespace-nowrap">{anyPrices ? "Ranked by price" : `Near you (${unpriced.length})`}</h2>
+            {anyPrices && <span className="truncate text-[13px] text-muted">{item.label}</span>}
           </div>
-          {entries.length === 0 && <p className="m-0 px-3 text-[15px] text-muted">No {plural} list this item within {radius}.</p>}
+          {entries.length === 0 && anyPrices && (
+            <p className="m-0 px-3 text-[15px] text-muted">
+              {market.real ? `No published ${item.label.toLowerCase()} prices within ${radius} yet.` : `No ${plural} list this item within ${radius}.`}
+            </p>
+          )}
           {entries.map((e) => {
             const inner = (
               <>
@@ -320,6 +372,24 @@ export function MarketView({ profile, place }: { profile: Profile; place: Place 
               </Link>
             );
           })}
+          {unpriced.length > 0 && (
+            <>
+              {anyPrices && <h3 className="m-0 px-1.5 pt-5 pb-2 text-[15px] font-bold">No published price ({unpriced.length})</h3>}
+              {unpriced.map((r) => (
+                <Link
+                  key={r.id}
+                  href={`/dashboard/competitors/${r.id}?${query}`}
+                  className="flex min-h-12 items-center justify-between gap-3 rounded-xl border-t border-sand px-3 text-ink hover:bg-paper"
+                >
+                  <span className="flex min-w-0 flex-col">
+                    <span className="truncate text-[15px] font-semibold">{rivalName(r, profile, false, market.rivals)}</span>
+                    <span className="text-[13px] text-muted">{r.miles} miles</span>
+                  </span>
+                  {anyPrices && <span className="flex-none text-[13px] text-muted">{r.real?.priceNote ?? "Not collected"}</span>}
+                </Link>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </main>

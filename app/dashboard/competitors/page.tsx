@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
 import { LimitedBanner } from "@/components/limited-banner";
-import { MOCK_UPDATED, radiusMiles, RIVALS, rivalName, SEGMENT_LABELS } from "@/lib/mock-market";
+import { marketFor } from "@/lib/markets";
+import { MOCK_UPDATED, radiusMiles, rivalName, SEGMENT_LABELS } from "@/lib/mock-market";
 import { areaLabel, placeFor } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
@@ -17,7 +18,9 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
   const items = itemsFor(profile.sector);
   const plural = pluralFor(profile.sector);
   const max = radiusMiles(profile.radius);
-  const rivals = [...RIVALS].sort((a, b) => a.miles - b.miles);
+  const market = marketFor(profile.sector, profile.postcode, place);
+  // Real towns can have hundreds of businesses within 10 miles, so list only those in range.
+  const rivals = [...market.rivals].filter((r) => !market.real || r.miles <= max).sort((a, b) => a.miles - b.miles);
   const inside = rivals.filter((r) => r.miles <= max).length;
 
   return (
@@ -25,7 +28,8 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {inside} of {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} · updated {MOCK_UPDATED}
+            {market.real ? `${inside} ${plural}` : `${inside} of ${rivals.length} ${plural}`} within {profile.radius} of {areaLabel(profile.postcode, place)} ·{" "}
+            {market.real ? `real ${market.town} businesses` : `updated ${MOCK_UPDATED}`}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Competitors</h1>
         </div>
@@ -68,14 +72,14 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
                   <tr key={r.id} className={`border-t border-sand hover:bg-paper ${outside ? "text-muted" : ""}`}>
                     <th scope="row" className="px-6 py-3.5 text-left font-normal">
                       <Link href={`/dashboard/competitors/${r.id}?${query}`} className="block font-bold text-ink hover:text-data-dark">
-                        {rivalName(r, profile)}
+                        {rivalName(r, profile, false, market.rivals)}
                       </Link>
                       <span
                         className={`text-[13px] ${
                           note ? `font-semibold ${note.tone === "up" ? "text-accent-dark" : "text-data-dark"}` : "text-muted"
                         }`}
                       >
-                        {note ? note.text : SEGMENT_LABELS[r.segment]}
+                        {note ? note.text : r.real ? (r.real.priceNote ?? (Object.keys(r.prices).length ? r.segment : "No published prices")) : SEGMENT_LABELS[r.segment]}
                         {outside && " · outside your radius"}
                       </span>
                     </th>
@@ -91,7 +95,11 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
             </tbody>
           </table>
         </div>
-        <p className="m-0 text-[13px] text-muted">Illustrative data. Select a business to see its price history.</p>
+        <p className="m-0 text-[13px] text-muted">
+          {market.real
+            ? `Businesses: ${market.attribution}. Prices: each business’s own website; select one to see the source and date.`
+            : "Illustrative data. Select a business to see its price history."}
+        </p>
       </main>
     </DashboardShell>
   );

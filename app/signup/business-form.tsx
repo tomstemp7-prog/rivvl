@@ -56,7 +56,20 @@ export function BusinessForm({ initial }: { initial: Profile }) {
       : submitted && !shaped
         ? "Enter a full UK postcode, like RG1 3EU"
         : null;
-  const found = rivalsWithin(radius).length;
+  // Launched towns count real businesses, so ask the server; fall back to the sample count meanwhile.
+  const [nearby, setNearby] = useState<{ key: string; count: number } | null>(null);
+  const nearbyKey = place ? `${place.postcode}|${sector}|${radius}` : "";
+  useEffect(() => {
+    if (!nearbyKey) return;
+    const [pc, sec, rad] = nearbyKey.split("|");
+    const controller = new AbortController();
+    fetch(`/api/nearby?${new URLSearchParams({ postcode: pc, sector: sec, radius: rad })}`, { signal: controller.signal })
+      .then((res) => res.json())
+      .then((data: { count: number }) => setNearby({ key: nearbyKey, count: data.count }))
+      .catch(() => {});
+    return () => controller.abort();
+  }, [nearbyKey]);
+  const found = nearby?.key === nearbyKey ? nearby.count : rivalsWithin(radius).length;
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();

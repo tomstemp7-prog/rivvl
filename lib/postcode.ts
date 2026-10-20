@@ -6,7 +6,7 @@ export type Place = {
   postcode: string;
   lat: number;
   lng: number;
-  /** Local authority, e.g. "Reading". */
+  /** Town (built-up area) where known, else the local authority, e.g. "Maidenhead". */
   district: string;
   ward: string;
   region: string;
@@ -28,6 +28,8 @@ type ApiResult = {
   latitude: number | null;
   longitude: number | null;
   admin_district: string | null;
+  /** Built-up area: the town itself, e.g. "Maidenhead" rather than the borough "Windsor and Maidenhead". */
+  bua?: string | null;
   admin_ward: string | null;
   region: string | null;
   country: string | null;
@@ -48,7 +50,7 @@ export async function lookupPostcode(raw: string, init?: RequestInit): Promise<L
         postcode: r.postcode,
         lat: r.latitude,
         lng: r.longitude,
-        district: r.admin_district ?? r.region ?? r.country ?? "",
+        district: r.bua ?? r.admin_district ?? r.region ?? r.country ?? "",
         ward: r.admin_ward ?? "",
         region: r.region ?? r.country ?? "",
       },

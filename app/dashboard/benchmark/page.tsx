@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
+import { hasPrices, marketFor } from "@/lib/markets";
 import { median, MOCK_TODAY, rivalsWithin } from "@/lib/mock-market";
 import { areaLabel, placeFor } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
@@ -19,15 +20,17 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
   const query = profileQuery(profile);
   const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
-  const rivals = rivalsWithin(profile.radius);
+  const market = marketFor(profile.sector, profile.postcode, place);
+  const rivals = rivalsWithin(profile.radius, market.rivals);
   const plural = pluralFor(profile.sector);
 
   const rows = itemsFor(profile.sector)
     .map((item) => {
       const you = limited ? null : (profile.prices[item.id] ?? null);
       const values = rivals.map((r) => r.prices[item.id]).filter((p) => p !== undefined);
-      if (you !== null) values.push(you);
+      // An item needs at least one rival's price to benchmark against.
       if (!values.length) return null;
+      if (you !== null) values.push(you);
       const med = median(values)!;
       return { ...item, you, low: Math.min(...values), high: Math.max(...values), med, diff: you === null ? null : you - med };
     })
@@ -59,7 +62,8 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} · illustrative data
+            {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} ·{" "}
+            {market.real ? `real ${market.town} prices` : "illustrative data"}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Where you sit</h1>
         </div>
@@ -80,19 +84,21 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
             ) : (
               <>
                 <p className="m-0 font-display text-2xl leading-[1.25] font-semibold sm:text-[28px]">
-                  Share your prices to see where you sit on each item.
+                  {rows.length ? "Share your prices to see where you sit on each item." : `We haven’t collected ${plural} prices near you yet.`}
                 </p>
                 <p className="m-0 text-base leading-normal text-on-dark-2">
-                  Until then you’ll see the area low, median and high for every item.
+                  {rows.length
+                    ? "Until then you’ll see the area low, median and high for every item."
+                    : `You can already see the ${rivals.length} ${plural} near you. Prices are coming soon.`}
                 </p>
               </>
             )}
           </div>
           <Link
-            href={summary ? `/dashboard/reports?${query}` : `/signup/prices?${query}`}
+            href={summary ? `/dashboard/${market.real ? "competitors" : "reports"}?${query}` : rows.length ? `/signup/prices?${query}` : `/dashboard/competitors?${query}`}
             className="flex min-h-12 items-center rounded-xl bg-accent px-5.5 font-bold text-ink hover:brightness-95"
           >
-            {summary ? "Open latest report" : "Share my prices"}
+            {summary ? (market.real ? "See all competitors" : "Open latest report") : rows.length ? "Share my prices" : "See who’s near you"}
           </Link>
         </div>
 
@@ -171,7 +177,9 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
           <div className={card}>
             <h2 className="m-0 text-base font-bold">Data freshness</h2>
             <p className="m-0 text-[15px] leading-normal text-body">
-              {recent} of {rivals.length} rivals’ prices checked in the last 30 days. {owner} confirmed by the owner.
+              {market.real
+                ? `${rivals.filter(hasPrices).length} of ${rivals.length} ${plural} near you publish prices online. Each one is taken from the business’s own website, with the source and date on its page.`
+                : `${recent} of ${rivals.length} rivals’ prices checked in the last 30 days. ${owner} confirmed by the owner.`}
             </p>
           </div>
         </div>

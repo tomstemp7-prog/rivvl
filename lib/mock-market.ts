@@ -25,6 +25,17 @@ export type Rival = {
   source: "public website" | "owner";
   /** Date the prices were last checked (ISO). */
   checked: string;
+  /** Set for real businesses (from OpenStreetMap) rather than sample data. */
+  real?: {
+    address?: string;
+    website?: string;
+    /** Page the prices were read from. */
+    priceUrl?: string;
+    /** e.g. "Price on request" when the business doesn't publish prices. */
+    priceNote?: string;
+    /** What a published price includes, e.g. "Core membership". */
+    caveat?: string;
+  };
 };
 
 export const MOCK_UPDATED = "14 Oct 2026";
@@ -101,9 +112,9 @@ export const DEMO_PROFILE: Profile = {
 
 export const radiusMiles = (radius: string) => parseFloat(radius);
 
-export function rivalsWithin(radius: string) {
+export function rivalsWithin(radius: string, rivals: Rival[] = RIVALS) {
   const max = radiusMiles(radius);
-  return RIVALS.filter((r) => r.miles <= max);
+  return rivals.filter((r) => r.miles <= max);
 }
 
 export function median(values: number[]) {
@@ -115,13 +126,19 @@ export function median(values: number[]) {
 
 export const getRival = (id: string) => RIVALS.find((r) => r.id === id);
 
+/** 0 → A, 25 → Z, 26 → AA… */
+function letters(i: number): string {
+  return (i >= 26 ? letters(Math.floor(i / 26) - 1) : "") + String.fromCharCode(65 + (i % 26));
+}
+
 /**
  * The limited view hides who's who until the owner shares their prices. Letters
- * follow RIVALS order, which matches the market map's default (monthly) view.
+ * follow the market's order, which for the sample data matches the market map's
+ * default (monthly) view.
  */
-export function rivalName(rival: Rival, profile: Profile, short = false) {
+export function rivalName(rival: Rival, profile: Profile, short = false, rivals: Rival[] = RIVALS) {
   if (profile.shared) return short ? rival.short : rival.name;
-  const letter = String.fromCharCode(65 + RIVALS.indexOf(rival));
+  const letter = letters(Math.max(0, rivals.findIndex((r) => r.id === rival.id)));
   return short ? letter : `${profile.sector} ${letter}`;
 }
 

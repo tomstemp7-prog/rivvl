@@ -30,3 +30,9 @@ npm run dev
 ```
 
 Built so far: home (`/`), pricing (`/pricing`), sign-up step 1 (`/signup`), step 2 (`/signup/prices`) and the logged-in pages: market map (`/dashboard`), benchmark (`/dashboard/benchmark`), competitors (`/dashboard/competitors` and `/dashboard/competitors/<id>`) and reports (`/dashboard/reports`). Sign-up answers pass between pages as URL query params; dashboard pages without a profile in the URL show the demo business (`DEMO_PROFILE` in `lib/mock-market.ts`). All market data, including price history and report events, is mock data in `lib/mock-market.ts`. Privacy and Contact still show a "coming soon" page.
+
+## Real data (Maidenhead)
+Postcodes in a launched town (currently SL6, Maidenhead) use real businesses instead of the sample data:
+- `lib/data/maidenhead-businesses.json`: a snapshot of businesses from OpenStreetMap (© OpenStreetMap contributors, ODbL). Refresh it with `node scripts/fetch-osm-businesses.mjs`.
+- `lib/data/maidenhead-prices.ts`: gym prices researched by hand from each business's own website, each with its source URL and the date checked, plus businesses OSM is missing. Only add prices seen on the business's own page.
+- `lib/markets.ts` decides which market a profile sees.

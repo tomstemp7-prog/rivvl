@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { DashboardShell } from "@/components/dashboard-shell";
+import Link from "next/link";
+import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
+import { hasPrices, marketFor } from "@/lib/markets";
 import {
   addMonths,
   eventsBetween,
@@ -130,6 +132,43 @@ function buildReport(report: Report, profile: Profile, place: Place | null): Rep
 export default async function ReportsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = profileOrDemo(await searchParams);
   const place = await placeFor(profile.postcode);
+  const market = marketFor(profile.sector, profile.postcode, place);
+
+  if (market.real) {
+    // Reports compare months, so a real town needs a month of tracking before the first one.
+    const started = new Date(market.fetched);
+    const firstReport = new Date(Date.UTC(started.getUTCFullYear(), started.getUTCMonth() + 1, 1));
+    const fmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+    const priced = market.rivals.filter(hasPrices).length;
+    return (
+      <DashboardShell current="/dashboard/reports" profile={profile}>
+        <main className={dashboardMain}>
+          <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Reports</h1>
+          <div className="flex max-w-[720px] flex-col gap-4 rounded-3xl border border-line bg-surface px-6 py-8 sm:px-10">
+            <p className="m-0 text-sm font-bold text-data-dark">
+              {market.town} · {pluralFor(profile.sector)} within {profile.radius} of {areaLabel(profile.postcode, place)}
+            </p>
+            <h2 className="m-0 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.6px]">
+              Your first {market.town} report arrives on {fmt(firstReport)}.
+            </h2>
+            <p className="m-0 text-[17px] leading-normal text-body">
+              We started tracking real {market.town} prices on {fmt(started)}. Reports show what changed from one month to the next,
+              so the first one needs a month of data.{" "}
+              {priced ? `Right now we’re tracking published prices for ${priced} ${pluralFor(profile.sector)} in and around ${market.town}.` : ""}
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link href={`/dashboard?${profileQuery(profile)}`} className="rounded-xl bg-ink px-5 py-3 font-bold text-paper hover:bg-ink-3">
+                See today’s market
+              </Link>
+              <Link href="/dashboard/reports" className="rounded-xl border-[1.5px] border-ink px-5 py-3 font-bold text-ink hover:bg-paper">
+                See a sample report
+              </Link>
+            </div>
+          </div>
+        </main>
+      </DashboardShell>
+    );
+  }
 
   return (
     <DashboardShell current="/dashboard/reports" profile={profile}>
