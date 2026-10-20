@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { SignupShell, StepHeading } from "@/components/signup-shell";
-import { parseProfile } from "@/lib/profile";
+import { POSTCODE_SHAPE } from "@/lib/postcode";
+import { parseProfile, profileQuery } from "@/lib/profile";
+import { launchedTownFor } from "@/lib/towns";
 import { BusinessForm } from "./business-form";
 
 export const metadata: Metadata = { title: "Sign up: your business · Rivl" };
 
 export default async function SignupPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const profile = parseProfile(await searchParams);
+  const params = await searchParams;
+  const profile = parseProfile(params);
+  // Arriving from the home page search outside a launched town: register interest instead. The interest page
+  // links back here with demo=1, and returning visitors (who already have a name) aren't redirected.
+  const demo = params.demo === "1";
+  if (!demo && !profile.name && POSTCODE_SHAPE.test(profile.postcode) && !launchedTownFor(profile.postcode)) {
+    redirect(`/interest?${profileQuery({ name: profile.name || undefined, sector: profile.sector, postcode: profile.postcode })}`);
+  }
   return (
     <SignupShell
       step={1}
@@ -24,7 +34,7 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
         title="Tell us about your business"
         intro="We use this to find the businesses your customers compare you with."
       />
-      <BusinessForm initial={profile} />
+      <BusinessForm initial={profile} demo={demo} />
     </SignupShell>
   );
 }

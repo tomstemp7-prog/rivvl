@@ -77,7 +77,7 @@ const FAQS = [
   ],
   [
     "Which areas do you cover?",
-    "We’re starting with [LAUNCH TOWN] and adding areas sector by sector. Join the waitlist to hear when yours is live.",
+    "We’re starting with Maidenhead and adding areas sector by sector. Register your interest to hear when yours is live.",
   ],
 ];
 
@@ -324,10 +324,10 @@ export default function Home() {
       <section id="waitlist" className="mx-auto max-w-[1240px] scroll-mt-6 px-4 pb-14 sm:px-8">
         <div className="flex flex-wrap items-start gap-10 rounded-[32px] border border-line bg-surface px-6 py-12 sm:px-12">
           <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
-            <p className="eyebrow text-data-dark">Join the waitlist</p>
+            <p className="eyebrow text-data-dark">Register interest</p>
             <h2 className="m-0 font-display text-4xl leading-[1.1] font-semibold tracking-[-1px]">Get Rivl for your area first.</h2>
             <p className="m-0 text-[17px] leading-[1.55] text-body">
-              We’re starting with [LAUNCH TOWN]. Leave your email and we’ll tell you as soon as real prices are live near you.
+              We’re starting with Maidenhead. Register your interest and we’ll tell you as soon as real prices are live near you.
             </p>
           </div>
           <div className="min-w-0 flex-[2_1_440px]">

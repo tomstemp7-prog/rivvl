@@ -3,6 +3,7 @@ import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./
 import { sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
 import { itemsFor } from "./sectors";
+import { launchedTownFor } from "./towns";
 
 /**
  * Which businesses a profile is compared against. Towns we've launched in use
@@ -26,7 +27,6 @@ export type Business = {
 const TOWNS = [
   {
     name: "Maidenhead",
-    outcodes: ["SL6"],
     fetched: maidenhead.fetched,
     attribution: maidenhead.attribution,
     businesses: [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => ({
@@ -39,8 +39,8 @@ const TOWNS = [
 
 /** Postcodes in a launched town (by outcode, e.g. SL6). */
 export function realTownFor(postcode: string) {
-  const outcode = postcode.trim().toUpperCase().split(/\s+/)[0];
-  return TOWNS.find((t) => t.outcodes.includes(outcode)) ?? null;
+  const launched = launchedTownFor(postcode);
+  return launched ? (TOWNS.find((t) => t.name === launched.name) ?? null) : null;
 }
 
 /** OSM "gyms" that aren't comparable gyms: gymnastics, tennis, school halls, unnamed rooms. */

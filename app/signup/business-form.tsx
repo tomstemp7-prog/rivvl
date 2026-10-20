@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { rivalsWithin } from "@/lib/mock-market";
 import { lookupPostcode, normalisePostcode, POSTCODE_SHAPE, type Lookup } from "@/lib/postcode";
 import { profileQuery, type Profile } from "@/lib/profile";
+import { launchedTownFor } from "@/lib/towns";
 import { pluralFor, RADII, SECTORS } from "@/lib/sectors";
 
 const input =
@@ -24,7 +25,7 @@ function Toggle({ pressed, onClick, children }: { pressed: boolean; onClick: () 
   );
 }
 
-export function BusinessForm({ initial }: { initial: Profile }) {
+export function BusinessForm({ initial, demo = false }: { initial: Profile; demo?: boolean }) {
   const router = useRouter();
   const [sector, setSector] = useState(initial.sector);
   const [radius, setRadius] = useState(initial.radius);
@@ -76,7 +77,13 @@ export function BusinessForm({ initial }: { initial: Profile }) {
     setSubmitted(true);
     // If postcodes.io is unreachable, don't block sign-up; the shape check still applies.
     if (!name.trim() || !shaped || checking || current?.status === "invalid") return;
-    router.push(`/signup/prices?${profileQuery({ name: name.trim(), sector, postcode: place?.postcode ?? normalised, radius })}`);
+    const pc = place?.postcode ?? normalised;
+    // Outside a launched town, register interest unless they chose the demo or are coming back with the same postcode.
+    if (!demo && !launchedTownFor(pc) && pc !== initial.postcode) {
+      router.push(`/interest?${profileQuery({ name: name.trim(), sector, postcode: pc })}`);
+      return;
+    }
+    router.push(`/signup/prices?${profileQuery({ name: name.trim(), sector, postcode: pc, radius })}`);
   }
 
   return (
