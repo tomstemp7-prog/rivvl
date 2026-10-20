@@ -181,7 +181,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
             <h2 className="m-0 text-base font-bold">Data freshness</h2>
             <p className="m-0 text-[15px] leading-normal text-body">
               {market.real
-                ? `${rivals.filter(hasPrices).length} of ${rivals.length} ${plural} near you publish prices online. Each one is taken from the business’s own website, with the source and date on its page.`
+                ? `${rivals.filter(hasPrices).length} of ${rivals.length} ${plural} near you publish prices online. Each one is taken from the business’s own website or booking page, with the source and date on its page.`
                 : `${recent} of ${rivals.length} rivals’ prices checked in the last 30 days. ${owner} confirmed by the owner.`}
             </p>
           </div>

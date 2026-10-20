@@ -1,5 +1,5 @@
 import maidenhead from "./data/maidenhead-businesses.json";
-import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES } from "./data/maidenhead-prices";
+import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
 import { sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
 import { itemsFor } from "./sectors";
@@ -29,7 +29,10 @@ const TOWNS = [
     outcodes: ["SL6"],
     fetched: maidenhead.fetched,
     attribution: maidenhead.attribution,
-    businesses: [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA],
+    businesses: [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => ({
+      ...b,
+      sector: MAIDENHEAD_SECTOR_FIXES[b.osm] ?? b.sector,
+    })),
     prices: MAIDENHEAD_PRICES,
   },
 ];

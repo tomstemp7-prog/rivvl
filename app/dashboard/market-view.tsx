@@ -174,7 +174,7 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
         <p className="m-0 rounded-2xl border border-line bg-surface px-5 py-4 text-[15px] text-body">
           <strong className="text-ink">Real {market.town} businesses.</strong>{" "}
           {anyPrices
-            ? `Prices are each business’s own published prices, with the source on its page. ${unpriced.length ? "Businesses that don’t publish this price show as grey dots." : ""}`
+            ? `Prices are each business’s own published prices, from its website or booking page, with the source on its page. ${unpriced.length ? "Businesses that don’t publish this price show as grey dots." : ""}`
             : `We haven’t collected ${plural} prices in ${market.town} yet, so this shows who’s near you. Prices are coming soon.`}
         </p>
       )}

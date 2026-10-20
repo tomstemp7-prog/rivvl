@@ -1,14 +1,13 @@
 import type { Business } from "../markets";
 
 /**
- * Real, published prices for Maidenhead-area gyms, read from each business's
+ * Real, published prices for Maidenhead-area gyms and barbers, read from each business's
  * own website. Keyed by OpenStreetMap id (or "extra/…" for businesses OSM is
  * missing). Only record a price you've seen on the business's own page, with
  * the page and the date; never estimate.
  *
- * Like-for-like items (see lib/sectors.ts): monthly = peak, rolling, no
- * contract; offpeak; daypass = single visit, non-member; pt = one hour;
- * joining = one-off fee.
+ * Like-for-like items are defined per sector in lib/sectors.ts. A barber's
+ * own booking page (Booksy, Fresha) counts as their own published prices.
  */
 export type PriceRecord = {
   prices: Record<string, number>;
@@ -33,10 +32,48 @@ export const MAIDENHEAD_EXTRA: Business[] = [
   { osm: "extra/braywick", name: "Braywick Leisure Centre", sector: "Gym", lat: 51.515484, lng: -0.719057, address: "Braywick Road, Maidenhead, SL6 1BN", website: "https://leisurefocus.org.uk/our-centres/braywick-leisure-centre/" },
   { osm: "extra/cox-green", name: "Cox Green Leisure Centre", sector: "Gym", lat: 51.508438, lng: -0.755393, address: "Highfield Lane, Maidenhead, SL6 3AX" },
   { osm: "extra/furze-platt", name: "Furze Platt Leisure Centre", sector: "Gym", lat: 51.535825, lng: -0.739118, address: "101 Furze Platt Road, Maidenhead, SL6 7NQ" },
+  { osm: "extra/bart-barbers", name: "BART Barbers", sector: "Barber", lat: 51.521836, lng: -0.723606, address: "New Market, King Street, Maidenhead, SL6 1DS", website: "https://booksy.com/en-gb/117146_bart-barbers_barber_1016048_maidenhead" },
+  { osm: "extra/unit1-barbers", name: "Unit1 Barbers", sector: "Barber", lat: 51.503625, lng: -0.762858, address: "Unit 1, Cannon Lane, Maidenhead, SL6 3NR", website: "https://booksy.com/en-gb/84741_unit1barbers_barber_1016048_maidenhead" },
   { osm: "extra/anytime-maidenhead", name: "Anytime Fitness Maidenhead", sector: "Gym", lat: 51.521446, lng: -0.71752, address: "Cooper Court, Maidenhead, SL6 1LF", website: "https://www.anytimefitness.com/en-gb/locations/maidenhead-south-east-uk-0439" },
 ];
 
+/** OpenStreetMap entries filed under the wrong sector. */
+export const MAIDENHEAD_SECTOR_FIXES: Record<string, string> = {
+  "node/2324275993": "Hair salon", // Toni & Guy: unisex salon, tagged as men's in OSM
+};
+
 export const MAIDENHEAD_PRICES: Record<string, PriceRecord> = {
+  // Barbers, checked 20 Oct 2026
+  "node/2364966126": {
+    prices: { haircut: 18, skin_fade: 23, beard_trim: 9.5 },
+    url: "https://radsbarbers.co.uk/prices",
+    checked: CHECKED,
+    caveat: "Listed as “from” prices. No combined cut-and-beard or children’s price published.",
+  },
+  "extra/bart-barbers": {
+    prices: { haircut: 20, skin_fade: 25, beard_trim: 9, cut_beard: 29, kids_cut: 14 },
+    url: "https://booksy.com/en-gb/117146_bart-barbers_barber_1016048_maidenhead",
+    checked: CHECKED,
+    caveat: "Full prices, listed as “from”; booking online on Booksy saves up to 10%. Beard is “Beard grooming/Line up”.",
+  },
+  "extra/unit1-barbers": {
+    prices: { haircut: 22, skin_fade: 24, beard_trim: 12, cut_beard: 32, kids_cut: 17 },
+    url: "https://booksy.com/en-gb/84741_unit1barbers_barber_1016048_maidenhead",
+    checked: CHECKED,
+    caveat: "Children’s price is boys aged 5 to 12 (£14 for under 5s).",
+  },
+  "node/2364947089": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/2724164176": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/2364897635": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/5254308142": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/12105470661": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/12105470670": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "way/1257177516": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/2724164134": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "way/547090023": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+  "node/12691171042": { prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
+
+  // Gyms, checked 20 Oct 2026
   "node/14017045853": {
     name: "PureGym Maidenhead",
     prices: { monthly: 32.99, joining: 19.99 },
