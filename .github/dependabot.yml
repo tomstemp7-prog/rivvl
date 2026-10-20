@@ -1,0 +1,13 @@
+# Opens pull requests when the site's npm packages (Next.js, React, Tailwind...)
+# have new versions. Security fixes arrive as soon as they're published.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # One PR for routine minor/patch bumps instead of one per package.
+      minor-and-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
