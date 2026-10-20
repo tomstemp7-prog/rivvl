@@ -100,6 +100,47 @@ export const RIVALS: Rival[] = [
     firstSeen: "2025-04", source: "public website", checked: "2026-07-30" },
 ];
 
+/** Typical prices for each non-gym item, which sample businesses scale up or down. */
+const SAMPLE_BASE: Record<string, number> = {
+  womens_cut: 55, mens_cut: 28, blow_dry: 30, full_colour: 75, highlights: 85,
+  haircut: 20, skin_fade: 24, beard_trim: 12, cut_beard: 30, kids_cut: 15,
+  flat_white: 3.4, latte: 3.5, americano: 3, tea: 2.6, croissant: 2.9,
+  brow_wax: 14, lash_tint: 16, leg_wax: 35, facial: 60, massage: 60,
+  gel_mani: 30, gel_pedi: 35, acrylic_full: 40, infills: 30, removal: 12,
+  drop_in: 15, class_pack: 120, unlimited: 110, private: 65,
+  initial: 65, follow_up: 50, sports_massage: 60,
+};
+
+/** Each sample business's price level relative to typical (budget below 1, premium above). */
+const SAMPLE_LEVEL: Record<string, number> = {
+  flexigym: 0.75, riverside: 0.85, kennet: 1, forge: 1.1, peak: 1.3, northside: 1.5, thames: 0.95, caversham: 1.25, southcote: 0.8,
+};
+
+/**
+ * Anonymous sample businesses for a sector. Gyms use the hand-written RIVALS
+ * (with their price history); other sectors reuse their positions with prices
+ * scaled from typical levels and no history.
+ */
+export function sampleRivals(sector: string, itemIds: string[]): Rival[] {
+  if (sector === "Gym") return RIVALS;
+  return RIVALS.map((r, i) => ({
+    ...r,
+    name: `${sector} ${letters(i)}`,
+    short: letters(i),
+    segment: "",
+    prices: Object.fromEntries(
+      itemIds
+        .filter((id) => SAMPLE_BASE[id] !== undefined)
+        .map((id) => {
+          const p = SAMPLE_BASE[id] * SAMPLE_LEVEL[r.id];
+          return [id, p < 10 ? Math.round(p * 10) / 10 : Math.round(p)];
+        }),
+    ),
+    changes: [],
+    note: r.note?.tone === "new" ? r.note : undefined,
+  }));
+}
+
 /**
  * Shown when someone lands on the dashboard without going through sign-up (e.g. "Log in").
  * A fictional gym in Maidenhead, so the demo shows real local businesses and prices.
@@ -192,13 +233,13 @@ export function priceAt(rival: Rival, itemId: string, month: string) {
 }
 
 /** Rivals within the radius that Rivl was tracking by the end of `month`. */
-export function rivalsAt(radius: string, month: string) {
-  return rivalsWithin(radius).filter((r) => r.firstSeen <= month);
+export function rivalsAt(radius: string, month: string, rivals: Rival[] = RIVALS) {
+  return rivalsWithin(radius, rivals).filter((r) => r.firstSeen <= month);
 }
 
 /** Area median for an item at a month: tracked rivals plus your own price, if shared. */
-export function medianAt(radius: string, itemId: string, month: string, yourPrice: number | null) {
-  const values = rivalsAt(radius, month)
+export function medianAt(radius: string, itemId: string, month: string, yourPrice: number | null, rivals: Rival[] = RIVALS) {
+  const values = rivalsAt(radius, month, rivals)
     .map((r) => priceAt(r, itemId, month))
     .filter((p): p is number => p !== null);
   if (yourPrice !== null) values.push(yourPrice);
@@ -228,9 +269,9 @@ export type MarketEvent =
   | { kind: "opened"; rival: Rival; month: string };
 
 /** Price changes and openings within the radius between two months, newest first. */
-export function eventsBetween(radius: string, from: string, to: string): MarketEvent[] {
+export function eventsBetween(radius: string, from: string, to: string, rivals: Rival[] = RIVALS): MarketEvent[] {
   const events: MarketEvent[] = [];
-  for (const rival of rivalsWithin(radius)) {
+  for (const rival of rivalsWithin(radius, rivals)) {
     // Rivals seen since tracking began count as openings.
     if (rival.firstSeen > TRACKING_START && rival.firstSeen >= from && rival.firstSeen <= to) {
       events.push({ kind: "opened", rival, month: rival.firstSeen });

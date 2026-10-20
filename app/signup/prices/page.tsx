@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { SignupShell, StepHeading } from "@/components/signup-shell";
 import { parseProfile, profileQuery } from "@/lib/profile";
-import { itemsFor, pluralFor } from "@/lib/sectors";
+import { CHARGING, itemsFor, pluralFor } from "@/lib/sectors";
 import { PricesForm } from "./prices-form";
 
 export const metadata: Metadata = { title: "Sign up: share your prices · Rivl" };
@@ -29,7 +29,7 @@ export default async function PricesPage({ searchParams }: { searchParams: Promi
       <StepHeading
         step={2}
         title="Share your prices, see the full picture"
-        intro={`These are the standard items we compare for ${pluralFor(profile.sector)}. Fill in what you offer; leave the rest blank.`}
+        intro={`${CHARGING[profile.sector] ?? ""} These are the standard items we compare for ${pluralFor(profile.sector)}. Fill in what you offer; leave the rest blank.`}
       />
       <PricesForm profile={profile} items={itemsFor(profile.sector)} />
     </SignupShell>

@@ -127,7 +127,7 @@ export default async function CompetitorPage(props: Props) {
                 </>
               ) : (
                 <>
-                  <span className={pill}>{SEGMENT_LABELS[rival.segment] ?? rival.segment}</span>
+                  {rival.segment && <span className={pill}>{SEGMENT_LABELS[rival.segment] ?? rival.segment}</span>}
                   <span className={pill}>Source: {rival.source === "owner" ? "confirmed by owner" : "public website"}</span>
                   <span className={pill}>Checked {checked}</span>
                 </>
@@ -159,7 +159,9 @@ export default async function CompetitorPage(props: Props) {
           {showChart && (
             <div className={`${panel} flex-[3_1_480px]`}>
               <div className="flex flex-wrap justify-between gap-2">
-                <h2 className="m-0 text-[17px] font-bold">{chartItem.label}, last 12 months</h2>
+                <h2 className="m-0 text-[17px] font-bold">
+                  {chartItem.label} ({chartItem.per}), last 12 months
+                </h2>
                 <span className="text-[13px] text-muted">Illustrative</span>
               </div>
               <LineChart
@@ -213,7 +215,9 @@ export default async function CompetitorPage(props: Props) {
                   const diff = you === null ? null : Math.round((you - theirs) * 100) / 100;
                   return (
                     <tr key={item.id} className="border-t border-sand">
-                      <th scope="row" className="px-7 py-4 text-left font-normal">{item.label}</th>
+                      <th scope="row" className="px-7 py-4 text-left font-normal">
+                        {item.label} <span className="text-sm text-muted">{item.per}</span>
+                      </th>
                       <td className="p-4">{formatPrice(theirs)}</td>
                       {!limited && <td className="p-4 font-bold text-data-dark">{you === null ? "—" : formatPrice(you)}</td>}
                       {!limited && (

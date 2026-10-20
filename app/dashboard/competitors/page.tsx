@@ -45,7 +45,9 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
                 <th className="px-3 py-3 font-bold">Distance</th>
                 {items.map((i) => (
                   <th key={i.id} className="px-3 py-3 font-bold last:pr-6">
-                    {i.label.replace(" membership", "")}
+                    <abbr title={`${i.label}, ${i.per}`} className="no-underline">
+                      {i.short}
+                    </abbr>
                   </th>
                 ))}
               </tr>

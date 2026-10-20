@@ -10,7 +10,7 @@ import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor, RADII } from "@/lib/sectors";
 
 const select =
-  "min-h-11 rounded-[10px] border-[1.5px] border-line-strong bg-surface px-3 text-[15px] font-semibold text-ink";
+  "min-h-11 w-full max-w-full rounded-[10px] border-[1.5px] border-line-strong bg-surface px-3 text-[15px] font-semibold text-ink";
 const statCard = "flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface px-5.5 py-5";
 const statLabel = "text-[13px] font-semibold text-muted";
 const statValue = "font-display text-[34px] font-semibold";
@@ -148,13 +148,13 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Your local market</h1>
         </div>
-        <div className="flex flex-wrap gap-2.5">
-          <label className={`flex flex-col gap-1 text-xs font-bold text-muted ${anyPrices ? "" : "hidden"}`}>
+        <div className="flex max-w-full min-w-0 flex-wrap gap-2.5">
+          <label className={`flex max-w-full min-w-0 flex-col gap-1 text-xs font-bold text-muted ${anyPrices ? "" : "hidden"}`}>
             Price item
             <select className={select} value={itemId} onChange={(e) => setItemId(e.target.value)}>
               {items.map((i) => (
                 <option key={i.id} value={i.id}>
-                  {i.label}
+                  {i.label} ({i.per})
                 </option>
               ))}
             </select>
@@ -195,7 +195,9 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
           <span className="text-[13px] font-semibold text-on-dark-muted">Your price</span>
           <span className={statValue}>{yourPrice !== null ? formatPrice(yourPrice) : "—"}</span>
           {yourPrice !== null ? (
-            <span className="text-[13px] text-on-dark-2">{item.label}</span>
+            <span className="text-[13px] text-on-dark-2">
+              {item.label}, {item.per}
+            </span>
           ) : (
             <Link href={`/signup/prices?${query}`} className="text-[13px] font-bold text-data-light hover:text-white">
               Add your {item.label.toLowerCase()} price
@@ -335,7 +337,11 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
         <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-1 rounded-[22px] border border-line bg-surface p-5">
           <div className="flex items-center justify-between gap-3 px-1.5 pt-1 pb-3">
             <h2 className="m-0 text-[17px] font-bold whitespace-nowrap">{anyPrices ? "Ranked by price" : `Near you (${unpriced.length})`}</h2>
-            {anyPrices && <span className="truncate text-[13px] text-muted">{item.label}</span>}
+            {anyPrices && (
+              <span className="truncate text-[13px] text-muted">
+                {item.label}, {item.per}
+              </span>
+            )}
           </div>
           {entries.length === 0 && anyPrices && (
             <p className="m-0 px-3 text-[15px] text-muted">

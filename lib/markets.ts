@@ -1,7 +1,8 @@
 import maidenhead from "./data/maidenhead-businesses.json";
 import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES } from "./data/maidenhead-prices";
-import { RIVALS, type Rival } from "./mock-market";
+import { sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
+import { itemsFor } from "./sectors";
 
 /**
  * Which businesses a profile is compared against. Towns we've launched in use
@@ -72,7 +73,7 @@ function shortName(name: string) {
 
 export function marketFor(sector: string, postcode: string, place: Place | null): Market {
   const town = realTownFor(postcode);
-  if (!town || !place) return { real: false, rivals: RIVALS };
+  if (!town || !place) return { real: false, rivals: sampleRivals(sector, itemsFor(sector).map((i) => i.id)) };
 
   const rivals = town.businesses
     .filter((b) => b.sector === sector && !(sector === "Gym" && NOT_A_GYM.test(b.name)))

@@ -14,6 +14,7 @@ import {
   rivalName,
   rivalsAt,
   type Report,
+  type Rival,
 } from "@/lib/mock-market";
 import { areaLabel, placeFor, type Place } from "@/lib/postcode";
 import { formatPrice, profileOrDemo, profileQuery, type Profile } from "@/lib/profile";
@@ -31,7 +32,7 @@ function ordinal(n: number) {
 }
 
 /** Works out everything a report shows from the mock market history. */
-function buildReport(report: Report, profile: Profile, place: Place | null): ReportData {
+function buildReport(report: Report, profile: Profile, place: Place | null, market: Rival[]): ReportData {
   const { radius, sector } = profile;
   const items = itemsFor(sector);
   const item = items[0];
@@ -39,16 +40,16 @@ function buildReport(report: Report, profile: Profile, place: Place | null): Rep
   const from = addMonths(report.to, -2);
   const before = addMonths(from, -1);
 
-  const rivals = rivalsAt(radius, report.to);
-  const events = eventsBetween(radius, from, report.to);
+  const rivals = rivalsAt(radius, report.to, market);
+  const events = eventsBetween(radius, from, report.to, market);
   const changes = events.filter((e) => e.kind === "change");
   const changed = new Set(changes.map((e) => e.rival.id)).size;
   const opened = events.filter((e) => e.kind === "opened").length;
   const ups = new Set(changes.filter((e) => e.change.to > e.change.from).map((e) => e.rival.id)).size;
   const cuts = changes.filter((e) => e.change.to < e.change.from).length;
 
-  const med = medianAt(radius, item.id, report.to, you);
-  const medBefore = medianAt(radius, item.id, before, you);
+  const med = medianAt(radius, item.id, report.to, you, market);
+  const medBefore = medianAt(radius, item.id, before, you, market);
   const medDelta = med !== null && medBefore !== null ? med - medBefore : null;
 
   const prices = rivals.map((r) => priceAt(r, item.id, report.to)).filter((p): p is number => p !== null);
@@ -60,7 +61,7 @@ function buildReport(report: Report, profile: Profile, place: Place | null): Rep
   const quarters = [-12, -9, -6, -3, 0].map((n) => addMonths(lastQuarter, n));
 
   const diffNow = you !== null && med !== null ? you - med : null;
-  const yearAgo = medianAt(radius, item.id, addMonths(report.to, -12), you);
+  const yearAgo = medianAt(radius, item.id, addMonths(report.to, -12), you, market);
   const diffThen = you !== null && yearAgo !== null ? you - yearAgo : null;
   const side = (d: number) => (d === 0 ? "on the median" : `${money(d)} ${d < 0 ? "below" : "above"}`);
 
@@ -84,7 +85,7 @@ function buildReport(report: Report, profile: Profile, place: Place | null): Rep
     }`,
   );
 
-  const unit = item.id === "monthly" ? " a month" : ` for ${item.label.toLowerCase()}`;
+  const unit = ` ${item.per} for ${item.label.toLowerCase()}`;
 
   return {
     id: report.id,
@@ -101,14 +102,14 @@ function buildReport(report: Report, profile: Profile, place: Place | null): Rep
       position: position === null ? null : `${ordinal(position)} of ${prices.length + 1}`,
     },
     chart: {
-      item: item.label,
+      item: `${item.label} (${item.per})`,
       points: quarters.map((q) => quarterName(q).replace("’", "20")),
       axis: quarters.map((q, i) => ({ index: i, label: quarterName(q) })),
-      median: quarters.map((q) => medianAt(radius, item.id, q, you)),
+      median: quarters.map((q) => medianAt(radius, item.id, q, you, market)),
       you: you === null ? null : quarters.map(() => you),
     },
     events: events.map((e) => {
-      const name = rivalName(e.rival, profile);
+      const name = rivalName(e.rival, profile, false, market);
       if (e.kind === "opened") {
         const p = priceAt(e.rival, item.id, e.month);
         return {
@@ -173,7 +174,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
 
   return (
     <DashboardShell current="/dashboard/reports" profile={profile}>
-      <ReportView reports={REPORTS.map((r) => buildReport(r, profile, place))} query={profileQuery(profile)} />
+      <ReportView reports={REPORTS.map((r) => buildReport(r, profile, place, market.rivals))} query={profileQuery(profile)} />
     </DashboardShell>
   );
 }

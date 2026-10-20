@@ -123,7 +123,9 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
           {rows.map((r) => (
             <div key={r.id} className="flex flex-wrap items-center gap-x-8 gap-y-5 border-t border-sand py-5.5">
               <div className="order-1 flex min-w-0 flex-[1_1_180px] flex-col gap-1">
-                <span className="text-[17px] font-bold">{r.label}</span>
+                <span className="text-[17px] font-bold">
+                  {r.label} <span className="text-sm font-semibold text-muted">{r.per}</span>
+                </span>
                 {r.diff === null ? (
                   <span className="text-sm font-semibold text-muted">{limited ? r.detail : "You haven’t shared this price"}</span>
                 ) : (
@@ -171,7 +173,8 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
           <div className={card}>
             <h2 className="m-0 text-base font-bold">How we compare like for like</h2>
             <p className="m-0 text-[15px] leading-normal text-body">
-              Each rival’s price is matched to a standard item, such as a peak, rolling, no-contract membership.
+              Each rival’s price is matched to a standard item, such as a {itemsFor(profile.sector)[0].label.toLowerCase()} (
+              {itemsFor(profile.sector)[0].detail.toLowerCase()}), and compared on how customers pay for it.
             </p>
           </div>
           <div className={card}>

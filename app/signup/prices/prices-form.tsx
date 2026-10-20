@@ -4,15 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { parsePrice, profileQuery, type Profile } from "@/lib/profile";
+import type { PriceItem } from "@/lib/sectors";
 
-type Item = { id: string; label: string; detail: string };
 type CustomItem = { key: number; label: string; price: string };
 
 const priceInput =
   "min-w-0 rounded-[10px] border-[1.5px] border-line-strong bg-white px-3.5 py-3 text-[17px] font-semibold text-ink aria-invalid:border-accent-dark";
 const row = "grid grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center gap-4 border-t border-line px-4 py-4.5 sm:px-6";
 
-export function PricesForm({ profile, items }: { profile: Profile; items: Item[] }) {
+export function PricesForm({ profile, items }: { profile: Profile; items: PriceItem[] }) {
   const router = useRouter();
   const [prices, setPrices] = useState<Record<string, string>>(() =>
     Object.fromEntries(items.map((i) => [i.id, i.id in profile.prices ? `£${profile.prices[i.id].toFixed(2)}` : ""])),
@@ -74,19 +74,25 @@ export function PricesForm({ profile, items }: { profile: Profile; items: Item[]
               </label>
               <span className="text-sm text-muted">{item.detail}</span>
             </div>
-            <input
-              id={`p-${item.id}`}
-              inputMode="decimal"
-              placeholder="£0.00"
-              className={priceInput}
-              value={prices[item.id]}
-              aria-invalid={invalid(prices[item.id])}
-              onChange={(e) => setPrices({ ...prices, [item.id]: e.target.value })}
-              onBlur={() => {
-                const n = parsePrice(prices[item.id]);
-                if (n !== null) setPrices({ ...prices, [item.id]: `£${n.toFixed(2)}` });
-              }}
-            />
+            <div className="flex min-w-0 flex-col gap-1">
+              <input
+                id={`p-${item.id}`}
+                inputMode="decimal"
+                placeholder="£0.00"
+                className={priceInput}
+                value={prices[item.id]}
+                aria-invalid={invalid(prices[item.id])}
+                aria-describedby={`per-${item.id}`}
+                onChange={(e) => setPrices({ ...prices, [item.id]: e.target.value })}
+                onBlur={() => {
+                  const n = parsePrice(prices[item.id]);
+                  if (n !== null) setPrices({ ...prices, [item.id]: `£${n.toFixed(2)}` });
+                }}
+              />
+              <span id={`per-${item.id}`} className="text-[13px] font-semibold text-muted">
+                {item.per}
+              </span>
+            </div>
           </div>
         ))}
         {custom.map((c, idx) => (
