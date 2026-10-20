@@ -17,6 +17,9 @@ export type Rival = {
   segment: string;
   /** Bearing on the map in degrees, 0 = east, clockwise. */
   bearing: number;
+  /** Exact position, for real businesses. Sample ones are placed by miles and bearing. */
+  lat?: number;
+  lng?: number;
   prices: Record<string, number>;
   note?: { text: string; tone: "up" | "new" };
   /** First month Rivl tracked them; for new openings, the month they opened. */

@@ -43,3 +43,8 @@
 @utility pill-toggle {
   @apply min-h-12 cursor-pointer rounded-full border-[1.5px] px-5 text-base font-semibold transition-colors;
 }
+
+/* Map cards (MapLibre popups) sit above the map's pins. */
+.maplibregl-popup {
+  z-index: 3;
+}

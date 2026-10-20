@@ -17,7 +17,7 @@ Local pricing intelligence for UK small businesses (gyms, salons, barbers, café
 | App | Next.js 16 (App Router), React 19, Tailwind CSS 4 | Next 16 differs from older versions: read `node_modules/next/dist/docs/` before using a Next API (see `AGENTS.md`) |
 | Hosting | Vercel, Hobby plan, project `rivl-site` | Every push to `main` on GitHub deploys in ~30 s. Hobby is non-commercial: move to Pro before charging customers |
 | Postcodes | postcodes.io (ONS Postcode Directory) | Free, no key. Lookups cached for 30 days. `bua` (built-up area) gives the town name |
-| Map | OpenStreetMap raster tiles, drawn by `components/street-map.tsx` | Free under the OSM tile usage policy (fair use, attribution required). Falls back to a drawn map if the postcode lookup fails |
+| Map | MapLibre GL JS 6 (`maplibre-gl`) with OpenFreeMap vector tiles (“liberty” style), in `components/market-map.tsx` | Free, no key, commercial use allowed. Drag, zoom, rotate, full screen; price labels declutter; tap a business for a card. MapLibre’s worker files are copied into `public/maplibre/` by `scripts/copy-maplibre-worker.mjs` before every dev start and build. Falls back to a drawn map if the postcode lookup fails. The dev server takes ~10 s to start the map; production takes under a second |
 | Business lists | OpenStreetMap snapshot via the Overpass API | `scripts/fetch-osm-businesses.mjs` writes `lib/data/maidenhead-businesses.json` |
 | Waitlist | Formspree form `xppqgrdo` | Free plan: 50 submissions a month. Endpoint is in `components/waitlist-form.tsx` |
 | Analytics | Vercel Web Analytics (`@vercel/analytics`) | Cookieless; see the Analytics tab in Vercel |

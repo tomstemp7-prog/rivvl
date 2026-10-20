@@ -90,6 +90,8 @@ export function marketFor(sector: string, postcode: string, place: Place | null)
         short: shortName(name),
         miles: Math.round(miles * 10) / 10,
         bearing,
+        lat: b.lat,
+        lng: b.lng,
         segment: b.address?.split(",")[0] ?? "",
         prices: price?.prices ?? {},
         firstSeen: (price?.checked ?? town.fetched).slice(0, 7),

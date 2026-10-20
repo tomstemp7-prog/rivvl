@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Market } from "@/lib/markets";
 import { median, MOCK_UPDATED, monthName, radiusMiles, rivalName, rivalsWithin, type Rival } from "@/lib/mock-market";
-import { StreetMap } from "@/components/street-map";
+import { MarketMap, type MapPin } from "@/components/market-map";
 import { areaLabel, type Place } from "@/lib/postcode";
 import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor, RADII } from "@/lib/sectors";
@@ -129,6 +129,33 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
       const maxX = Math.max(0, mapWidth / 2 - p.w / 2 - 8);
       return { ...p, x: Math.max(-maxX, Math.min(maxX, p.x)) };
     });
+  const mapPins: MapPin[] = [
+    ...mapped.map((e) => ({
+      id: e.id,
+      name: e.name,
+      label: `${e.short} · ${formatPrice(e.price)}`,
+      priceText: `${formatPrice(e.price)} ${item.per}`,
+      detail: e.detail,
+      miles: e.rival!.miles,
+      bearing: e.rival!.bearing,
+      lat: e.rival!.lat,
+      lng: e.rival!.lng,
+      dark: e.tone === "up",
+      href: `/dashboard/competitors/${e.id}?${query}`,
+    })),
+    ...unpriced.map((r) => ({
+      id: r.id,
+      name: rivalName(r, profile, false, market.rivals),
+      label: null,
+      priceText: null,
+      detail: `${r.miles} miles · ${r.real?.priceNote ?? "Price not collected yet"}`,
+      miles: r.miles,
+      bearing: r.bearing,
+      lat: r.lat,
+      lng: r.lng,
+      href: `/dashboard/competitors/${r.id}?${query}`,
+    })),
+  ];
   const dots = unpriced.map((r) => {
     const rad = (r.bearing * Math.PI) / 180;
     const d = (r.miles / maxMiles) * ringPx;
@@ -243,93 +270,97 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
 
       <div className="flex flex-wrap items-stretch gap-5">
         {/* Map */}
-        <div
-          role="img"
-          aria-label={`Map of ${entries.length} ${plural} around ${areaLabel(profile.postcode, place)} with their ${item.label.toLowerCase()} prices`}
-          ref={mapRef}
-          className="relative h-[480px] min-w-0 flex-[999_1_520px] overflow-hidden rounded-[22px] bg-map sm:h-[600px]"
-        >
+        <div ref={mapRef} className="relative h-[480px] min-w-0 flex-[999_1_520px] overflow-hidden rounded-[22px] bg-map sm:h-[600px]">
           {place ? (
-            <StreetMap lat={place.lat} lng={place.lng} metersPerPx={(maxMiles * 1609.34) / ringPx} width={mapWidth} height={mapHeight} />
-          ) : (
-            <svg aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
-              <rect x="560" y="300" width="150" height="110" rx="18" fill="#D3DEC4" />
-              <path d="M0 540 C 200 490, 380 590, 560 530 S 740 470, 800 490" stroke="#B9C7F0" strokeWidth="26" fill="none" />
-              <g stroke="#F6F3EC" strokeWidth="7" fill="none" strokeLinecap="round">
-                <path d="M0 300 L800 280" />
-                <path d="M240 0 L320 600" />
-                <path d="M600 0 L580 600" />
-              </g>
-              <g stroke="#FFFDF8" strokeWidth="16" fill="none" strokeLinecap="round">
-                <path d="M0 120 L800 90" />
-                <path d="M0 460 L800 500" />
-                <path d="M100 0 L150 600" />
-                <path d="M440 0 L410 600" />
-                <path d="M700 0 L760 600" />
-              </g>
-            </svg>
-          )}
-          <div
-            aria-hidden="true"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-data bg-data/6 transition-all"
-            style={{ width: ringPx * 2, height: ringPx * 2 }}
-          />
-          {dots.map(({ r, x, y }) => (
-            <Link
-              key={r.id}
-              href={`/dashboard/competitors/${r.id}?${query}`}
-              title={`${rivalName(r, profile, false, market.rivals)}: no published price`}
-              aria-label={`${rivalName(r, profile, false, market.rivals)}, ${r.miles} miles, no published price`}
-              className="absolute h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-muted shadow-[0_2px_6px_rgba(18,20,28,0.25)] hover:z-10 hover:scale-150"
-              style={{ left: `calc(50% + ${x.toFixed(1)}px)`, top: `calc(50% + ${y.toFixed(1)}px)` }}
+            <MarketMap
+              center={place}
+              radiusMiles={maxMiles}
+              youLabel={youLabel}
+              pins={mapPins}
+              ariaLabel={`Interactive map of ${entries.length} ${plural} around ${areaLabel(profile.postcode, place)} with their ${item.label.toLowerCase()} prices`}
             />
-          ))}
-          {mapped.map((e, i) => {
-              const dark = e.tone === "up";
-              return (
+          ) : (
+            // Postcode lookup failed: a drawn map with pins placed by distance and bearing.
+            <div role="img" aria-label={`Map of ${entries.length} ${plural} with their ${item.label.toLowerCase()} prices`} className="absolute inset-0">
+              <svg aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
+                <rect x="560" y="300" width="150" height="110" rx="18" fill="#D3DEC4" />
+                <path d="M0 540 C 200 490, 380 590, 560 530 S 740 470, 800 490" stroke="#B9C7F0" strokeWidth="26" fill="none" />
+                <g stroke="#F6F3EC" strokeWidth="7" fill="none" strokeLinecap="round">
+                  <path d="M0 300 L800 280" />
+                  <path d="M240 0 L320 600" />
+                  <path d="M600 0 L580 600" />
+                </g>
+                <g stroke="#FFFDF8" strokeWidth="16" fill="none" strokeLinecap="round">
+                  <path d="M0 120 L800 90" />
+                  <path d="M0 460 L800 500" />
+                  <path d="M100 0 L150 600" />
+                  <path d="M440 0 L410 600" />
+                  <path d="M700 0 L760 600" />
+                </g>
+              </svg>
+              <div
+                aria-hidden="true"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-data bg-data/6 transition-all"
+                style={{ width: ringPx * 2, height: ringPx * 2 }}
+              />
+              {dots.map(({ r, x, y }) => (
                 <Link
-                  key={e.id}
-                  href={`/dashboard/competitors/${e.id}?${query}`}
-                  className={`absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl px-3 py-1.75 text-sm font-bold whitespace-nowrap shadow-[0_4px_12px_rgba(18,20,28,0.15)] transition-all hover:z-10 hover:scale-105 ${
-                    dark ? "bg-ink text-paper" : "bg-surface text-ink"
-                  }`}
-                  style={{ left: `calc(50% + ${pins[i].x.toFixed(1)}px)`, top: `calc(50% + ${pins[i].y.toFixed(1)}px)` }}
+                  key={r.id}
+                  href={`/dashboard/competitors/${r.id}?${query}`}
+                  title={`${rivalName(r, profile, false, market.rivals)}: no published price`}
+                  aria-label={`${rivalName(r, profile, false, market.rivals)}, ${r.miles} miles, no published price`}
+                  className="absolute h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-muted shadow-[0_2px_6px_rgba(18,20,28,0.25)] hover:z-10 hover:scale-150"
+                  style={{ left: `calc(50% + ${x.toFixed(1)}px)`, top: `calc(50% + ${y.toFixed(1)}px)` }}
+                />
+              ))}
+              {mapped.map((e, i) => {
+                  const dark = e.tone === "up";
+                  return (
+                    <Link
+                      key={e.id}
+                      href={`/dashboard/competitors/${e.id}?${query}`}
+                      className={`absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl px-3 py-1.75 text-sm font-bold whitespace-nowrap shadow-[0_4px_12px_rgba(18,20,28,0.15)] transition-all hover:z-10 hover:scale-105 ${
+                        dark ? "bg-ink text-paper" : "bg-surface text-ink"
+                      }`}
+                      style={{ left: `calc(50% + ${pins[i].x.toFixed(1)}px)`, top: `calc(50% + ${pins[i].y.toFixed(1)}px)` }}
+                    >
+                      <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+                      {pins[i].label}
+                    </Link>
+                  );
+                })}
+              <p className="absolute top-1/2 left-1/2 z-[1] m-0 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-data px-3.5 py-2 text-[15px] font-bold whitespace-nowrap text-white shadow-[0_6px_16px_rgba(46,91,255,0.35)]">
+                {youLabel}
+              </p>
+              <div className="absolute top-4 right-4 flex flex-col gap-1.5">
+                <button
+                  type="button"
+                  aria-label="Zoom in"
+                  disabled={zoom >= 1.6}
+                  onClick={() => setZoom((z) => Math.min(1.6, z + 0.2))}
+                  className="h-11 w-11 cursor-pointer rounded-xl bg-surface text-[22px] font-semibold text-ink hover:bg-white disabled:cursor-default disabled:opacity-50"
                 >
-                  <span className="h-2.5 w-2.5 rounded-full bg-accent" />
-                  {pins[i].label}
-                </Link>
-              );
-            })}
-          <p className="absolute top-1/2 left-1/2 z-[1] m-0 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-data px-3.5 py-2 text-[15px] font-bold whitespace-nowrap text-white shadow-[0_6px_16px_rgba(46,91,255,0.35)]">
-            {youLabel}
-          </p>
-          <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-            <span className="rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong">
+                  +
+                </button>
+                <button
+                  type="button"
+                  aria-label="Zoom out"
+                  disabled={zoom <= 0.6}
+                  onClick={() => setZoom((z) => Math.max(0.6, z - 0.2))}
+                  className="h-11 w-11 cursor-pointer rounded-xl bg-surface text-[22px] font-semibold text-ink hover:bg-white disabled:cursor-default disabled:opacity-50"
+                >
+                  −
+                </button>
+              </div>
+            </div>
+          )}
+          <div className="pointer-events-none absolute top-3 left-3 z-[2] flex max-w-[calc(100%-4.5rem)] flex-wrap gap-2">
+            <span className="hidden rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong sm:inline">
               Dashed ring: {radius.replace(" miles", "-mile").replace(" mile", "-mile")} radius
             </span>
             <span className="rounded-[10px] bg-surface px-3 py-2 text-[13px] font-semibold text-body-strong">
               {market.real ? `Real ${market.town} businesses` : "Illustrative data"}
             </span>
-          </div>
-          <div className="absolute top-4 right-4 flex flex-col gap-1.5">
-            <button
-              type="button"
-              aria-label="Zoom in"
-              disabled={zoom >= 1.6}
-              onClick={() => setZoom((z) => Math.min(1.6, z + 0.2))}
-              className="h-11 w-11 cursor-pointer rounded-xl bg-surface text-[22px] font-semibold text-ink hover:bg-white disabled:cursor-default disabled:opacity-50"
-            >
-              +
-            </button>
-            <button
-              type="button"
-              aria-label="Zoom out"
-              disabled={zoom <= 0.6}
-              onClick={() => setZoom((z) => Math.max(0.6, z - 0.2))}
-              className="h-11 w-11 cursor-pointer rounded-xl bg-surface text-[22px] font-semibold text-ink hover:bg-white disabled:cursor-default disabled:opacity-50"
-            >
-              −
-            </button>
           </div>
         </div>
 
