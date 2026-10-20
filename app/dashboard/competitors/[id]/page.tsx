@@ -242,7 +242,11 @@ export default async function CompetitorPage(props: Props) {
             </table>
           </div>
         )}
-        {rival.real && <p className="m-0 text-[13px] text-muted">Business location: {market.real ? market.attribution : ""}.</p>}
+        {rival.real && (
+          <p className="m-0 text-[13px] text-muted">
+            Business location: {rival.real.fromOsm && market.real ? market.attribution : "placed by its postcode"}.
+          </p>
+        )}
       </main>
     </DashboardShell>
   );

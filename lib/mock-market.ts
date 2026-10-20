@@ -35,6 +35,8 @@ export type Rival = {
     priceNote?: string;
     /** What a published price includes, e.g. "Core membership". */
     caveat?: string;
+    /** False for businesses added by hand because OpenStreetMap is missing them. */
+    fromOsm: boolean;
   };
 };
 

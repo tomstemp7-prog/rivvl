@@ -95,7 +95,7 @@ export function marketFor(sector: string, postcode: string, place: Place | null)
         firstSeen: (price?.checked ?? town.fetched).slice(0, 7),
         source: "public website",
         checked: price?.checked ?? town.fetched,
-        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat },
+        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat, fromOsm: !b.osm.startsWith("extra/") },
       };
     })
     .filter((r) => r.miles <= 10)
