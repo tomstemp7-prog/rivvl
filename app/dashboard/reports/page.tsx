@@ -135,7 +135,7 @@ function buildReport(report: Report, profile: Profile, place: Place | null, mark
 export default async function ReportsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = await resolveProfile(await searchParams);
   const place = await placeFor(profile.postcode);
-  const market = marketFor(profile.sector, profile.postcode, place);
+  const market = await marketFor(profile.sector, profile.postcode, place);
 
   if (market.real) {
     // Reports compare months, so a real town needs a month of tracking before the first one.

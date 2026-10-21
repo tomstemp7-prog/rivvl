@@ -12,6 +12,6 @@ export async function GET(request: Request) {
   const sector = params.get("sector") ?? "Gym";
   const radius = params.get("radius") ?? "3 miles";
   const place = await placeFor(postcode);
-  const market = marketFor(sector, postcode, place);
+  const market = await marketFor(sector, postcode, place);
   return Response.json({ count: rivalsWithin(radius, market.rivals).length, real: market.real });
 }

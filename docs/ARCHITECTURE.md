@@ -33,7 +33,7 @@ There is **no login yet**. A Supabase database stores what businesses enter (see
 1. **The owner's profile** travels in the URL query string: `name`, `sector`, `postcode`, `radius`, `shared` (1 = shared prices), and prices as `p_<itemId>`. See `lib/profile.ts` (`parseProfile`, `profileQuery`, `profileOrDemo`). Dashboard pages without a `name` fall back to `DEMO_PROFILE` in `lib/mock-market.ts`: the fictional Iron & Oak Fitness at SL6 7AA (Maidenhead).
 2. **Market data** ships inside the code:
    - `lib/markets.ts` → `marketFor(sector, postcode, place)` decides what a profile is compared against. Postcodes in a launched town (outcode `SL6` = Maidenhead) get **real businesses**; everywhere else gets **anonymous sample data**.
-   - Real: `lib/data/maidenhead-businesses.json` (OSM snapshot, 832 businesses within 10 miles) + `lib/data/maidenhead-prices.ts` (researched prices, businesses OSM is missing, sector fixes).
+   - Real: the Supabase tables `businesses`, `price_checks` and `price_observations` are the **source of truth**, read by `lib/town-data.ts` (`loadTown`, cached for 5 minutes). When the database isn't configured or can't be read, it falls back to the code files `lib/data/maidenhead-businesses.json` (OSM snapshot) + `lib/data/maidenhead-prices.ts` (researched prices, businesses OSM is missing, sector fixes). Equal distances sort alphabetically, so both sources give identical pages.
    - Sample: `lib/mock-market.ts` (`RIVALS` with a year of made-up gym price history; `sampleRivals()` scales typical prices for other sectors).
 3. **Live lookups**: postcodes.io from the server (`placeFor`) and the browser (sign-up check), map tiles from OSM, and `app/api/nearby` (business count for the sign-up form, so the 150 KB snapshot never ships to browsers).
 
@@ -61,7 +61,7 @@ All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / earl
 - Sign-up step 2 saves the business, contact email, prices and extra items, then sends the owner to `/dashboard?site=<id>`. Register interest saves to `interest` (and a consented headline price to `shared_prices`) and still emails via Formspree.
 - Browse data in Supabase → Table Editor (open from Vercel → rivl-site → Storage). New schema changes: add `supabase/migrations/000N_*.sql` and run it in Supabase’s SQL Editor.
 - Anyone with a `?site=` link can view that dashboard until logins exist.
-- **Real businesses and research are also in the database** (`supabase/migrations/0002_businesses.sql`): `businesses` (all 838 Maidenhead-area businesses, sector fixes applied, `comparable=false` for non-gyms OSM files as gyms), `price_checks` (one per business researched: outcome published / price_on_request / not_published / members_only, source URL, method website or booking_page, caveat) and `price_observations` (one row per price). Rows are built by `lib/seed-towns.ts` from the same files the site reads. **The site still reads from the code files**; until it reads from the database, keep both in step by re-running the import after research changes. The import is idempotent (upserts). To run it: temporarily add a preview-only route that executes the migration and upserts `maidenheadSeed()` with the `postgres` package over `POSTGRES_URL`, deploy with `vercel deploy`, call it with `vercel curl`, then delete the route and the preview (keys are Sensitive, so this runs on Vercel, not a laptop).
+- **Real businesses and research are also in the database** (`supabase/migrations/0002_businesses.sql`): `businesses` (all 838 Maidenhead-area businesses, sector fixes applied, `comparable=false` for non-gyms OSM files as gyms), `price_checks` (one per business researched: outcome published / price_on_request / not_published / members_only, source URL, method website or booking_page, caveat) and `price_observations` (one row per price). **The site reads these tables** (via `lib/town-data.ts`); the code files are only the fallback and the seed. Rows were first built by `lib/seed-towns.ts` from those files; the import is idempotent (upserts) if you ever need to re-seed. To run it: temporarily add a preview-only route that executes the migration and upserts `maidenheadSeed()` with the `postgres` package over `POSTGRES_URL`, deploy with `vercel deploy`, call it with `vercel curl`, then delete the route and the preview (keys are Sensitive, so this runs on Vercel, not a laptop).
 
 ## Data rules (keep these)
 
@@ -75,11 +75,16 @@ All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / earl
 
 - **Run locally**: Node is at `~/.local/node/bin` on the owner's Mac. `npm install`, `npm run dev` → http://localhost:3000. Check with `npx tsc --noEmit` and `npm run build`.
 - **Deploy**: commit and `git push` to `main`; Vercel builds automatically.
-- **Add or update a price**: edit `lib/data/maidenhead-prices.ts`. Key = OSM id from the snapshot (`node/…`, `way/…`) or `extra/<slug>`. Set `prices` (item ids from `lib/sectors.ts`), `url`, `checked` (ISO date), optional `caveat` (what the price covers) and `name` (clearer display name).
-- **Add a business OSM is missing**: add it to `MAIDENHEAD_EXTRA` with coordinates from its postcode (postcodes.io).
-- **Fix a mis-sectored business**: `MAIDENHEAD_SECTOR_FIXES` (e.g. Toni & Guy → Hair salon).
-- **Refresh the business snapshot**: `node scripts/fetch-osm-businesses.mjs` (the public Overpass server is often busy; the script retries). Price keys are OSM ids, so check none disappeared.
-- **Launch another town**: add a town to `TOWNS` in `lib/markets.ts` with its outcodes, a snapshot (copy the script's `TOWN` settings) and a prices file.
+- **Add or update a price** (in Supabase → Table Editor or SQL Editor; the site picks it up within 5 minutes, no deploy):
+  1. Insert a `price_checks` row: `id` = `<business id>@<YYYY-MM-DD>` (business id is the OSM id like `node/123` or `extra/<slug>`), `business_id`, `checked_on`, `outcome` (`published`, `price_on_request`, `not_published` or `members_only`), `source_url`, `method` (`website` or `booking_page`), optional `caveat` (what the price covers).
+  2. For a published price, insert one `price_observations` row per item: `check_id` (the check's id), `item_id` (from `lib/sectors.ts`, e.g. `monthly`, `haircut`), `price`.
+  3. A newer check replaces the older one on the site (the latest `checked_on` wins). For a clearer name, set `display_name` on the business.
+  Example: `insert into price_checks (id, business_id, checked_on, outcome, source_url, method) values ('node/123@2026-11-01', 'node/123', '2026-11-01', 'published', 'https://…', 'website'); insert into price_observations (check_id, item_id, price) values ('node/123@2026-11-01', 'monthly', 35);`
+  Also add it to `lib/data/maidenhead-prices.ts` if the local fallback should match.
+- **Add a business OSM is missing**: insert a `businesses` row (`id` = `extra/<slug>`, `town`, `name`, `sector`, `lat`/`lng` from its postcode via postcodes.io, `source` = `manual`, `listed_on`); mirror it in `MAIDENHEAD_EXTRA` for the fallback.
+- **Fix a mis-sectored business**: update its `sector` in `businesses` (and `MAIDENHEAD_SECTOR_FIXES` for the fallback). Hide a non-comparable one with `comparable = false`.
+- **Refresh the business snapshot**: `node scripts/fetch-osm-businesses.mjs` (the public Overpass server is often busy; the script retries), then re-run the import so the `businesses` table matches. Price checks reference OSM ids, so check none disappeared.
+- **Launch another town**: add it to `LAUNCHED_TOWNS` in `lib/towns.ts` (outcodes) and `TOWN_META` in `lib/town-data.ts` (map centre, attribution), load its businesses into the tables (snapshot script with that town's `TOWN` settings, then the import), and add research as above.
 
 ## What's researched so far (20 Oct 2026)
 

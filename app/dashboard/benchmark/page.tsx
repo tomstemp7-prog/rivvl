@@ -21,7 +21,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
   const query = profileQuery(profile);
   const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
-  const market = marketFor(profile.sector, profile.postcode, place);
+  const market = await marketFor(profile.sector, profile.postcode, place);
   const rivals = rivalsWithin(profile.radius, market.rivals);
   // Owner-shared prices join the low/median/high only once enough exist nearby (lib/sites.ts).
   const pooled = profile.shared ? ((await pooledPrices(profile.sector, place, profile.id))[profile.radius] ?? {}) : {};

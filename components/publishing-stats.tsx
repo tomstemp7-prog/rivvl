@@ -5,8 +5,8 @@ import { publishingStats } from "@/lib/markets";
  * launched town publish prices, per researched sector. Calculated from the
  * research data, so it updates as more businesses are checked.
  */
-export function PublishingStats({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const stats = publishingStats();
+export async function PublishingStats({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const stats = await publishingStats();
   if (!stats || !stats.sectors.length) return null;
   const dark = tone === "dark";
   const rows = stats.sectors.map((s) => ({ ...s, pct: Math.round((s.published / s.total) * 100) }));

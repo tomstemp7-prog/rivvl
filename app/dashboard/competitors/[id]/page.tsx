@@ -34,7 +34,7 @@ const panel = "flex min-w-0 flex-col gap-4 rounded-[22px] border border-line bg-
 async function load({ params, searchParams }: Props) {
   const profile = await resolveProfile(await searchParams);
   const place = await placeFor(profile.postcode);
-  const market = marketFor(profile.sector, profile.postcode, place);
+  const market = await marketFor(profile.sector, profile.postcode, place);
   const id = (await params).id;
   return { profile, market, rival: market.rivals.find((r) => r.id === id) };
 }

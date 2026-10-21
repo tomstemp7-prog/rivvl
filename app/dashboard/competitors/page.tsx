@@ -19,7 +19,7 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
   const items = itemsFor(profile.sector);
   const plural = pluralFor(profile.sector);
   const max = radiusMiles(profile.radius);
-  const market = marketFor(profile.sector, profile.postcode, place);
+  const market = await marketFor(profile.sector, profile.postcode, place);
   // Real towns can have hundreds of businesses within 10 miles, so list only those in range.
   const rivals = [...market.rivals].filter((r) => !market.real || r.miles <= max).sort((a, b) => a.miles - b.miles);
   const inside = rivals.filter((r) => r.miles <= max).length;

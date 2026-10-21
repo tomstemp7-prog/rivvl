@@ -11,10 +11,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
   const profile = await resolveProfile(await searchParams);
   const place = await placeFor(profile.postcode);
   const pooled = profile.shared ? await pooledPrices(profile.sector, place, profile.id) : {};
+  const market = await marketFor(profile.sector, profile.postcode, place);
 
   return (
     <DashboardShell current="/dashboard" profile={profile}>
-      <MarketView profile={profile} place={place} market={marketFor(profile.sector, profile.postcode, place)} pooled={pooled} />
+      <MarketView profile={profile} place={place} market={market} pooled={pooled} />
     </DashboardShell>
   );
 }

@@ -1,51 +1,24 @@
-import maidenhead from "./data/maidenhead-businesses.json";
-import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
 import { sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
 import { itemsFor, SECTORS } from "./sectors";
+import { loadTown, type TownData } from "./town-data";
 import { launchedTownFor } from "./towns";
+
+export { NOT_A_GYM, type Business } from "./town-data";
 
 /**
  * Which businesses a profile is compared against. Towns we've launched in use
- * real businesses (OpenStreetMap snapshot plus researched prices); everywhere
- * else falls back to the anonymous sample data.
+ * real businesses (from the database, else the code files: lib/town-data.ts);
+ * everywhere else falls back to the anonymous sample data.
  */
 export type Market =
   | { real: false; rivals: Rival[] }
-  | { real: true; town: string; fetched: string; attribution: string; rivals: Rival[] };
-
-export type Business = {
-  osm: string;
-  name: string;
-  sector: string;
-  lat: number;
-  lng: number;
-  address?: string;
-  website?: string;
-};
-
-const TOWNS = [
-  {
-    name: "Maidenhead",
-    centre: { lat: maidenhead.town.lat, lng: maidenhead.town.lng },
-    fetched: maidenhead.fetched,
-    attribution: maidenhead.attribution,
-    businesses: [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => ({
-      ...b,
-      sector: MAIDENHEAD_SECTOR_FIXES[b.osm] ?? b.sector,
-    })),
-    prices: MAIDENHEAD_PRICES,
-  },
-];
+  | { real: true; town: string; fetched: string; attribution: string; rivals: Rival[]; dataFrom: TownData["from"] };
 
 /** Postcodes in a launched town (by outcode, e.g. SL6). */
 export function realTownFor(postcode: string) {
-  const launched = launchedTownFor(postcode);
-  return launched ? (TOWNS.find((t) => t.name === launched.name) ?? null) : null;
+  return launchedTownFor(postcode);
 }
-
-/** OSM "gyms" that aren't comparable gyms: gymnastics, tennis, school halls, unnamed rooms. */
-export const NOT_A_GYM = /gymnastic|tennis|activity centre|sports club|little gym|sports hall|university|^(old |new )?gym$|^gymnasium$|^fitness room$/i;
 
 const MILES_PER_DEG_LAT = 69.05;
 
@@ -75,20 +48,21 @@ function shortName(name: string) {
   return out;
 }
 
-export function marketFor(sector: string, postcode: string, place: Place | null): Market {
-  const town = realTownFor(postcode);
+export async function marketFor(sector: string, postcode: string, place: Place | null): Promise<Market> {
+  const launched = realTownFor(postcode);
+  const town = launched && place ? await loadTown(launched.name) : null;
   if (!town || !place) return { real: false, rivals: sampleRivals(sector, itemsFor(sector).map((i) => i.id)) };
-  return { real: true, town: town.name, fetched: town.fetched, attribution: town.attribution, rivals: realRivals(town, sector, place) };
+  return { real: true, town: town.name, fetched: town.fetched, attribution: town.attribution, rivals: realRivals(town, sector, place), dataFrom: town.from };
 }
 
 /** A launched town's real businesses in one sector, with distance and bearing from `place`. */
-function realRivals(town: (typeof TOWNS)[number], sector: string, place: { lat: number; lng: number }): Rival[] {
+function realRivals(town: TownData, sector: string, place: { lat: number; lng: number }): Rival[] {
   return town.businesses
-    .filter((b) => b.sector === sector && !(sector === "Gym" && NOT_A_GYM.test(b.name)))
+    .filter((b) => b.sector === sector && b.comparable)
     .map((b): Rival => {
       const { miles, bearing } = offset(place, b);
       const price = town.prices[b.osm];
-      const name = price?.name ?? b.name;
+      const name = b.displayName ?? price?.name ?? b.name;
       return {
         id: `${slug(name)}-${b.osm.replace("/", "-")}`,
         name,
@@ -106,7 +80,8 @@ function realRivals(town: (typeof TOWNS)[number], sector: string, place: { lat: 
       };
     })
     .filter((r) => r.miles <= 10)
-    .sort((a, b) => a.miles - b.miles);
+    // Nearest first; equal distances alphabetically, so the order doesn't depend on where the data came from.
+    .sort((a, b) => a.miles - b.miles || a.name.localeCompare(b.name) || a.id.localeCompare(b.id));
 }
 
 /**
@@ -115,8 +90,8 @@ function realRivals(town: (typeof TOWNS)[number], sector: string, place: { lat: 
  * range has been checked, so the figures are never based on partial research.
  * "Price on request" counts as not publishing.
  */
-export function publishingStats(townName = "Maidenhead", miles = 3) {
-  const town = TOWNS.find((t) => t.name === townName);
+export async function publishingStats(townName = "Maidenhead", miles = 3) {
+  const town = await loadTown(townName);
   if (!town) return null;
   const sectors = SECTORS.flatMap((s) => {
     const nearby = realRivals(town, s.label, town.centre).filter((r) => r.miles <= miles);
