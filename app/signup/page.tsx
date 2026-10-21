@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { PublishingStats } from "@/components/publishing-stats";
 import { SignupShell, StepHeading } from "@/components/signup-shell";
 import { POSTCODE_SHAPE } from "@/lib/postcode";
 import { parseProfile, profileQuery } from "@/lib/profile";
@@ -26,6 +27,8 @@ export default async function SignupPage({ searchParams }: { searchParams: Promi
           <p className="m-0 text-[15px] leading-normal text-on-dark-2">
             Prices you share only feed area averages. Rivl never shows them against your name.
           </p>
+          <hr className="my-3 border-0 border-t border-ink-line" />
+          <PublishingStats tone="dark" />
         </>
       }
     >

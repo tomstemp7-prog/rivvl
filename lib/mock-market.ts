@@ -40,6 +40,8 @@ export type Rival = {
     caveat?: string;
     /** False for businesses added by hand because OpenStreetMap is missing them. */
     fromOsm: boolean;
+    /** We've checked whether this business publishes prices (whatever the answer). */
+    researched: boolean;
   };
 };
 

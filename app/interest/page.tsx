@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { PublishingStats } from "@/components/publishing-stats";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { placeFor } from "@/lib/postcode";
 import { profileQuery } from "@/lib/profile";
@@ -45,6 +46,7 @@ export default async function InterestPage({ searchParams }: { searchParams: Pro
             <li>A free local price report if you share a price</li>
             <li>Your prices only ever appear in anonymised averages</li>
           </ul>
+          <PublishingStats />
           <p className="m-0 text-[15px] text-muted">
             Want to see how it works first?{" "}
             <Link href={`/signup?${demoQuery}&demo=1`} className="font-bold text-data-dark underline hover:text-ink">

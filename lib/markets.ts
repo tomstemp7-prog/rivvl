@@ -2,7 +2,7 @@ import maidenhead from "./data/maidenhead-businesses.json";
 import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
 import { sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
-import { itemsFor } from "./sectors";
+import { itemsFor, SECTORS } from "./sectors";
 import { launchedTownFor } from "./towns";
 
 /**
@@ -27,6 +27,7 @@ export type Business = {
 const TOWNS = [
   {
     name: "Maidenhead",
+    centre: { lat: maidenhead.town.lat, lng: maidenhead.town.lng },
     fetched: maidenhead.fetched,
     attribution: maidenhead.attribution,
     businesses: [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => ({
@@ -77,8 +78,12 @@ function shortName(name: string) {
 export function marketFor(sector: string, postcode: string, place: Place | null): Market {
   const town = realTownFor(postcode);
   if (!town || !place) return { real: false, rivals: sampleRivals(sector, itemsFor(sector).map((i) => i.id)) };
+  return { real: true, town: town.name, fetched: town.fetched, attribution: town.attribution, rivals: realRivals(town, sector, place) };
+}
 
-  const rivals = town.businesses
+/** A launched town's real businesses in one sector, with distance and bearing from `place`. */
+function realRivals(town: (typeof TOWNS)[number], sector: string, place: { lat: number; lng: number }): Rival[] {
+  return town.businesses
     .filter((b) => b.sector === sector && !(sector === "Gym" && NOT_A_GYM.test(b.name)))
     .map((b): Rival => {
       const { miles, bearing } = offset(place, b);
@@ -97,13 +102,29 @@ export function marketFor(sector: string, postcode: string, place: Place | null)
         firstSeen: (price?.checked ?? town.fetched).slice(0, 7),
         source: "public website",
         checked: price?.checked ?? town.fetched,
-        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat, fromOsm: !b.osm.startsWith("extra/") },
+        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat, fromOsm: !b.osm.startsWith("extra/"), researched: !!price },
       };
     })
     .filter((r) => r.miles <= 10)
     .sort((a, b) => a.miles - b.miles);
+}
 
-  return { real: true, town: town.name, fetched: town.fetched, attribution: town.attribution, rivals };
+/**
+ * How many businesses publish their prices online, per sector, within `miles`
+ * of a launched town's centre. A sector only appears once every business in
+ * range has been checked, so the figures are never based on partial research.
+ * "Price on request" counts as not publishing.
+ */
+export function publishingStats(townName = "Maidenhead", miles = 3) {
+  const town = TOWNS.find((t) => t.name === townName);
+  if (!town) return null;
+  const sectors = SECTORS.flatMap((s) => {
+    const nearby = realRivals(town, s.label, town.centre).filter((r) => r.miles <= miles);
+    if (!nearby.length || nearby.some((r) => !r.real?.researched)) return [];
+    return [{ sector: s.label, plural: s.plural, total: nearby.length, published: nearby.filter(hasPrices).length }];
+  });
+  const dates = Object.values(town.prices).map((p) => p.checked).sort();
+  return { town: town.name, miles, checked: dates.at(-1) ?? town.fetched, sectors };
 }
 
 export const hasPrices = (r: Rival) => Object.keys(r.prices).length > 0;

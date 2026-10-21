@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { PublishingStats } from "@/components/publishing-stats";
 import { SignupShell, StepHeading } from "@/components/signup-shell";
 import { parseProfile, profileQuery } from "@/lib/profile";
 import { CHARGING, itemsFor, pluralFor } from "@/lib/sectors";
@@ -23,6 +24,8 @@ export default async function PricesPage({ searchParams }: { searchParams: Promi
             <li>Your position on every price item</li>
             <li>Your first monthly report</li>
           </ul>
+          <hr className="my-3 border-0 border-t border-ink-line" />
+          <PublishingStats tone="dark" />
         </>
       }
     >
