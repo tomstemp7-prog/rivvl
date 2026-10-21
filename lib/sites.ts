@@ -1,4 +1,6 @@
 import "server-only";
+import { redirect } from "next/navigation";
+import { currentUser } from "./auth";
 import { db } from "./db";
 import { placeFor, type Place } from "./postcode";
 import { profileOrDemo, type Profile } from "./profile";
@@ -17,23 +19,45 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 type Params = Record<string, string | string[] | undefined>;
 
-/** The profile for a dashboard page: a saved site (`?site=<id>`), else URL details, else the demo. */
+/**
+ * The profile for a dashboard page: a saved site (`?site=<id>`), else the
+ * signed-in owner's own business, else details in the URL, else the demo.
+ * A business with an owner can only be opened by that owner.
+ */
 export async function resolveProfile(params: Params): Promise<Profile> {
-  const site = Array.isArray(params.site) ? params.site[0] : params.site;
+  const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+  const site = first(params.site);
+  const user = await currentUser();
   if (site && UUID.test(site)) {
     const saved = await loadSite(site);
-    if (saved) return saved;
+    if (saved) {
+      if (saved.ownerId && saved.ownerId !== user?.id) redirect(`/login?next=${encodeURIComponent(`/dashboard?site=${site}`)}`);
+      return { ...saved.profile, owned: !!user && saved.ownerId === user.id };
+    }
+  }
+  if (user && !first(params.name)) {
+    const mine = await ownedSiteId(user.id);
+    const saved = mine ? await loadSite(mine) : null;
+    if (saved) return { ...saved.profile, owned: true };
   }
   return profileOrDemo(params);
 }
 
-async function loadSite(id: string): Promise<Profile | null> {
+/** The signed-in owner's most recent business, if any. */
+export async function ownedSiteId(userId: string) {
   const client = db();
   if (!client) return null;
-  const { data: site } = await client.from("sites").select("id, business_name, sector, postcode, radius, shared").eq("id", id).maybeSingle();
+  const { data } = await client.from("sites").select("id").eq("owner_id", userId).order("created_at", { ascending: false }).limit(1).maybeSingle();
+  return (data?.id as string | undefined) ?? null;
+}
+
+export async function loadSite(id: string): Promise<{ profile: Profile; ownerId: string | null } | null> {
+  const client = db();
+  if (!client) return null;
+  const { data: site } = await client.from("sites").select("id, business_name, sector, postcode, radius, shared, owner_id").eq("id", id).maybeSingle();
   if (!site) return null;
   const { data: prices } = await client.from("shared_prices").select("item_id, price").eq("site_id", id);
-  return {
+  return { ownerId: site.owner_id, profile: {
     id: site.id,
     name: site.business_name,
     sector: site.sector,
@@ -41,7 +65,7 @@ async function loadSite(id: string): Promise<Profile | null> {
     radius: site.radius,
     shared: site.shared,
     prices: Object.fromEntries((prices ?? []).map((p) => [p.item_id, Number(p.price)])),
-  };
+  } };
 }
 
 export type NewSite = {
@@ -73,6 +97,8 @@ export async function saveSite(input: NewSite): Promise<string | null> {
       lng: place?.lng ?? null,
       shared: true,
       extra_items: input.extras,
+      // Signed in while signing up: the business is theirs straight away.
+      owner_id: (await currentUser())?.id ?? null,
     })
     .select("id")
     .single();
@@ -207,4 +233,28 @@ export async function saveMessage(m: NewMessage) {
   });
   if (error) throw new Error(`Couldn't save message: ${error.message}`);
   return true;
+}
+
+/** Replaces an owner's shared prices and radius. Callers must have checked ownership. */
+export async function updateSitePrices(siteId: string, input: { sector: string; radius: string; prices: Record<string, number> }) {
+  const client = db();
+  if (!client) throw new Error("No database");
+  const { data: site, error } = await client.from("sites").update({ radius: input.radius }).eq("id", siteId).select("outcode, lat, lng").single();
+  if (error || !site) throw new Error(`Couldn't update site: ${error?.message}`);
+  const { error: delError } = await client.from("shared_prices").delete().eq("site_id", siteId).eq("source", "signup");
+  if (delError) throw new Error(`Couldn't replace prices: ${delError.message}`);
+  const rows = Object.entries(input.prices).map(([item_id, price]) => ({
+    site_id: siteId,
+    sector: input.sector,
+    item_id,
+    price,
+    outcode: site.outcode,
+    lat: site.lat,
+    lng: site.lng,
+    source: "signup",
+  }));
+  if (rows.length) {
+    const { error: insError } = await client.from("shared_prices").insert(rows);
+    if (insError) throw new Error(`Couldn't save prices: ${insError.message}`);
+  }
 }

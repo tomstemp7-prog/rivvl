@@ -8,6 +8,8 @@ import { RADII, SECTORS } from "./sectors";
 export type Profile = {
   /** Set once the sign-up is saved: links then carry `site=<id>` instead of the whole profile. */
   id?: string;
+  /** True when the signed-in viewer owns this saved business (they can edit it). */
+  owned?: boolean;
   name: string;
   sector: string;
   postcode: string;

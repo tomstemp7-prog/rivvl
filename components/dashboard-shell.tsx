@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { realTownFor } from "@/lib/markets";
+import { currentUser } from "@/lib/auth";
 import { profileQuery, type Profile } from "@/lib/profile";
 import { AppSidebar } from "./app-sidebar";
 import { FeedbackButton } from "./message-forms";
 
 /** Sidebar plus page content for every logged-in page. Children supply their own <main>. */
-export function DashboardShell({ current, profile, children }: { current: string; profile: Profile; children: React.ReactNode }) {
+export async function DashboardShell({ current, profile, children }: { current: string; profile: Profile; children: React.ReactNode }) {
   const town = realTownFor(profile.postcode)?.name;
+  const user = await currentUser();
   return (
     <div className="flex min-h-screen flex-col">
       <p className="m-0 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-accent px-4 py-2.5 text-center text-sm font-semibold text-ink print:hidden">
@@ -21,6 +23,8 @@ export function DashboardShell({ current, profile, children }: { current: string
           business={profile.name}
           subtitle={`${profile.sector} · ${profile.postcode} · ${profile.shared ? "Free" : "Limited"}`}
           query={profileQuery(profile)}
+          owned={profile.owned}
+          account={user?.email}
         />
         {children}
       </div>

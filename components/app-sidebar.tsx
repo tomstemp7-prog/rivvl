@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { signOut } from "@/app/auth-actions";
 import { Logo } from "./logo";
 
 const NAV = [
@@ -46,9 +47,18 @@ const NAV = [
   },
 ];
 
-type Props = { current: string; business: string; subtitle: string; query: string };
+type Props = {
+  current: string;
+  business: string;
+  subtitle: string;
+  query: string;
+  /** The signed-in viewer owns this business: "Your prices" edits it rather than restarting sign-up. */
+  owned?: boolean;
+  /** The signed-in viewer's email, shown with a log-out button. */
+  account?: string;
+};
 
-export function AppSidebar({ current, business, subtitle, query }: Props) {
+export function AppSidebar({ current, business, subtitle, query, owned = false, account }: Props) {
   return (
     <aside className="flex min-w-0 flex-[1_1_240px] flex-col gap-8 bg-ink px-5 py-7 text-paper lg:max-w-[280px] print:hidden">
       <div className="px-3">
@@ -56,11 +66,12 @@ export function AppSidebar({ current, business, subtitle, query }: Props) {
       </div>
       <nav aria-label="App" className="flex flex-col gap-1 text-[15px] font-semibold">
         {NAV.map((item) => {
-          const active = item.href === current;
+          const href = item.href === "/signup/prices" && owned ? "/dashboard/prices" : item.href;
+          const active = href === current;
           return (
             <Link
               key={item.href}
-              href={`${item.href}?${query}`}
+              href={`${href}?${query}`}
               aria-current={active ? "page" : undefined}
               className={`flex min-h-11 items-center gap-3 rounded-[10px] px-3 ${
                 active ? "bg-ink-3 text-white" : "text-on-dark-2 hover:bg-ink-2 hover:text-white"
@@ -88,6 +99,14 @@ export function AppSidebar({ current, business, subtitle, query }: Props) {
       <div className="flex flex-col gap-1 rounded-2xl border border-ink-line bg-ink-2 p-4">
         <span className="text-[15px] font-bold">{business}</span>
         <span className="text-[13px] text-on-dark-muted">{subtitle}</span>
+        {account && (
+          <form action={signOut} className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t border-ink-line pt-3">
+            <span className="min-w-0 truncate text-[13px] text-on-dark-2">{account}</span>
+            <button type="submit" className="cursor-pointer text-[13px] font-bold text-data-light hover:text-white">
+              Log out
+            </button>
+          </form>
+        )}
       </div>
     </aside>
   );

@@ -1,11 +1,13 @@
 import Link from "next/link";
+import { loginLive } from "@/lib/auth-config";
 import { Logo } from "./logo";
 
 const NAV = [
   { href: "/#how", label: "How it works" },
   { href: "/#sectors", label: "Sectors" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/dashboard", label: "Log in" },
+  // The demo until logins go live (NEXT_PUBLIC_LOGIN_LIVE=1, once email is set up).
+  { href: loginLive ? "/login" : "/dashboard", label: "Log in" },
 ];
 
 export function SiteHeader({ current }: { current?: string }) {
