@@ -42,6 +42,8 @@ export type Rival = {
     fromOsm: boolean;
     /** We've checked whether this business publishes prices (whatever the answer). */
     researched: boolean;
+    /** The business's id in the database (OpenStreetMap id or "extra/…"). */
+    businessId: string;
   };
 };
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { realTownFor } from "@/lib/markets";
 import { profileQuery, type Profile } from "@/lib/profile";
 import { AppSidebar } from "./app-sidebar";
+import { FeedbackButton } from "./message-forms";
 
 /** Sidebar plus page content for every logged-in page. Children supply their own <main>. */
 export function DashboardShell({ current, profile, children }: { current: string; profile: Profile; children: React.ReactNode }) {
@@ -23,6 +24,7 @@ export function DashboardShell({ current, profile, children }: { current: string
         />
         {children}
       </div>
+      <FeedbackButton siteId={profile.id} />
     </div>
   );
 }

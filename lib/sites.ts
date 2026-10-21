@@ -175,3 +175,36 @@ export async function pooledPrices(sector: string, place: Place | null, excludeS
 
 /** radius → item id → anonymous shared prices (only where there are enough to pool). */
 export type Pooled = Record<string, Record<string, number[]>>;
+
+export type NewMessage = {
+  kind: "contact" | "feedback" | "correction";
+  page: string | null;
+  siteId: string | null;
+  businessId: string | null;
+  itemId: string | null;
+  suggestedPrice: number | null;
+  useful: boolean | null;
+  name: string | null;
+  email: string | null;
+  body: string | null;
+};
+
+/** Saves a contact message, page feedback or price correction. Returns false if there's no database. */
+export async function saveMessage(m: NewMessage) {
+  const client = db();
+  if (!client) return false;
+  const { error } = await client.from("messages").insert({
+    kind: m.kind,
+    page: m.page,
+    site_id: m.siteId,
+    business_id: m.businessId,
+    item_id: m.itemId,
+    suggested_price: m.suggestedPrice,
+    useful: m.useful,
+    name: m.name,
+    email: m.email,
+    body: m.body,
+  });
+  if (error) throw new Error(`Couldn't save message: ${error.message}`);
+  return true;
+}

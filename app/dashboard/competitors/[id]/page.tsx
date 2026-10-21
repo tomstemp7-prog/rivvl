@@ -20,6 +20,7 @@ import { placeFor } from "@/lib/postcode";
 import { resolveProfile } from "@/lib/sites";
 import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor } from "@/lib/sectors";
+import { CorrectionForm } from "@/components/message-forms";
 import { WatchButton } from "./watch-button";
 
 type Props = {
@@ -242,6 +243,14 @@ export default async function CompetitorPage(props: Props) {
               </tbody>
             </table>
           </div>
+        )}
+        {rival.real && (
+          <CorrectionForm
+            businessId={rival.real.businessId}
+            businessName={name}
+            items={itemsFor(profile.sector).map((i) => ({ id: i.id, label: i.label }))}
+            siteId={profile.id}
+          />
         )}
         {rival.real && (
           <p className="m-0 text-[13px] text-muted">

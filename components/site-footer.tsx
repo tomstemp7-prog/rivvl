@@ -10,6 +10,7 @@ export function SiteFooter() {
           <Link href="/pricing" className="hover:text-ink">Pricing</Link>
           <Link href="/#how" className="hover:text-ink">How it works</Link>
           <Link href="/privacy" className="hover:text-ink">Privacy</Link>
+          <Link href="/terms" className="hover:text-ink">Trial terms</Link>
           <Link href="/contact" className="hover:text-ink">Contact</Link>
         </nav>
         <span>© 2026 Rivl</span>

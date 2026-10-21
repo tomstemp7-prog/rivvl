@@ -2,7 +2,7 @@
 
 import { parsePrice } from "@/lib/profile";
 import { itemsFor, RADII, SECTORS } from "@/lib/sectors";
-import { saveInterest, saveSite } from "@/lib/sites";
+import { saveInterest, saveMessage, saveSite } from "@/lib/sites";
 import { POSTCODE_SHAPE } from "@/lib/postcode";
 
 /*
@@ -66,6 +66,44 @@ export async function submitInterest(form: FormData): Promise<{ ok: boolean }> {
       town: text(form.get("town"), 80) || null,
       source: text(form.get("source"), 40) || "home",
       price: priceValue !== null && priceValue < 100000 ? { itemId: itemsFor(sector)[0].id, value: priceValue } : null,
+    });
+    return { ok: true };
+  } catch (e) {
+    console.error(e);
+    return { ok: false };
+  }
+}
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Contact form, page feedback and "correct this price", all into the messages table. */
+export async function submitMessage(form: FormData): Promise<{ ok: boolean }> {
+  if (text(form.get("_gotcha"), 10)) return { ok: true }; // spam trap filled: quietly ignore
+  const kindRaw = text(form.get("kind"), 20);
+  const kind = kindRaw === "contact" || kindRaw === "feedback" || kindRaw === "correction" ? kindRaw : null;
+  if (!kind) return { ok: false };
+  const email = text(form.get("email"), 200);
+  const body = text(form.get("body"), 4000);
+  const usefulRaw = text(form.get("useful"), 5);
+  const site = text(form.get("site"), 40);
+  const price = parsePrice(text(form.get("suggested_price"), 20));
+  // Contact needs a way to reply and something to say; corrections need a description; feedback needs a rating or a comment.
+  if (email && !EMAIL.test(email)) return { ok: false };
+  if (kind === "contact" && (!email || !body)) return { ok: false };
+  if (kind === "correction" && !body && price === null) return { ok: false };
+  if (kind === "feedback" && !body && !usefulRaw) return { ok: false };
+  try {
+    await saveMessage({
+      kind,
+      page: text(form.get("page"), 200) || null,
+      siteId: UUID.test(site) ? site : null,
+      businessId: text(form.get("business_id"), 80) || null,
+      itemId: text(form.get("item_id"), 40) || null,
+      suggestedPrice: price !== null && price < 100000 ? price : null,
+      useful: usefulRaw === "yes" ? true : usefulRaw === "no" ? false : null,
+      name: text(form.get("name"), 120) || null,
+      email: email || null,
+      body: body || null,
     });
     return { ok: true };
   } catch (e) {

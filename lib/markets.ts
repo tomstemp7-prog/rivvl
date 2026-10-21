@@ -76,7 +76,7 @@ function realRivals(town: TownData, sector: string, place: { lat: number; lng: n
         firstSeen: (price?.checked ?? town.fetched).slice(0, 7),
         source: "public website",
         checked: price?.checked ?? town.fetched,
-        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat, fromOsm: !b.osm.startsWith("extra/"), researched: !!price },
+        real: { address: b.address, website: b.website, priceUrl: price?.url, priceNote: price?.note, caveat: price?.caveat, fromOsm: !b.osm.startsWith("extra/"), researched: !!price, businessId: b.osm },
       };
     })
     .filter((r) => r.miles <= 10)
