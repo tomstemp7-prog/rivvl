@@ -6,8 +6,8 @@ const NAV = [
   { href: "/#how", label: "How it works" },
   { href: "/#sectors", label: "Sectors" },
   { href: "/pricing", label: "Pricing" },
-  // "See the demo" until logins go live (NEXT_PUBLIC_LOGIN_LIVE=1, once email is set up).
-  loginLive ? { href: "/login", label: "Log in" } : { href: "/dashboard", label: "See the demo" },
+  // "Local insights" until logins go live (NEXT_PUBLIC_LOGIN_LIVE=1, once email is set up).
+  loginLive ? { href: "/login", label: "Log in" } : { href: "/dashboard", label: "Local insights" },
 ];
 
 export function SiteHeader({ current }: { current?: string }) {
