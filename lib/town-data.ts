@@ -32,6 +32,8 @@ export type TownBusiness = Business & {
 export type TownData = {
   name: string;
   centre: { lat: number; lng: number };
+  /** How far from the centre the business list reaches; beyond it, counts are incomplete. */
+  coverageMiles: number;
   /** When the business list was taken from its source. */
   fetched: string;
   attribution: string;
@@ -54,7 +56,7 @@ const NOTES: Record<string, string | undefined> = {
 
 /** Town details the database doesn't hold (map centre, data credit). */
 const TOWN_META = {
-  Maidenhead: { centre: { lat: maidenhead.town.lat, lng: maidenhead.town.lng }, attribution: maidenhead.attribution },
+  Maidenhead: { centre: { lat: maidenhead.town.lat, lng: maidenhead.town.lng }, coverageMiles: maidenhead.radiusMiles, attribution: maidenhead.attribution },
 };
 
 /** The town as the code files describe it: the fallback, and the source the database was seeded from. */

@@ -50,7 +50,8 @@ export async function lookupPostcode(raw: string, init?: RequestInit): Promise<L
         postcode: r.postcode,
         lat: r.latitude,
         lng: r.longitude,
-        district: r.bua ?? r.admin_district ?? r.region ?? r.country ?? "",
+        // Built-up area names can repeat themselves, e.g. "Leeds (Leeds)".
+        district: (r.bua ?? r.admin_district ?? r.region ?? r.country ?? "").replace(/^(.+) \(\1\)$/, "$1"),
         ward: r.admin_ward ?? "",
         region: r.region ?? r.country ?? "",
       },

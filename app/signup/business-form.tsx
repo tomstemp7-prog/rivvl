@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { rivalsWithin } from "@/lib/mock-market";
 import { lookupPostcode, normalisePostcode, POSTCODE_SHAPE, type Lookup } from "@/lib/postcode";
 import { profileQuery, type Profile } from "@/lib/profile";
 import { launchedTownFor } from "@/lib/towns";
@@ -57,8 +56,9 @@ export function BusinessForm({ initial, demo = false }: { initial: Profile; demo
       : submitted && !shaped
         ? "Enter a full UK postcode, like SL6 7AA"
         : null;
-  // Launched towns count real businesses, so ask the server; fall back to the sample count meanwhile.
-  const [nearby, setNearby] = useState<{ key: string; count: number } | null>(null);
+  // Launched towns count real businesses on the server; elsewhere there's no count, as the dashboard shows sample data.
+  type Nearby = { key: string; real: boolean; count: number | null; partial: boolean };
+  const [nearby, setNearby] = useState<Nearby | null>(null);
   const nearbyKey = place ? `${place.postcode}|${sector}|${radius}` : "";
   useEffect(() => {
     if (!nearbyKey) return;
@@ -66,11 +66,11 @@ export function BusinessForm({ initial, demo = false }: { initial: Profile; demo
     const controller = new AbortController();
     fetch(`/api/nearby?${new URLSearchParams({ postcode: pc, sector: sec, radius: rad })}`, { signal: controller.signal })
       .then((res) => res.json())
-      .then((data: { count: number }) => setNearby({ key: nearbyKey, count: data.count }))
+      .then((data: Omit<Nearby, "key">) => setNearby({ key: nearbyKey, ...data }))
       .catch(() => {});
     return () => controller.abort();
   }, [nearbyKey]);
-  const found = nearby?.key === nearbyKey ? nearby.count : rivalsWithin(radius).length;
+  const counted = nearby?.key === nearbyKey ? nearby : null;
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -144,11 +144,15 @@ export function BusinessForm({ initial, demo = false }: { initial: Profile; demo
         </svg>
         <p className="m-0 text-base font-semibold text-data-dark">
           {place
-            ? `We found ${found} ${pluralFor(sector)} within ${radius} of ${place.postcode}, ${place.district}.`
+            ? !counted
+              ? `Counting ${pluralFor(sector)} near ${place.postcode}…`
+              : counted.real
+                ? `We found ${counted.partial ? "at least " : ""}${counted.count} ${counted.count === 1 ? sector.toLowerCase() : pluralFor(sector)} within ${radius} of ${place.postcode}, ${place.district}.`
+                : `Rivl isn’t live in ${place.district || "your area"} yet, so your dashboard will show sample prices for now.`
             : checking
               ? "Checking your postcode…"
               : shaped && current?.status === "unavailable"
-                ? `We found ${found} ${pluralFor(sector)} within ${radius} of ${normalised}.`
+                ? `We couldn’t check ${normalised} just now. You can carry on.`
                 : `Enter your postcode to see how many ${pluralFor(sector)} are within ${radius}.`}
         </p>
       </div>
