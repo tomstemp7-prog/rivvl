@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitInterest } from "@/app/actions";
 import { parsePrice } from "@/lib/profile";
 import { itemsFor, SECTORS } from "@/lib/sectors";
 
@@ -44,19 +45,22 @@ export function WaitlistForm({ initial = {}, source = "home", town }: Props) {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    // Make the shared price readable in the Formspree inbox.
+    // The database gets the raw price; the Formspree email gets a readable one.
+    data.set("price_raw", price);
+    if (town) data.set("town", town);
     data.delete("price");
     if (priceValue !== null) data.set("price", `£${priceValue.toFixed(2)} ${item.per} (${item.label})`);
     data.set("source", source);
     data.set("_subject", `Rivl interest: ${data.get("business")}${town ? ` in ${town}` : ""}`);
 
     setStatus("sending");
-    try {
-      const res = await fetch(ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
-      setStatus(res.ok ? "done" : "error");
-    } catch {
-      setStatus("error");
-    }
+    // Save to Rivl's database and email the team; either one succeeding counts.
+    const [saved, emailed] = await Promise.allSettled([
+      submitInterest(data),
+      fetch(ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } }),
+    ]);
+    const ok = (saved.status === "fulfilled" && saved.value.ok) || (emailed.status === "fulfilled" && emailed.value.ok);
+    setStatus(ok ? "done" : "error");
   }
 
   if (status === "done") {

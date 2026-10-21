@@ -5,13 +5,14 @@ import { LimitedBanner } from "@/components/limited-banner";
 import { marketFor } from "@/lib/markets";
 import { MOCK_UPDATED, radiusMiles, rivalName, SEGMENT_LABELS } from "@/lib/mock-market";
 import { areaLabel, placeFor } from "@/lib/postcode";
-import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
+import { resolveProfile } from "@/lib/sites";
+import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 
 export const metadata: Metadata = { title: "Competitors · Rivl" };
 
 export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const profile = profileOrDemo(await searchParams);
+  const profile = await resolveProfile(await searchParams);
   const query = profileQuery(profile);
   const place = await placeFor(profile.postcode);
   const limited = !profile.shared;

@@ -54,7 +54,10 @@ function layoutPins(pins: { x: number; y: number; label: string }[]) {
   return pts;
 }
 
-export function MarketView({ profile, place, market }: { profile: Profile; place: Place | null; market: Market }) {
+/** radius → item id → anonymous owner-shared prices, only where enough exist to pool (see lib/sites.ts). */
+type Pooled = Record<string, Record<string, number[]>>;
+
+export function MarketView({ profile, place, market, pooled = {} }: { profile: Profile; place: Place | null; market: Market; pooled?: Pooled }) {
   const items = itemsFor(profile.sector);
   const [itemId, setItemId] = useState(items[0].id);
   const [radius, setRadius] = useState(profile.radius);
@@ -106,7 +109,9 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
   }
   entries.sort((a, b) => a.price - b.price);
 
-  const areaMedian = median(entries.map((e) => e.price));
+  // Owner-shared prices count toward the median but never appear as entries.
+  const shared = pooled[radius]?.[item.id] ?? [];
+  const areaMedian = median([...entries.map((e) => e.price), ...shared]);
   const position = entries.findIndex((e) => e.you) + 1;
   const diff = yourPrice !== null && areaMedian !== null ? yourPrice - areaMedian : null;
   // Price rises and new openings both count as market changes.
@@ -232,10 +237,12 @@ export function MarketView({ profile, place, market }: { profile: Profile; place
           )}
         </div>
         <div className={statCard}>
-          <span className={statLabel}>Area median</span>
+          <span className={statLabel}>
+            Area median{shared.length > 0 && <span className="font-normal"> · incl. {shared.length} shared privately</span>}
+          </span>
           <span className={statValue}>{areaMedian !== null ? formatPrice(areaMedian) : "—"}</span>
           {diff === null ? (
-            <span className="text-[13px] text-muted">{entries.length} prices in range</span>
+            <span className="text-[13px] text-muted">{entries.length + shared.length} prices in range</span>
           ) : diff === 0 ? (
             <span className="text-[13px] font-bold text-data-dark">You’re right on the median</span>
           ) : (

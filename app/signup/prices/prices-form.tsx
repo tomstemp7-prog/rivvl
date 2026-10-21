@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { submitSignup } from "@/app/actions";
 import { parsePrice, profileQuery, type Profile } from "@/lib/profile";
 import type { PriceItem } from "@/lib/sectors";
 
@@ -20,6 +21,9 @@ export function PricesForm({ profile, items }: { profile: Profile; items: PriceI
   const [custom, setCustom] = useState<CustomItem[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const invalid = (raw: string) => raw.trim() !== "" && parsePrice(raw) === null;
   const parsed = Object.fromEntries(
@@ -31,15 +35,29 @@ export function PricesForm({ profile, items }: { profile: Profile; items: PriceI
   const anyEntered = Object.keys(parsed).length > 0 || custom.some((c) => parsePrice(c.price) !== null);
   const anyInvalid = items.some((i) => invalid(prices[i.id])) || custom.some((c) => invalid(c.price));
   const needsConfirm = submitted && anyEntered && !confirmed;
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
   const base = { name: profile.name, sector: profile.sector, postcode: profile.postcode, radius: profile.radius };
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
-    if (anyInvalid || !anyEntered || !confirmed) return;
-    // Custom items aren't benchmarked yet, so only the standard items go to the dashboard.
-    router.push(`/dashboard?${profileQuery({ ...base, shared: true, prices: parsed })}`);
+    if (anyInvalid || !anyEntered || !confirmed || !emailValid || saving) return;
+    setSaving(true);
+    setSaveError(null);
+    // Custom items are saved, but only the standard items are benchmarked for now.
+    const extras = custom.flatMap((c) => {
+      const n = parsePrice(c.price);
+      return c.label.trim() && n !== null ? [{ label: c.label.trim(), price: n }] : [];
+    });
+    const result = await submitSignup({ ...base, email: email.trim(), prices: parsed, extras });
+    if ("error" in result) {
+      setSaving(false);
+      setSaveError(`${result.error} Please try again in a moment.`);
+      return;
+    }
+    // Saved: the dashboard link carries a private id. No database (e.g. local dev): keep the details in the link.
+    router.push(`/dashboard?${result.id ? `site=${result.id}` : profileQuery({ ...base, shared: true, prices: parsed })}`);
   }
 
   return (
@@ -135,6 +153,22 @@ export function PricesForm({ profile, items }: { profile: Profile; items: PriceI
         + Add another price item
       </button>
 
+      <label className="flex max-w-md flex-col gap-2 text-[15px] font-bold">
+        Email
+        <input
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          aria-invalid={submitted && !emailValid}
+          aria-describedby="email-help"
+          className="min-w-0 rounded-[10px] border-[1.5px] border-line-strong bg-white px-3.5 py-3 text-[17px] font-medium text-ink aria-invalid:border-accent-dark"
+        />
+        <span id="email-help" className="text-sm font-normal text-muted">
+          For your monthly report. We never share it.
+        </span>
+      </label>
+
       <label className="flex items-start gap-3 text-[15px] leading-normal text-body-strong">
         <input
           type="checkbox"
@@ -147,22 +181,27 @@ export function PricesForm({ profile, items }: { profile: Profile; items: PriceI
         averages.
       </label>
 
-      {submitted && (anyInvalid || !anyEntered || needsConfirm) && (
+      {submitted && (anyInvalid || !anyEntered || needsConfirm || !emailValid || saveError) && (
         <p role="alert" className="m-0 rounded-xl bg-accent-tint px-4 py-3 text-[15px] font-semibold text-accent-dark">
           {anyInvalid
             ? "Check the highlighted prices: use numbers like 39 or £39.00."
             : !anyEntered
               ? "Enter at least one price, or skip for now to see a limited view."
-              : "Tick the box to confirm these are your current published prices."}
+              : !emailValid
+                ? "Enter your email so we can send your monthly report."
+                : needsConfirm
+                  ? "Tick the box to confirm these are your current published prices."
+                  : saveError}
         </p>
       )}
 
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="flex min-h-[54px] cursor-pointer items-center justify-center rounded-[14px] bg-ink px-8 text-base font-bold text-paper hover:bg-ink-3"
+          disabled={saving}
+          className="flex min-h-[54px] cursor-pointer items-center justify-center rounded-[14px] bg-ink px-8 text-base font-bold text-paper hover:bg-ink-3 disabled:cursor-default disabled:opacity-60"
         >
-          Show my local market
+          {saving ? "Saving…" : "Show my local market"}
         </button>
         <Link href={`/dashboard?${profileQuery({ ...base, shared: false })}`} className="text-base font-semibold text-body underline hover:text-ink">
           Skip for now (limited view)

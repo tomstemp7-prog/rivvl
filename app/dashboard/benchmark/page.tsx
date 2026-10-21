@@ -4,7 +4,8 @@ import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
 import { hasPrices, marketFor } from "@/lib/markets";
 import { median, MOCK_TODAY, rivalsWithin } from "@/lib/mock-market";
 import { areaLabel, placeFor } from "@/lib/postcode";
-import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
+import { pooledPrices, resolveProfile } from "@/lib/sites";
+import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 
 export const metadata: Metadata = { title: "Benchmark · Rivl" };
@@ -16,18 +17,20 @@ const pos = (v: number, lo: number, hi: number) => `${hi === lo ? 50 : (((v - lo
 const DAY = 24 * 60 * 60 * 1000;
 
 export default async function BenchmarkPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const profile = profileOrDemo(await searchParams);
+  const profile = await resolveProfile(await searchParams);
   const query = profileQuery(profile);
   const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
   const market = marketFor(profile.sector, profile.postcode, place);
   const rivals = rivalsWithin(profile.radius, market.rivals);
+  // Owner-shared prices join the low/median/high only once enough exist nearby (lib/sites.ts).
+  const pooled = profile.shared ? ((await pooledPrices(profile.sector, place, profile.id))[profile.radius] ?? {}) : {};
   const plural = pluralFor(profile.sector);
 
   const rows = itemsFor(profile.sector)
     .map((item) => {
       const you = limited ? null : (profile.prices[item.id] ?? null);
-      const values = rivals.map((r) => r.prices[item.id]).filter((p) => p !== undefined);
+      const values = [...rivals.map((r) => r.prices[item.id]).filter((p) => p !== undefined), ...(pooled[item.id] ?? [])];
       // An item needs at least one rival's price to benchmark against.
       if (!values.length) return null;
       if (you !== null) values.push(you);

@@ -6,6 +6,8 @@ import { RADII, SECTORS } from "./sectors";
  * params until there's a real backend. Prices use `p_<itemId>` keys.
  */
 export type Profile = {
+  /** Set once the sign-up is saved: links then carry `site=<id>` instead of the whole profile. */
+  id?: string;
   name: string;
   sector: string;
   postcode: string;
@@ -45,6 +47,10 @@ export function profileOrDemo(params: Params): Profile {
 
 export function profileQuery(p: Partial<Profile>) {
   const q = new URLSearchParams();
+  if (p.id) {
+    q.set("site", p.id);
+    return q.toString();
+  }
   if (p.name) q.set("name", p.name);
   if (p.sector) q.set("sector", p.sector);
   if (p.postcode) q.set("postcode", p.postcode);

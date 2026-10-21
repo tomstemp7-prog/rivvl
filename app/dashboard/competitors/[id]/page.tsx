@@ -17,7 +17,8 @@ import {
 } from "@/lib/mock-market";
 import { marketFor } from "@/lib/markets";
 import { placeFor } from "@/lib/postcode";
-import { formatPrice, profileOrDemo, profileQuery } from "@/lib/profile";
+import { resolveProfile } from "@/lib/sites";
+import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor } from "@/lib/sectors";
 import { WatchButton } from "./watch-button";
 
@@ -31,7 +32,7 @@ const panel = "flex min-w-0 flex-col gap-4 rounded-[22px] border border-line bg-
 
 /** Finds the rival in the profile's own market (real businesses in launched towns, sample data elsewhere). */
 async function load({ params, searchParams }: Props) {
-  const profile = profileOrDemo(await searchParams);
+  const profile = await resolveProfile(await searchParams);
   const place = await placeFor(profile.postcode);
   const market = marketFor(profile.sector, profile.postcode, place);
   const id = (await params).id;

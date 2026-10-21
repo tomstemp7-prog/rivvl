@@ -21,13 +21,14 @@ Local pricing intelligence for UK small businesses (gyms, salons, barbers, café
 | Business lists | OpenStreetMap snapshot via the Overpass API | `scripts/fetch-osm-businesses.mjs` writes `lib/data/maidenhead-businesses.json` |
 | Waitlist | Formspree form `xppqgrdo` | Free plan: 50 submissions a month. Endpoint is in `components/waitlist-form.tsx` |
 | Analytics | Vercel Web Analytics (`@vercel/analytics`) | Cookieless; see the Analytics tab in Vercel |
+| Database | Supabase Postgres (London), connected through Vercel → Storage | Tables `sites`, `shared_prices`, `interest` (`supabase/migrations/0001_init.sql`). RLS on with no policies: only the server's secret key can read/write. Keys are Vercel “Sensitive” variables, so they can’t be pulled to a laptop; without them the site runs URL-only and skips saving |
 | Updates | Dependabot (`.github/dependabot.yml`) | Weekly npm PRs; security alerts and fixes enabled on the repo |
 
 Running cost today: £0 (all free tiers, no domain yet).
 
 ## How the app works
 
-There is **no database and no login**. Three kinds of data:
+There is **no login yet**. A Supabase database stores what businesses enter (see “Database” below). Three kinds of data:
 
 1. **The owner's profile** travels in the URL query string: `name`, `sector`, `postcode`, `radius`, `shared` (1 = shared prices), and prices as `p_<itemId>`. See `lib/profile.ts` (`parseProfile`, `profileQuery`, `profileOrDemo`). Dashboard pages without a `name` fall back to `DEMO_PROFILE` in `lib/mock-market.ts`: the fictional Iron & Oak Fitness at SL6 7AA (Maidenhead).
 2. **Market data** ships inside the code:
@@ -51,6 +52,15 @@ Sectors, their comparable price items and billing units ("per month", "per appoi
 | `/api/nearby` | `app/api/nearby/route.ts` |
 
 All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / early preview" strip). The limited view (`shared=0`) anonymises rivals as "Gym A", "Gym B"… via `rivalName()`.
+
+## Database
+
+- `app/actions.ts`: server functions behind the forms (`submitSignup`, `submitInterest`); every field is validated server-side.
+- `lib/sites.ts`: saving sites, shared prices and interest; `resolveProfile` (dashboard pages load `?site=<uuid>`, else URL details, else the demo); `pooledPrices` (owner-shared prices join area medians only when at least `MIN_SHARED_PRICES` = 5 exist for that item within the radius, and only anonymous lists leave the server).
+- `lib/db.ts`: server-only Supabase client; returns null when keys are missing so local dev still works.
+- Sign-up step 2 saves the business, contact email, prices and extra items, then sends the owner to `/dashboard?site=<id>`. Register interest saves to `interest` (and a consented headline price to `shared_prices`) and still emails via Formspree.
+- Browse data in Supabase → Table Editor (open from Vercel → rivl-site → Storage). New schema changes: add `supabase/migrations/000N_*.sql` and run it in Supabase’s SQL Editor.
+- Anyone with a `?site=` link can view that dashboard until logins exist.
 
 ## Data rules (keep these)
 

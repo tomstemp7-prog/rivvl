@@ -17,7 +17,8 @@ import {
   type Rival,
 } from "@/lib/mock-market";
 import { areaLabel, placeFor, type Place } from "@/lib/postcode";
-import { formatPrice, profileOrDemo, profileQuery, type Profile } from "@/lib/profile";
+import { resolveProfile } from "@/lib/sites";
+import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 import { ReportView, type ReportData } from "./report-view";
 
@@ -132,7 +133,7 @@ function buildReport(report: Report, profile: Profile, place: Place | null, mark
 }
 
 export default async function ReportsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const profile = profileOrDemo(await searchParams);
+  const profile = await resolveProfile(await searchParams);
   const place = await placeFor(profile.postcode);
   const market = marketFor(profile.sector, profile.postcode, place);
 
