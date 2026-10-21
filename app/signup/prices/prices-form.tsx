@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { submitSignup } from "@/app/actions";
+import { BUILD_MS, BuildingScreen, type Fact } from "@/components/building-screen";
 import { parsePrice, profileQuery, type Profile } from "@/lib/profile";
 import type { PriceItem } from "@/lib/sectors";
 
@@ -13,7 +14,7 @@ const priceInput =
   "min-w-0 rounded-[10px] border-[1.5px] border-line-strong bg-white px-3.5 py-3 text-[17px] font-semibold text-ink aria-invalid:border-accent-dark";
 const row = "grid grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-center gap-4 border-t border-line px-4 py-4.5 sm:px-6";
 
-export function PricesForm({ profile, items }: { profile: Profile; items: PriceItem[] }) {
+export function PricesForm({ profile, items, facts, plural }: { profile: Profile; items: PriceItem[]; facts: Fact[]; plural: string }) {
   const router = useRouter();
   const [prices, setPrices] = useState<Record<string, string>>(() =>
     Object.fromEntries(items.map((i) => [i.id, i.id in profile.prices ? `£${profile.prices[i.id].toFixed(2)}` : ""])),
@@ -50,18 +51,32 @@ export function PricesForm({ profile, items }: { profile: Profile; items: PriceI
       const n = parsePrice(c.price);
       return c.label.trim() && n !== null ? [{ label: c.label.trim(), price: n }] : [];
     });
+    // The building screen stays up for a few seconds even when saving is quicker; an error closes it at once.
+    const minimum = new Promise((r) => setTimeout(r, BUILD_MS));
     const result = await submitSignup({ ...base, email: email.trim(), prices: parsed, extras });
     if ("error" in result) {
       setSaving(false);
       setSaveError(`${result.error} Please try again in a moment.`);
       return;
     }
+    await minimum;
     // Saved: the dashboard link carries a private id. No database (e.g. local dev): keep the details in the link.
     router.push(`/dashboard?${result.id ? `site=${result.id}` : profileQuery({ ...base, shared: true, prices: parsed })}`);
   }
 
   return (
     <form onSubmit={onSubmit} noValidate className="flex flex-col gap-8">
+      {saving && (
+        <BuildingScreen
+          facts={facts}
+          steps={[
+            `Finding ${plural} within ${profile.radius} of ${profile.postcode}`,
+            "Matching prices like for like",
+            "Placing you against the area median",
+            "Drawing your market map",
+          ]}
+        />
+      )}
       <div role="group" aria-label="How to add prices" className="flex flex-wrap gap-2.5">
         <button
           type="button"

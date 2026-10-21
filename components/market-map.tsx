@@ -46,7 +46,7 @@ function position(p: MapPin, center: Props["center"]): [number, number] {
   return [center.lng + east / (MILES_PER_DEG * Math.cos((center.lat * Math.PI) / 180)), center.lat + north / MILES_PER_DEG];
 }
 
-function circle(center: Props["center"], miles: number): GeoJSON.Feature<GeoJSON.Polygon> {
+export function circle(center: Props["center"], miles: number): GeoJSON.Feature<GeoJSON.Polygon> {
   const ring: [number, number][] = [];
   for (let i = 0; i <= 96; i++) {
     const a = (i / 96) * 2 * Math.PI;
@@ -59,7 +59,7 @@ function circle(center: Props["center"], miles: number): GeoJSON.Feature<GeoJSON
 }
 
 /** A stretchable rounded "pill" for price labels, drawn once on a canvas. */
-function pill(fill: string, stroke: string) {
+export function pill(fill: string, stroke: string) {
   const w = 64, h = 48, r = 20;
   const canvas = document.createElement("canvas");
   canvas.width = w;

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CompareBar } from "@/components/compare-bar";
 import { dashboardMain, DashboardShell } from "@/components/dashboard-shell";
 import { hasPrices, marketFor } from "@/lib/markets";
 import { median, MOCK_TODAY, rivalsWithin } from "@/lib/mock-market";
 import { areaLabel, placeFor } from "@/lib/postcode";
 import { pooledPrices, resolveProfile } from "@/lib/sites";
 import { formatPrice, profileQuery } from "@/lib/profile";
-import { itemsFor, pluralFor } from "@/lib/sectors";
+import { itemsFor, pluralFor, RADII } from "@/lib/sectors";
 
 export const metadata: Metadata = { title: "Benchmark · Rivl" };
 
@@ -17,18 +18,23 @@ const pos = (v: number, lo: number, hi: number) => `${hi === lo ? 50 : (((v - lo
 const DAY = 24 * 60 * 60 * 1000;
 
 export default async function BenchmarkPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const profile = await resolveProfile(await searchParams);
+  const params = await searchParams;
+  const profile = await resolveProfile(params);
   const query = profileQuery(profile);
+  // The bar at the top switches distance and service without changing the saved profile.
+  const radius = (RADII as readonly string[]).includes(String(params.within)) ? String(params.within) : profile.radius;
+  const service = itemsFor(profile.sector).some((i) => i.id === params.service) ? String(params.service) : "all";
+  const view = (within: string, svc: string) => `/dashboard/benchmark?${query}&within=${encodeURIComponent(within)}${svc === "all" ? "" : `&service=${svc}`}`;
   const place = await placeFor(profile.postcode);
   const limited = !profile.shared;
   const market = await marketFor(profile.sector, profile.postcode, place);
-  const rivals = rivalsWithin(profile.radius, market.rivals);
+  const rivals = rivalsWithin(radius, market.rivals);
   // Owner-shared prices join the low/median/high only in real markets (never the sample data), and only
   // once enough exist nearby (lib/sites.ts).
-  const pooled = profile.shared && market.real ? ((await pooledPrices(profile.sector, place, profile.id))[profile.radius] ?? {}) : {};
+  const pooled = profile.shared && market.real ? ((await pooledPrices(profile.sector, place, profile.id))[radius] ?? {}) : {};
   const plural = pluralFor(profile.sector);
 
-  const rows = itemsFor(profile.sector)
+  const allRows = itemsFor(profile.sector)
     .map((item) => {
       const you = limited ? null : (profile.prices[item.id] ?? null);
       const values = [...rivals.map((r) => r.prices[item.id]).filter((p) => p !== undefined), ...(pooled[item.id] ?? [])];
@@ -39,6 +45,9 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
       return { ...item, you, low: Math.min(...values), high: Math.max(...values), med, diff: you === null ? null : you - med };
     })
     .filter((r) => r !== null);
+  // A service with no prices at this distance falls back to all of them.
+  const shown = allRows.some((r) => r.id === service) ? service : "all";
+  const rows = shown === "all" ? allRows : allRows.filter((r) => r.id === shown);
 
   const compared = rows.filter((r) => r.diff !== null);
   const below = compared.filter((r) => r.diff! < 0).length;
@@ -54,7 +63,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
   const present = clauses.filter(([n]) => n > 0);
   const parts = present.map(([n, full, short], i) => {
     if (i > 0) return `${short} on ${present.length === 2 && n === 1 ? "the other" : n}`;
-    return n === compared.length ? `${full} on all ${n} items` : `${full} on ${n} of ${compared.length} items`;
+    return n === compared.length ? (n === 1 ? `${full}` : `${full} on all ${n} items`) : `${full} on ${n} of ${compared.length} items`;
   });
   const summary = parts.length ? `You’re ${parts.slice(0, -1).join(", ")}${parts.length > 1 ? " and " : ""}${parts.at(-1)}.` : null;
 
@@ -66,11 +75,22 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            {rivals.length} {plural} within {profile.radius} of {areaLabel(profile.postcode, place)} ·{" "}
+            {rivals.length} {plural} within {radius} of {areaLabel(profile.postcode, place)} ·{" "}
             {market.real ? `real ${market.town} prices` : "illustrative data"}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Where you sit</h1>
         </div>
+
+        <CompareBar
+          groups={[
+            { label: "Distance", options: RADII.map((r) => ({ value: r, label: r, href: view(r, shown) })), value: radius },
+            {
+              label: "Service",
+              options: [{ value: "all", label: "All", href: view(radius, "all") }, ...allRows.map((i) => ({ value: i.id, label: i.short, href: view(radius, i.id) }))],
+              value: shown,
+            },
+          ]}
+        />
 
         <div className="flex flex-wrap items-center justify-between gap-6 rounded-[22px] bg-ink px-6 py-7 text-paper sm:px-8">
           <div className="flex max-w-[640px] flex-col gap-2">

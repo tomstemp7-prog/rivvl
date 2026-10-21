@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Market } from "@/lib/markets";
 import { median, MOCK_UPDATED, monthName, radiusMiles, rivalName, rivalsWithin, type Rival } from "@/lib/mock-market";
+import { CompareBar } from "@/components/compare-bar";
 import { MarketMap, type MapPin } from "@/components/market-map";
 import { areaLabel, type Place } from "@/lib/postcode";
 import { formatPrice, profileQuery, type Profile } from "@/lib/profile";
 import { itemsFor, pluralFor, RADII } from "@/lib/sectors";
 
-const select =
-  "min-h-11 w-full max-w-full rounded-[10px] border-[1.5px] border-line-strong bg-surface px-3 text-[15px] font-semibold text-ink";
 const statCard = "flex flex-col gap-1.5 rounded-[18px] border border-line bg-surface px-5.5 py-5";
 const statLabel = "text-[13px] font-semibold text-muted";
 const statValue = "font-display text-[34px] font-semibold";
@@ -170,37 +169,22 @@ export function MarketView({ profile, place, market, pooled = {} }: { profile: P
 
   return (
     <main className="flex min-w-0 flex-[999_1_640px] flex-col gap-6 px-4 pt-8 pb-12 sm:px-10">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div className="flex flex-col gap-1.5">
-          <p className="m-0 text-sm font-semibold text-muted">
-            {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {areaLabel(profile.postcode, place)} ·{" "}
-            {market.real
-              ? `${anyPrices ? "prices checked" : "businesses as of"} ${new Date(latestCheck ?? market.fetched).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`
-              : `updated ${MOCK_UPDATED}`}
-          </p>
-          <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Your local market</h1>
-        </div>
-        <div className="flex max-w-full min-w-0 flex-wrap gap-2.5">
-          <label className={`flex max-w-full min-w-0 flex-col gap-1 text-xs font-bold text-muted ${anyPrices ? "" : "hidden"}`}>
-            Price item
-            <select className={select} value={itemId} onChange={(e) => setItemId(e.target.value)}>
-              {items.map((i) => (
-                <option key={i.id} value={i.id}>
-                  {i.label} ({i.per})
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-1 text-xs font-bold text-muted">
-            Radius
-            <select className={select} value={radius} onChange={(e) => setRadius(e.target.value)}>
-              {RADII.map((r) => (
-                <option key={r}>{r}</option>
-              ))}
-            </select>
-          </label>
-        </div>
+      <div className="flex flex-col gap-1.5">
+        <p className="m-0 text-sm font-semibold text-muted">
+          {plural[0].toUpperCase() + plural.slice(1)} within {radius} of {areaLabel(profile.postcode, place)} ·{" "}
+          {market.real
+            ? `${anyPrices ? "prices checked" : "businesses as of"} ${new Date(latestCheck ?? market.fetched).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`
+            : `updated ${MOCK_UPDATED}`}
+        </p>
+        <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Your local market</h1>
       </div>
+
+      <CompareBar
+        groups={[
+          { label: "Distance", options: RADII.map((r) => ({ value: r, label: r })), value: radius, onChange: setRadius },
+          ...(anyPrices ? [{ label: "Service", options: items.map((i) => ({ value: i.id, label: i.short })), value: itemId, onChange: setItemId }] : []),
+        ]}
+      />
 
       {market.real && (
         <p className="m-0 rounded-2xl border border-line bg-surface px-5 py-4 text-[15px] text-body">

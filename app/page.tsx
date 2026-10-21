@@ -3,7 +3,9 @@ import Link from "next/link";
 import { SectorIcon } from "@/components/sector-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { HomeMapTour } from "@/components/home-map-tour";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { homeTour } from "@/lib/markets";
 import { SECTORS } from "@/lib/sectors";
 
 const HOME_SECTORS = SECTORS.slice(0, 5);
@@ -92,7 +94,11 @@ const MAP_PINS = [
 const h2 = "m-0 font-display text-4xl sm:text-5xl leading-[1.08] tracking-[-1.2px] font-semibold";
 const card = "flex flex-col rounded-3xl border border-line bg-surface p-8";
 
-export default function Home() {
+// The map tour reads the town's data (cached for five minutes); rebuild the page hourly.
+export const revalidate = 3600;
+
+export default async function Home() {
+  const tour = await homeTour();
   return (
     <div>
       <SiteHeader />
@@ -142,47 +148,51 @@ export default function Home() {
           <p className="m-0 text-sm text-muted">Free to start. Share your own prices to unlock more detail.</p>
         </div>
 
-        <div className="relative h-[520px] min-w-0 flex-[1_1_460px] overflow-hidden rounded-[28px] bg-ink">
-          <svg aria-hidden="true" viewBox="0 0 560 520" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
-            <path d="M-20 400 C 120 350, 220 470, 360 420 S 520 330, 600 360" stroke="#2E5BFF" strokeOpacity="0.35" strokeWidth="30" fill="none" />
-            <g stroke="#232735" strokeWidth="5" fill="none">
-              <path d="M0 250 L560 230" />
-              <path d="M190 0 L215 520" />
-              <path d="M400 0 L385 520" />
-            </g>
-            <g stroke="#2B2F3D" strokeWidth="14" fill="none" strokeLinecap="round">
-              <path d="M70 0 L130 520" />
-              <path d="M0 160 L560 120" />
-              <path d="M0 330 L560 300" />
-              <path d="M300 0 L280 520" />
-              <path d="M490 0 L520 520" />
-            </g>
-            <circle cx="290" cy="270" r="150" fill="#2E5BFF" fillOpacity="0.08" stroke="#2E5BFF" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="8 8" />
-            <g fill="#FF6A3D" stroke="#12141C" strokeWidth="3">
-              <circle cx="160" cy="200" r="10" />
-              <circle cx="390" cy="170" r="10" />
-              <circle cx="230" cy="380" r="10" />
-              <circle cx="420" cy="330" r="10" />
-              <circle cx="340" cy="420" r="10" />
-            </g>
-            <circle cx="290" cy="270" r="14" fill="#2E5BFF" stroke="#F6F3EC" strokeWidth="4" />
-          </svg>
-          {MAP_PINS.map((p) => (
-            <p key={p.price} className="absolute m-0 rounded-[10px] bg-paper px-3 py-1.5 text-[15px] font-bold" style={{ left: p.left, top: p.top }}>
-              {p.price}
+        {tour?.stops.length ? (
+          <HomeMapTour town={tour.town} centre={tour.centre} miles={tour.miles} stops={tour.stops} dots={tour.dots} />
+        ) : (
+          <div className="relative h-[520px] min-w-0 flex-[1_1_460px] overflow-hidden rounded-[28px] bg-ink">
+            <svg aria-hidden="true" viewBox="0 0 560 520" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
+              <path d="M-20 400 C 120 350, 220 470, 360 420 S 520 330, 600 360" stroke="#2E5BFF" strokeOpacity="0.35" strokeWidth="30" fill="none" />
+              <g stroke="#232735" strokeWidth="5" fill="none">
+                <path d="M0 250 L560 230" />
+                <path d="M190 0 L215 520" />
+                <path d="M400 0 L385 520" />
+              </g>
+              <g stroke="#2B2F3D" strokeWidth="14" fill="none" strokeLinecap="round">
+                <path d="M70 0 L130 520" />
+                <path d="M0 160 L560 120" />
+                <path d="M0 330 L560 300" />
+                <path d="M300 0 L280 520" />
+                <path d="M490 0 L520 520" />
+              </g>
+              <circle cx="290" cy="270" r="150" fill="#2E5BFF" fillOpacity="0.08" stroke="#2E5BFF" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="8 8" />
+              <g fill="#FF6A3D" stroke="#12141C" strokeWidth="3">
+                <circle cx="160" cy="200" r="10" />
+                <circle cx="390" cy="170" r="10" />
+                <circle cx="230" cy="380" r="10" />
+                <circle cx="420" cy="330" r="10" />
+                <circle cx="340" cy="420" r="10" />
+              </g>
+              <circle cx="290" cy="270" r="14" fill="#2E5BFF" stroke="#F6F3EC" strokeWidth="4" />
+            </svg>
+            {MAP_PINS.map((p) => (
+              <p key={p.price} className="absolute m-0 rounded-[10px] bg-paper px-3 py-1.5 text-[15px] font-bold" style={{ left: p.left, top: p.top }}>
+                {p.price}
+              </p>
+            ))}
+            <p className="absolute top-[46%] left-[49%] m-0 rounded-[10px] bg-data px-3 py-1.5 text-[15px] font-bold text-white">
+              You · £39
             </p>
-          ))}
-          <p className="absolute top-[46%] left-[49%] m-0 rounded-[10px] bg-data px-3 py-1.5 text-[15px] font-bold text-white">
-            You · £39
-          </p>
-          <div className="absolute right-5 bottom-5 left-5 flex flex-wrap items-center justify-between gap-3 rounded-[18px] bg-surface px-5 py-4.5">
-            <div className="flex flex-col gap-0.5">
-              <span className="text-[13px] font-semibold text-muted">Gyms within 3 miles · monthly membership</span>
-              <span className="font-display text-2xl font-semibold">Area median £42</span>
+            <div className="absolute right-5 bottom-5 left-5 flex flex-wrap items-center justify-between gap-3 rounded-[18px] bg-surface px-5 py-4.5">
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[13px] font-semibold text-muted">Gyms within 3 miles · monthly membership</span>
+                <span className="font-display text-2xl font-semibold">Area median £42</span>
+              </div>
+              <span className="rounded-full bg-accent-tint px-3 py-2 text-sm font-bold whitespace-nowrap text-accent-dark">You’re £3 below median</span>
             </div>
-            <span className="rounded-full bg-accent-tint px-3 py-2 text-sm font-bold whitespace-nowrap text-accent-dark">You’re £3 below median</span>
           </div>
-        </div>
+        )}
       </section>
 
       {/* Built for */}

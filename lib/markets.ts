@@ -1,4 +1,4 @@
-import { sampleRivals, type Rival } from "./mock-market";
+import { median, sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
 import { itemsFor, SECTORS } from "./sectors";
 import { loadTown, type TownData } from "./town-data";
@@ -103,3 +103,62 @@ export async function publishingStats(townName = "Maidenhead", miles = 3) {
 }
 
 export const hasPrices = (r: Rival) => Object.keys(r.prices).length > 0;
+
+export type TourStop = {
+  id: string;
+  name: string;
+  sector: string;
+  lat: number;
+  lng: number;
+  address?: string;
+  prices: { label: string; per: string; price: number; median: number | null }[];
+  /** Where the prices were read, e.g. "treatwell.co.uk". */
+  source: string | null;
+  checked: string;
+};
+
+/**
+ * The home page map tour: businesses near a launched town's centre that publish prices,
+ * across sectors (taking turns, so the tour doesn't show five gyms in a row), with each
+ * price's area median. Also the other businesses' positions, drawn as plain dots.
+ */
+export async function homeTour(townName = "Maidenhead", miles = 3) {
+  const town = await loadTown(townName);
+  if (!town) return null;
+  const bySector = SECTORS.map((s) => {
+    const nearby = realRivals(town, s.label, town.centre).filter((r) => r.miles <= miles);
+    const priced = nearby.filter(hasPrices);
+    const items = itemsFor(s.label);
+    const medians = Object.fromEntries(
+      items.map((i) => {
+        const values = priced.map((r) => r.prices[i.id]).filter((v): v is number => v != null);
+        return [i.id, values.length >= 3 ? median(values) : null];
+      }),
+    );
+    return {
+      nearby,
+      stops: priced.map((r): TourStop => {
+        let source: string | null = null;
+        try {
+          source = r.real?.priceUrl ? new URL(r.real.priceUrl).hostname.replace(/^www\./, "") : null;
+        } catch {}
+        return {
+          id: r.id,
+          name: r.name,
+          sector: s.label,
+          lat: r.lat!,
+          lng: r.lng!,
+          address: r.real?.address,
+          prices: items.filter((i) => r.prices[i.id] != null).map((i) => ({ label: i.label, per: i.per, price: r.prices[i.id], median: medians[i.id] })),
+          source,
+          checked: r.checked,
+        };
+      }),
+    };
+  });
+  const stops: TourStop[] = [];
+  for (let i = 0; bySector.some((s) => i < s.stops.length); i++) for (const s of bySector) if (s.stops[i]) stops.push(s.stops[i]);
+  const tourIds = new Set(stops.map((s) => s.id));
+  const dots = bySector.flatMap((s) => s.nearby.filter((r) => !tourIds.has(r.id)).map((r) => [r.lng!, r.lat!] as [number, number]));
+  return { town: town.name, centre: town.centre, miles, stops, dots };
+}
