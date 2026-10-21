@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SectorIcon } from "@/components/sector-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { DemoForm, DEMO_EMAIL } from "@/components/demo-form";
 import { HomeMapTour } from "@/components/home-map-tour";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { homeTour } from "@/lib/markets";
@@ -334,6 +335,30 @@ export default async function Home() {
               <p className="m-0 text-[15px] leading-normal text-body">{text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Get in touch: demo requests */}
+      <section id="demo" aria-labelledby="demo-title" className="mx-auto max-w-[1240px] scroll-mt-6 px-4 pb-26 sm:px-8">
+        <div className="flex flex-wrap items-start gap-10 rounded-[32px] bg-ink px-6 py-12 text-paper sm:px-12">
+          <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-4">
+            <p className="eyebrow text-accent">Get in touch</p>
+            <h2 id="demo-title" className="m-0 font-display text-4xl leading-[1.1] font-semibold tracking-[-1px] text-paper">
+              See Rivl for your business.
+            </h2>
+            <p className="m-0 text-[17px] leading-[1.55] text-on-dark">
+              We’ll walk you through your local market: the businesses near you, what they publish and where you sit. No obligation.
+            </p>
+            <p className="m-0 text-[15px] text-on-dark-2">
+              Or email{" "}
+              <a href={`mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Rivl demo")}`} className="font-bold text-paper underline underline-offset-2 hover:text-accent">
+                {DEMO_EMAIL}
+              </a>
+            </p>
+          </div>
+          <div className="min-w-0 flex-[1.4_1_480px] rounded-[24px] bg-surface px-5 py-7 text-ink sm:p-8">
+            <DemoForm />
+          </div>
         </div>
       </section>
 

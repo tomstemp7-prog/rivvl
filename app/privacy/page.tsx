@@ -18,7 +18,7 @@ const list = "m-0 flex flex-col gap-2 pl-5 text-[17px] leading-[1.6] text-body";
 const PROCESSORS = [
   ["Vercel", "Hosts the website and provides cookieless visit statistics", "[CONFIRM REGION]"],
   ["Supabase", "Stores sign-ups, shared prices and register-interest details", "London (UK)"],
-  ["Formspree", "Emails us register-interest sign-ups", "[CONFIRM: may be outside the UK]"],
+  ["Formspree", "Emails us register-interest sign-ups and demo requests", "[CONFIRM: may be outside the UK]"],
   ["postcodes.io", "Turns a postcode into a place and map position", "UK"],
   ["OpenFreeMap", "Supplies the street map tiles", "[CONFIRM REGION]"],
 ];
