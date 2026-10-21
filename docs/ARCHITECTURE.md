@@ -28,7 +28,7 @@ Running cost today: £0 (all free tiers, no domain yet).
 
 ## How the app works
 
-There is **no login yet**. A Supabase database stores what businesses enter (see “Database” below). Three kinds of data:
+Owners **log in with an email code** (built, switched off until email sending is set up; see “Logins” below). A Supabase database stores what businesses enter (see “Database” below). Three kinds of data:
 
 1. **The owner's profile** travels in the URL query string: `name`, `sector`, `postcode`, `radius`, `shared` (1 = shared prices), and prices as `p_<itemId>`. See `lib/profile.ts` (`parseProfile`, `profileQuery`, `profileOrDemo`). Dashboard pages without a `name` fall back to `DEMO_PROFILE` in `lib/mock-market.ts`: the fictional Iron & Oak Fitness at SL6 7AA (Maidenhead).
 2. **Market data** ships inside the code:
@@ -49,6 +49,8 @@ Sectors, their comparable price items and billing units ("per month", "per appoi
 | `/dashboard/benchmark` | `app/dashboard/benchmark/page.tsx` |
 | `/dashboard/competitors`, `/dashboard/competitors/[id]` | `app/dashboard/competitors/…` |
 | `/dashboard/reports` | `app/dashboard/reports/…` (real towns show "first report on 1 Nov 2026"; sample towns show sample reports) |
+| `/login`, `/dashboard/prices` (edit my prices) | `app/login/…`, `app/dashboard/prices/…` |
+| `/auth/callback`, `/auth/confirm` (email link landings) | `app/auth/…` |
 | `/api/nearby` | `app/api/nearby/route.ts` |
 
 All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / early preview" strip). The limited view (`shared=0`) anonymises rivals as "Gym A", "Gym B"… via `rivalName()`.
@@ -60,9 +62,29 @@ All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / earl
 - `lib/db.ts`: server-only Supabase client; returns null when keys are missing so local dev still works.
 - Sign-up step 2 saves the business, contact email, prices and extra items, then sends the owner to `/dashboard?site=<id>`. Register interest saves to `interest` (and a consented headline price to `shared_prices`) and still emails via Formspree.
 - Browse data in Supabase → Table Editor (open from Vercel → rivl-site → Storage). New schema changes: add `supabase/migrations/000N_*.sql` and run it in Supabase’s SQL Editor.
-- Anyone with a `?site=` link can view that dashboard until logins exist.
+- A `?site=` dashboard with no owner yet is viewable by anyone with the link; once an owner has claimed it, only they can open it (others are sent to `/login`).
 - `messages` (`0003_messages.sql`): contact form (`/contact`), the Feedback button on every dashboard page (useful yes/no + comment, with the page and site), and “Is a price here wrong or out of date?” on real competitors’ pages (business, item, suggested price). All via `submitMessage` in `app/actions.ts`; `handled` is for marking them dealt with in the Table Editor. Draft trial terms are at `/terms`.
 - **Real businesses and research are also in the database** (`supabase/migrations/0002_businesses.sql`): `businesses` (all 838 Maidenhead-area businesses, sector fixes applied, `comparable=false` for non-gyms OSM files as gyms), `price_checks` (one per business researched: outcome published / price_on_request / not_published / members_only, source URL, method website or booking_page, caveat) and `price_observations` (one row per price). **The site reads these tables** (via `lib/town-data.ts`); the code files are only the fallback and the seed. Rows were first built by `lib/seed-towns.ts` from those files; the import is idempotent (upserts) if you ever need to re-seed. To run it: temporarily add a preview-only route that executes the migration and upserts `maidenheadSeed()` with the `postgres` package over `POSTGRES_URL`, deploy with `vercel deploy`, call it with `vercel curl`, then delete the route and the preview (keys are Sensitive, so this runs on Vercel, not a laptop).
+
+## Logins
+
+Supabase Auth with **6-digit email codes** (no passwords), via `@supabase/ssr`.
+
+- `proxy.ts` (Next 16's name for middleware) refreshes the session cookie on `/dashboard`, `/login`, `/auth` and `/signup`.
+- `lib/auth.ts`: `currentUser()` (server only, `getClaims()`); `claimSites()` links any business whose sign-up `contact_email` matches the login email (`sites.owner_id`, migration `0004_site_owners.sql`). New sign-ups made while logged in are linked straight away.
+- `app/auth-actions.ts`: `sendLoginCode`, `verifyLoginCode`, `signOut`, `saveMyPrices` (the business is always the logged-in owner's, never taken from the form).
+- `/login` asks for the email, then the code. The email also has a one-tap link (`/auth/confirm`). Logged-in owners get "Your prices" → `/dashboard/prices` and a Log out button in the sidebar; `/dashboard` with no details opens their own business.
+- `lib/auth-config.ts`: the **switch** `NEXT_PUBLIC_LOGIN_LIVE=1` makes the header's "Log in" go to `/login` (off: it opens the demo). `/login` itself works either way, so it can be tested before switching on.
+
+### Go-live checklist (after rivl.uk and Brevo are set up)
+
+1. **Brevo SMTP** → Supabase → Authentication → Emails → SMTP Settings: host `smtp-relay.brevo.com`, port 587, the Brevo SMTP login and key, sender `hello@rivl.uk`, name "Rivl". (Supabase's built-in email only reaches members of the Supabase organisation and a few emails an hour.) Raise Authentication → Rate Limits → emails per hour to ~100.
+2. **Email templates** → same page → Templates: paste `supabase/templates/login.html` into both "Magic link" and "Confirm signup", subject `Your Rivl login code: {{ .Token }}`. Check Authentication → Sign In / Providers → Email: OTP length 6 (the login form expects 6 digits), expiry 3600 seconds.
+3. **URLs** → Authentication → URL Configuration: Site URL `https://rivl.uk`; Redirect URLs `https://rivl.uk/**`, `https://rivl-site.vercel.app/**`, `http://localhost:3000/**`.
+4. **Test** with your own email at `/login`: code arrives from hello@rivl.uk, logs in, "Your prices" saves.
+5. **Switch on**: Vercel → rivl-site → Settings → Environment Variables → add `NEXT_PUBLIC_LOGIN_LIVE` = `1` (Production), then Redeploy.
+
+Testers log in with the same email they signed up with; their business is linked automatically.
 
 ## Data rules (keep these)
 
@@ -95,7 +117,7 @@ All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / earl
 
 ## Known limits
 
-No accounts; no database; "share your prices" isn't stored or pooled; no real price history yet; prices collected by hand; free-tier ceilings (Vercel Hobby non-commercial, Formspree 50/month, OSM tile fair use); Privacy and Contact pages are still "coming soon".
+Logins switched off until email sending is set up; no real price history yet; prices collected by hand; free-tier ceilings (Vercel Hobby non-commercial, Formspree 50/month, OSM tile fair use); Privacy and Terms pages are drafts with placeholders.
 
 ## Roadmap
 
