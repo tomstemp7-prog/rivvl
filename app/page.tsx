@@ -36,7 +36,7 @@ const STEPS = [
   },
   {
     title: "See your local market",
-    text: "A map and ranked list of rivals’ prices for the same items, plus where you sit against the area low, median and high.",
+    text: "A map of the businesses near you, the prices they publish for the same items, and where you sit against the area low, median and high.",
   },
   {
     title: "Get a monthly report",
@@ -60,15 +60,15 @@ const BENCHMARK = [
 
 const DATA_POINTS = [
   ["Public prices", "Collected from websites, menus and booking pages, timestamped and mapped."],
-  ["Owner-shared prices", "Verified by the business, so the benchmark stays accurate and fresh."],
+  ["Owner-shared prices", "Shared by owners to fill the gaps where prices aren’t online. Only ever used in area averages."],
   ["Like for like", "Every price is matched to a standard item for its sector, with what’s included."],
-  ["Connect later", "Link your booking or till system so your prices update automatically."],
+  ["Coming later", "Link your booking system so your prices stay up to date without retyping them."],
 ];
 
 const FAQS = [
   [
     "Where does the data come from?",
-    "Publicly listed prices from websites, menus and booking pages, plus prices businesses choose to share with Rivl.",
+    "Prices each business publishes on its own website or booking page, with the source and date, plus prices owners choose to share with Rivl. Not every business publishes its prices, so some show as “not published”.",
   ],
   [
     "Will competitors see my prices?",
@@ -76,7 +76,7 @@ const FAQS = [
   ],
   [
     "How often is it updated?",
-    "Prices are refreshed regularly and summarised in a monthly report, with a deeper quarterly review.",
+    "We check published prices by hand for now and show the date each one was checked. We’re starting monthly re-checks and reports in November 2026.",
   ],
   [
     "Which areas do you cover?",
@@ -110,7 +110,7 @@ export default async function Home() {
             Local pricing intelligence for small businesses
           </p>
           <h1 className="m-0 font-display text-5xl leading-[1.02] font-semibold tracking-[-2px] sm:text-[68px]">
-            Know what every business on your street charges.
+            Know what businesses near you charge.
           </h1>
           <p className="m-0 max-w-[540px] text-xl leading-[1.55] text-body">
             Pick your sector, enter your postcode and see what comparable businesses nearby charge, where you sit, and
@@ -323,7 +323,7 @@ export default async function Home() {
             Share your prices, see the full picture.
           </h2>
           <p className="m-0 text-[17px] leading-[1.55] text-body">
-            Rivl starts with publicly listed prices. Add your own and you unlock named rivals, full history and your
+            Rivl starts with publicly listed prices. Add your own and you unlock named businesses, price history as it builds and your
             monthly report. Shared prices only ever appear in area averages, never against your name.
           </p>
         </div>

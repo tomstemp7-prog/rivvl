@@ -3,7 +3,7 @@ import { Logo } from "./logo";
 const STEPS = [
   { title: "Your business", hint: "Sector, postcode and catchment" },
   { title: "Your prices", hint: "Share to unlock more detail" },
-  { title: "Your local market", hint: "See every rival’s price" },
+  { title: "Your local market", hint: "See published prices near you" },
 ];
 
 type Props = {

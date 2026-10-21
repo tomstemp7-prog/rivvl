@@ -67,7 +67,7 @@ export default function PricingPage() {
           Start free. Upgrade when Rivl pays for itself.
         </h1>
         <p className="m-0 max-w-[640px] text-[19px] leading-[1.55] text-body">
-          One price rise you can back with evidence usually covers a year of Pro. Prices shown are placeholders while we
+          One well-judged price rise could cover a year of Pro. Prices shown are placeholders while we
           test them.
         </p>
       </section>
