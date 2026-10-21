@@ -26,6 +26,8 @@
   --color-data-tint: #e3e9ff;
   --color-data-light: #8fa6ff;
 
+  --animate-marquee: marquee 45s linear infinite;
+
   --font-sans: var(--font-dm-sans), "Helvetica Neue", sans-serif;
   --font-display: var(--font-space-grotesk), sans-serif;
 }
@@ -47,4 +49,10 @@
 /* Map cards (MapLibre popups) sit above the map's pins. */
 .maplibregl-popup {
   z-index: 3;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
 }

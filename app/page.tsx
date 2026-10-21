@@ -1,5 +1,6 @@
 import Form from "next/form";
 import Link from "next/link";
+import { SectorIcon } from "@/components/sector-icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -185,14 +186,33 @@ export default function Home() {
       </section>
 
       {/* Built for */}
-      <section id="sectors" className="border-y border-line bg-surface">
-        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-7 gap-y-3.5 px-4 py-7 sm:px-8">
-          <p className="eyebrow text-muted">Built for</p>
-          {SECTORS.map((s) => (
-            <span key={s.label} className="text-[17px] font-semibold">
-              {s.heading}
-            </span>
-          ))}
+      <section id="sectors" aria-labelledby="built-for" className="border-y border-line bg-surface">
+        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-6 gap-y-4 px-4 py-6 sm:flex-nowrap sm:px-8">
+          <p id="built-for" className="eyebrow flex-none text-muted">
+            Built for
+          </p>
+          {/* A ribbon that scrolls on a loop: two copies of the list slide left by half the track. Hover or focus pauses it;
+              reduced-motion users get one still, wrapped list. */}
+          <div className="group min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_40px,black_calc(100%-40px),transparent)] motion-reduce:[mask-image:none]">
+            <ul className="m-0 flex w-max animate-marquee list-none p-0 group-focus-within:[animation-play-state:paused] group-hover:[animation-play-state:paused] motion-reduce:w-auto motion-reduce:animate-none motion-reduce:flex-wrap motion-reduce:gap-y-3">
+              {[0, 1].map((copy) =>
+                SECTORS.map((s) => (
+                  <li key={`${copy}-${s.label}`} aria-hidden={copy === 1 || undefined} className={`flex-none pr-3 ${copy === 1 ? "motion-reduce:hidden" : ""}`}>
+                    <Link
+                      href={`/signup?sector=${encodeURIComponent(s.label)}`}
+                      tabIndex={copy === 1 ? -1 : undefined}
+                      className="flex items-center gap-2.5 rounded-full border border-line bg-paper py-2 pr-5 pl-2 text-[17px] font-semibold whitespace-nowrap text-ink hover:border-ink"
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-tint text-accent-dark">
+                        <SectorIcon sector={s.label} className="h-5 w-5" />
+                      </span>
+                      {s.heading}
+                    </Link>
+                  </li>
+                )),
+              )}
+            </ul>
+          </div>
         </div>
       </section>
 
