@@ -49,7 +49,7 @@ export function SignupShell({ step, doneSummary, asideCard, children }: Props) {
             );
           })}
         </ol>
-        <div className="flex-1" />
+        {/* Sits right under the steps (not pinned to the bottom), so it's seen without scrolling. */}
         <div className="flex flex-col gap-2 rounded-[20px] border border-ink-line bg-ink-2 p-6">{asideCard}</div>
       </aside>
       <main className="flex min-w-0 max-w-[860px] flex-[999_1_560px] flex-col gap-10 px-4 py-14 sm:px-16 sm:py-18">

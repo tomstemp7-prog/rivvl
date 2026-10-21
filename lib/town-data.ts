@@ -1,7 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import maidenhead from "./data/maidenhead-businesses.json";
-import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
+import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
 import { db } from "./db";
 
 /**
@@ -62,7 +62,8 @@ function fromFiles(name: string): TownData | null {
   if (name !== "Maidenhead") return null;
   const businesses = [...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b): TownBusiness => {
     const sector = MAIDENHEAD_SECTOR_FIXES[b.osm] ?? b.sector;
-    return { ...b, sector, comparable: !(sector === "Gym" && NOT_A_GYM.test(b.name)), displayName: MAIDENHEAD_PRICES[b.osm]?.name };
+    const comparable = !(sector === "Gym" && NOT_A_GYM.test(b.name)) && !MAIDENHEAD_NOT_COMPARABLE[b.osm];
+    return { ...b, sector, comparable, displayName: MAIDENHEAD_PRICES[b.osm]?.name };
   });
   return { name, ...TOWN_META.Maidenhead, fetched: maidenhead.fetched, businesses, prices: MAIDENHEAD_PRICES, from: "files" };
 }

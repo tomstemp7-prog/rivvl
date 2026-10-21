@@ -1,6 +1,6 @@
 import "server-only";
 import maidenhead from "./data/maidenhead-businesses.json";
-import { MAIDENHEAD_EXTRA, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
+import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
 import { NOT_A_GYM, type Business } from "./markets";
 
 /**
@@ -20,7 +20,7 @@ export function maidenheadSeed() {
       name: b.name,
       display_name: MAIDENHEAD_PRICES[b.osm]?.name ?? null,
       sector,
-      comparable: !(sector === "Gym" && NOT_A_GYM.test(b.name)),
+      comparable: !(sector === "Gym" && NOT_A_GYM.test(b.name)) && !MAIDENHEAD_NOT_COMPARABLE[b.osm],
       lat: b.lat,
       lng: b.lng,
       address: b.address ?? null,

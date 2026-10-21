@@ -27,6 +27,7 @@
   --color-data-light: #8fa6ff;
 
   --animate-marquee: marquee 45s linear infinite;
+  --animate-bar-grow: bar-grow 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 
   --font-sans: var(--font-dm-sans), "Helvetica Neue", sans-serif;
   --font-display: var(--font-space-grotesk), sans-serif;
@@ -54,5 +55,12 @@
 @keyframes marquee {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Bars that fill from the left when the page opens. */
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
   }
 }

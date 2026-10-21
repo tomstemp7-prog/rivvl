@@ -24,6 +24,7 @@ export type PriceRecord = {
 };
 
 const CHECKED = "2026-10-20";
+const CHECKED_21 = "2026-10-21";
 const NOT_PUBLISHED = "Not published online";
 const ON_REQUEST = "Price on request";
 
@@ -37,12 +38,44 @@ export const MAIDENHEAD_EXTRA: Business[] = [
   { osm: "extra/anytime-maidenhead", name: "Anytime Fitness Maidenhead", sector: "Gym", lat: 51.521446, lng: -0.71752, address: "Cooper Court, Maidenhead, SL6 1LF", website: "https://www.anytimefitness.com/en-gb/locations/maidenhead-south-east-uk-0439" },
 ];
 
+/** OpenStreetMap entries that aren't separate comparable businesses (e.g. duplicates), with the reason. */
+export const MAIDENHEAD_NOT_COMPARABLE: Record<string, string> = {
+  "node/11848622992": "Duplicate of node/11848513760: a second LynnNails pin 250 m away, with no sign of a second branch",
+};
+
 /** OpenStreetMap entries filed under the wrong sector. */
 export const MAIDENHEAD_SECTOR_FIXES: Record<string, string> = {
   "node/2324275993": "Hair salon", // Toni & Guy: unisex salon, tagged as men's in OSM
 };
 
 export const MAIDENHEAD_PRICES: Record<string, PriceRecord> = {
+  // Nail bars, checked 21 Oct 2026
+  "way/838578603": {
+    name: "Cookham’s Nail Bar",
+    prices: { gel_mani: 30, infills: 20, removal: 12 },
+    url: "https://www.treatwell.co.uk/place/cookhams-nail-bar/",
+    checked: CHECKED_21,
+    caveat: "Shellac/gel manicure; infills listed as “Nail Extensions - Permanent White Infills”.",
+  },
+  "node/2364995710": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/2364966132": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/2364947091": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/11848513760": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+
+  // Beauty salons, checked 21 Oct 2026
+  "way/944325151": {
+    name: "Marianna’s Hair and Beauty",
+    prices: { brow_wax: 18, lash_tint: 19, leg_wax: 50, facial: 70, massage: 70 },
+    url: "https://www.fresha.com/a/mariannas-hair-and-beauty-maidenhead-9-norfolk-road-fgj48myv",
+    checked: CHECKED_21,
+    caveat: "Facial is the 60-minute facial; massage is a 60-minute Swedish full body massage.",
+  },
+  "node/5254338663": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/2364939050": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/5147989514": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/12116542419": { prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+  "node/12062135318": { name: "MK Beauty", prices: {}, checked: CHECKED_21, note: NOT_PUBLISHED },
+
   // Barbers, checked 20 Oct 2026
   "node/2364966126": {
     prices: { haircut: 18, skin_fade: 23, beard_trim: 9.5 },
