@@ -15,6 +15,16 @@ const NAV = [
   },
   { href: "/dashboard/benchmark", label: "Benchmark", icon: <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /> },
   {
+    href: "/dashboard/calculator",
+    label: "Price rise calculator",
+    icon: (
+      <>
+        <rect x="5" y="3" width="14" height="18" rx="2" />
+        <path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2" />
+      </>
+    ),
+  },
+  {
     href: "/dashboard/competitors",
     label: "Competitors",
     icon: (

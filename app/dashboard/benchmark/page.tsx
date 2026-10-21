@@ -194,6 +194,13 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
         </div>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-4">
+          <Link href={`/dashboard/calculator?${query}`} className={`${card} hover:border-ink`}>
+            <h2 className="m-0 text-base font-bold">Thinking of raising a price?</h2>
+            <p className="m-0 text-[15px] leading-normal text-body">
+              See what a rise would bring in and how many customers you could lose before you’re worse off.
+            </p>
+            <span className="mt-auto text-sm font-bold text-data-dark">Try the price rise calculator →</span>
+          </Link>
           <div className={card}>
             <h2 className="m-0 text-base font-bold">How we compare like for like</h2>
             <p className="m-0 text-[15px] leading-normal text-body">
