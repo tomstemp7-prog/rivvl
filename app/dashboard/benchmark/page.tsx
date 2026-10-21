@@ -23,8 +23,9 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
   const limited = !profile.shared;
   const market = await marketFor(profile.sector, profile.postcode, place);
   const rivals = rivalsWithin(profile.radius, market.rivals);
-  // Owner-shared prices join the low/median/high only once enough exist nearby (lib/sites.ts).
-  const pooled = profile.shared ? ((await pooledPrices(profile.sector, place, profile.id))[profile.radius] ?? {}) : {};
+  // Owner-shared prices join the low/median/high only in real markets (never the sample data), and only
+  // once enough exist nearby (lib/sites.ts).
+  const pooled = profile.shared && market.real ? ((await pooledPrices(profile.sector, place, profile.id))[profile.radius] ?? {}) : {};
   const plural = pluralFor(profile.sector);
 
   const rows = itemsFor(profile.sector)
