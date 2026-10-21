@@ -168,7 +168,8 @@ export async function loadTown(name: string): Promise<TownData | null> {
   if (db()) {
     try {
       const town = await cachedFromDatabase(name);
-      if (town) return town;
+      // Town details come from the code, not the cache, so a change to them shows at once.
+      if (town) return { ...town, ...TOWN_META[name as keyof typeof TOWN_META] };
     } catch (e) {
       console.error(`Town data for ${name} unavailable from the database; using the code files.`, e);
     }
