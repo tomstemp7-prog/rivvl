@@ -45,7 +45,7 @@ export function realTownFor(postcode: string) {
 }
 
 /** OSM "gyms" that aren't comparable gyms: gymnastics, tennis, school halls, unnamed rooms. */
-const NOT_A_GYM = /gymnastic|tennis|activity centre|sports club|little gym|sports hall|university|^(old |new )?gym$|^gymnasium$|^fitness room$/i;
+export const NOT_A_GYM = /gymnastic|tennis|activity centre|sports club|little gym|sports hall|university|^(old |new )?gym$|^gymnasium$|^fitness room$/i;
 
 const MILES_PER_DEG_LAT = 69.05;
 

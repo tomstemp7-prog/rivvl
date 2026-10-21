@@ -21,7 +21,7 @@ Local pricing intelligence for UK small businesses (gyms, salons, barbers, café
 | Business lists | OpenStreetMap snapshot via the Overpass API | `scripts/fetch-osm-businesses.mjs` writes `lib/data/maidenhead-businesses.json` |
 | Waitlist | Formspree form `xppqgrdo` | Free plan: 50 submissions a month. Endpoint is in `components/waitlist-form.tsx` |
 | Analytics | Vercel Web Analytics (`@vercel/analytics`) | Cookieless; see the Analytics tab in Vercel |
-| Database | Supabase Postgres (London), connected through Vercel → Storage | Tables `sites`, `shared_prices`, `interest` (`supabase/migrations/0001_init.sql`). RLS on with no policies: only the server's secret key can read/write. Keys are Vercel “Sensitive” variables, so they can’t be pulled to a laptop; without them the site runs URL-only and skips saving |
+| Database | Supabase Postgres (London), connected through Vercel → Storage | Tables `sites`, `shared_prices`, `interest` (`0001_init.sql`) and `businesses`, `price_checks`, `price_observations` (`0002_businesses.sql`), in `supabase/migrations/`. RLS on with no policies: only the server's secret key can read/write. Keys are Vercel “Sensitive” variables, so they can’t be pulled to a laptop; without them the site runs URL-only and skips saving |
 | Updates | Dependabot (`.github/dependabot.yml`) | Weekly npm PRs; security alerts and fixes enabled on the repo |
 
 Running cost today: £0 (all free tiers, no domain yet).
@@ -61,6 +61,7 @@ All dashboard pages use `components/dashboard-shell.tsx` (sidebar + "demo / earl
 - Sign-up step 2 saves the business, contact email, prices and extra items, then sends the owner to `/dashboard?site=<id>`. Register interest saves to `interest` (and a consented headline price to `shared_prices`) and still emails via Formspree.
 - Browse data in Supabase → Table Editor (open from Vercel → rivl-site → Storage). New schema changes: add `supabase/migrations/000N_*.sql` and run it in Supabase’s SQL Editor.
 - Anyone with a `?site=` link can view that dashboard until logins exist.
+- **Real businesses and research are also in the database** (`supabase/migrations/0002_businesses.sql`): `businesses` (all 838 Maidenhead-area businesses, sector fixes applied, `comparable=false` for non-gyms OSM files as gyms), `price_checks` (one per business researched: outcome published / price_on_request / not_published / members_only, source URL, method website or booking_page, caveat) and `price_observations` (one row per price). Rows are built by `lib/seed-towns.ts` from the same files the site reads. **The site still reads from the code files**; until it reads from the database, keep both in step by re-running the import after research changes. The import is idempotent (upserts). To run it: temporarily add a preview-only route that executes the migration and upserts `maidenheadSeed()` with the `postgres` package over `POSTGRES_URL`, deploy with `vercel deploy`, call it with `vercel curl`, then delete the route and the preview (keys are Sensitive, so this runs on Vercel, not a laptop).
 
 ## Data rules (keep these)
 
