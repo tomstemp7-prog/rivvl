@@ -122,7 +122,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
             href={summary ? `/dashboard/${market.real ? "competitors" : "reports"}?${query}` : rows.length ? `/signup/prices?${query}` : `/dashboard/competitors?${query}`}
             className="flex min-h-12 items-center rounded-xl bg-accent px-5.5 font-bold text-ink hover:brightness-95"
           >
-            {summary ? (market.real ? "See all competitors" : "Open latest report") : rows.length ? "Share my prices" : "See who’s near you"}
+            {summary ? (market.real ? "See nearby businesses" : "Open latest report") : rows.length ? "Share my prices" : "See who’s near you"}
           </Link>
         </div>
 
@@ -204,7 +204,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
           <div className={card}>
             <h2 className="m-0 text-base font-bold">How we compare like for like</h2>
             <p className="m-0 text-[15px] leading-normal text-body">
-              Each rival’s price is matched to a standard item, such as a {itemsFor(profile.sector)[0].label.toLowerCase()} (
+              Each business’s price is matched to a standard item, such as a {itemsFor(profile.sector)[0].label.toLowerCase()} (
               {itemsFor(profile.sector)[0].detail.toLowerCase()}), and compared on how customers pay for it.
             </p>
           </div>
@@ -213,7 +213,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
             <p className="m-0 text-[15px] leading-normal text-body">
               {market.real
                 ? `${rivals.filter(hasPrices).length} of ${rivals.length} ${plural} near you publish prices online. Each one is taken from the business’s own website or booking page, with the source and date on its page.`
-                : `${recent} of ${rivals.length} rivals’ prices checked in the last 30 days. ${owner} confirmed by the owner.`}
+                : `${recent} of ${rivals.length} ${plural}’ prices checked in the last 30 days. ${owner} confirmed by the owner.`}
             </p>
           </div>
         </div>

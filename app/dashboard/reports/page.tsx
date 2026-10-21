@@ -81,7 +81,7 @@ function buildReport(report: Report, profile: Profile, place: Place | null, mark
     insights.push(`A year ago you were ${side(diffThen)}${diffThen ? " the median" : ""}; you’re now ${side(diffNow)}${diffNow ? " it" : ""} without changing price.`);
   }
   insights.push(
-    `${ups === 0 ? "No rivals" : ups === 1 ? "One rival" : `${ups} rivals`} near you ${ups === 1 ? "has" : "have"} moved up since ${monthName(from, "short")}. ${
+    `${ups === 0 ? "No businesses" : ups === 1 ? "One business" : `${ups} businesses`} near you ${ups === 1 ? "has" : "have"} moved up since ${monthName(from, "short")}. ${
       cuts === 0 ? "None has cut prices in that time." : `${cuts} price ${cuts === 1 ? "cut" : "cuts"} in that time.`
     }`,
   );

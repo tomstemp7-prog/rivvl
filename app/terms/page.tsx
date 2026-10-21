@@ -42,7 +42,7 @@ export default function TermsPage() {
           <h2 className={h2}>About the prices you see</h2>
           <ul className={list}>
             <li>
-              Competitor prices come from each business’s own website or booking page, with the source and the date we checked.
+              Other businesses’ prices come from each business’s own website or booking page, with the source and the date we checked.
               Businesses change prices, so a price may be out of date: please check before relying on it.
             </li>
             <li>Rivl is information to help your decisions, not advice. Pricing decisions remain yours.</li>

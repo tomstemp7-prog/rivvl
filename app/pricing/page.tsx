@@ -21,9 +21,9 @@ const PLANS = [
     badge: "Most popular",
     dark: true,
     features: [
-      "Named rivals on your local map",
+      "Nearby businesses named on your map",
       "Full benchmark across every price item",
-      "12-month price history for each rival",
+      "12-month price history for each business",
       "Monthly market report and quarterly review",
     ],
     cta: { label: "Try Pro", href: "/signup" },
@@ -41,7 +41,7 @@ const PLANS = [
 const NO = "–";
 const COMPARE = [
   ["Area low, median and high", "Yes", "Yes", "Yes"],
-  ["Named rivals on the map", NO, "Yes", "Yes"],
+  ["Businesses named on the map", NO, "Yes", "Yes"],
   ["Price history", NO, "12 months", "Full"],
   ["Reports", "Quarterly snapshot", "Monthly + quarterly", "Monthly + quarterly"],
   ["Locations", "1", "1", "[Up to __]"],

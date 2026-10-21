@@ -13,7 +13,7 @@ export function WatchButton() {
         watching ? "bg-ink text-paper hover:bg-ink-3" : "bg-surface text-ink hover:bg-paper"
       }`}
     >
-      {watching ? "Watching this rival" : "Watch this rival"}
+      {watching ? "Following" : "Follow price changes"}
     </button>
   );
 }

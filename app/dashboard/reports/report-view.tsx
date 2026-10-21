@@ -88,7 +88,7 @@ export function ReportView({ reports, query }: { reports: ReportData[]; query: s
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3.5">
           <div className={stat}>
-            <span className={statLabel}>Rivals who changed price</span>
+            <span className={statLabel}>Businesses that changed price</span>
             <span className={statValue}>{r.stats.changed}</span>
           </div>
           <div className={stat}>

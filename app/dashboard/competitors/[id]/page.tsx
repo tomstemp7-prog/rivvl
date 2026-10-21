@@ -42,7 +42,7 @@ async function load({ params, searchParams }: Props) {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { profile, market, rival } = await load(props);
-  if (!rival) return { title: "Competitor · Rivl" };
+  if (!rival) return { title: "Nearby business · Rivl" };
   return { title: `${rivalName(rival, profile, false, market.rivals)} · Rivl` };
 }
 

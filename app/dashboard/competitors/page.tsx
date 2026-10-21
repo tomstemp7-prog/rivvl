@@ -9,7 +9,7 @@ import { resolveProfile } from "@/lib/sites";
 import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor, pluralFor } from "@/lib/sectors";
 
-export const metadata: Metadata = { title: "Competitors · Rivl" };
+export const metadata: Metadata = { title: "Nearby businesses · Rivl" };
 
 export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = await resolveProfile(await searchParams);
@@ -32,10 +32,10 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
             {market.real ? `${inside} ${plural}` : `${inside} of ${rivals.length} ${plural}`} within {profile.radius} of {areaLabel(profile.postcode, place)} ·{" "}
             {market.real ? `real ${market.town} businesses` : `updated ${MOCK_UPDATED}`}
           </p>
-          <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Competitors</h1>
+          <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Nearby businesses</h1>
         </div>
 
-        {limited && <LimitedBanner query={query} text="You’re seeing a limited view. Share your prices to see rivals by name." />}
+        {limited && <LimitedBanner query={query} text="You’re seeing a limited view. Share your prices to see businesses by name." />}
 
         <div className="overflow-x-auto rounded-[22px] border border-line bg-surface py-2">
           <table className="w-full min-w-[820px] border-collapse text-[15px]">

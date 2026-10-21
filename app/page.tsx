@@ -24,7 +24,7 @@ const STATS = [
   },
   {
     figure: "1 in 3",
-    text: "UK firms say pricing off competitors is ‘very important’.",
+    text: "UK firms say what similar businesses charge is ‘very important’ when setting prices.",
     source: "Bank of England price-setting survey, 2008",
   },
 ];
@@ -32,7 +32,7 @@ const STATS = [
 const STEPS = [
   {
     title: "Tell us your business",
-    text: "Choose your sector, enter your postcode and how far your customers travel. Rivl finds the businesses you compete with.",
+    text: "Choose your sector, enter your postcode and how far your customers travel. Rivl finds the businesses your customers compare you with.",
   },
   {
     title: "See your local market",
@@ -46,9 +46,9 @@ const STEPS = [
 
 const USE_CASES = [
   ["Annual price review.", "Raise prices with evidence before costs force your hand."],
-  ["New service.", "Price a new class, treatment or menu item against local rivals."],
+  ["New service.", "Price a new class, treatment or menu item against businesses nearby."],
   ["Second site.", "Compare price levels across postcodes before you expand."],
-  ["New competitor.", "See their prices and how the local median shifts."],
+  ["Someone new nearby.", "See their prices and how the local median shifts."],
 ];
 
 const BENCHMARK = [
@@ -71,7 +71,7 @@ const FAQS = [
     "Prices each business publishes on its own website or booking page, with the source and date, plus prices owners choose to share with Rivl. Not every business publishes its prices, so some show as “not published”.",
   ],
   [
-    "Will competitors see my prices?",
+    "Will other businesses see my prices?",
     "Prices you share only feed area averages. Rivl never shows your shared prices against your name.",
   ],
   [

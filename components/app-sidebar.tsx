@@ -26,7 +26,7 @@ const NAV = [
   },
   {
     href: "/dashboard/competitors",
-    label: "Competitors",
+    label: "Nearby businesses",
     icon: (
       <>
         <circle cx="9" cy="8" r="3.5" />

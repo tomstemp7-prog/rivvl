@@ -23,7 +23,7 @@ export default async function PricesPage({ searchParams }: { searchParams: Promi
         <>
           <p className="m-0 text-[15px] font-bold">What sharing unlocks</p>
           <ul className="m-0 mt-1.5 flex flex-col gap-2 pl-4.5 text-[15px] leading-[1.45] text-on-dark-2">
-            <li>Named rivals on your map</li>
+            <li>Nearby businesses named on your map</li>
             <li>Your position on every price item</li>
             <li>Your first monthly report</li>
           </ul>
@@ -57,6 +57,6 @@ async function buildingFacts(sector: string): Promise<Fact[]> {
     ...local,
     { figure: "£69.81 vs £35.52", text: "Average monthly gym membership in London vs Yorkshire and the Humber.", source: "Leisure DB, State of the UK Fitness Industry 2023" },
     { figure: "£9 vs £17", text: "Average men’s haircut in Stoke-on-Trent vs Glasgow.", source: "Ripe Hair & Beauty analysis, 2025" },
-    { figure: "1 in 3", text: "UK firms say pricing off competitors is ‘very important’.", source: "Bank of England price-setting survey, 2008" },
+    { figure: "1 in 3", text: "UK firms say what similar businesses charge is ‘very important’ when setting prices.", source: "Bank of England price-setting survey, 2008" },
   ];
 }
