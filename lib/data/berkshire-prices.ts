@@ -1,19 +1,23 @@
 import type { PriceRecord } from "./maidenhead-prices";
 
 /**
- * Published prices for Berkshire gyms outside Maidenhead's research, plus the
- * Maidenhead-area gyms OpenStreetMap lists further out (High Wycombe, Henley,
- * Gerrards Cross). Same rules as lib/data/maidenhead-prices.ts: only a price
- * seen on the business's own website or own booking page, with the page and
- * the date; “price on request” counts as not published. Keyed by
- * OpenStreetMap id.
+ * Published prices across Berkshire outside Maidenhead's research, plus the
+ * Maidenhead-area businesses OpenStreetMap lists further out (High Wycombe,
+ * Henley, Gerrards Cross, Egham). Same rules as lib/data/maidenhead-prices.ts:
+ * only a price seen on the business's own website or own booking page, with
+ * the page and the date; “price on request” counts as not published. Keyed
+ * by OpenStreetMap id. Gyms: every one checked. Barbers, nail bars and
+ * beauty salons: those with a website (and a few found by search); the rest
+ * aren't collected yet, so they show without a price rather than as
+ * “not published”.
  */
 
 const CHECKED = "2026-10-23";
+const CHECKED_24 = "2026-10-24";
 const NOT_PUBLISHED = "Not published online";
 const ON_REQUEST = "Price on request";
 
-/** OpenStreetMap entries that aren't comparable gyms (duplicates, personal trainers, venues), with the reason. */
+/** OpenStreetMap entries that aren't comparable businesses (duplicates, personal trainers, clinics, venues), with the reason. */
 export const BERKSHIRE_NOT_COMPARABLE: Record<string, string> = {
   "way/36819061": "Duplicate of The Atrium Health Club",
   "node/13944419621": "Personal trainer working from another gym, not a gym",
@@ -31,10 +35,43 @@ export const BERKSHIRE_NOT_COMPARABLE: Record<string, string> = {
   "node/5818162184": "Table tennis bar, not a gym",
   "node/5924062317": "Children’s gymnastics, not a gym",
   "node/10886433205": "Outdoor education centre, not a gym",
+  "node/12151853246": "Tanning studio, not a beauty salon",
+  "way/1323947155": "Cosmetic dentist, not a beauty salon",
+  "way/1384797452": "Medical aesthetics clinic, not a beauty salon",
+  "node/5711837998": "Medical aesthetics clinic, not a beauty salon",
+  "way/914486961": "Beauty training academy, not a salon",
+  "way/366735035": "Tanning salon, not a beauty salon",
+  "node/13015745904": "Tanning salon, not a beauty salon",
+  "node/12459279276": "Laser and skin clinic chain, not a beauty salon",
+  "node/5009811723": "Tanning salon, not a beauty salon",
+  "node/5628759642": "Laser and skin aesthetics clinic, not a beauty salon",
+  "way/313482060": "Skin clinic, not a beauty salon",
+  "node/5620566253": "Medical aesthetics clinic, not a beauty salon",
+  "way/548640753": "Medical aesthetics clinic, not a beauty salon",
+  "node/5764226368": "Skin clinic, not a beauty salon",
+  "node/7137481457": "Beauty supplies shop, not a salon",
+  "node/12167343177": "Medical aesthetics clinic, not a beauty salon",
+  "node/9964696009": "Aesthetics clinic, not a beauty salon",
+  "node/10967999930": "Skin and electrolysis clinic, not a beauty salon",
 };
 
-// Gyms, checked 23 Oct 2026
+/** OpenStreetMap "barbers" that are really unisex hair salons, priced by stylist level. */
+export const BERKSHIRE_SECTOR_FIXES: Record<string, string> = {
+  "node/2891415630": "Hair salon",
+  "node/6502708453": "Hair salon",
+  "way/1323941193": "Hair salon",
+  "node/5735211191": "Hair salon",
+  "node/12151598696": "Hair salon",
+  "node/12151397481": "Hair salon",
+  "node/12117621769": "Hair salon",
+  "node/5851115016": "Hair salon",
+  "node/5628759250": "Hair salon",
+  "node/3111764573": "Hair salon",
+  "node/5009811624": "Hair salon",
+};
+
 export const BERKSHIRE_PRICES: Record<string, PriceRecord> = {
+  // Gyms, checked 23 Oct 2026
   "node/5596870601": { name: "Absolutely Fitness Bracknell", prices: { monthly: 31.99, daypass: 8.99 }, url: "https://absolutelyfitnessbracknell.virtuagym.com/webshop", checked: CHECKED, caveat: "Hero Single, flexible monthly; a joining fee applies, amount not published." },
   "way/459600804": { name: "Absolutely Fitness Slough", prices: { monthly: 31.99 }, url: "https://absolutelyfitnessslough.virtuagym.com/webshop", checked: CHECKED, caveat: "Hero Single, monthly after a minimum term (length not stated); a joining fee applies, amount not published." },
   "way/756762725": { name: "Activ8 Gym Slough", prices: { monthly: 60, daypass: 10 }, url: "https://www.activ8gym.com", checked: CHECKED },
@@ -113,4 +150,91 @@ export const BERKSHIRE_PRICES: Record<string, PriceRecord> = {
   "node/428139594": { name: "Urban Fitness Henley", prices: {}, checked: CHECKED, note: NOT_PUBLISHED },
   "way/589667858": { name: "Wellington Health & Fitness Club", prices: {}, url: "https://www.wellingtonfitness.co.uk/membership/", checked: CHECKED, note: ON_REQUEST },
   "node/4341596199": { name: "Wren's Club Windsor", prices: {}, url: "https://www.wrensclub.com/membership/", checked: CHECKED, note: ON_REQUEST },
+
+  // Barbers, checked 24 Oct 2026
+  "node/5368468281": { name: "Bladez Barbershop", prices: { haircut: 20, skin_fade: 22.5, beard_trim: 12, cut_beard: 28.5 }, url: "https://booksy.com/en-gb/35779_bladez-barbershop_barber_943568_reading", checked: CHECKED_24, caveat: "Full prices; booking online on Booksy saves up to 20%. Beard trim includes hot towel. No children’s price listed." },
+  "way/975207520": { name: "CUT.UK Marlow", prices: { haircut: 21, skin_fade: 25, beard_trim: 8.5, kids_cut: 15.5 }, url: "http://www.thebarbershopgroup.com/marlow/", checked: CHECKED_24, caveat: "Beard trim “from”; children’s price is under 12s (£13.50 under 5s)." },
+  "node/4973749340": { name: "Duke Street Barbers", prices: { haircut: 19, skin_fade: 22, beard_trim: 12, cut_beard: 29, kids_cut: 15 }, url: "https://dukestreetbarbers.gettimely.com/book", checked: CHECKED_24, caveat: "Listed as ranges (about £1 more with some barbers); the lower figure is recorded. Children’s price is boys under 10." },
+  "node/2882477869": { name: "Hawes Barbers", prices: { haircut: 19, skin_fade: 24.5, beard_trim: 8.5, kids_cut: 17 }, url: "https://www.hawesbarbers.co.uk/mens-grooming-and-prices/", checked: CHECKED_24, caveat: "Men’s dry cut; children’s price is under 12s (£14.50 for 5 and under)." },
+  "way/302819502": { name: "Jack of Newbury Barbers", prices: { haircut: 22, skin_fade: 25, beard_trim: 16, cut_beard: 30, kids_cut: 17 }, url: "https://jackofnewburybarbers.nearcut.com/book/shops/0TOQ6M/services", checked: CHECKED_24, caveat: "Formerly Headcase Barbers Newbury. Children’s price is under 15s; beard is a razor shape-up and length off." },
+  "way/313323269": { name: "Legends Hungerford", prices: { haircut: 18, skin_fade: 21, beard_trim: 5, kids_cut: 12 }, url: "https://www.legends-hungerford.com/about", checked: CHECKED_24, caveat: "Beard trim “from £5”. Children’s price is ages 5 to 13." },
+  "way/304111032": { name: "The Cutting Bar Newbury", prices: { haircut: 17, kids_cut: 13.5 }, url: "https://thecuttingbar.com/newbury/", checked: CHECKED_24, caveat: "Walk-in. Children’s price is boys 5 to 9." },
+  "node/4689166149": { name: "The Cutting Bar Thatcham", prices: { haircut: 16, kids_cut: 12.5 }, url: "https://thecuttingbar.com/thatcham/", checked: CHECKED_24, caveat: "Walk-in. Children’s price is boys 5 to 9." },
+  "way/313323273": { name: "The Gentleman's Barber Shop Hungerford", prices: { haircut: 22, skin_fade: 22, beard_trim: 12, kids_cut: 14 }, url: "https://www.hungerfordbarbers.co.uk/price-list", checked: CHECKED_24, caveat: "Beard trim “from”. Children’s price is ages 6 to 9 (£16 for 10 to 13, £11 for 5 and under)." },
+  "way/150278231": { name: "The Lions Barbershop", prices: { haircut: 21.5, skin_fade: 30, cut_beard: 30, kids_cut: 15 }, url: "https://thelionsbarbershop.com/", checked: CHECKED_24, caveat: "Each service shows two prices without saying why; the higher is recorded. Children’s is boys 10 and under. Beard is only sold with a shape-up (£12.50)." },
+  "node/12994108194": { name: "Wycombe Barbers", prices: { haircut: 15 }, url: "https://wycombebarbers.co.uk/", checked: CHECKED_24, caveat: "Haircuts “from £15”; beard work “from £19”." },
+  "node/6474109033": { name: "2Tons", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website belongs to another business." },
+  "node/5840333890": { name: "3 Chairs & A Barber", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/1584964500": { name: "3 Chairs & A Barber Woodley", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5615019935": { name: "Amici Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5658697795": { name: "Barber & Coffee", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/10294874909": { name: "Barber Crew Wargrave", prices: {}, url: "https://barbercrew.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its Fresha booking shows no prices." },
+  "way/56697396": { name: "Boston's Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/5818162179": { name: "Broadway Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/12167351689": { name: "Bulldog Barbers", prices: {}, url: "https://www.bulldogbarbers.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5338007391": { name: "CJ Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5764225648": { name: "CJ Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "way/466460847": { name: "CUT.UK Beaconsfield", prices: {}, url: "https://www.thebarbershopgroup.com/beaconsfield/", checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "The site says this branch has moved to Marlow." },
+  "node/5245899242": { name: "Castle Street Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5586723764": { name: "Chaps Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website belongs to another business." },
+  "node/9358308117": { name: "Crowthorne Turkish Barbers", prices: {}, url: "https://crowthorneturkishbarbers.nearcut.com/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5009822029": { name: "Cutlers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/1829037454": { name: "Emmer Green Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5628760533": { name: "HP11 Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only an Instagram page." },
+  "way/930447948": { name: "Headcase Barbershops Windsor", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Not listed among Headcase’s current locations." },
+  "node/5368468222": { name: "Istanbul Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5628759639": { name: "K1 Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/1622819222": { name: "Kings Barber", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5628760493": { name: "Kings Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/5586723746": { name: "Ladz Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/6221613838": { name: "London Street Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/6449680544": { name: "M & M Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/6221613868": { name: "Mo's Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "way/1323947157": { name: "Oxygen Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/5009851424": { name: "QV Traditional Turkish Barber", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/5735211733": { name: "Quinto and Mario", prices: {}, url: "https://www.quintoandmario.co.uk/", checked: CHECKED_24, note: ON_REQUEST, caveat: "The site asks visitors to call for prices." },
+  "node/5799225131": { name: "Reading Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its Fresha listing shows services without prices." },
+  "node/4979416768": { name: "Sam's Barber Shop", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5922943978": { name: "Sands Barbers", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/5735211203": { name: "Shelley & Millie's", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/5711840691": { name: "The Barber Hall", prices: {}, url: "https://www.thebarberhall.com/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "way/1366153898": { name: "The Forge Barbershop", prices: {}, url: "https://www.gabrielbarber.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5735211800": { name: "The Tiger's Grooming Lounge", prices: {}, url: "https://www.fresha.com/lvp/the-tigers-grooming-lounge-turkish-barber-church-street-A81LEV", checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its Fresha listing shows services without prices." },
+  "node/12167351686": { name: "The Village Barbers of Sunninghill", prices: {}, url: "https://thevillagebarbersofsunninghill.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/324749604": { name: "Top Class Turkish Barber", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED },
+  "way/64654494": { name: "Winnersh Turkish Barber", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+
+  // Nail bars, checked 24 Oct 2026
+  "node/8817967651": { name: "Anna's Nails Egham", prices: { gel_mani: 30, gel_pedi: 40, acrylic_full: 40, infills: 33, removal: 12 }, url: "https://www.annasnailsegham.co.uk/", checked: CHECKED_24, caveat: "Infills “from”; removal is gel polish take-off on its own." },
+  "node/12151853255": { name: "Glamorous Nails Sunninghill", prices: { gel_mani: 28, gel_pedi: 43, acrylic_full: 40, infills: 33, removal: 12 }, url: "https://sunninghillnails.setmore.com/", checked: CHECKED_24, caveat: "Gel manicure is “Shellac hands only”." },
+  "node/12471417986": { name: "Kewticles Egham", prices: { gel_mani: 34, gel_pedi: 44, acrylic_full: 42, infills: 38, removal: 12 }, url: "https://www.kewticles.co.uk/price-list", checked: CHECKED_24 },
+  "node/5628759438": { name: "Nails & Spa High Wycombe", prices: { gel_mani: 20, gel_pedi: 25, acrylic_full: 38, infills: 28, removal: 10 }, url: "https://nailsandspahighwycombe.co.uk/", checked: CHECKED_24 },
+  "node/5009822024": { name: "Princess Nails High Wycombe", prices: { gel_mani: 25, gel_pedi: 38, acrylic_full: 38, removal: 8 }, url: "https://princessnailssalon.co.uk/treatments.html", checked: CHECKED_24, caveat: "Infills with gel polish aren’t listed for fingers (plain acrylic infill £18)." },
+  "node/6001624012": { name: "Brooklyn Nails", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/2702532330": { name: "Enhance Nails & Body", prices: {}, url: "http://www.enhancenailsandbody.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/5197941279": { name: "Flamingo Beauty", prices: {}, url: "https://flamingobeauty.co.uk/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/4973749341": { name: "Grand Lux Nail Spa", prices: {}, url: "https://www.grandluxnailspa.co.uk/price-list", checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its price list page shows no prices." },
+  "node/2882477855": { name: "Heaven Nails", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "way/313323262": { name: "Hungerford Nails", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/5628759621": { name: "Love Nails", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its website didn’t load when checked." },
+  "node/12993911115": { name: "Luxe Spa Land", prices: {}, url: "https://myluxland.com/", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "node/3773146985": { name: "Marlow Nail & Beauty", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its website didn’t load when checked." },
+  "node/5628760625": { name: "Moon's Nails", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Only a Facebook page." },
+  "node/12991956097": { name: "Natali High Wycombe", prices: {}, url: "https://www.treatwell.co.uk/place/natali-manicure-pedicure-high-wycombe/", checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its Treatwell page lists treatments without prices." },
+  "way/938185280": { name: "Perfection Nail and Beauty Spa", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its booking site blocked the check." },
+
+  // Beauty salons, checked 24 Oct 2026
+  "node/5735211822": { name: "For Face Sake", prices: { massage: 60 }, url: "https://forfacesake.com/", checked: CHECKED_24, caveat: "Luxury Swedish massage. Facials are listed without durations." },
+  "node/5851115064": { name: "Little Retreat Gerrards Cross", prices: { brow_wax: 15, lash_tint: 22, leg_wax: 35, facial: 60, massage: 60 }, url: "https://www.littleretreat.co.uk/treatments", checked: CHECKED_24, caveat: "Facial is the Essential Prescriptive Facial; massage is a 60-minute aromatherapy full body massage." },
+  "node/5711838152": { name: "Mulberry's Beaconsfield", prices: { brow_wax: 18, lash_tint: 28, leg_wax: 38, massage: 85 }, url: "https://www.mulberrys.uk.com/lashes-and-brows", checked: CHECKED_24, caveat: "Brow price is a basic brow shape (wax or pluck). Massage is a 55-minute full body massage (mulberrys.uk.com/massage); leg wax from /hair-removal." },
+  "node/5626786705": { name: "The Guinot Salon Ascot", prices: { brow_wax: 14, leg_wax: 42, massage: 68 }, url: "https://www.thesalonascot.guinot.com/pricing.html", checked: CHECKED_24, caveat: "The massage is a 50-minute full body massage. No lash tint listed." },
+  "node/12183846126": { name: "Belle Chic", prices: {}, url: "https://www.bellechic.co.uk/treatments", checked: CHECKED_24, note: NOT_PUBLISHED },
+  "way/59038072": { name: "Blissful Beauty", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/6723728621": { name: "Calme", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/3695679396": { name: "Cannelle Beauty", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "way/964570294": { name: "Cutting it Fine", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/12117621762": { name: "Iin Skin", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "node/4826866859": { name: "Monika", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website no longer works." },
+  "way/1323981013": { name: "The Studio Beaconsfield", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its listed website belongs to another business." },
+  "node/4934130998": { name: "Zab's Hair & Beauty", prices: {}, checked: CHECKED_24, note: NOT_PUBLISHED, caveat: "Its website didn’t load when checked." },
 };

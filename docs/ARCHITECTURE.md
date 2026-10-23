@@ -115,7 +115,8 @@ Testers log in with the same email they signed up with; their business is linked
 - Gyms with prices: PureGym Maidenhead, Braywick, Cox Green, Furze Platt (Leisure Focus), Monkey Muay Thai, PureGym Burnham, The Gym Group Slough, Court Garden (Marlow), Windsor Leisure Centre. Price on request: David Lloyd, Anytime Fitness. Not published: F45, Bodyfit, ICON. Members only: The Loft at Burnham.
 - Barbers with prices: Rad's Barbers, BART Barbers, Unit1 Barbers. Ten others within 3 miles publish no prices online.
 - **Gyms across Berkshire (23 Oct 2026)**: every gym in the Berkshire and Maidenhead-area lists checked, in `lib/data/berkshire-prices.ts` (same rules; `BERKSHIRE_NOT_COMPARABLE` flags duplicates, personal trainers and venues). 34 of 78 publish at least one price; Better and Everyone Active centres only show monthly prices inside their online joining, so only their day passes are recorded; David Lloyd and Anytime Fitness are price on request. Loaded into the database by `berkshireResearchSeed()`.
-- Other sectors: real businesses shown, prices not collected yet (Maidenhead barbers, nail bars and beauty salons excepted).
+- **Barbers, nail bars and beauty salons across Berkshire (24 Oct 2026)**: those with a website on the map data checked (51 barbers, 17 nail bars, 13 beauty salons; 20 publish prices), in the same file. Businesses without a website weren't searched one by one (a sample of about 20 barbers found only 2 with published prices), so they show as “not collected”, not “not published”. `BERKSHIRE_SECTOR_FIXES` moves unisex hair salons OSM files as barbers into Hair salon; clinics, tanning shops and similar are flagged not comparable.
+- Other sectors: real businesses shown, prices not collected yet.
 
 ## Known limits
 

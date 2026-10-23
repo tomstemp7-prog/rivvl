@@ -1,7 +1,7 @@
 import "server-only";
 import berkshire from "./data/berkshire-businesses.json";
 import maidenhead from "./data/maidenhead-businesses.json";
-import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES } from "./data/berkshire-prices";
+import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES, BERKSHIRE_SECTOR_FIXES } from "./data/berkshire-prices";
 import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
 import { NOT_A_GYM, type Business } from "./markets";
 
@@ -73,20 +73,23 @@ export function berkshireSeed() {
   const known = new Set([...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => b.osm));
   const businesses = (berkshire.businesses as Business[])
     .filter((b) => !known.has(b.osm))
-    .map((b) => ({
-      id: b.osm,
-      town: "Berkshire",
-      name: b.name,
-      display_name: BERKSHIRE_PRICES[b.osm]?.name ?? null,
-      sector: b.sector,
-      comparable: !(b.sector === "Gym" && NOT_A_GYM.test(b.name)) && !BERKSHIRE_NOT_COMPARABLE[b.osm],
-      lat: b.lat,
-      lng: b.lng,
-      address: b.address ?? null,
-      website: b.website ?? null,
-      source: "openstreetmap",
-      listed_on: berkshire.fetched,
-    }));
+    .map((b) => {
+      const sector = BERKSHIRE_SECTOR_FIXES[b.osm] ?? b.sector;
+      return {
+        id: b.osm,
+        town: "Berkshire",
+        name: b.name,
+        display_name: BERKSHIRE_PRICES[b.osm]?.name ?? null,
+        sector,
+        comparable: !(sector === "Gym" && NOT_A_GYM.test(b.name)) && !BERKSHIRE_NOT_COMPARABLE[b.osm],
+        lat: b.lat,
+        lng: b.lng,
+        address: b.address ?? null,
+        website: b.website ?? null,
+        source: "openstreetmap",
+        listed_on: berkshire.fetched,
+      };
+    });
   return { businesses };
 }
 
@@ -103,5 +106,9 @@ export function berkshireResearchSeed() {
     if (!known.has(id)) throw new Error(`Not-comparable entry for unknown business ${id}`);
     return true;
   });
-  return { checks, observations, displayNames, notComparable };
+  const sectorFixes = Object.entries(BERKSHIRE_SECTOR_FIXES).map(([id, sector]) => {
+    if (!known.has(id)) throw new Error(`Sector fix for unknown business ${id}`);
+    return { id, sector };
+  });
+  return { checks, observations, displayNames, notComparable, sectorFixes };
 }

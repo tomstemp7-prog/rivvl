@@ -1,7 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import berkshire from "./data/berkshire-businesses.json";
-import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES } from "./data/berkshire-prices";
+import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES, BERKSHIRE_SECTOR_FIXES } from "./data/berkshire-prices";
 import berkshireOutline from "./data/berkshire-outline.json";
 import maidenhead from "./data/maidenhead-businesses.json";
 import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
@@ -97,7 +97,7 @@ function fromFiles(name: string): TownData | null {
     return true;
   });
   const businesses = all.map((b): TownBusiness => {
-    const sector = MAIDENHEAD_SECTOR_FIXES[b.osm] ?? b.sector;
+    const sector = MAIDENHEAD_SECTOR_FIXES[b.osm] ?? BERKSHIRE_SECTOR_FIXES[b.osm] ?? b.sector;
     return { ...b, sector, comparable: comparableFor(b, sector), displayName: PRICES[b.osm]?.name };
   });
   const fetched = [maidenhead.fetched, berkshire.fetched].sort().at(-1)!;
