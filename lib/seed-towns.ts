@@ -1,7 +1,8 @@
 import "server-only";
 import berkshire from "./data/berkshire-businesses.json";
 import maidenhead from "./data/maidenhead-businesses.json";
-import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES } from "./data/maidenhead-prices";
+import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES } from "./data/berkshire-prices";
+import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
 import { NOT_A_GYM, type Business } from "./markets";
 
 /**
@@ -31,8 +32,13 @@ export function maidenheadSeed() {
     };
   });
 
-  const known = new Set(businesses.map((b) => b.id));
-  const checks = Object.entries(MAIDENHEAD_PRICES).map(([id, rec]) => {
+  const { checks, observations } = researchRows(MAIDENHEAD_PRICES, new Set(businesses.map((b) => b.id)));
+  return { businesses, checks, observations };
+}
+
+/** price_checks and price_observations rows for researched prices; every record must name a known business. */
+function researchRows(prices: Record<string, PriceRecord>, known: Set<string>) {
+  const checks = Object.entries(prices).map(([id, rec]) => {
     if (!known.has(id)) throw new Error(`Price record for unknown business ${id}`);
     const published = Object.keys(rec.prices).length > 0;
     return {
@@ -47,22 +53,21 @@ export function maidenheadSeed() {
             ? "members_only"
             : "not_published",
       source_url: rec.url ?? null,
-      method: rec.url ? (/booksy\.com|fresha\.com/.test(rec.url) ? "booking_page" : "website") : null,
+      // A business's own booking page (Booksy, Fresha, Treatwell, Virtuagym) counts as its own published prices.
+      method: rec.url ? (/booksy\.com|fresha\.com|treatwell\.co\.uk|virtuagym\.com/.test(rec.url) ? "booking_page" : "website") : null,
       caveat: rec.caveat ?? null,
     };
   });
-
-  const observations = Object.entries(MAIDENHEAD_PRICES).flatMap(([id, rec]) =>
+  const observations = Object.entries(prices).flatMap(([id, rec]) =>
     Object.entries(rec.prices).map(([item_id, price]) => ({ check_id: `${id}@${rec.checked}`, item_id, price })),
   );
-
-  return { businesses, checks, observations };
+  return { checks, observations };
 }
 
 /**
  * Rows for the rest of Berkshire: every business in the county snapshot that
  * isn't already in Maidenhead's (those keep their town, fixes and research).
- * No prices yet. Upserting is safe to repeat.
+ * Upserting is safe to repeat.
  */
 export function berkshireSeed() {
   const known = new Set([...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA].map((b) => b.osm));
@@ -72,9 +77,9 @@ export function berkshireSeed() {
       id: b.osm,
       town: "Berkshire",
       name: b.name,
-      display_name: null,
+      display_name: BERKSHIRE_PRICES[b.osm]?.name ?? null,
       sector: b.sector,
-      comparable: !(b.sector === "Gym" && NOT_A_GYM.test(b.name)),
+      comparable: !(b.sector === "Gym" && NOT_A_GYM.test(b.name)) && !BERKSHIRE_NOT_COMPARABLE[b.osm],
       lat: b.lat,
       lng: b.lng,
       address: b.address ?? null,
@@ -83,4 +88,20 @@ export function berkshireSeed() {
       listed_on: berkshire.fetched,
     }));
   return { businesses };
+}
+
+/**
+ * The Berkshire research (lib/data/berkshire-prices.ts) as database changes:
+ * checks and prices to upsert, plus display names and "not comparable" flags
+ * for businesses, some of which are rows of Maidenhead's list.
+ */
+export function berkshireResearchSeed() {
+  const known = new Set([...(maidenhead.businesses as Business[]), ...MAIDENHEAD_EXTRA, ...(berkshire.businesses as Business[])].map((b) => b.osm));
+  const { checks, observations } = researchRows(BERKSHIRE_PRICES, known);
+  const displayNames = Object.entries(BERKSHIRE_PRICES).flatMap(([id, rec]) => (rec.name ? [{ id, display_name: rec.name }] : []));
+  const notComparable = Object.keys(BERKSHIRE_NOT_COMPARABLE).filter((id) => {
+    if (!known.has(id)) throw new Error(`Not-comparable entry for unknown business ${id}`);
+    return true;
+  });
+  return { checks, observations, displayNames, notComparable };
 }

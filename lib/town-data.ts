@@ -1,6 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import berkshire from "./data/berkshire-businesses.json";
+import { BERKSHIRE_NOT_COMPARABLE, BERKSHIRE_PRICES } from "./data/berkshire-prices";
 import berkshireOutline from "./data/berkshire-outline.json";
 import maidenhead from "./data/maidenhead-businesses.json";
 import { MAIDENHEAD_EXTRA, MAIDENHEAD_NOT_COMPARABLE, MAIDENHEAD_PRICES, MAIDENHEAD_SECTOR_FIXES, type PriceRecord } from "./data/maidenhead-prices";
@@ -80,7 +81,11 @@ function details(name: string) {
   return rest;
 }
 
-const comparableFor = (b: Business, sector: string) => !(sector === "Gym" && NOT_A_GYM.test(b.name)) && !MAIDENHEAD_NOT_COMPARABLE[b.osm];
+const comparableFor = (b: Business, sector: string) =>
+  !(sector === "Gym" && NOT_A_GYM.test(b.name)) && !MAIDENHEAD_NOT_COMPARABLE[b.osm] && !BERKSHIRE_NOT_COMPARABLE[b.osm];
+
+/** All researched prices, keyed by business id. */
+const PRICES: Record<string, PriceRecord> = { ...MAIDENHEAD_PRICES, ...BERKSHIRE_PRICES };
 
 /** The region as the code files describe it: the fallback, and the source the database was seeded from. */
 function fromFiles(name: string): TownData | null {
@@ -93,10 +98,10 @@ function fromFiles(name: string): TownData | null {
   });
   const businesses = all.map((b): TownBusiness => {
     const sector = MAIDENHEAD_SECTOR_FIXES[b.osm] ?? b.sector;
-    return { ...b, sector, comparable: comparableFor(b, sector), displayName: MAIDENHEAD_PRICES[b.osm]?.name };
+    return { ...b, sector, comparable: comparableFor(b, sector), displayName: PRICES[b.osm]?.name };
   });
   const fetched = [maidenhead.fetched, berkshire.fetched].sort().at(-1)!;
-  return { name, ...details(name)!, fetched, businesses, prices: MAIDENHEAD_PRICES, from: "files" };
+  return { name, ...details(name)!, fetched, businesses, prices: PRICES, from: "files" };
 }
 
 /** Whether a circle of `miles` around `point` lies wholly inside the region's coverage (checked at 48 points on its edge). */
