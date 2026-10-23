@@ -21,7 +21,6 @@ import { resolveProfile } from "@/lib/sites";
 import { formatPrice, profileQuery } from "@/lib/profile";
 import { itemsFor } from "@/lib/sectors";
 import { CorrectionForm } from "@/components/message-forms";
-import { WatchButton } from "./watch-button";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -136,7 +135,6 @@ export default async function CompetitorPage(props: Props) {
               )}
             </div>
           </div>
-          <WatchButton />
         </div>
 
         {limited && <LimitedBanner query={query} text="You’re seeing a limited view. Share your prices to see who this is and how you compare." />}
