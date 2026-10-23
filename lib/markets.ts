@@ -2,22 +2,23 @@ import { median, sampleRivals, type Rival } from "./mock-market";
 import type { Place } from "./postcode";
 import { itemsFor, SECTORS } from "./sectors";
 import { loadTown, type TownData } from "./town-data";
-import { launchedTownFor } from "./towns";
+import { regionFor } from "./towns";
 
 export { NOT_A_GYM, type Business } from "./town-data";
 
 /**
- * Which businesses a profile is compared against. Towns we've launched in use
- * real businesses (from the database, else the code files: lib/town-data.ts);
- * everywhere else falls back to the anonymous sample data.
+ * Which businesses a profile is compared against. Postcodes in a covered
+ * region (Berkshire, by council) use real businesses (from the database, else
+ * the code files: lib/town-data.ts); everywhere else falls back to the
+ * anonymous sample data. `town` is the postcode's own town, for display.
  */
 export type Market =
   | { real: false; rivals: Rival[] }
   | { real: true; town: string; fetched: string; attribution: string; rivals: Rival[]; dataFrom: TownData["from"] };
 
-/** Postcodes in a launched town (by outcode, e.g. SL6). */
-export function realTownFor(postcode: string) {
-  return launchedTownFor(postcode);
+/** The covered region a place is in, e.g. Berkshire, or null. */
+export function realRegionFor(place: Place | null) {
+  return place ? regionFor(place.council) : null;
 }
 
 const MILES_PER_DEG_LAT = 69.05;
@@ -49,13 +50,13 @@ function shortName(name: string) {
 }
 
 export async function marketFor(sector: string, postcode: string, place: Place | null): Promise<Market> {
-  const launched = realTownFor(postcode);
-  const town = launched && place ? await loadTown(launched.name) : null;
-  if (!town || !place) return { real: false, rivals: sampleRivals(sector, itemsFor(sector).map((i) => i.id)) };
-  return { real: true, town: town.name, fetched: town.fetched, attribution: town.attribution, rivals: realRivals(town, sector, place), dataFrom: town.from };
+  const region = realRegionFor(place);
+  const area = region ? await loadTown(region.name) : null;
+  if (!area || !place) return { real: false, rivals: sampleRivals(sector, itemsFor(sector).map((i) => i.id)) };
+  return { real: true, town: place.district || place.council, fetched: area.fetched, attribution: area.attribution, rivals: realRivals(area, sector, place), dataFrom: area.from };
 }
 
-/** A launched town's real businesses in one sector, with distance and bearing from `place`. */
+/** A region's real businesses in one sector, within 10 miles of `place`, with distance and bearing. */
 function realRivals(town: TownData, sector: string, place: { lat: number; lng: number }): Rival[] {
   return town.businesses
     .filter((b) => b.sector === sector && b.comparable)
@@ -86,20 +87,20 @@ function realRivals(town: TownData, sector: string, place: { lat: number; lng: n
 
 /**
  * How many businesses publish their prices online, per sector, within `miles`
- * of a launched town's centre. A sector only appears once every business in
+ * of the priced town's centre (Maidenhead). A sector only appears once every business in
  * range has been checked, so the figures are never based on partial research.
  * "Price on request" counts as not publishing.
  */
-export async function publishingStats(townName = "Maidenhead", miles = 3) {
-  const town = await loadTown(townName);
+export async function publishingStats(miles = 3) {
+  const town = await loadTown("Berkshire");
   if (!town) return null;
   const sectors = SECTORS.flatMap((s) => {
-    const nearby = realRivals(town, s.label, town.centre).filter((r) => r.miles <= miles);
+    const nearby = realRivals(town, s.label, town.focus.centre).filter((r) => r.miles <= miles);
     if (!nearby.length || nearby.some((r) => !r.real?.researched)) return [];
     return [{ sector: s.label, plural: s.plural, total: nearby.length, published: nearby.filter(hasPrices).length }];
   });
   const dates = Object.values(town.prices).map((p) => p.checked).sort();
-  return { town: town.name, miles, checked: dates.at(-1) ?? town.fetched, sectors };
+  return { town: town.focus.name, miles, checked: dates.at(-1) ?? town.fetched, sectors };
 }
 
 export const hasPrices = (r: Rival) => Object.keys(r.prices).length > 0;
@@ -118,15 +119,15 @@ export type TourStop = {
 };
 
 /**
- * The home page map tour: businesses near a launched town's centre that publish prices,
+ * The home page map tour: businesses near the priced town's centre (Maidenhead) that publish prices,
  * across sectors (taking turns, so the tour doesn't show five gyms in a row), with each
  * price's area median. Also the other businesses' positions, drawn as plain dots.
  */
-export async function homeTour(townName = "Maidenhead", miles = 3) {
-  const town = await loadTown(townName);
+export async function homeTour(miles = 3) {
+  const town = await loadTown("Berkshire");
   if (!town) return null;
   const bySector = SECTORS.map((s) => {
-    const nearby = realRivals(town, s.label, town.centre).filter((r) => r.miles <= miles);
+    const nearby = realRivals(town, s.label, town.focus.centre).filter((r) => r.miles <= miles);
     const priced = nearby.filter(hasPrices);
     const items = itemsFor(s.label);
     const medians = Object.fromEntries(
@@ -160,5 +161,5 @@ export async function homeTour(townName = "Maidenhead", miles = 3) {
   for (let i = 0; bySector.some((s) => i < s.stops.length); i++) for (const s of bySector) if (s.stops[i]) stops.push(s.stops[i]);
   const tourIds = new Set(stops.map((s) => s.id));
   const dots = bySector.flatMap((s) => s.nearby.filter((r) => !tourIds.has(r.id)).map((r) => [r.lng!, r.lat!] as [number, number]));
-  return { town: town.name, centre: town.centre, miles, stops, dots };
+  return { town: town.focus.name, centre: town.focus.centre, miles, stops, dots };
 }

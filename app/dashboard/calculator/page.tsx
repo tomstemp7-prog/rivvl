@@ -28,7 +28,7 @@ export default async function CalculatorPage({ searchParams }: { searchParams: P
       <main className={dashboardMain}>
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
-            Against {pluralFor(profile.sector)} within {profile.radius} of {areaLabel(profile.postcode, place)} · {market.real ? `real ${market.town} prices` : "illustrative data"}
+            Against {pluralFor(profile.sector)} within {profile.radius} of {areaLabel(profile.postcode, place)} · {market.real ? `real ${market.town} ${items.some((i) => i.area.length) ? "prices" : "businesses"}` : "illustrative data"}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">What if I raise my price?</h1>
           <p className="m-0 max-w-[640px] text-[17px] leading-normal text-body">

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { PublishingStats } from "@/components/publishing-stats";
 import { SignupShell, StepHeading } from "@/components/signup-shell";
-import { POSTCODE_SHAPE } from "@/lib/postcode";
+import { realRegionFor } from "@/lib/markets";
+import { placeFor, POSTCODE_SHAPE } from "@/lib/postcode";
 import { parseProfile, profileQuery } from "@/lib/profile";
-import { launchedTownFor } from "@/lib/towns";
 import { BusinessForm } from "./business-form";
 
 export const metadata: Metadata = { title: "Sign up: your business · Rivl" };
@@ -12,10 +12,12 @@ export const metadata: Metadata = { title: "Sign up: your business · Rivl" };
 export default async function SignupPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const profile = parseProfile(params);
-  // Arriving from the home page search outside a launched town: register interest instead. The interest page
-  // links back here with demo=1, and returning visitors (who already have a name) aren't redirected.
+  // Arriving from the home page search outside a covered region: register interest instead. The interest page
+  // links back here with demo=1, and returning visitors (who already have a name) aren't redirected. If the
+  // postcode can't be looked up, carry on rather than turning them away.
   const demo = params.demo === "1";
-  if (!demo && !profile.name && POSTCODE_SHAPE.test(profile.postcode) && !launchedTownFor(profile.postcode)) {
+  const place = !demo && !profile.name && POSTCODE_SHAPE.test(profile.postcode) ? await placeFor(profile.postcode) : null;
+  if (place && !realRegionFor(place)) {
     redirect(`/interest?${profileQuery({ name: profile.name || undefined, sector: profile.sector, postcode: profile.postcode })}`);
   }
   return (

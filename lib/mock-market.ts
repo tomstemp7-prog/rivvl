@@ -164,7 +164,8 @@ export const DEMO_PROFILE: Profile = {
 };
 
 /** The same gym placed outside a launched town, to show sample reports with a year of history. */
-export const SAMPLE_PROFILE: Profile = { ...DEMO_PROFILE, postcode: "RG1 3EU" };
+// Outside every covered region, so it always shows the sample data.
+export const SAMPLE_PROFILE: Profile = { ...DEMO_PROFILE, postcode: "OX1 1BX" };
 
 export const radiusMiles = (radius: string) => parseFloat(radius);
 

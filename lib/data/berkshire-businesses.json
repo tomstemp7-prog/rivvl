@@ -1,0 +1,7476 @@
+{
+ "county": {
+  "slug": "berkshire",
+  "name": "Berkshire"
+ },
+ "fetched": "2026-10-23",
+ "attribution": "© OpenStreetMap contributors (ODbL)",
+ "businesses": [
+  {
+   "osm": "node/6474109033",
+   "name": "2Tons",
+   "sector": "Barber",
+   "lat": 51.466957,
+   "lng": -1.022564,
+   "website": "https://www.warnercomm.co.uk/"
+  },
+  {
+   "osm": "node/5840333890",
+   "name": "3 Chairs & A Barber",
+   "sector": "Barber",
+   "lat": 51.439681,
+   "lng": -0.96702,
+   "address": "69 Basingstoke Road, Reading, RG2 0ER"
+  },
+  {
+   "osm": "node/1584964500",
+   "name": "3 Chairs & Barber",
+   "sector": "Barber",
+   "lat": 51.440819,
+   "lng": -0.902477,
+   "address": "Unit 3"
+  },
+  {
+   "osm": "node/11955494608",
+   "name": "A Cut Above",
+   "sector": "Barber",
+   "lat": 51.520577,
+   "lng": -0.645466
+  },
+  {
+   "osm": "node/876393594",
+   "name": "Adam and Eve",
+   "sector": "Barber",
+   "lat": 51.376089,
+   "lng": -1.066395
+  },
+  {
+   "osm": "node/12105470661",
+   "name": "AK Barber",
+   "sector": "Barber",
+   "lat": 51.520285,
+   "lng": -0.720728
+  },
+  {
+   "osm": "way/1257177516",
+   "name": "Alfie's Barber",
+   "sector": "Barber",
+   "lat": 51.526053,
+   "lng": -0.740274,
+   "address": "112 All Saints Avenue, Maidenhead, SL6 6LZ"
+  },
+  {
+   "osm": "node/5615019935",
+   "name": "Amici Barbers",
+   "sector": "Barber",
+   "lat": 51.454804,
+   "lng": -0.968099
+  },
+  {
+   "osm": "way/383280444",
+   "name": "Ansar Barbers",
+   "sector": "Barber",
+   "lat": 51.455859,
+   "lng": -0.947734,
+   "address": "68 Cholmeley Road, Reading, RG1 3NB"
+  },
+  {
+   "osm": "node/12811906059",
+   "name": "Ascot Barbers",
+   "sector": "Barber",
+   "lat": 51.410992,
+   "lng": -0.675468,
+   "address": "High Street, Ascot, SL5 7JF"
+  },
+  {
+   "osm": "way/313497749",
+   "name": "B Side Barbers & Records",
+   "sector": "Barber",
+   "lat": 51.397085,
+   "lng": -1.326825,
+   "address": "Bartholomew Street, Newbury, RG14 7BE"
+  },
+  {
+   "osm": "node/5658697795",
+   "name": "Barber & Coffee",
+   "sector": "Barber",
+   "lat": 51.457998,
+   "lng": -1.001675
+  },
+  {
+   "osm": "node/10294874909",
+   "name": "Barber Crew",
+   "sector": "Barber",
+   "lat": 51.501097,
+   "lng": -0.870027,
+   "address": "60 High Street, RG10 8BY",
+   "website": "https://barbercrew.co.uk/"
+  },
+  {
+   "osm": "node/7366496260",
+   "name": "Barber Trev's",
+   "sector": "Barber",
+   "lat": 51.465135,
+   "lng": -1.018447
+  },
+  {
+   "osm": "node/6535205926",
+   "name": "Barbers",
+   "sector": "Barber",
+   "lat": 51.442615,
+   "lng": -0.955072
+  },
+  {
+   "osm": "node/6256088498",
+   "name": "Barbers Shop",
+   "sector": "Barber",
+   "lat": 51.454635,
+   "lng": -0.975338
+  },
+  {
+   "osm": "node/5368468281",
+   "name": "Bladez Barbershop",
+   "sector": "Barber",
+   "lat": 51.463052,
+   "lng": -0.976101,
+   "address": "153 Caversham Road, Reading, RG1 8AU"
+  },
+  {
+   "osm": "way/56697396",
+   "name": "Boston's Barbers",
+   "sector": "Barber",
+   "lat": 51.430205,
+   "lng": -0.879924,
+   "address": "Reading Road, Wokingham, RG41 5HU",
+   "website": "www.bostonsbatbers.co.uk"
+  },
+  {
+   "osm": "node/12302199715",
+   "name": "Bracknell Town Barber",
+   "sector": "Barber",
+   "lat": 51.41653,
+   "lng": -0.748001,
+   "address": "16 High Street, Bracknell, RG12 1LL"
+  },
+  {
+   "osm": "node/12691171042",
+   "name": "Brent de Clippers",
+   "sector": "Barber",
+   "lat": 51.557813,
+   "lng": -0.72073
+  },
+  {
+   "osm": "node/5818162179",
+   "name": "Broadway Barbers",
+   "sector": "Barber",
+   "lat": 51.455052,
+   "lng": -0.976946
+  },
+  {
+   "osm": "node/12167351689",
+   "name": "Bulldog Barbers",
+   "sector": "Barber",
+   "lat": 51.40184,
+   "lng": -0.655175,
+   "address": "16 High Street, Ascot, SL5 9NE",
+   "website": "https://www.bulldogbarbers.co.uk/"
+  },
+  {
+   "osm": "node/5245899242",
+   "name": "Castle Street Barbers",
+   "sector": "Barber",
+   "lat": 51.453715,
+   "lng": -0.974554
+  },
+  {
+   "osm": "node/5586723764",
+   "name": "Chaps Barbers",
+   "sector": "Barber",
+   "lat": 51.454836,
+   "lng": -0.982222,
+   "website": "https://stokrotka.pl/"
+  },
+  {
+   "osm": "node/5338007391",
+   "name": "CJ Barbers",
+   "sector": "Barber",
+   "lat": 51.465156,
+   "lng": -0.965944
+  },
+  {
+   "osm": "node/5764225648",
+   "name": "CJ Barbers",
+   "sector": "Barber",
+   "lat": 51.467438,
+   "lng": -0.972589
+  },
+  {
+   "osm": "way/547090023",
+   "name": "Cookham Male Grooming",
+   "sector": "Barber",
+   "lat": 51.557137,
+   "lng": -0.721578,
+   "address": "Maidenhead, SL6 9BR"
+  },
+  {
+   "osm": "node/9358308117",
+   "name": "Crowthorne Turkish Barbers",
+   "sector": "Barber",
+   "lat": 51.367356,
+   "lng": -0.794116,
+   "address": "233 High Street, Crowthorne, RG45 7AH",
+   "website": "https://crowthorneturkishbarbers.nearcut.com/"
+  },
+  {
+   "osm": "node/12105470670",
+   "name": "Cut 'N' Shave Barbers",
+   "sector": "Barber",
+   "lat": 51.519946,
+   "lng": -0.721266
+  },
+  {
+   "osm": "way/301158370",
+   "name": "Cut Mandu",
+   "sector": "Barber",
+   "lat": 51.399405,
+   "lng": -1.322201,
+   "address": "50 Cheap Street, RG14 5BX"
+  },
+  {
+   "osm": "way/683428209",
+   "name": "Diamond Cuts",
+   "sector": "Barber",
+   "lat": 51.453852,
+   "lng": -0.946368,
+   "address": "259 London Road, Reading, RG1 3NY"
+  },
+  {
+   "osm": "node/4973749340",
+   "name": "Duke St. Barbers",
+   "sector": "Barber",
+   "lat": 51.454471,
+   "lng": -0.968591
+  },
+  {
+   "osm": "node/1829037454",
+   "name": "Emmer Green Barbers",
+   "sector": "Barber",
+   "lat": 51.483293,
+   "lng": -0.963175,
+   "address": "Peppard Road, Reading"
+  },
+  {
+   "osm": "node/12139584195",
+   "name": "F & Class Barber",
+   "sector": "Barber",
+   "lat": 51.415171,
+   "lng": -1.515297,
+   "address": "120 High Street, Hungerford"
+  },
+  {
+   "osm": "node/13567424482",
+   "name": "Finch Barbers",
+   "sector": "Barber",
+   "lat": 51.376757,
+   "lng": -0.855916,
+   "address": "422 Finchampstead Road, Finchampstead, RG40 3RB"
+  },
+  {
+   "osm": "node/4826866843",
+   "name": "Francis Abolway Barber",
+   "sector": "Barber",
+   "lat": 51.456597,
+   "lng": -0.994531
+  },
+  {
+   "osm": "node/12151853244",
+   "name": "Friwan Barbershop",
+   "sector": "Barber",
+   "lat": 51.400385,
+   "lng": -0.65624,
+   "address": "60 High Street, Ascot, SL5 9NN"
+  },
+  {
+   "osm": "node/2724164134",
+   "name": "Gents Hairdressing",
+   "sector": "Barber",
+   "lat": 51.523921,
+   "lng": -0.74342,
+   "address": "73 St Mark's Road"
+  },
+  {
+   "osm": "way/304117812",
+   "name": "George Fredericks Barbershop",
+   "sector": "Barber",
+   "lat": 51.403278,
+   "lng": -1.259058
+  },
+  {
+   "osm": "node/12367061404",
+   "name": "Goodmans Barbers",
+   "sector": "Barber",
+   "lat": 51.509005,
+   "lng": -0.579849
+  },
+  {
+   "osm": "way/304117813",
+   "name": "Guru Barbers",
+   "sector": "Barber",
+   "lat": 51.403532,
+   "lng": -1.257364
+  },
+  {
+   "osm": "node/12143224266",
+   "name": "Habibi Barber",
+   "sector": "Barber",
+   "lat": 51.507395,
+   "lng": -0.584643
+  },
+  {
+   "osm": "node/2640928439",
+   "name": "Hair @ 51",
+   "sector": "Barber",
+   "lat": 51.47028,
+   "lng": -0.959937
+  },
+  {
+   "osm": "node/2365983195",
+   "name": "Haircraft For Men Barber Shop",
+   "sector": "Barber",
+   "lat": 51.453086,
+   "lng": -0.948791,
+   "address": "207A London Road, Reading, RG1 3NU"
+  },
+  {
+   "osm": "node/1537438476",
+   "name": "Hamid's Atlas Barbers",
+   "sector": "Barber",
+   "lat": 51.516112,
+   "lng": -0.591358
+  },
+  {
+   "osm": "way/302819502",
+   "name": "Headcase Barbers",
+   "sector": "Barber",
+   "lat": 51.403913,
+   "lng": -1.324382,
+   "address": "32a Northbrook Street, Newbury, RG14 1DJ",
+   "website": "https://headcase-barbers.com/newbury/"
+  },
+  {
+   "osm": "way/930447948",
+   "name": "Headcase Barbershops",
+   "sector": "Barber",
+   "lat": 51.481642,
+   "lng": -0.606929,
+   "address": "High Street, Windsor, SL4 1LD",
+   "website": "https://www.headcase-barbers.com/"
+  },
+  {
+   "osm": "way/70461900",
+   "name": "Henry's Barbers",
+   "sector": "Barber",
+   "lat": 51.451215,
+   "lng": -1.024513,
+   "address": "Reading, RG30 4AP"
+  },
+  {
+   "osm": "node/12167351695",
+   "name": "Imperial's",
+   "sector": "Barber",
+   "lat": 51.402612,
+   "lng": -0.655007
+  },
+  {
+   "osm": "node/3420001214",
+   "name": "Istanbul Barbers",
+   "sector": "Barber",
+   "lat": 51.503376,
+   "lng": -0.541966
+  },
+  {
+   "osm": "node/5368468222",
+   "name": "Istanbul Barbers",
+   "sector": "Barber",
+   "lat": 51.463506,
+   "lng": -0.97661
+  },
+  {
+   "osm": "node/12102866539",
+   "name": "K's Barbers",
+   "sector": "Barber",
+   "lat": 51.506741,
+   "lng": -0.606859
+  },
+  {
+   "osm": "way/1304105086",
+   "name": "K's Barbers",
+   "sector": "Barber",
+   "lat": 51.519948,
+   "lng": -0.599725
+  },
+  {
+   "osm": "node/2364897635",
+   "name": "Kalomar Crew Barbers",
+   "sector": "Barber",
+   "lat": 51.523232,
+   "lng": -0.719819
+  },
+  {
+   "osm": "node/2640928438",
+   "name": "Kay's Hair and Beauty Salon",
+   "sector": "Barber",
+   "lat": 51.470914,
+   "lng": -0.959001
+  },
+  {
+   "osm": "node/1622819222",
+   "name": "Kings Barber",
+   "sector": "Barber",
+   "lat": 51.455025,
+   "lng": -0.963471
+  },
+  {
+   "osm": "node/2364947089",
+   "name": "Kings Barbers",
+   "sector": "Barber",
+   "lat": 51.522322,
+   "lng": -0.723746
+  },
+  {
+   "osm": "way/304111011",
+   "name": "Kurd Fade",
+   "sector": "Barber",
+   "lat": 51.400895,
+   "lng": -1.324104
+  },
+  {
+   "osm": "node/5586723746",
+   "name": "Ladz Barbers",
+   "sector": "Barber",
+   "lat": 51.455138,
+   "lng": -0.979854
+  },
+  {
+   "osm": "node/12151598696",
+   "name": "Layers Hair Design",
+   "sector": "Barber",
+   "lat": 51.414735,
+   "lng": -1.516384,
+   "website": "https://layershairdesignltd.co.uk/"
+  },
+  {
+   "osm": "way/313323269",
+   "name": "Legends",
+   "sector": "Barber",
+   "lat": 51.412889,
+   "lng": -1.516475,
+   "address": "47 High Street, Hungerford, RG17 0NE",
+   "website": "https://www.legends-hungerford.com/"
+  },
+  {
+   "osm": "way/475115594",
+   "name": "Legends",
+   "sector": "Barber",
+   "lat": 51.403494,
+   "lng": -1.259024
+  },
+  {
+   "osm": "node/6221613838",
+   "name": "London Street Barbers",
+   "sector": "Barber",
+   "lat": 51.452312,
+   "lng": -0.968365,
+   "address": "60 London Street, Reading, RG1 4SQ"
+  },
+  {
+   "osm": "node/12118686505",
+   "name": "Lord Snips Barbers",
+   "sector": "Barber",
+   "lat": 51.457518,
+   "lng": -0.57814
+  },
+  {
+   "osm": "way/320593747",
+   "name": "Lush Hair",
+   "sector": "Barber",
+   "lat": 51.401429,
+   "lng": -1.322425
+  },
+  {
+   "osm": "node/6449680544",
+   "name": "M&M Barbers",
+   "sector": "Barber",
+   "lat": 51.455366,
+   "lng": -0.977529
+  },
+  {
+   "osm": "node/2724164176",
+   "name": "Master Barbers",
+   "sector": "Barber",
+   "lat": 51.523783,
+   "lng": -0.74279,
+   "address": "69 St Mark's Road"
+  },
+  {
+   "osm": "node/2321266726",
+   "name": "Mater Barbers",
+   "sector": "Barber",
+   "lat": 51.479391,
+   "lng": -0.612213,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "node/4957377681",
+   "name": "MB fadez",
+   "sector": "Barber",
+   "lat": 51.457951,
+   "lng": -1.001492
+  },
+  {
+   "osm": "node/5114971234",
+   "name": "Meadway Barbers",
+   "sector": "Barber",
+   "lat": 51.449972,
+   "lng": -1.016788
+  },
+  {
+   "osm": "node/6221613868",
+   "name": "Mo's Barbers",
+   "sector": "Barber",
+   "lat": 51.450645,
+   "lng": -0.966945,
+   "address": "123 London Street, Reading, RG1 4QA",
+   "website": "http://mosbarbers.net/"
+  },
+  {
+   "osm": "node/5254308142",
+   "name": "Monello",
+   "sector": "Barber",
+   "lat": 51.523573,
+   "lng": -0.719311,
+   "website": "https://www.monello.co.uk/"
+  },
+  {
+   "osm": "node/12288288142",
+   "name": "Morfose",
+   "sector": "Barber",
+   "lat": 51.50208,
+   "lng": -0.542402
+  },
+  {
+   "osm": "node/12071755783",
+   "name": "My Barber",
+   "sector": "Barber",
+   "lat": 51.517507,
+   "lng": -0.645198
+  },
+  {
+   "osm": "node/12151397481",
+   "name": "Perfectly Posh",
+   "sector": "Barber",
+   "lat": 51.418328,
+   "lng": -1.513067,
+   "address": "21 Charnham Street, Hungerford",
+   "website": "https://www.perfectlyposhhairdesign.co.uk/"
+  },
+  {
+   "osm": "node/12288418574",
+   "name": "Popeye's Grooming",
+   "sector": "Barber",
+   "lat": 51.486337,
+   "lng": -0.608637
+  },
+  {
+   "osm": "node/13335541256",
+   "name": "Posh Barber",
+   "sector": "Barber",
+   "lat": 51.399138,
+   "lng": -0.77128
+  },
+  {
+   "osm": "node/2364966126",
+   "name": "Rad's Barbers",
+   "sector": "Barber",
+   "lat": 51.522485,
+   "lng": -0.723533,
+   "address": "103 A High Street, Maidenhead, SL6 1JX",
+   "website": "https://radsbarbers.co.uk"
+  },
+  {
+   "osm": "node/5799225131",
+   "name": "Reading Barbers",
+   "sector": "Barber",
+   "lat": 51.456234,
+   "lng": -0.971476
+  },
+  {
+   "osm": "node/4169364519",
+   "name": "Rush Hair",
+   "sector": "Barber",
+   "lat": 51.456403,
+   "lng": -0.972217
+  },
+  {
+   "osm": "node/2281845672",
+   "name": "Salon 55",
+   "sector": "Barber",
+   "lat": 51.369668,
+   "lng": -0.792338
+  },
+  {
+   "osm": "node/4979416768",
+   "name": "Sam's Barber Shop",
+   "sector": "Barber",
+   "lat": 51.457196,
+   "lng": -0.970388
+  },
+  {
+   "osm": "node/7182230371",
+   "name": "Sandhurst Barbers",
+   "sector": "Barber",
+   "lat": 51.345754,
+   "lng": -0.800281
+  },
+  {
+   "osm": "node/12117621769",
+   "name": "Smith and Cullen",
+   "sector": "Barber",
+   "lat": 51.477712,
+   "lng": -0.613115,
+   "address": "58 St Leonards Road, Windsor, SL4 3BY",
+   "website": "https://smithandcullenhairdressing.co.uk/"
+  },
+  {
+   "osm": "way/312685385",
+   "name": "Snippet's Barbers",
+   "sector": "Barber",
+   "lat": 51.414694,
+   "lng": -1.515351,
+   "address": "115 High Street, Hungerford, RG17 0LU"
+  },
+  {
+   "osm": "way/303532388",
+   "name": "Texas",
+   "sector": "Barber",
+   "lat": 51.404829,
+   "lng": -1.324912,
+   "address": "56 Northbrook Street, Newbury"
+  },
+  {
+   "osm": "way/191236573",
+   "name": "The Barber Shop",
+   "sector": "Barber",
+   "lat": 51.442958,
+   "lng": -0.931949,
+   "address": "177 Wokingham Road, Reading, RG6 1LT"
+  },
+  {
+   "osm": "way/313488650",
+   "name": "The Barbers Lounge",
+   "sector": "Barber",
+   "lat": 51.400963,
+   "lng": -1.323961
+  },
+  {
+   "osm": "node/12167343182",
+   "name": "The Barbershop Sunningdale",
+   "sector": "Barber",
+   "lat": 51.392985,
+   "lng": -0.629178,
+   "address": "London Road, Ascot, SL5 0DJ"
+  },
+  {
+   "osm": "node/4689166149",
+   "name": "The Cutting Bar",
+   "sector": "Barber",
+   "lat": 51.403458,
+   "lng": -1.258662
+  },
+  {
+   "osm": "way/304111032",
+   "name": "The Cutting Bar",
+   "sector": "Barber",
+   "lat": 51.401936,
+   "lng": -1.324432,
+   "address": "101 Northbrook Street, Newbury, RG14 1AA",
+   "website": "https://thecuttingbar.com/"
+  },
+  {
+   "osm": "way/313323273",
+   "name": "The Gentleman's Barber Shop",
+   "sector": "Barber",
+   "lat": 51.415851,
+   "lng": -1.515231,
+   "address": "10 High Street, Hungerford",
+   "website": "https://www.hungerfordbarbers.co.uk/"
+  },
+  {
+   "osm": "node/2321297958",
+   "name": "The King Barbers",
+   "sector": "Barber",
+   "lat": 51.477586,
+   "lng": -0.612847,
+   "address": "69 St Leonards Road, Windsor, SL4 3BX"
+  },
+  {
+   "osm": "node/12288288143",
+   "name": "The Langley Barber",
+   "sector": "Barber",
+   "lat": 51.503922,
+   "lng": -0.542281
+  },
+  {
+   "osm": "node/9981898875",
+   "name": "The Two Tone Barbers",
+   "sector": "Barber",
+   "lat": 51.5016,
+   "lng": -0.869364
+  },
+  {
+   "osm": "way/70524144",
+   "name": "The Village Barber",
+   "sector": "Barber",
+   "lat": 51.428559,
+   "lng": -0.946238,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/12167351686",
+   "name": "The Village Barbers of Sunninghill",
+   "sector": "Barber",
+   "lat": 51.401742,
+   "lng": -0.655256,
+   "address": "20 High Street, Ascot, SL5 9NE",
+   "website": "https://thevillagebarbersofsunninghill.co.uk/"
+  },
+  {
+   "osm": "node/2388717288",
+   "name": "TK Barbers",
+   "sector": "Barber",
+   "lat": 51.437595,
+   "lng": -1.074738
+  },
+  {
+   "osm": "node/2324275993",
+   "name": "Toni & Guy",
+   "sector": "Barber",
+   "lat": 51.522903,
+   "lng": -0.720164,
+   "address": "52 High Street, Maidenhead, SL6 1PY"
+  },
+  {
+   "osm": "node/324749604",
+   "name": "Top Class Turkish Barber",
+   "sector": "Barber",
+   "lat": 51.48292,
+   "lng": -0.963663,
+   "address": "1 Kidmore End Road, Reading, RG4 8SD"
+  },
+  {
+   "osm": "node/11803394490",
+   "name": "Top Man Turkish Barbers",
+   "sector": "Barber",
+   "lat": 51.460006,
+   "lng": -1.03745,
+   "address": "3 School Road, Tilehurst, RG31 5AR"
+  },
+  {
+   "osm": "way/70517062",
+   "name": "Topman Turkish Barbers",
+   "sector": "Barber",
+   "lat": 51.469612,
+   "lng": -1.044759,
+   "address": "Reading"
+  },
+  {
+   "osm": "way/108724925",
+   "name": "Traditional Barber",
+   "sector": "Barber",
+   "lat": 51.459144,
+   "lng": -0.894416,
+   "address": "Reading, RG5 4PS"
+  },
+  {
+   "osm": "node/2418295958",
+   "name": "Trendy Barber",
+   "sector": "Barber",
+   "lat": 51.340433,
+   "lng": -0.776853,
+   "address": "GU47 0PR"
+  },
+  {
+   "osm": "node/4973749330",
+   "name": "Turkish Barber",
+   "sector": "Barber",
+   "lat": 51.445683,
+   "lng": -0.965401
+  },
+  {
+   "osm": "way/579638136",
+   "name": "Turkish Barber",
+   "sector": "Barber",
+   "lat": 51.453112,
+   "lng": -0.949218,
+   "address": "197 London Road, Reading, RG1 3NU"
+  },
+  {
+   "osm": "node/1583670887",
+   "name": "Twyford Barbers",
+   "sector": "Barber",
+   "lat": 51.477911,
+   "lng": -0.865882
+  },
+  {
+   "osm": "node/4736507804",
+   "name": "Uni-Cuts",
+   "sector": "Barber",
+   "lat": 51.440816,
+   "lng": -0.943297
+  },
+  {
+   "osm": "way/742842126",
+   "name": "Valley Barbers - Lambourn",
+   "sector": "Barber",
+   "lat": 51.507815,
+   "lng": -1.531486
+  },
+  {
+   "osm": "node/2297023224",
+   "name": "Wilson's",
+   "sector": "Barber",
+   "lat": 51.366933,
+   "lng": -0.795079
+  },
+  {
+   "osm": "way/64654494",
+   "name": "Winnersh Turkish Barber",
+   "sector": "Barber",
+   "lat": 51.429299,
+   "lng": -0.879381,
+   "address": "418 Reading Road, Winnersh, RG41 5EP",
+   "website": "https://winnershturkishbarber.com"
+  },
+  {
+   "osm": "node/2281868974",
+   "name": "Zappas",
+   "sector": "Barber",
+   "lat": 51.367917,
+   "lng": -0.793604
+  },
+  {
+   "osm": "node/3111764573",
+   "name": "Zappas",
+   "sector": "Barber",
+   "lat": 51.468215,
+   "lng": -0.972463,
+   "website": "https://www.zappas.co.uk/"
+  },
+  {
+   "osm": "node/11901119395",
+   "name": "Aesthetic Skin",
+   "sector": "Beauty salon",
+   "lat": 51.487114,
+   "lng": -0.608789
+  },
+  {
+   "osm": "node/12064089206",
+   "name": "Affinity",
+   "sector": "Beauty salon",
+   "lat": 51.528068,
+   "lng": -0.616859
+  },
+  {
+   "osm": "node/4917778871",
+   "name": "Akwaaba",
+   "sector": "Beauty salon",
+   "lat": 51.455796,
+   "lng": -0.988982
+  },
+  {
+   "osm": "node/7109847832",
+   "name": "Aphrodite’s Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.482978,
+   "lng": -0.963735,
+   "address": "3 Kidmore End Road, Reading, RG4 8SD"
+  },
+  {
+   "osm": "node/4826866840",
+   "name": "Aranya Tha1i Massage",
+   "sector": "Beauty salon",
+   "lat": 51.456558,
+   "lng": -0.994342
+  },
+  {
+   "osm": "node/3788149750",
+   "name": "Aruna",
+   "sector": "Beauty salon",
+   "lat": 51.504336,
+   "lng": -0.57147
+  },
+  {
+   "osm": "node/7231487989",
+   "name": "Aruna tanning",
+   "sector": "Beauty salon",
+   "lat": 51.512449,
+   "lng": -0.613227
+  },
+  {
+   "osm": "way/1310544973",
+   "name": "Ashley Brow Bar",
+   "sector": "Beauty salon",
+   "lat": 51.416166,
+   "lng": -1.514523,
+   "address": "129a High Street, Hungerford"
+  },
+  {
+   "osm": "node/10700661454",
+   "name": "Beautiful Angels",
+   "sector": "Beauty salon",
+   "lat": 51.403545,
+   "lng": -0.671719
+  },
+  {
+   "osm": "node/12064061846",
+   "name": "Beauty Angel",
+   "sector": "Beauty salon",
+   "lat": 51.526307,
+   "lng": -0.615735
+  },
+  {
+   "osm": "node/6337460619",
+   "name": "Beauty Lounge",
+   "sector": "Beauty salon",
+   "lat": 51.442742,
+   "lng": -1.061047
+  },
+  {
+   "osm": "node/6658302615",
+   "name": "Beauty Shop",
+   "sector": "Beauty salon",
+   "lat": 51.51034,
+   "lng": -0.591148
+  },
+  {
+   "osm": "node/4973749337",
+   "name": "Beauty Tech Medispa",
+   "sector": "Beauty salon",
+   "lat": 51.446277,
+   "lng": -0.96564
+  },
+  {
+   "osm": "node/1037363050",
+   "name": "Bella's Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.453979,
+   "lng": -0.97429,
+   "address": "34 St Mary's Butts, Reading, RG1 2LQ"
+  },
+  {
+   "osm": "node/12183846126",
+   "name": "Belle Chic",
+   "sector": "Beauty salon",
+   "lat": 51.413244,
+   "lng": -1.515854,
+   "address": "94 High Street, Hungerford, RG17 0NB",
+   "website": "https://www.bellechic.co.uk/"
+  },
+  {
+   "osm": "way/916597182",
+   "name": "Benefit",
+   "sector": "Beauty salon",
+   "lat": 51.482513,
+   "lng": -0.610293
+  },
+  {
+   "osm": "node/12288288170",
+   "name": "Bifolco & Matty",
+   "sector": "Beauty salon",
+   "lat": 51.504451,
+   "lng": -0.543052
+  },
+  {
+   "osm": "way/59038072",
+   "name": "Blissful Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.426265,
+   "lng": -0.947021,
+   "address": "254 Shinfield Road, Reading, RG2 8EY",
+   "website": "https://www.blissfulbeauty.me.uk"
+  },
+  {
+   "osm": "way/313482060",
+   "name": "Bridge Street Skin Clinic",
+   "sector": "Beauty salon",
+   "lat": 51.417475,
+   "lng": -1.513592,
+   "address": "6 Bridge Street, Hungerford, RG17 0EH",
+   "website": "https://bridgestreetskinclinic.co.uk/"
+  },
+  {
+   "osm": "way/1447531736",
+   "name": "Charlie’s Angels",
+   "sector": "Beauty salon",
+   "lat": 51.484576,
+   "lng": -0.527943,
+   "address": "7 High Street, Slough, SL3 0NF"
+  },
+  {
+   "osm": "node/12304794271",
+   "name": "Ciel Aesthetics",
+   "sector": "Beauty salon",
+   "lat": 51.485296,
+   "lng": -0.607107,
+   "address": "Datchet Road, Windsor, SL4 1QB"
+  },
+  {
+   "osm": "node/4710000117",
+   "name": "Claires Hair & Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.403259,
+   "lng": -1.259663
+  },
+  {
+   "osm": "way/1304105085",
+   "name": "Classic Hair and Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.51997,
+   "lng": -0.599703
+  },
+  {
+   "osm": "node/5799225136",
+   "name": "Cocoon Shop",
+   "sector": "Beauty salon",
+   "lat": 51.456053,
+   "lng": -0.971532
+  },
+  {
+   "osm": "node/4807216278",
+   "name": "Connect Afrique",
+   "sector": "Beauty salon",
+   "lat": 51.456324,
+   "lng": -0.993202
+  },
+  {
+   "osm": "node/5557268070",
+   "name": "Consol",
+   "sector": "Beauty salon",
+   "lat": 51.41548,
+   "lng": -0.75386
+  },
+  {
+   "osm": "node/5818550512",
+   "name": "Consol",
+   "sector": "Beauty salon",
+   "lat": 51.444581,
+   "lng": -0.964712
+  },
+  {
+   "osm": "node/6780626007",
+   "name": "Crstyle Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.454852,
+   "lng": -0.980563
+  },
+  {
+   "osm": "node/5924062336",
+   "name": "Crystal Hair Design",
+   "sector": "Beauty salon",
+   "lat": 51.433503,
+   "lng": -0.967823,
+   "address": "50 Buckland Road, Reading"
+  },
+  {
+   "osm": "way/964570294",
+   "name": "Cutting it Fine",
+   "sector": "Beauty salon",
+   "lat": 51.426316,
+   "lng": -0.731368,
+   "address": "13 County Lane, Bracknell, RG42 3JP",
+   "website": "https://cuttingitfine.online/"
+  },
+  {
+   "osm": "node/6535200753",
+   "name": "Dinamix Hair & Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.442515,
+   "lng": -0.955127
+  },
+  {
+   "osm": "node/3420006442",
+   "name": "Elegance",
+   "sector": "Beauty salon",
+   "lat": 51.499609,
+   "lng": -0.540552
+  },
+  {
+   "osm": "way/144166846",
+   "name": "Eliska",
+   "sector": "Beauty salon",
+   "lat": 51.484363,
+   "lng": -0.60824,
+   "address": "2 River Street, Windsor, SL4 1QT"
+  },
+  {
+   "osm": "node/5105672584",
+   "name": "Elysien",
+   "sector": "Beauty salon",
+   "lat": 51.450137,
+   "lng": -1.046429
+  },
+  {
+   "osm": "node/12288418571",
+   "name": "Faciology",
+   "sector": "Beauty salon",
+   "lat": 51.488062,
+   "lng": -0.608924
+  },
+  {
+   "osm": "node/12064089180",
+   "name": "Final Touch",
+   "sector": "Beauty salon",
+   "lat": 51.523658,
+   "lng": -0.61507
+  },
+  {
+   "osm": "node/5114971241",
+   "name": "Glitter & Shine",
+   "sector": "Beauty salon",
+   "lat": 51.449972,
+   "lng": -1.017224
+  },
+  {
+   "osm": "node/12143240828",
+   "name": "Gloden Tanning Studio",
+   "sector": "Beauty salon",
+   "lat": 51.509878,
+   "lng": -0.595063
+  },
+  {
+   "osm": "node/5626786705",
+   "name": "Guinot",
+   "sector": "Beauty salon",
+   "lat": 51.410737,
+   "lng": -0.672988,
+   "address": "51b High Street, Ascot, SL5 7HG",
+   "website": "https://www.thesalonascot.guinot.com"
+  },
+  {
+   "osm": "node/12143224263",
+   "name": "Hair & Beauty salon",
+   "sector": "Beauty salon",
+   "lat": 51.507531,
+   "lng": -0.584527
+  },
+  {
+   "osm": "node/5764226368",
+   "name": "Hilton Skin Clinics",
+   "sector": "Beauty salon",
+   "lat": 51.467552,
+   "lng": -0.977256,
+   "website": "https://www.hiltonskinclinics.co.uk"
+  },
+  {
+   "osm": "node/12453029975",
+   "name": "Honey B",
+   "sector": "Beauty salon",
+   "lat": 51.408565,
+   "lng": -0.850159
+  },
+  {
+   "osm": "node/12067013394",
+   "name": "House of Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.528742,
+   "lng": -0.605785
+  },
+  {
+   "osm": "way/1308404768",
+   "name": "Huh Hush Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.46265,
+   "lng": -0.585832
+  },
+  {
+   "osm": "node/12143240835",
+   "name": "Humira's Beauty Bar",
+   "sector": "Beauty salon",
+   "lat": 51.509467,
+   "lng": -0.595043
+  },
+  {
+   "osm": "node/12117621762",
+   "name": "Iin Skin",
+   "sector": "Beauty salon",
+   "lat": 51.47694,
+   "lng": -0.612983,
+   "address": "89 St Leonards Road, Windsor, SL4 3BZ",
+   "website": "https://www.iinskin.co.uk/"
+  },
+  {
+   "osm": "node/12143263426",
+   "name": "In Touch",
+   "sector": "Beauty salon",
+   "lat": 51.507374,
+   "lng": -0.586741
+  },
+  {
+   "osm": "node/6276908793",
+   "name": "Iwona's Hair & Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.45122,
+   "lng": -0.96725,
+   "address": "97 London Street, Reading"
+  },
+  {
+   "osm": "node/6221613851",
+   "name": "Juli Lash Art Studio",
+   "sector": "Beauty salon",
+   "lat": 51.451966,
+   "lng": -0.967723,
+   "address": "67 London Street, Reading, RG1 4QA"
+  },
+  {
+   "osm": "node/11142945457",
+   "name": "Kat walk Reading",
+   "sector": "Beauty salon",
+   "lat": 51.456358,
+   "lng": -0.994607
+  },
+  {
+   "osm": "node/12064045208",
+   "name": "Laser Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.525009,
+   "lng": -0.615973
+  },
+  {
+   "osm": "node/12061045122",
+   "name": "Laserday Looks",
+   "sector": "Beauty salon",
+   "lat": 51.517762,
+   "lng": -0.578573
+  },
+  {
+   "osm": "node/5254338663",
+   "name": "LaserMed",
+   "sector": "Beauty salon",
+   "lat": 51.52216,
+   "lng": -0.721151
+  },
+  {
+   "osm": "node/6780626006",
+   "name": "Lashes and Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.454849,
+   "lng": -0.980644
+  },
+  {
+   "osm": "way/556866284",
+   "name": "Mai's Image",
+   "sector": "Beauty salon",
+   "lat": 51.480906,
+   "lng": -0.611243,
+   "address": "46 Peascod Street, Windsor, SL4 1DE"
+  },
+  {
+   "osm": "way/944325151",
+   "name": "Marianna's Hair Beauty Tanning",
+   "sector": "Beauty salon",
+   "lat": 51.526221,
+   "lng": -0.72142,
+   "address": "9,9A Norfolk Road, Maidenhead, SL6 7AS"
+  },
+  {
+   "osm": "node/12064061860",
+   "name": "Marylin",
+   "sector": "Beauty salon",
+   "lat": 51.525349,
+   "lng": -0.615444
+  },
+  {
+   "osm": "node/12109368653",
+   "name": "MBA Clinics",
+   "sector": "Beauty salon",
+   "lat": 51.484341,
+   "lng": -0.581405
+  },
+  {
+   "osm": "node/6577673102",
+   "name": "Mirror Mirror",
+   "sector": "Beauty salon",
+   "lat": 51.478258,
+   "lng": -0.946671
+  },
+  {
+   "osm": "node/4826866859",
+   "name": "Monika",
+   "sector": "Beauty salon",
+   "lat": 51.45675,
+   "lng": -0.995272,
+   "website": "http://www.salonmonica.co.uk/"
+  },
+  {
+   "osm": "node/12077143647",
+   "name": "My Hair & Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.516413,
+   "lng": -0.599947
+  },
+  {
+   "osm": "node/5147989514",
+   "name": "Nina Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.526239,
+   "lng": -0.721588
+  },
+  {
+   "osm": "node/11616269944",
+   "name": "No Filter",
+   "sector": "Beauty salon",
+   "lat": 51.382401,
+   "lng": -1.341559,
+   "address": "2 Essex Street, Newbury, RG14 6QN",
+   "website": "https://no-filter.co.uk/"
+  },
+  {
+   "osm": "node/5122403804",
+   "name": "Park Lane Unisex Salon",
+   "sector": "Beauty salon",
+   "lat": 51.456537,
+   "lng": -1.044569
+  },
+  {
+   "osm": "node/6339963919",
+   "name": "Perfect Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.45455,
+   "lng": -0.975944
+  },
+  {
+   "osm": "node/1015531452",
+   "name": "Pink",
+   "sector": "Beauty salon",
+   "lat": 51.453852,
+   "lng": -0.961464,
+   "address": "25 Watlington Street, Reading, RG1 4EN",
+   "website": "https://pinkbeautysalons.co.uk"
+  },
+  {
+   "osm": "node/12218066144",
+   "name": "Pink",
+   "sector": "Beauty salon",
+   "lat": 51.456288,
+   "lng": -0.975736
+  },
+  {
+   "osm": "node/7158215068",
+   "name": "professional hair and beauty suppliers",
+   "sector": "Beauty salon",
+   "lat": 51.518615,
+   "lng": -0.626802
+  },
+  {
+   "osm": "node/11964140850",
+   "name": "Pure Bliss",
+   "sector": "Beauty salon",
+   "lat": 51.410883,
+   "lng": -0.830707,
+   "address": "47a Peach Street"
+  },
+  {
+   "osm": "way/933664466",
+   "name": "Pure Spa",
+   "sector": "Beauty salon",
+   "lat": 51.479894,
+   "lng": -0.612229,
+   "address": "2 St Leonards Road, Windsor, SL4 3BW"
+  },
+  {
+   "osm": "node/12167387702",
+   "name": "Puretta",
+   "sector": "Beauty salon",
+   "lat": 51.401141,
+   "lng": -0.655969,
+   "address": "13 High Street, Ascot, SL5 9NQ",
+   "website": "https://www.puretta.co.uk"
+  },
+  {
+   "osm": "way/688218058",
+   "name": "Queen Hair & Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.453365,
+   "lng": -0.94822,
+   "address": "219 London Road, Reading, RG1 3NY"
+  },
+  {
+   "osm": "node/12461390264",
+   "name": "Relaxation Centre",
+   "sector": "Beauty salon",
+   "lat": 51.342245,
+   "lng": -0.779788
+  },
+  {
+   "osm": "node/5818550502",
+   "name": "Relaxme",
+   "sector": "Beauty salon",
+   "lat": 51.444946,
+   "lng": -0.965001
+  },
+  {
+   "osm": "node/12061045129",
+   "name": "Romans",
+   "sector": "Beauty salon",
+   "lat": 51.517637,
+   "lng": -0.578102
+  },
+  {
+   "osm": "way/840731337",
+   "name": "Rush Health & Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.480576,
+   "lng": -0.612104,
+   "address": "Peascod Street, Windsor, SL4 1DH"
+  },
+  {
+   "osm": "node/7137481457",
+   "name": "Salon Services",
+   "sector": "Beauty salon",
+   "lat": 51.518208,
+   "lng": -0.625946,
+   "website": "https://www.sallybeauty.co.uk/storeinfo?StoreID=4086"
+  },
+  {
+   "osm": "node/4860664642",
+   "name": "Sara Beauty Salon",
+   "sector": "Beauty salon",
+   "lat": 51.457077,
+   "lng": -0.997884,
+   "address": "Oxford Road, Reading, RG30 1HD"
+  },
+  {
+   "osm": "node/2364939050",
+   "name": "Silky Brows",
+   "sector": "Beauty salon",
+   "lat": 51.52185,
+   "lng": -0.72314
+  },
+  {
+   "osm": "node/5799225137",
+   "name": "Skinspace",
+   "sector": "Beauty salon",
+   "lat": 51.456011,
+   "lng": -0.971544
+  },
+  {
+   "osm": "node/12143231798",
+   "name": "Studio N26",
+   "sector": "Beauty salon",
+   "lat": 51.510146,
+   "lng": -0.598111
+  },
+  {
+   "osm": "node/4860664638",
+   "name": "Sunspar",
+   "sector": "Beauty salon",
+   "lat": 51.457151,
+   "lng": -0.998182
+  },
+  {
+   "osm": "node/4917778859",
+   "name": "Supreme Style",
+   "sector": "Beauty salon",
+   "lat": 51.455724,
+   "lng": -0.988048
+  },
+  {
+   "osm": "node/5924062318",
+   "name": "Tan Express",
+   "sector": "Beauty salon",
+   "lat": 51.432445,
+   "lng": -0.969397
+  },
+  {
+   "osm": "node/5197950176",
+   "name": "Tanning Shop",
+   "sector": "Beauty salon",
+   "lat": 51.455436,
+   "lng": -0.976906
+  },
+  {
+   "osm": "node/12151853246",
+   "name": "Tanning Studio",
+   "sector": "Beauty salon",
+   "lat": 51.400295,
+   "lng": -0.656304,
+   "address": "64 High Street, Ascot, SL5 9NN",
+   "website": "https://tanningstudios.co.uk/"
+  },
+  {
+   "osm": "node/12113617528",
+   "name": "Tanya's",
+   "sector": "Beauty salon",
+   "lat": 51.456492,
+   "lng": -0.554816
+  },
+  {
+   "osm": "way/56697364",
+   "name": "The Beautique",
+   "sector": "Beauty salon",
+   "lat": 51.43016,
+   "lng": -0.879833,
+   "address": "Reading Road, RG41 5HU"
+  },
+  {
+   "osm": "node/12116368398",
+   "name": "The Beauty Room",
+   "sector": "Beauty salon",
+   "lat": 51.470775,
+   "lng": -0.6216
+  },
+  {
+   "osm": "way/914486961",
+   "name": "The Beauty Training Academy",
+   "sector": "Beauty salon",
+   "lat": 51.449085,
+   "lng": -0.947125,
+   "address": "83 Erleigh Road, Reading, RG1 5NN",
+   "website": "www.thebeautytrainingacademy.co.uk"
+  },
+  {
+   "osm": "node/8196610324",
+   "name": "The Kurl Salon",
+   "sector": "Beauty salon",
+   "lat": 51.455522,
+   "lng": -1.049934
+  },
+  {
+   "osm": "node/10967999930",
+   "name": "The Malvern",
+   "sector": "Beauty salon",
+   "lat": 51.459391,
+   "lng": -0.80845,
+   "website": "https://themalvern.co.uk/"
+  },
+  {
+   "osm": "node/4917778882",
+   "name": "The Red Carpet",
+   "sector": "Beauty salon",
+   "lat": 51.455087,
+   "lng": -0.984788
+  },
+  {
+   "osm": "node/3938063888",
+   "name": "The Salon",
+   "sector": "Beauty salon",
+   "lat": 51.422798,
+   "lng": -0.958872
+  },
+  {
+   "osm": "node/5893497414",
+   "name": "The Skin Centre",
+   "sector": "Beauty salon",
+   "lat": 51.452406,
+   "lng": -0.967977,
+   "address": "53 London Street, Reading, RG1 4PS"
+  },
+  {
+   "osm": "node/12143231791",
+   "name": "TLC Group",
+   "sector": "Beauty salon",
+   "lat": 51.510378,
+   "lng": -0.599102
+  },
+  {
+   "osm": "node/5872945488",
+   "name": "Transform Clinic",
+   "sector": "Beauty salon",
+   "lat": 51.453366,
+   "lng": -0.963071
+  },
+  {
+   "osm": "node/12116368393",
+   "name": "Umber's Beauty Bar",
+   "sector": "Beauty salon",
+   "lat": 51.471315,
+   "lng": -0.616684
+  },
+  {
+   "osm": "node/12912663066",
+   "name": "Unique Beauty House",
+   "sector": "Beauty salon",
+   "lat": 51.452743,
+   "lng": -0.948234,
+   "address": "12a Wokingham Road, Reading, RG6 1JG"
+  },
+  {
+   "osm": "node/12167343177",
+   "name": "Wentworth Aesthetics",
+   "sector": "Beauty salon",
+   "lat": 51.39326,
+   "lng": -0.628483,
+   "address": "London Road, Ascot, SL5 0DJ",
+   "website": "https://www.wentworthaesthetics.com"
+  },
+  {
+   "osm": "way/70037981",
+   "name": "WKD Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.436444,
+   "lng": -0.925504,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/4934130998",
+   "name": "Zab's Hair & Beauty",
+   "sector": "Beauty salon",
+   "lat": 51.457468,
+   "lng": -0.999621,
+   "website": "https://zabshairandbeauty.co.uk/"
+  },
+  {
+   "osm": "node/13333886007",
+   "name": "Acorn cafe",
+   "sector": "Coffee shop",
+   "lat": 51.413281,
+   "lng": -0.854396,
+   "address": "Fernlea Drive, Wokingham, RG41 3DR"
+  },
+  {
+   "osm": "node/4723789125",
+   "name": "Agriculture Café",
+   "sector": "Coffee shop",
+   "lat": 51.438294,
+   "lng": -0.936208,
+   "address": "Reading, RG6 6UR"
+  },
+  {
+   "osm": "node/6088024141",
+   "name": "Aldermaston Tea Rooms",
+   "sector": "Coffee shop",
+   "lat": 51.400621,
+   "lng": -1.135189,
+   "address": "Wharfside, Aldermaston Wharf, Reading, RG7 4JS, England",
+   "website": "https://www.findglocal.com/GB/Reading/1401554166790712/Aldermaston-Tea-Rooms"
+  },
+  {
+   "osm": "node/12341077865",
+   "name": "Amana's Journey AJ Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.532467,
+   "lng": -0.63308,
+   "address": "41-43 Wentworth Avenue, Slough, SL2 2DS"
+  },
+  {
+   "osm": "node/6743710645",
+   "name": "AMT Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.449112,
+   "lng": -0.95843
+  },
+  {
+   "osm": "node/2965997234",
+   "name": "AMT Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.458422,
+   "lng": -0.971776,
+   "address": "Brunel Arcade, Reading, RG1 1LT"
+  },
+  {
+   "osm": "node/7083984026",
+   "name": "Anns pantry",
+   "sector": "Coffee shop",
+   "lat": 51.521198,
+   "lng": -0.624611,
+   "address": "34 Buckingham Avenue, Slough, SL1 4QA"
+  },
+  {
+   "osm": "node/12143263414",
+   "name": "Antonio's",
+   "sector": "Coffee shop",
+   "lat": 51.506966,
+   "lng": -0.584805,
+   "address": "314 High Street, Slough, SL1 1NB"
+  },
+  {
+   "osm": "node/12288359776",
+   "name": "Anytime Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.48957,
+   "lng": -0.609478,
+   "address": "125 High Street, Windsor, SL4 6AN"
+  },
+  {
+   "osm": "node/5626671338",
+   "name": "Arlington",
+   "sector": "Coffee shop",
+   "lat": 51.416594,
+   "lng": -0.758364
+  },
+  {
+   "osm": "node/1815548841",
+   "name": "Aroma",
+   "sector": "Coffee shop",
+   "lat": 51.409079,
+   "lng": -0.835109
+  },
+  {
+   "osm": "node/2281854845",
+   "name": "Artichoke Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.367161,
+   "lng": -0.794283,
+   "website": "https://www.artichoke.cafe/"
+  },
+  {
+   "osm": "node/5626463093",
+   "name": "Ascot's",
+   "sector": "Coffee shop",
+   "lat": 51.410817,
+   "lng": -0.674114,
+   "address": "35 High Street, Ascot, SL5 7HG"
+  },
+  {
+   "osm": "node/7510581781",
+   "name": "Asda Café",
+   "sector": "Coffee shop",
+   "lat": 51.424745,
+   "lng": -0.931646,
+   "address": "Chalfont Way, Earley, RG6 5TT",
+   "website": "https://storelocator.asda.com/south-east/reading/chalfont-way-lower-earley/cafe"
+  },
+  {
+   "osm": "way/68825300",
+   "name": "Avenue Deli",
+   "sector": "Coffee shop",
+   "lat": 51.442709,
+   "lng": -1.046647,
+   "address": "100 Royal Avenue, Reading, RG31 4UT"
+  },
+  {
+   "osm": "node/6313183304",
+   "name": "Bar Torino",
+   "sector": "Coffee shop",
+   "lat": 51.416297,
+   "lng": -0.748163,
+   "address": "19 High Street, Bracknell, RG12 1DL"
+  },
+  {
+   "osm": "node/7699713108",
+   "name": "Baxters",
+   "sector": "Coffee shop",
+   "lat": 51.483771,
+   "lng": -1.083995
+  },
+  {
+   "osm": "node/5899064800",
+   "name": "BBS",
+   "sector": "Coffee shop",
+   "lat": 51.45314,
+   "lng": -0.971565,
+   "address": "Bridge Street, RG1 2AQ"
+  },
+  {
+   "osm": "way/1065540677",
+   "name": "Beastly Bites",
+   "sector": "Coffee shop",
+   "lat": 51.464121,
+   "lng": -0.6464
+  },
+  {
+   "osm": "node/12105470627",
+   "name": "Bistro Story",
+   "sector": "Coffee shop",
+   "lat": 51.522286,
+   "lng": -0.720005
+  },
+  {
+   "osm": "node/2321266722",
+   "name": "Bite Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.479426,
+   "lng": -0.612193,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "node/5206902289",
+   "name": "Bite Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.479322,
+   "lng": -0.612255,
+   "address": "21 St Leonards Road, Windsor, SL4 3BP"
+  },
+  {
+   "osm": "node/2793679079",
+   "name": "Black Sheep Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.456652,
+   "lng": -0.972238,
+   "address": "148 Friar Street, Reading, RG1 1EX",
+   "website": "https://blacksheepcoffee.co.uk/blogs/locations/queen-victoria-street"
+  },
+  {
+   "osm": "way/840731311",
+   "name": "Black Sheep Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.482411,
+   "lng": -0.608388,
+   "address": "137 Peascod Street, Windsor, SL4 1DS",
+   "website": "https://blacksheepcoffee.co.uk/blogs/locations/peascod-street"
+  },
+  {
+   "osm": "way/1081002727",
+   "name": "Black Sheep Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.455728,
+   "lng": -0.974371,
+   "address": "60 Broad Street, Reading, RG1 2AF",
+   "website": "https://blacksheepcoffee.co.uk/blogs/locations/broad-street"
+  },
+  {
+   "osm": "node/12151853253",
+   "name": "Blend N Brew",
+   "sector": "Coffee shop",
+   "lat": 51.400172,
+   "lng": -0.656715,
+   "address": "29c High Street, Ascot, SL5 9NP"
+  },
+  {
+   "osm": "node/5154783017",
+   "name": "Boat House Pub",
+   "sector": "Coffee shop",
+   "lat": 51.523206,
+   "lng": -1.143771,
+   "address": "B4009, Reading, RG8 9HR"
+  },
+  {
+   "osm": "way/86435128",
+   "name": "Bobabloom",
+   "sector": "Coffee shop",
+   "lat": 51.44903,
+   "lng": -0.946877,
+   "address": "91-93 Erleigh Road, Reading, RG1 5NN"
+  },
+  {
+   "osm": "node/6301705707",
+   "name": "Boost",
+   "sector": "Coffee shop",
+   "lat": 51.454746,
+   "lng": -0.97072
+  },
+  {
+   "osm": "node/2083398162",
+   "name": "Boswells",
+   "sector": "Coffee shop",
+   "lat": 51.454845,
+   "lng": -0.976226,
+   "address": "Broad Street, Reading, RG1 7QE",
+   "website": "https://boswellsgroup.com/"
+  },
+  {
+   "osm": "node/2388715425",
+   "name": "Bradleys",
+   "sector": "Coffee shop",
+   "lat": 51.437468,
+   "lng": -1.075033,
+   "address": "38 High Street, Theale, RG7 5AH"
+  },
+  {
+   "osm": "node/5619646841",
+   "name": "Brasserie",
+   "sector": "Coffee shop",
+   "lat": 51.416487,
+   "lng": -0.760857
+  },
+  {
+   "osm": "way/729738281",
+   "name": "Bray Lake Watersports",
+   "sector": "Coffee shop",
+   "lat": 51.499941,
+   "lng": -0.689076,
+   "address": "Monkey Island Lane, Maidenhead, SL6 2EB"
+  },
+  {
+   "osm": "way/304111019",
+   "name": "Brew Blood",
+   "sector": "Coffee shop",
+   "lat": 51.401024,
+   "lng": -1.324075,
+   "address": "152 Bartholomew Street"
+  },
+  {
+   "osm": "node/6247957323",
+   "name": "Brewer Street Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.458899,
+   "lng": -0.972347
+  },
+  {
+   "osm": "way/216890701",
+   "name": "Bridge Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.430622,
+   "lng": -1.022828
+  },
+  {
+   "osm": "way/1379297823",
+   "name": "Bridge Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.484127,
+   "lng": -0.578733
+  },
+  {
+   "osm": "node/12896513523",
+   "name": "Bridges",
+   "sector": "Coffee shop",
+   "lat": 51.484094,
+   "lng": -0.578738
+  },
+  {
+   "osm": "node/6313183330",
+   "name": "Brown Bag",
+   "sector": "Coffee shop",
+   "lat": 51.416513,
+   "lng": -0.750296,
+   "address": "51 High Street, Bracknell, RG12 1EA"
+  },
+  {
+   "osm": "way/205394360",
+   "name": "Brown Bag",
+   "sector": "Coffee shop",
+   "lat": 51.409331,
+   "lng": -0.835441
+  },
+  {
+   "osm": "way/313622181",
+   "name": "Bumbles",
+   "sector": "Coffee shop",
+   "lat": 51.398993,
+   "lng": -1.32642
+  },
+  {
+   "osm": "node/5943399335",
+   "name": "Caf'Active",
+   "sector": "Coffee shop",
+   "lat": 51.398239,
+   "lng": -0.972531
+  },
+  {
+   "osm": "node/9556168349",
+   "name": "Café",
+   "sector": "Coffee shop",
+   "lat": 51.45741,
+   "lng": -0.578049
+  },
+  {
+   "osm": "node/6324071322",
+   "name": "Cafe 10",
+   "sector": "Coffee shop",
+   "lat": 51.43616,
+   "lng": -1.060412
+  },
+  {
+   "osm": "way/302287136",
+   "name": "Cafe Barry",
+   "sector": "Coffee shop",
+   "lat": 51.485089,
+   "lng": -0.614514
+  },
+  {
+   "osm": "way/556866243",
+   "name": "Cafe de Royale",
+   "sector": "Coffee shop",
+   "lat": 51.482395,
+   "lng": -0.607174,
+   "address": "49 High Street, Windsor, SL4 1LR"
+  },
+  {
+   "osm": "node/1096417285",
+   "name": "Café Destino",
+   "sector": "Coffee shop",
+   "lat": 51.411774,
+   "lng": -0.842729
+  },
+  {
+   "osm": "node/11735191278",
+   "name": "Café local",
+   "sector": "Coffee shop",
+   "lat": 51.4591,
+   "lng": -0.972399,
+   "address": "Reading, RG1 8FP"
+  },
+  {
+   "osm": "node/6699471748",
+   "name": "Cafe Mondial (Starbucks)",
+   "sector": "Coffee shop",
+   "lat": 51.440927,
+   "lng": -0.942738
+  },
+  {
+   "osm": "node/9364059844",
+   "name": "Cafe No. 1",
+   "sector": "Coffee shop",
+   "lat": 51.414732,
+   "lng": -0.941099,
+   "address": "1 Collegiate Square, RG2 9LH"
+  },
+  {
+   "osm": "node/13013952508",
+   "name": "Cafe Parea",
+   "sector": "Coffee shop",
+   "lat": 51.559949,
+   "lng": -0.70969,
+   "address": "1 - 5 High Street, Maidenhead, SL6 9TA"
+  },
+  {
+   "osm": "node/2108578601",
+   "name": "Cafe Ritazza",
+   "sector": "Coffee shop",
+   "lat": 51.458783,
+   "lng": -0.971872,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/11283384747",
+   "name": "Café Trilobite",
+   "sector": "Coffee shop",
+   "lat": 51.438088,
+   "lng": -0.943551,
+   "address": "RG6 6EX"
+  },
+  {
+   "osm": "way/938205597",
+   "name": "Cafe Yolk",
+   "sector": "Coffee shop",
+   "lat": 51.452698,
+   "lng": -0.948094,
+   "address": "14 Wokingham Road, Reading, RG6 1JG",
+   "website": "https://www.cafeyolk.com"
+  },
+  {
+   "osm": "way/913306113",
+   "name": "Café YOLK",
+   "sector": "Coffee shop",
+   "lat": 51.449415,
+   "lng": -0.950068,
+   "address": "44 Erleigh Road, Reading, RG1 5NA"
+  },
+  {
+   "osm": "way/533571988",
+   "name": "Cafe6",
+   "sector": "Coffee shop",
+   "lat": 51.43199,
+   "lng": -0.879134
+  },
+  {
+   "osm": "node/2364939032",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.522758,
+   "lng": -0.720728,
+   "address": "53 High Street, Maidenhead, SL6 1LB",
+   "website": "https://www.caffenero.com/uk/stores/maidenhead"
+  },
+  {
+   "osm": "node/2941126926",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.453428,
+   "lng": -0.970916,
+   "address": "R6 The Riverside, The Oracle Shopping Centre, Reading, RG1 2AG",
+   "website": "https://www.caffenero.com/uk/stores/reading-oracle"
+  },
+  {
+   "osm": "node/6283620150",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.458155,
+   "lng": -0.970539,
+   "address": "Forbury Road, Reading, RG1 1AX",
+   "website": "https://www.caffenero.com/uk/stores/reading-apex-plaza"
+  },
+  {
+   "osm": "node/10608272357",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.455313,
+   "lng": -0.970318,
+   "address": "4-5 Broad Street, Reading, RG1 2BH",
+   "website": "https://www.caffenero.com/uk/stores/reading-broad-st"
+  },
+  {
+   "osm": "node/11964140853",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.41022,
+   "lng": -0.832606,
+   "address": "3-5 Peach Street, Wokingham, RG40 1YJ",
+   "website": "https://www.caffenero.com/uk/stores/wokingham"
+  },
+  {
+   "osm": "way/303538848",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.402773,
+   "lng": -1.324661,
+   "address": "86 Northbrook Street, Newbury, RG14 1AE",
+   "website": "https://www.caffenero.com/uk/stores/newbury-northbrook-st"
+  },
+  {
+   "osm": "way/436371639",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.482919,
+   "lng": -0.609285,
+   "address": "Jubilee Arch, Windsor, SL4 1PJ",
+   "website": "https://www.caffenero.com/uk/stores/windsor"
+  },
+  {
+   "osm": "way/888702342",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.45527,
+   "lng": -0.974872,
+   "address": "Reading, RG1 2AP",
+   "website": "https://www.caffenero.com/uk/stores/reading-broad-st"
+  },
+  {
+   "osm": "way/934485059",
+   "name": "Caffè Nero",
+   "sector": "Coffee shop",
+   "lat": 51.481023,
+   "lng": -0.610906,
+   "address": "42 Peascod Street, Windsor, SL4 1DE",
+   "website": "https://www.caffenero.com/uk/stores/windsor-peascod-st"
+  },
+  {
+   "osm": "way/532179189",
+   "name": "Canteen",
+   "sector": "Coffee shop",
+   "lat": 51.431941,
+   "lng": -0.876949
+  },
+  {
+   "osm": "node/12304794278",
+   "name": "Casa Del Gelato",
+   "sector": "Coffee shop",
+   "lat": 51.484734,
+   "lng": -0.609002,
+   "address": "3 River Street, Windsor, SL4 1QT"
+  },
+  {
+   "osm": "node/6022052403",
+   "name": "Cava Café",
+   "sector": "Coffee shop",
+   "lat": 51.406247,
+   "lng": -0.675856
+  },
+  {
+   "osm": "node/6087679753",
+   "name": "ChaayèPaani",
+   "sector": "Coffee shop",
+   "lat": 51.457591,
+   "lng": -0.998682,
+   "address": "Moulsford Mews, Reading, RG30 1AP",
+   "website": "https://www.chaayepaani.com/"
+  },
+  {
+   "osm": "node/12064089222",
+   "name": "Chai Green",
+   "sector": "Coffee shop",
+   "lat": 51.527167,
+   "lng": -0.616574,
+   "address": "235 Farnham Road, Slough, SL2 1DE"
+  },
+  {
+   "osm": "node/12184469180",
+   "name": "Chai Stories",
+   "sector": "Coffee shop",
+   "lat": 51.520684,
+   "lng": -0.645441,
+   "address": "5 Station Road Cippenham, Slough, SL1 6JJ"
+  },
+  {
+   "osm": "node/12064061855",
+   "name": "Chaiiology",
+   "sector": "Coffee shop",
+   "lat": 51.525809,
+   "lng": -0.615549,
+   "address": "308 Farnham Road, Slough, SL2 1BT"
+  },
+  {
+   "osm": "node/12064089191",
+   "name": "Chaiiwala",
+   "sector": "Coffee shop",
+   "lat": 51.523039,
+   "lng": -0.615029,
+   "address": "230A Farnham Road, Slough, SL1 4XE"
+  },
+  {
+   "osm": "way/436371641",
+   "name": "Cinnamon Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.482859,
+   "lng": -0.608748,
+   "address": "Thames Street, Windsor, SL4 1PJ",
+   "website": "https://www.cinnamoncafe.com/"
+  },
+  {
+   "osm": "way/931606580",
+   "name": "Clairmont's",
+   "sector": "Coffee shop",
+   "lat": 51.481155,
+   "lng": -0.606359,
+   "address": "5 High Street, Windsor, SL4 1LD"
+  },
+  {
+   "osm": "way/556866234",
+   "name": "Clarence Brasserie & Tea Room",
+   "sector": "Coffee shop",
+   "lat": 51.482216,
+   "lng": -0.606358,
+   "address": "8-9 Church Street, Windsor, SL4 1PE"
+  },
+  {
+   "osm": "node/13274579739",
+   "name": "Coccoba",
+   "sector": "Coffee shop",
+   "lat": 51.523339,
+   "lng": -0.71662,
+   "address": "2B High Street, Maidenhead, SL6 1QJ"
+  },
+  {
+   "osm": "node/9370082817",
+   "name": "Coffee #1",
+   "sector": "Coffee shop",
+   "lat": 51.410686,
+   "lng": -0.832528,
+   "website": "https://www.coffee1.co.uk/locations/wokingham/"
+  },
+  {
+   "osm": "node/10700661455",
+   "name": "Coffee Amore",
+   "sector": "Coffee shop",
+   "lat": 51.403595,
+   "lng": -0.671733
+  },
+  {
+   "osm": "node/11385823763",
+   "name": "Coffee Hub",
+   "sector": "Coffee shop",
+   "lat": 51.42659,
+   "lng": -0.933324
+  },
+  {
+   "osm": "node/2499414398",
+   "name": "Coffee Under Pressure",
+   "sector": "Coffee shop",
+   "lat": 51.457068,
+   "lng": -0.970351,
+   "address": "7 Blagrave Street, RG1 1PJ"
+  },
+  {
+   "osm": "way/393010043",
+   "name": "Coffee Under Pressure",
+   "sector": "Coffee shop",
+   "lat": 51.454737,
+   "lng": -0.974058,
+   "address": "53 St Mary's Butts, Reading, RG1 2LG"
+  },
+  {
+   "osm": "way/79872148",
+   "name": "Coffee#1",
+   "sector": "Coffee shop",
+   "lat": 51.451906,
+   "lng": -0.906095,
+   "address": "65 Crockhamwell Road, Woodley, RG5 3JP",
+   "website": "https://www.coffee1.co.uk/locations/woodley/"
+  },
+  {
+   "osm": "way/310877493",
+   "name": "Coffee#1",
+   "sector": "Coffee shop",
+   "lat": 51.415494,
+   "lng": -1.514926,
+   "address": "120a High Street, Hungerford",
+   "website": "https://www.coffee1.co.uk/locations/hungerford/"
+  },
+  {
+   "osm": "node/4865093222",
+   "name": "Coffee2Go",
+   "sector": "Coffee shop",
+   "lat": 51.459435,
+   "lng": -0.973869
+  },
+  {
+   "osm": "node/459154198",
+   "name": "Cornerstones Community Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.397289,
+   "lng": -1.247283
+  },
+  {
+   "osm": "node/834600334",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.520743,
+   "lng": -0.722611,
+   "address": "42-44 King Street, Maidenhead, SL6 1DY"
+  },
+  {
+   "osm": "node/838052726",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.458283,
+   "lng": -0.971671,
+   "address": "Brunel Arcade, Reading, RG1 1LT"
+  },
+  {
+   "osm": "node/911842359",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.455512,
+   "lng": -0.972928,
+   "address": "99 Broad Street, Reading, RG1 2AX"
+  },
+  {
+   "osm": "node/912280360",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.467535,
+   "lng": -0.974431,
+   "address": "43 Church Street, RG4 8BA"
+  },
+  {
+   "osm": "node/1815548843",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.410522,
+   "lng": -0.83344,
+   "address": "36 Market Place, RG40 1AT"
+  },
+  {
+   "osm": "node/2130929290",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.522801,
+   "lng": -0.721976,
+   "address": "86 High Street, Maidenhead, SL6 1PT"
+  },
+  {
+   "osm": "node/2714806707",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.538902,
+   "lng": -0.730881,
+   "address": "11 Shifford Crescent, Maidenhead, SL6 7UA"
+  },
+  {
+   "osm": "node/3085105461",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.458104,
+   "lng": -0.998255
+  },
+  {
+   "osm": "node/3243324499",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.455259,
+   "lng": -0.970112,
+   "address": "4 Butter Market, RG1 2DP"
+  },
+  {
+   "osm": "node/3607893091",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.386204,
+   "lng": -1.318059,
+   "address": "Pinchington Lane, Newbury, RG14 7HU",
+   "website": "http://www.costa.co.uk"
+  },
+  {
+   "osm": "node/3663476231",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.423919,
+   "lng": -1.037262,
+   "address": "Moto Reading Services, Reading, RG30 3UQ"
+  },
+  {
+   "osm": "node/3832241213",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.416457,
+   "lng": -0.749598,
+   "address": "22 Braccan Walk, Bracknell, RG12 1BE"
+  },
+  {
+   "osm": "node/4329759043",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.437702,
+   "lng": -0.898481
+  },
+  {
+   "osm": "node/4476854690",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.454552,
+   "lng": -0.970818,
+   "address": "Broad Street"
+  },
+  {
+   "osm": "node/4688286526",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.402661,
+   "lng": -1.25713,
+   "address": "RG19 3HN"
+  },
+  {
+   "osm": "node/4929500009",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.483728,
+   "lng": -1.085676,
+   "address": "8 Reading Road, RG8 7LY"
+  },
+  {
+   "osm": "node/5406069601",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.524418,
+   "lng": -0.615176,
+   "address": "268 Farnham Road, Slough, SL1 4XL"
+  },
+  {
+   "osm": "node/5626463098",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.410794,
+   "lng": -0.673732,
+   "address": "39 High Street, Ascot, SL5 7HY",
+   "website": "https://www.costa.co.uk/stores/ascot"
+  },
+  {
+   "osm": "node/5772709507",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.503875,
+   "lng": -0.542423,
+   "address": "282 High Street, Slough, SL3 8HG"
+  },
+  {
+   "osm": "node/5869150287",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.417661,
+   "lng": -0.974065,
+   "address": "Reading, RG2 0GG"
+  },
+  {
+   "osm": "node/6514701839",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.521096,
+   "lng": -0.624128,
+   "address": "40 Liverpool Road, Slough, SL1 4QZ"
+  },
+  {
+   "osm": "node/7124158897",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.423689,
+   "lng": -0.980886,
+   "address": "RG2 0QG"
+  },
+  {
+   "osm": "node/7574912184",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.437081,
+   "lng": -0.894472,
+   "address": "Reading Road, RG41 5HQ"
+  },
+  {
+   "osm": "node/10690425803",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.426275,
+   "lng": -1.035225,
+   "address": "Moto Reading Services, Reading, RG30 3UQ"
+  },
+  {
+   "osm": "node/11735663764",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.486445,
+   "lng": -0.608686,
+   "address": "64-65 High Street, Windsor, SL4 6AA",
+   "website": "https://www.costa.co.uk/stores/eton"
+  },
+  {
+   "osm": "node/11883629050",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.449047,
+   "lng": -1.311399,
+   "address": "New Oxford Road, Newbury, RG18 9XX"
+  },
+  {
+   "osm": "node/12114725435",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.478603,
+   "lng": -0.634536,
+   "address": "87 Dedworth Road, Windsor, SL4 5BB"
+  },
+  {
+   "osm": "node/12114725459",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.477625,
+   "lng": -0.642352,
+   "address": "209 Dedworth Road, Windsor, SL4 4JW"
+  },
+  {
+   "osm": "node/12117621752",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.477831,
+   "lng": -0.61278,
+   "address": "63 St Leonards Road, Windsor, SL4 3BX",
+   "website": "https://www.costa.co.uk/stores/old-windsor-st-leonards-road"
+  },
+  {
+   "osm": "node/12167343170",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.392508,
+   "lng": -0.627515,
+   "address": "57-59 Chobham Road, Ascot, SL5 0DT"
+  },
+  {
+   "osm": "node/12297503972",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.383054,
+   "lng": -1.317941,
+   "address": "Pinchington Lane, Newbury, RG14 7HB"
+  },
+  {
+   "osm": "node/12896520567",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.483939,
+   "lng": -0.580369,
+   "address": "The Green, Slough, SL3 9BJ"
+  },
+  {
+   "osm": "node/13960786718",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.477407,
+   "lng": -0.866914,
+   "address": "1 High Street, RG10 9AB",
+   "website": "https://www.costa.co.uk/stores/twyford"
+  },
+  {
+   "osm": "node/14110177204",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.53271,
+   "lng": -0.574875
+  },
+  {
+   "osm": "way/70463489",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.458065,
+   "lng": -1.040254,
+   "address": "Reading, RG30 4RW"
+  },
+  {
+   "osm": "way/79872151",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.452052,
+   "lng": -0.906072,
+   "address": "69 Crockhamwell Road, Woodley, RG5 3JP"
+  },
+  {
+   "osm": "way/302819512",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.401782,
+   "lng": -1.324039,
+   "address": "2 Northbrook Street, Newbury, RG14 1DJ"
+  },
+  {
+   "osm": "way/312685387",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.415041,
+   "lng": -1.5152,
+   "address": "119 High Street, Hungerford, RG17 0NB"
+  },
+  {
+   "osm": "way/436371642",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.482942,
+   "lng": -0.608933,
+   "address": "Thames Street, Windsor, SL4 1PJ"
+  },
+  {
+   "osm": "way/547090014",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.55758,
+   "lng": -0.722803,
+   "address": "High Road, Maidenhead, SL6 9HR"
+  },
+  {
+   "osm": "way/597711198",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.457677,
+   "lng": -0.934005,
+   "address": "Suttons Park Avenue, Reading, RG6 1AZ"
+  },
+  {
+   "osm": "way/762103479",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.514296,
+   "lng": -0.621398,
+   "address": "12 Twinches Lane, Slough, SL1 5AL"
+  },
+  {
+   "osm": "way/916597180",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.481978,
+   "lng": -0.610394,
+   "address": "53A King Edward Court, Windsor, SL4 1TG",
+   "website": "https://www.costa.co.uk/stores/windsor"
+  },
+  {
+   "osm": "way/1034168083",
+   "name": "Costa",
+   "sector": "Coffee shop",
+   "lat": 51.368722,
+   "lng": -0.793488,
+   "address": "104 High Street, Crowthorne, RG45 7AT"
+  },
+  {
+   "osm": "way/1119400658",
+   "name": "Costa Drive Thru",
+   "sector": "Coffee shop",
+   "lat": 51.40329,
+   "lng": -1.304009
+  },
+  {
+   "osm": "way/1149112106",
+   "name": "Costa Drive Thru",
+   "sector": "Coffee shop",
+   "lat": 51.425855,
+   "lng": -1.033776,
+   "address": "Moto Reading Services, Reading, RG30 3UQ"
+  },
+  {
+   "osm": "way/1220381878",
+   "name": "Costa Drive Thru",
+   "sector": "Coffee shop",
+   "lat": 51.423279,
+   "lng": -1.036043,
+   "address": "Moto Reading Services, Reading, RG30 3UQ"
+  },
+  {
+   "osm": "node/4323971270",
+   "name": "Craft Coffee House",
+   "sector": "Coffee shop",
+   "lat": 51.484753,
+   "lng": -0.607639,
+   "address": "14 Thames Avenue, Windsor, SL4 1QP"
+  },
+  {
+   "osm": "node/2964982471",
+   "name": "Creperie Doux Sourire",
+   "sector": "Coffee shop",
+   "lat": 51.453137,
+   "lng": -0.969942,
+   "address": "The Oracle, Reading, RG1 2AG",
+   "website": "https://www.creperiedouxsourire.co.uk"
+  },
+  {
+   "osm": "way/144044029",
+   "name": "Crooked House of Windsor",
+   "sector": "Coffee shop",
+   "lat": 51.482288,
+   "lng": -0.607076,
+   "address": "51 High Street, Windsor, SL4 1LR"
+  },
+  {
+   "osm": "node/932348370",
+   "name": "Crumbs",
+   "sector": "Coffee shop",
+   "lat": 51.453922,
+   "lng": -0.904484
+  },
+  {
+   "osm": "way/151282338",
+   "name": "Crumbs Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.452949,
+   "lng": -0.904678,
+   "address": "4 Library Parade, Woodley, RG5 3LX",
+   "website": "https://crumbscoffee.co.uk/"
+  },
+  {
+   "osm": "node/3419960910",
+   "name": "Cuppateano's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.504022,
+   "lng": -0.542209,
+   "address": "1 Meadfield Road, Slough, SL3 8HL"
+  },
+  {
+   "osm": "way/1355415099",
+   "name": "Curley Wurley Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.395102,
+   "lng": -0.635821
+  },
+  {
+   "osm": "way/547090025",
+   "name": "Daisy Love Cookham",
+   "sector": "Coffee shop",
+   "lat": 51.557261,
+   "lng": -0.721344,
+   "address": "23 - 25 Station Hill, Maidenhead, SL6 9BR"
+  },
+  {
+   "osm": "way/578522661",
+   "name": "Daisy Love Wargrave",
+   "sector": "Coffee shop",
+   "lat": 51.500751,
+   "lng": -0.870226,
+   "address": "72-74 High Street, RG10 8BY"
+  },
+  {
+   "osm": "way/469377892",
+   "name": "Daisy's Coffee Shop",
+   "sector": "Coffee shop",
+   "lat": 51.40362,
+   "lng": -1.259118
+  },
+  {
+   "osm": "node/4826866847",
+   "name": "DeNata Coffee & Co",
+   "sector": "Coffee shop",
+   "lat": 51.456425,
+   "lng": -0.994981,
+   "address": "377 Oxford Road, Reading, RG30 1HA"
+  },
+  {
+   "osm": "node/12146853161",
+   "name": "Ding Tea",
+   "sector": "Coffee shop",
+   "lat": 51.454696,
+   "lng": -0.969577,
+   "address": "King Street, Reading, RG1 2HG"
+  },
+  {
+   "osm": "node/1796624601",
+   "name": "Dol.che Vita",
+   "sector": "Coffee shop",
+   "lat": 51.441176,
+   "lng": -0.944089,
+   "address": "Pepper Lane, Reading, RG6 6EW"
+  },
+  {
+   "osm": "way/256922749",
+   "name": "Donnington Deli",
+   "sector": "Coffee shop",
+   "lat": 51.44977,
+   "lng": -0.950642,
+   "address": "37 Erleigh Road, Reading, RG1 5NB"
+  },
+  {
+   "osm": "way/33197600",
+   "name": "dot",
+   "sector": "Coffee shop",
+   "lat": 51.415712,
+   "lng": -0.974839
+  },
+  {
+   "osm": "way/144158804",
+   "name": "Dr Chocs",
+   "sector": "Coffee shop",
+   "lat": 51.483961,
+   "lng": -0.608448,
+   "address": "23 Thames Street, Windsor, SL4 1LP"
+  },
+  {
+   "osm": "node/12806048069",
+   "name": "Driftwood Café",
+   "sector": "Coffee shop",
+   "lat": 51.45984,
+   "lng": -0.942632
+  },
+  {
+   "osm": "way/556866231",
+   "name": "Drury House",
+   "sector": "Coffee shop",
+   "lat": 51.482423,
+   "lng": -0.606525,
+   "address": "Windsor, SL4 1PE"
+  },
+  {
+   "osm": "node/4808445629",
+   "name": "Dua Lounge",
+   "sector": "Coffee shop",
+   "lat": 51.456246,
+   "lng": -0.994076,
+   "address": "355 Oxford Road, Reading, RG30 1AY"
+  },
+  {
+   "osm": "way/222053222",
+   "name": "Earley Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.448054,
+   "lng": -0.935987,
+   "address": "121 Wokingham Road, Reading, RG6 1LH",
+   "website": "http://www.earlycafe.co.uk/"
+  },
+  {
+   "osm": "node/1795046266",
+   "name": "Eat at Enterprise",
+   "sector": "Coffee shop",
+   "lat": 51.440794,
+   "lng": -0.934832
+  },
+  {
+   "osm": "node/12167343147",
+   "name": "Eliane",
+   "sector": "Coffee shop",
+   "lat": 51.391513,
+   "lng": -0.632432,
+   "address": "3 Station Parade London Road, Ascot, SL5 0EP",
+   "website": "https://elianesmiles.com/restaurants/sunningdale"
+  },
+  {
+   "osm": "way/1312808725",
+   "name": "Eliane",
+   "sector": "Coffee shop",
+   "lat": 51.414643,
+   "lng": -1.51606,
+   "address": "24 High Street, Hungerford, RG17 0NF",
+   "website": "https://elianesmiles.com/hungerford/"
+  },
+  {
+   "osm": "node/6817996697",
+   "name": "Elior at The Hive",
+   "sector": "Coffee shop",
+   "lat": 51.435658,
+   "lng": -1.062462,
+   "address": "Reading, RG7 4SA"
+  },
+  {
+   "osm": "node/5540176001",
+   "name": "Eliza Coffee Company",
+   "sector": "Coffee shop",
+   "lat": 51.485718,
+   "lng": -0.606442
+  },
+  {
+   "osm": "node/5030785329",
+   "name": "Elle's Baguettes",
+   "sector": "Coffee shop",
+   "lat": 51.455979,
+   "lng": -0.99075,
+   "address": "200 Oxford Road, Reading, RG30 1AB",
+   "website": "http://www.ellesbaguettes.co.uk/"
+  },
+  {
+   "osm": "node/1389369905",
+   "name": "Englefield Tea Rooms",
+   "sector": "Coffee shop",
+   "lat": 51.444433,
+   "lng": -1.099306
+  },
+  {
+   "osm": "node/12288359766",
+   "name": "Enigma",
+   "sector": "Coffee shop",
+   "lat": 51.488572,
+   "lng": -0.609301,
+   "address": "115 High Street, Windsor, SL4 6AN"
+  },
+  {
+   "osm": "node/13301884428",
+   "name": "Esquires Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.381004,
+   "lng": -0.784544
+  },
+  {
+   "osm": "way/302819515",
+   "name": "Esquires Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.402994,
+   "lng": -1.324138,
+   "address": "21 Northbrook Street, Newbury",
+   "website": "https://esquirescoffee.co.uk"
+  },
+  {
+   "osm": "way/930469468",
+   "name": "Esquires Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.482149,
+   "lng": -0.60748,
+   "address": "21 High Street, Windsor, SL4 1LH"
+  },
+  {
+   "osm": "node/10750327396",
+   "name": "Esquires Reading",
+   "sector": "Coffee shop",
+   "lat": 51.425743,
+   "lng": -0.996467,
+   "website": "https://esquirescoffee.co.uk/store/esquires-reading/"
+  },
+  {
+   "osm": "node/12077487062",
+   "name": "Factory Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.514323,
+   "lng": -0.599119,
+   "address": "2, Slough, SL1 3GS"
+  },
+  {
+   "osm": "node/12384700734",
+   "name": "Fat Boys Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.479372,
+   "lng": -0.513962,
+   "address": "1 Poyle Road, Slough, SL3 0EZ"
+  },
+  {
+   "osm": "node/702594794",
+   "name": "FBC Centre",
+   "sector": "Coffee shop",
+   "lat": 51.379255,
+   "lng": -0.861761,
+   "address": "Gorse Ride North, Finchampstead, RG40 4ES",
+   "website": "http://finchampstead.com"
+  },
+  {
+   "osm": "node/12167343162",
+   "name": "Fego",
+   "sector": "Coffee shop",
+   "lat": 51.392732,
+   "lng": -0.62829,
+   "address": "9 Broomhall Buildings Chobham Road, Ascot, SL5 0DU",
+   "website": "https://hellofego.com/locations/fego-sunningdale/"
+  },
+  {
+   "osm": "node/12811765941",
+   "name": "Fego Caffe",
+   "sector": "Coffee shop",
+   "lat": 51.410241,
+   "lng": -0.672199,
+   "address": "High Street, Ascot, SL5 7HD",
+   "website": "https://hellofego.com/locations/fego-ascot/"
+  },
+  {
+   "osm": "node/1302117920",
+   "name": "Fidget & Bob",
+   "sector": "Coffee shop",
+   "lat": 51.430941,
+   "lng": -0.97509,
+   "address": "Gweal Avenue, Reading, RG2 0GX",
+   "website": "https://www.fidgetandbob.co.uk/"
+  },
+  {
+   "osm": "node/2364966129",
+   "name": "Flavio's",
+   "sector": "Coffee shop",
+   "lat": 51.522648,
+   "lng": -0.723432,
+   "address": "116 High Street, Maidenhead, SL6 1PT"
+  },
+  {
+   "osm": "node/12146853157",
+   "name": "Fluffy Fluffy",
+   "sector": "Coffee shop",
+   "lat": 51.454916,
+   "lng": -0.969662,
+   "address": "19-23 King Street, Reading, RG1 2HG",
+   "website": "https://www.fluffyfluffy.co.uk/"
+  },
+  {
+   "osm": "way/436371679",
+   "name": "Fluffy Fluffy",
+   "sector": "Coffee shop",
+   "lat": 51.482746,
+   "lng": -0.609329,
+   "address": "Jubilee Arch"
+  },
+  {
+   "osm": "node/6457450880",
+   "name": "Forbury Kitchen",
+   "sector": "Coffee shop",
+   "lat": 51.457974,
+   "lng": -0.967673
+  },
+  {
+   "osm": "way/653641067",
+   "name": "Fort Royal",
+   "sector": "Coffee shop",
+   "lat": 51.342421,
+   "lng": -0.771662
+  },
+  {
+   "osm": "node/10784280405",
+   "name": "Fortescues",
+   "sector": "Coffee shop",
+   "lat": 51.482386,
+   "lng": -0.606655,
+   "address": "13 Church Street, Windsor, SL4 1PE"
+  },
+  {
+   "osm": "way/933664408",
+   "name": "Fresh",
+   "sector": "Coffee shop",
+   "lat": 51.480979,
+   "lng": -0.61051,
+   "address": "William Street, Windsor",
+   "website": "https://www.freshwindsor.co.uk/"
+  },
+  {
+   "osm": "node/13563506707",
+   "name": "G&G Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.505433,
+   "lng": -0.588647,
+   "address": "St Laurence Way, Slough, SL1 2BW"
+  },
+  {
+   "osm": "node/3243324497",
+   "name": "GAIL's",
+   "sector": "Coffee shop",
+   "lat": 51.455043,
+   "lng": -0.970531,
+   "address": "134 Broad Street, Reading, RG1 2BD",
+   "website": "https://gails.com/pages/reading"
+  },
+  {
+   "osm": "node/12325563829",
+   "name": "GAIL's",
+   "sector": "Coffee shop",
+   "lat": 51.41787,
+   "lng": -0.750216,
+   "address": "7 The Avenue, Bracknell, RG12 1BD"
+  },
+  {
+   "osm": "node/3646656989",
+   "name": "Gather & Gather",
+   "sector": "Coffee shop",
+   "lat": 51.438143,
+   "lng": -0.88913,
+   "address": "Eskdale Road, RG41 5TS"
+  },
+  {
+   "osm": "node/1923781313",
+   "name": "Geo Café",
+   "sector": "Coffee shop",
+   "lat": 51.467844,
+   "lng": -0.972805,
+   "address": "10 Prospect Street, Reading, RG4 8JG",
+   "website": "https://geo-cafe.co.uk/"
+  },
+  {
+   "osm": "way/72757834",
+   "name": "Giggling Spring",
+   "sector": "Coffee shop",
+   "lat": 51.411874,
+   "lng": -0.836989,
+   "address": "1 Shute End, Wokingham"
+  },
+  {
+   "osm": "node/12143240807",
+   "name": "Gino's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.50963,
+   "lng": -0.595988,
+   "address": "82 High Street, Slough, SL1 1EL"
+  },
+  {
+   "osm": "node/2321258674",
+   "name": "Giovanni's Caffe",
+   "sector": "Coffee shop",
+   "lat": 51.480718,
+   "lng": -0.611855,
+   "address": "Peascod Street, Windsor, SL4 1DG"
+  },
+  {
+   "osm": "way/1308404771",
+   "name": "Good Day Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.462454,
+   "lng": -0.58542,
+   "address": "4 St Lukes Road, Windsor, SL4 2QH"
+  },
+  {
+   "osm": "node/6786186745",
+   "name": "Good Food Deli",
+   "sector": "Coffee shop",
+   "lat": 51.367528,
+   "lng": -0.817277
+  },
+  {
+   "osm": "way/629519020",
+   "name": "Goodies Café, Lambourn",
+   "sector": "Coffee shop",
+   "lat": 51.507273,
+   "lng": -1.532266,
+   "address": "17 High Street, Lambourn, RG17 8XL"
+  },
+  {
+   "osm": "node/12197561942",
+   "name": "Grenfell Park Café",
+   "sector": "Coffee shop",
+   "lat": 51.519301,
+   "lng": -0.7245
+  },
+  {
+   "osm": "way/958392088",
+   "name": "H'ARTISAN Speciality Coffee Co.",
+   "sector": "Coffee shop",
+   "lat": 51.501108,
+   "lng": -0.86969,
+   "address": "69-71 High Street, RG10 8BU"
+  },
+  {
+   "osm": "way/1447719535",
+   "name": "Hampstead Norreys Community Shop & Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.482822,
+   "lng": -1.237869
+  },
+  {
+   "osm": "node/5940783629",
+   "name": "HBS Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.441862,
+   "lng": -0.946183,
+   "address": "RG6 6BY"
+  },
+  {
+   "osm": "node/12064045207",
+   "name": "Head Chef",
+   "sector": "Coffee shop",
+   "lat": 51.524961,
+   "lng": -0.615971,
+   "address": "173 Farnham Road, Slough, SL1 4XP"
+  },
+  {
+   "osm": "node/1795046268",
+   "name": "Henry Street Garden Centre cafe",
+   "sector": "Coffee shop",
+   "lat": 51.395662,
+   "lng": -0.913648,
+   "address": "Swallowfield Road, Reading, RG2 9JY",
+   "website": "https://www.henrystreet.co.uk/"
+  },
+  {
+   "osm": "node/3192344906",
+   "name": "Henry's Tea Room",
+   "sector": "Coffee shop",
+   "lat": 51.414494,
+   "lng": -1.516121,
+   "address": "High Street, Hungerford"
+  },
+  {
+   "osm": "node/10695319466",
+   "name": "Hey Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.450158,
+   "lng": -1.006707,
+   "address": "Liebenrood Road, Reading, RG30 2ND",
+   "website": "https://www.facebook.com/hey.coffee.rdg/"
+  },
+  {
+   "osm": "node/11603058958",
+   "name": "Honesty",
+   "sector": "Coffee shop",
+   "lat": 51.459198,
+   "lng": -0.96794
+  },
+  {
+   "osm": "node/11073982452",
+   "name": "Honesty Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.374016,
+   "lng": -1.28366
+  },
+  {
+   "osm": "node/4598890038",
+   "name": "Honesty Inkpen",
+   "sector": "Coffee shop",
+   "lat": 51.372586,
+   "lng": -1.458257,
+   "address": "Inkpen Common, Hungerford, RG17 9QR",
+   "website": "https://www.honestygroup.co.uk/"
+  },
+  {
+   "osm": "way/174758736",
+   "name": "Jacksons Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.379451,
+   "lng": -0.874504,
+   "address": "Nine Mile Ride, Finchampstead, RG40 4HT",
+   "website": "https://jacksonscalifornialake.com/"
+  },
+  {
+   "osm": "node/6743710644",
+   "name": "Jamaica Blue Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.447888,
+   "lng": -0.957559
+  },
+  {
+   "osm": "node/2056860632",
+   "name": "Java Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.428806,
+   "lng": -0.878045,
+   "address": "398 Reading Road, RG41 5EP"
+  },
+  {
+   "osm": "node/598916339",
+   "name": "Jenners Riverside Café",
+   "sector": "Coffee shop",
+   "lat": 51.528834,
+   "lng": -0.70158,
+   "address": "Ray Mead Road, Maidenhead, SL6 8NP",
+   "website": "http://www.jennerscafe.com/"
+  },
+  {
+   "osm": "node/11491282722",
+   "name": "Jock's Lane Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.425482,
+   "lng": -0.766226,
+   "address": "Jocks Lane, Bracknell, RG12 2BH",
+   "website": "https://bracknelltowncouncil.gov.uk/recreation-facilities/council-sites/listing/jocks-lane-recreation-ground"
+  },
+  {
+   "osm": "node/8523394590",
+   "name": "Julaga",
+   "sector": "Coffee shop",
+   "lat": 51.457656,
+   "lng": -1.000391
+  },
+  {
+   "osm": "node/1622819218",
+   "name": "Julia's Medow",
+   "sector": "Coffee shop",
+   "lat": 51.455043,
+   "lng": -0.963293,
+   "address": "97 King's Road, Reading, RG1 3DD"
+  },
+  {
+   "osm": "way/301158373",
+   "name": "K's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.39945,
+   "lng": -1.322209,
+   "address": "49"
+  },
+  {
+   "osm": "node/4807216276",
+   "name": "Karak Chaii",
+   "sector": "Coffee shop",
+   "lat": 51.456278,
+   "lng": -0.99298,
+   "address": "254 Oxford Road, Reading, RG30 1AD",
+   "website": "https://karakchaii.co.uk/"
+  },
+  {
+   "osm": "node/1800313532",
+   "name": "Karellies Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.456264,
+   "lng": -0.555041
+  },
+  {
+   "osm": "way/86439145",
+   "name": "Kaspa's",
+   "sector": "Coffee shop",
+   "lat": 51.452727,
+   "lng": -0.948958,
+   "address": "120 London Road, Reading, RG1 5AY"
+  },
+  {
+   "osm": "node/529079772",
+   "name": "Kiki's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.384982,
+   "lng": -1.321379,
+   "address": "RG14 7EY"
+  },
+  {
+   "osm": "way/302819521",
+   "name": "King's Café",
+   "sector": "Coffee shop",
+   "lat": 51.40517,
+   "lng": -1.324579,
+   "address": "The Broadway, Newbury"
+  },
+  {
+   "osm": "node/4688286532",
+   "name": "Kingsland Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.402713,
+   "lng": -1.256682
+  },
+  {
+   "osm": "node/13731783818",
+   "name": "Kiosk At Nook",
+   "sector": "Coffee shop",
+   "lat": 51.457402,
+   "lng": -0.969635
+  },
+  {
+   "osm": "node/6066627241",
+   "name": "La Baguetterie",
+   "sector": "Coffee shop",
+   "lat": 51.437277,
+   "lng": -1.075634,
+   "address": "22-24 High Street, Reading, RG7 5AW",
+   "website": "http://www.labaguetterie.co.uk/"
+  },
+  {
+   "osm": "node/6817996695",
+   "name": "La Petite Baguetterie",
+   "sector": "Coffee shop",
+   "lat": 51.436424,
+   "lng": -1.068391
+  },
+  {
+   "osm": "node/5963647607",
+   "name": "Library Café",
+   "sector": "Coffee shop",
+   "lat": 51.440178,
+   "lng": -0.945244
+  },
+  {
+   "osm": "way/933664433",
+   "name": "Lilly's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.480624,
+   "lng": -0.61163,
+   "address": "55 Peascod Street, Windsor, SL4 1DE",
+   "website": "https://www.lilychef.com/"
+  },
+  {
+   "osm": "node/1668014930",
+   "name": "Lincoln Coffee House",
+   "sector": "Coffee shop",
+   "lat": 51.454927,
+   "lng": -0.970027,
+   "website": "https://www.lincolncoffeehouse.co.uk/"
+  },
+  {
+   "osm": "way/1019819198",
+   "name": "Little Apron Café",
+   "sector": "Coffee shop",
+   "lat": 51.452634,
+   "lng": -0.949312,
+   "address": "6, Reading, RG1 5BA"
+  },
+  {
+   "osm": "way/167626956",
+   "name": "Lockey Farm Coffee Shop",
+   "sector": "Coffee shop",
+   "lat": 51.399281,
+   "lng": -0.907328
+  },
+  {
+   "osm": "node/13100185749",
+   "name": "Locks Ride Park Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.430496,
+   "lng": -0.702308,
+   "address": "Bracknell, RG42 7NJ"
+  },
+  {
+   "osm": "node/5122403799",
+   "name": "Mad Hatters",
+   "sector": "Coffee shop",
+   "lat": 51.457648,
+   "lng": -1.04253,
+   "address": "114-116 School Road, Reading, RG31 5AX"
+  },
+  {
+   "osm": "node/11851428965",
+   "name": "Madoo",
+   "sector": "Coffee shop",
+   "lat": 51.454551,
+   "lng": -0.968916,
+   "address": "10-12 Duke Street, Reading, RG1 4RU"
+  },
+  {
+   "osm": "node/1703567611",
+   "name": "Maharaja Sweets",
+   "sector": "Coffee shop",
+   "lat": 51.518284,
+   "lng": -0.578634,
+   "address": "8, Slough, SL2 5HZ"
+  },
+  {
+   "osm": "way/50160442",
+   "name": "Maidenhead Community Centre",
+   "sector": "Coffee shop",
+   "lat": 51.520822,
+   "lng": -0.7173,
+   "address": "York Road, Maidenhead, SL6 1SH"
+  },
+  {
+   "osm": "node/12325584746",
+   "name": "Mason + Rye",
+   "sector": "Coffee shop",
+   "lat": 51.417651,
+   "lng": -0.748379
+  },
+  {
+   "osm": "way/79872143",
+   "name": "Mayas Treats",
+   "sector": "Coffee shop",
+   "lat": 51.452963,
+   "lng": -0.905996,
+   "address": "107 Crockhamwell Road, Reading, RG5 3JP",
+   "website": "https://www.mayas-treats.co.uk/"
+  },
+  {
+   "osm": "node/13711123024",
+   "name": "MEC Leisure Ltd",
+   "sector": "Coffee shop",
+   "lat": 51.507381,
+   "lng": -0.870569,
+   "address": "Willow Lane, Reading, RG10 8LH"
+  },
+  {
+   "osm": "node/5940783470",
+   "name": "MERL Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.449033,
+   "lng": -0.960037,
+   "address": "6 Redlands Road, Reading, RG1 5EX",
+   "website": "https://merl.reading.ac.uk/visit-us/refreshments/"
+  },
+  {
+   "osm": "node/11278417016",
+   "name": "Mi Coffee and Cake",
+   "sector": "Coffee shop",
+   "lat": 51.339989,
+   "lng": -0.776359,
+   "address": "Yorktown Road, Sandhurst, GU47 0PR"
+  },
+  {
+   "osm": "node/9958728589",
+   "name": "Michele's Cafe @ Flat Harrys Cyclery",
+   "sector": "Coffee shop",
+   "lat": 51.54901,
+   "lng": -0.731128,
+   "address": "Building 2, Lower Mount Farm Long Lane, Maidenhead, SL6 9EE",
+   "website": "https://www.flatharrys.cc/"
+  },
+  {
+   "osm": "way/302819540",
+   "name": "Milk & Bean",
+   "sector": "Coffee shop",
+   "lat": 51.403877,
+   "lng": -1.324378,
+   "address": "32 Northbrook Street, Newbury, RG14 1DJ"
+  },
+  {
+   "osm": "node/5271714632",
+   "name": "Millars Fillers",
+   "sector": "Coffee shop",
+   "lat": 51.40449,
+   "lng": -0.8466,
+   "address": "Fishponds Road, Wokingham, RG41 2QX"
+  },
+  {
+   "osm": "node/14301740801",
+   "name": "Missing Bean",
+   "sector": "Coffee shop",
+   "lat": 51.519791,
+   "lng": -0.722097,
+   "address": "20 Grenfell Road, SL6 1EH",
+   "website": "https://www.themissingbean.co.uk/pages/maidenhead-cafe"
+  },
+  {
+   "osm": "node/911842385",
+   "name": "Mon Cheri",
+   "sector": "Coffee shop",
+   "lat": 51.455744,
+   "lng": -0.975335,
+   "address": "18 West Street, Reading, RG1 1TT"
+  },
+  {
+   "osm": "node/5206908627",
+   "name": "Monty's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.479567,
+   "lng": -0.612132,
+   "address": "15 St Leonards Road, Windsor, SL4 3BN",
+   "website": "https://montyscafe.co.uk/"
+  },
+  {
+   "osm": "way/799403549",
+   "name": "Monty's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.448407,
+   "lng": -0.949932,
+   "address": "41 Addington Road, Reading, RG1 5PZ",
+   "website": "https://www.emontys.co.uk/"
+  },
+  {
+   "osm": "node/5818162178",
+   "name": "Mooboo",
+   "sector": "Coffee shop",
+   "lat": 51.455105,
+   "lng": -0.976956,
+   "address": "39-41 Oxford Road, Reading, RG1 7QG"
+  },
+  {
+   "osm": "node/12592886776",
+   "name": "Mooboo",
+   "sector": "Coffee shop",
+   "lat": 51.404227,
+   "lng": -1.323938
+  },
+  {
+   "osm": "way/1393227102",
+   "name": "Morning Star",
+   "sector": "Coffee shop",
+   "lat": 51.483901,
+   "lng": -0.580365
+  },
+  {
+   "osm": "node/5842107314",
+   "name": "Morrisons Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.434065,
+   "lng": -0.97005,
+   "address": "Basingstoke Road, Reading, RG2 0HB",
+   "website": "https://www.morrisons.com/storefinder/359/reading"
+  },
+  {
+   "osm": "node/13273756556",
+   "name": "Mortimer Bistro",
+   "sector": "Coffee shop",
+   "lat": 51.376729,
+   "lng": -1.062758,
+   "address": "Victoria Road",
+   "website": "https://www.mortimerbistro.co.uk/"
+  },
+  {
+   "osm": "way/313536359",
+   "name": "Mortimer Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.377166,
+   "lng": -1.065538,
+   "address": "38 Victoria Road, RG7 3SE"
+  },
+  {
+   "osm": "node/3791960779",
+   "name": "Muffin Break",
+   "sector": "Coffee shop",
+   "lat": 51.455248,
+   "lng": -0.975893,
+   "address": "15-17, Reading, RG1 7QH",
+   "website": "https://muffinbreak.co.uk/store/reading-broad-street-mall/"
+  },
+  {
+   "osm": "node/14247575896",
+   "name": "Muffin Break",
+   "sector": "Coffee shop",
+   "lat": 51.40451,
+   "lng": -1.323554,
+   "address": "Newbury",
+   "website": "https://muffinbreak.co.uk/store/newbury/"
+  },
+  {
+   "osm": "node/4746667728",
+   "name": "Mulberry & Thyme Restaurant",
+   "sector": "Coffee shop",
+   "lat": 51.453168,
+   "lng": -1.280197
+  },
+  {
+   "osm": "node/12167387491",
+   "name": "MyCloud Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.405609,
+   "lng": -0.638788
+  },
+  {
+   "osm": "way/688218067",
+   "name": "Namak Mirch",
+   "sector": "Coffee shop",
+   "lat": 51.45374,
+   "lng": -0.946742,
+   "address": "251 London Road, Reading, RG1 3NY",
+   "website": "https://namakmirchonline.co.uk"
+  },
+  {
+   "osm": "node/1923782812",
+   "name": "Nathan's Nibbles",
+   "sector": "Coffee shop",
+   "lat": 51.467732,
+   "lng": -0.97293
+  },
+  {
+   "osm": "node/6221613831",
+   "name": "Nathan's Nibbles",
+   "sector": "Coffee shop",
+   "lat": 51.452733,
+   "lng": -0.968494,
+   "address": "44 London Street, Reading, RG1 4SQ"
+  },
+  {
+   "osm": "node/662618968",
+   "name": "National Trust Tea Rooms",
+   "sector": "Coffee shop",
+   "lat": 51.499189,
+   "lng": -1.121587
+  },
+  {
+   "osm": "way/930830793",
+   "name": "Nell Gwynn Tearoom",
+   "sector": "Coffee shop",
+   "lat": 51.482381,
+   "lng": -0.606469
+  },
+  {
+   "osm": "node/9864256330",
+   "name": "Nibbles",
+   "sector": "Coffee shop",
+   "lat": 51.483286,
+   "lng": -0.579651,
+   "address": "21 Manor House Lane, Slough, SL3 9EB"
+  },
+  {
+   "osm": "node/13158899465",
+   "name": "Notes",
+   "sector": "Coffee shop",
+   "lat": 51.45802,
+   "lng": -0.973197,
+   "address": "3, Reading, RG1 1LN",
+   "website": "https://notescoffee.com/"
+  },
+  {
+   "osm": "node/12964488218",
+   "name": "O'Anna's",
+   "sector": "Coffee shop",
+   "lat": 51.4506,
+   "lng": -0.966874,
+   "address": "1A London Road, Reading, RG1 5BJ"
+  },
+  {
+   "osm": "node/9502236660",
+   "name": "Ola Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.476798,
+   "lng": -0.864924,
+   "address": "Waltham Road, Reading, RG10 9EE",
+   "website": "https://www.instagram.com/olacoffeecouk/"
+  },
+  {
+   "osm": "node/4341596198",
+   "name": "Olivia",
+   "sector": "Coffee shop",
+   "lat": 51.485085,
+   "lng": -0.60765,
+   "address": "Thames Street, Windsor"
+  },
+  {
+   "osm": "node/2870735401",
+   "name": "Oscars Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.409505,
+   "lng": -0.834524
+  },
+  {
+   "osm": "node/2569839686",
+   "name": "Palmieri's",
+   "sector": "Coffee shop",
+   "lat": 51.534384,
+   "lng": -0.73675,
+   "address": "52 Furze Platt Road, Maidenhead, SL6 7NN"
+  },
+  {
+   "osm": "way/999518929",
+   "name": "Park Kitchen",
+   "sector": "Coffee shop",
+   "lat": 51.461247,
+   "lng": -0.929293,
+   "address": "300 Thames Valley Park Drive, Reading, RG6 1PT"
+  },
+  {
+   "osm": "node/4457240611",
+   "name": "Parkside Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.451064,
+   "lng": -1.000246
+  },
+  {
+   "osm": "way/113499518",
+   "name": "Pau Brasil",
+   "sector": "Coffee shop",
+   "lat": 51.446777,
+   "lng": -0.965821,
+   "address": "89 Mount Pleasant, Reading, RG1 2TG"
+  },
+  {
+   "osm": "node/11756415550",
+   "name": "Paul",
+   "sector": "Coffee shop",
+   "lat": 51.455597,
+   "lng": -0.974861,
+   "address": "70-72 Broad Street, Reading, RG1 2AF"
+  },
+  {
+   "osm": "node/13165736985",
+   "name": "Pausa",
+   "sector": "Coffee shop",
+   "lat": 51.440378,
+   "lng": -1.065178
+  },
+  {
+   "osm": "way/116171290",
+   "name": "Pavilion",
+   "sector": "Coffee shop",
+   "lat": 51.479839,
+   "lng": -0.632232
+  },
+  {
+   "osm": "node/795048712",
+   "name": "Pavilion Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.421386,
+   "lng": -0.887138
+  },
+  {
+   "osm": "node/6699471751",
+   "name": "Pearls Bubble Tea",
+   "sector": "Coffee shop",
+   "lat": 51.440766,
+   "lng": -0.943329
+  },
+  {
+   "osm": "node/2499414397",
+   "name": "Piazza Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.456839,
+   "lng": -0.971555,
+   "address": "1 Harris Arcade, Reading, RG1 1DN",
+   "website": "http://harris-arcade.com/shops/unit1.asp?expand=Cafes%20%26%20Sandwiches"
+  },
+  {
+   "osm": "node/2325397965",
+   "name": "Picnic",
+   "sector": "Coffee shop",
+   "lat": 51.45527,
+   "lng": -0.969827,
+   "address": "Butter Market, Reading, RG1 2DP",
+   "website": "https://www.picnicfoods.co.uk/"
+  },
+  {
+   "osm": "node/2499414399",
+   "name": "Pierre's",
+   "sector": "Coffee shop",
+   "lat": 51.457273,
+   "lng": -0.972007,
+   "address": "16 Harris Arcade, Reading, RG1 1DN"
+  },
+  {
+   "osm": "node/5478975017",
+   "name": "Pineapple Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.409519,
+   "lng": -1.323246,
+   "address": "20 Rowan Drive, Newbury, RG14 1LY"
+  },
+  {
+   "osm": "node/9831563675",
+   "name": "Pondwood Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.473692,
+   "lng": -0.776556
+  },
+  {
+   "osm": "node/4347945307",
+   "name": "Puccino's",
+   "sector": "Coffee shop",
+   "lat": 51.475609,
+   "lng": -0.863127,
+   "address": "Station Road, RG10 9NA"
+  },
+  {
+   "osm": "node/6734596800",
+   "name": "Puccino’s",
+   "sector": "Coffee shop",
+   "lat": 51.512206,
+   "lng": -0.59121,
+   "address": "Brunel Way, Slough, SL1 1XW"
+  },
+  {
+   "osm": "node/3397267026",
+   "name": "Pumpkin",
+   "sector": "Coffee shop",
+   "lat": 51.458879,
+   "lng": -0.972143,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/4317741690",
+   "name": "Pumpkin",
+   "sector": "Coffee shop",
+   "lat": 51.511843,
+   "lng": -0.591542
+  },
+  {
+   "osm": "node/4973749357",
+   "name": "Rafina",
+   "sector": "Coffee shop",
+   "lat": 51.45625,
+   "lng": -0.976222,
+   "address": "45 West Street, Reading, RG1 1TZ"
+  },
+  {
+   "osm": "node/1641017492",
+   "name": "Rainbow Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.4495,
+   "lng": -0.905782,
+   "address": "Crockhamwell Road, RG5 3LA"
+  },
+  {
+   "osm": "node/13021688082",
+   "name": "Ramsey's Grill",
+   "sector": "Coffee shop",
+   "lat": 51.484628,
+   "lng": -0.607283,
+   "address": "40A Thames Street, Windsor, SL4 1PR"
+  },
+  {
+   "osm": "node/4860664637",
+   "name": "Reading Baguettes",
+   "sector": "Coffee shop",
+   "lat": 51.457156,
+   "lng": -0.998284
+  },
+  {
+   "osm": "node/5840333914",
+   "name": "Reading Café",
+   "sector": "Coffee shop",
+   "lat": 51.43882,
+   "lng": -0.967356,
+   "address": "93-95 Basingstoke Road, Reading, RG2 0HA"
+  },
+  {
+   "osm": "node/3420001205",
+   "name": "Reds",
+   "sector": "Coffee shop",
+   "lat": 51.504257,
+   "lng": -0.542919,
+   "address": "Meadfield Road, Langley"
+  },
+  {
+   "osm": "node/9527920366",
+   "name": "Reef Restaurant and Dunes Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.390245,
+   "lng": -0.737326,
+   "address": "Nine Mile Ride, Bracknell, RG12 7JQ"
+  },
+  {
+   "osm": "node/12636322658",
+   "name": "Refuel",
+   "sector": "Coffee shop",
+   "lat": 51.556813,
+   "lng": -0.777849
+  },
+  {
+   "osm": "node/8851012163",
+   "name": "Riseley Village Tea Room",
+   "sector": "Coffee shop",
+   "lat": 51.361539,
+   "lng": -0.962782
+  },
+  {
+   "osm": "way/188603898",
+   "name": "Riverside Transport Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.485596,
+   "lng": -0.517717
+  },
+  {
+   "osm": "way/304111022",
+   "name": "Rocket Propelled Games",
+   "sector": "Coffee shop",
+   "lat": 51.400973,
+   "lng": -1.324092,
+   "address": "150-151 Bartholomew Street"
+  },
+  {
+   "osm": "node/11278417015",
+   "name": "Ruby's Play Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.340175,
+   "lng": -0.776377,
+   "address": "414 Yorktown Road, Sandhurst, GU47 0PR",
+   "website": "https://www.therubyplaycafe.co.uk/"
+  },
+  {
+   "osm": "way/439861734",
+   "name": "Rufus",
+   "sector": "Coffee shop",
+   "lat": 51.398787,
+   "lng": -1.326653,
+   "address": "40 Bartholomew Street, Newbury, RG14 7BE"
+  },
+  {
+   "osm": "node/8273382458",
+   "name": "Saints Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.52335,
+   "lng": -0.741159,
+   "address": "49a St Mark's Road, Maidenhead, SL6 6DP"
+  },
+  {
+   "osm": "way/69364268",
+   "name": "Salt Lake Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.512824,
+   "lng": -0.605831,
+   "address": "Slough"
+  },
+  {
+   "osm": "node/15758157",
+   "name": "Sanctuary Café",
+   "sector": "Coffee shop",
+   "lat": 51.45285,
+   "lng": -0.968057,
+   "address": "35-39 London Street, Reading, RG1 4PS"
+  },
+  {
+   "osm": "way/239479890",
+   "name": "Sandhurst Park Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.344579,
+   "lng": -0.794147,
+   "address": "Sandhurst, GU47 9DP"
+  },
+  {
+   "osm": "way/788856732",
+   "name": "School Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.50715,
+   "lng": -0.573094
+  },
+  {
+   "osm": "node/1311009575",
+   "name": "Sebastian's",
+   "sector": "Coffee shop",
+   "lat": 51.477632,
+   "lng": -0.866681,
+   "address": "3 London Road, RG10 9EH"
+  },
+  {
+   "osm": "node/5121388239",
+   "name": "Shed",
+   "sector": "Coffee shop",
+   "lat": 51.45735,
+   "lng": -0.973502,
+   "address": "8 Merchants Place, Reading, RG1 1DT",
+   "website": "https://www.theshedcafe.co.uk/"
+  },
+  {
+   "osm": "way/486468012",
+   "name": "Sip and Spoke (formerlyVelolife)",
+   "sector": "Coffee shop",
+   "lat": 51.520327,
+   "lng": -0.832392,
+   "address": "Warren Row Road, Warren Row, RG10 8QS",
+   "website": "https://sipandspoke.co.uk/"
+  },
+  {
+   "osm": "node/12071730366",
+   "name": "Smart Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.520773,
+   "lng": -0.638876,
+   "address": "334 Bath Road, Slough, SL1 6JA"
+  },
+  {
+   "osm": "node/3442801390",
+   "name": "Sole Farm",
+   "sector": "Coffee shop",
+   "lat": 51.438022,
+   "lng": -1.409613
+  },
+  {
+   "osm": "way/70517069",
+   "name": "Spoons Coffee Shop",
+   "sector": "Coffee shop",
+   "lat": 51.469923,
+   "lng": -1.044271,
+   "address": "Unit 7 Overdown Road, Reading, RG31 6PR"
+  },
+  {
+   "osm": "way/591679603",
+   "name": "SportsPark Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.442309,
+   "lng": -0.952937,
+   "address": "Shinfield Road, Reading, RG6 6AH"
+  },
+  {
+   "osm": "way/722876098",
+   "name": "Square Deal Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.50833,
+   "lng": -0.815723,
+   "address": "Bath Road, Knowl Hill, RG10 9UR",
+   "website": "https://squaredealcafe.com/"
+  },
+  {
+   "osm": "node/13301870986",
+   "name": "Stables Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.379325,
+   "lng": -0.785619,
+   "website": "https://stablescoffee.co.uk/pages/bucklers-park"
+  },
+  {
+   "osm": "node/12173700023",
+   "name": "Stables Speciality Coffee Co.",
+   "sector": "Coffee shop",
+   "lat": 51.387228,
+   "lng": -0.895549
+  },
+  {
+   "osm": "node/5562526870",
+   "name": "Star News",
+   "sector": "Coffee shop",
+   "lat": 51.413117,
+   "lng": -0.751698
+  },
+  {
+   "osm": "node/524010226",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.385172,
+   "lng": -1.317719,
+   "address": "Pinchington Lane, Newbury, RG14 7HU"
+  },
+  {
+   "osm": "node/784104733",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.481193,
+   "lng": -1.557477,
+   "website": "https://www.starbucks.com/store-locator/store/19001/membury-west-welcome-break-m-4-motorway-westbound-junction-14-15-berkshire-en"
+  },
+  {
+   "osm": "node/911842246",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.455175,
+   "lng": -0.9699,
+   "address": "6 King Street, Reading, RG1 2BH",
+   "website": "https://www.starbucks.com/store-locator/store/1013147/reading-king-street-1-buttermarket-and-6-king-street-reading-eng-rg-1-"
+  },
+  {
+   "osm": "node/1638496764",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.518796,
+   "lng": -0.62947
+  },
+  {
+   "osm": "node/2872006601",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.457767,
+   "lng": -0.971868,
+   "address": "18-20 Station Road, Reading, RG1 1JX",
+   "website": "https://www.starbucks.com/store-locator/store/1053718/reading-station-p-7-station-road-reading-eng-rg-1-1-lz-gb"
+  },
+  {
+   "osm": "node/2964982472",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.453853,
+   "lng": -0.971417,
+   "address": "The Oracle, Reading, RG1 2AG",
+   "website": "https://www.starbucks.com/store-locator/store/3103/reading-oracle-upper-mall-the-oracle-shopping-centre-reading-eng-rg-1-2-ag-g"
+  },
+  {
+   "osm": "node/4736504923",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.440899,
+   "lng": -0.943239,
+   "address": "Reading University Students' Union, Pepper Lane, Reading, RG6 6EH"
+  },
+  {
+   "osm": "node/5465544102",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.442588,
+   "lng": -1.061898,
+   "address": "Bath Road, Reading, RG31 7SA",
+   "website": "https://www.starbucks.com/store-locator/store/2535/reading-sainsburys-calcot-bath-road-reading-eng-rg-31-7-sa-gb"
+  },
+  {
+   "osm": "node/5626786707",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.410685,
+   "lng": -0.672542,
+   "address": "57 High Street, Ascot, SL5 7HP",
+   "website": "https://www.starbucks.com/store-locator/store/1013145/ascot-high-street-57-high-street-berkshire-eng-sl-5-7-hp-gb"
+  },
+  {
+   "osm": "node/6138017980",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.393045,
+   "lng": -0.740675,
+   "website": "https://www.starbucks.com/store-locator/store/2579/bracknell-sainsburys-ringmead-bracknell-eng-rg-12-7-ss-gb"
+  },
+  {
+   "osm": "node/6656950285",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.511582,
+   "lng": -0.592293,
+   "address": "1 Brunel Way, Slough, SL1 1FQ",
+   "website": "https://www.starbucks.com/store-locator/store/1021658/slough-23-5-degrees-brunel-way-1-brunel-way-slough-eng-sl-1-1-xl-gb"
+  },
+  {
+   "osm": "node/13043135147",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.435554,
+   "lng": -0.971763
+  },
+  {
+   "osm": "node/13073170594",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.483541,
+   "lng": -1.556949
+  },
+  {
+   "osm": "node/13563128216",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.427287,
+   "lng": -0.877184,
+   "address": "King Street Lane, RG41 5AR",
+   "website": "https://www.starbucks.co.uk/store-locator/66984"
+  },
+  {
+   "osm": "node/13644545643",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.415451,
+   "lng": -0.751017
+  },
+  {
+   "osm": "way/80246206",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.480533,
+   "lng": -1.557487,
+   "website": "https://www.starbucks.com/store-locator/store/90106/membury-north-dt-welcome-bre-m-4-motorway-junction-14-15-hungerford-eng-rg-17-7"
+  },
+  {
+   "osm": "way/300593290",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.484164,
+   "lng": -1.558048,
+   "website": "https://www.starbucks.com/store-locator/store/1006509/membury-west-dt-welcome-break-m-4-motorway-j-14-15-membury-hungerford-eng-rg-17-"
+  },
+  {
+   "osm": "way/534104763",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.458804,
+   "lng": -0.973406
+  },
+  {
+   "osm": "way/840731310",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.482442,
+   "lng": -0.608284,
+   "address": "138-139 Peascod Street, Windsor, SL4 1DS",
+   "website": "https://www.starbucks.co.uk/store-locator/29617-254527"
+  },
+  {
+   "osm": "way/943259827",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.408828,
+   "lng": -0.837058,
+   "website": "https://www.starbucks.com/store-locator/store/1028852/wokingham-elm-fields-elm-fields-wokingham-eng-rg-40-2-nl-gb"
+  },
+  {
+   "osm": "way/1350783334",
+   "name": "Starbucks",
+   "sector": "Coffee shop",
+   "lat": 51.445299,
+   "lng": -0.976445
+  },
+  {
+   "osm": "node/11324760161",
+   "name": "Stubbings",
+   "sector": "Coffee shop",
+   "lat": 51.52188,
+   "lng": -0.780566,
+   "address": "Henley Road, Maidenhead, SL6 6QL",
+   "website": "https://www.stubbingsnursery.co.uk"
+  },
+  {
+   "osm": "node/4950854528",
+   "name": "T4 Tea For U",
+   "sector": "Coffee shop",
+   "lat": 51.455151,
+   "lng": -0.973211,
+   "address": "4 Chain Street, Reading, RG1 2HX"
+  },
+  {
+   "osm": "node/3739930515",
+   "name": "Tamp Culture Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.454297,
+   "lng": -0.972527,
+   "address": "Gun street, Reading"
+  },
+  {
+   "osm": "node/2301772503",
+   "name": "Teapot Teashop",
+   "sector": "Coffee shop",
+   "lat": 51.559745,
+   "lng": -0.708866,
+   "address": "High Street, Maidenhead, SL6 9SJ"
+  },
+  {
+   "osm": "way/484417915",
+   "name": "Teashop By The Canal",
+   "sector": "Coffee shop",
+   "lat": 51.401995,
+   "lng": -1.32106,
+   "address": "RG14 5AS"
+  },
+  {
+   "osm": "node/13158316531",
+   "name": "Tesco Café",
+   "sector": "Coffee shop",
+   "lat": 51.33582,
+   "lng": -0.774899
+  },
+  {
+   "osm": "node/394029602",
+   "name": "Thatcham Nature Discovery Centre Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.399978,
+   "lng": -1.27371,
+   "address": "Muddy Lane, Thatcham, RG19 3FU"
+  },
+  {
+   "osm": "node/11876077505",
+   "name": "The Atrium",
+   "sector": "Coffee shop",
+   "lat": 51.456714,
+   "lng": -0.976758,
+   "address": "Friar Street, Reading, RG1 1EH"
+  },
+  {
+   "osm": "way/509914986",
+   "name": "The Baobab",
+   "sector": "Coffee shop",
+   "lat": 51.376534,
+   "lng": -1.062214
+  },
+  {
+   "osm": "node/3329294917",
+   "name": "The Bite",
+   "sector": "Coffee shop",
+   "lat": 51.483051,
+   "lng": -0.962473,
+   "address": "Reading, RG4 8XW"
+  },
+  {
+   "osm": "node/5265856253",
+   "name": "The Blackbird Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.423216,
+   "lng": -1.180325,
+   "address": "Buckleberry, RG7 6PD",
+   "website": "https://www.theblackbirdcafe.co.uk"
+  },
+  {
+   "osm": "node/4728957976",
+   "name": "The Breakfast Box",
+   "sector": "Coffee shop",
+   "lat": 51.440806,
+   "lng": -0.946237,
+   "address": "Reading, RG6 6UR"
+  },
+  {
+   "osm": "node/5979988794",
+   "name": "The Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.459841,
+   "lng": -0.954984,
+   "address": "Napier Road, Reading, RG1 8DF"
+  },
+  {
+   "osm": "node/6658289591",
+   "name": "The Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.510551,
+   "lng": -0.591515,
+   "address": "Slough, SL1 1XW"
+  },
+  {
+   "osm": "node/12146853158",
+   "name": "The Churros Kitchen",
+   "sector": "Coffee shop",
+   "lat": 51.454286,
+   "lng": -0.969642,
+   "address": "19-23 King Street, Reading, RG1 2HG"
+  },
+  {
+   "osm": "node/5764226376",
+   "name": "The Collective",
+   "sector": "Coffee shop",
+   "lat": 51.467712,
+   "lng": -0.977966,
+   "address": "25 Church Road, Caversham, Reading, RG4 7AA",
+   "website": "https://www.thecollectivecaversham.co.uk"
+  },
+  {
+   "osm": "way/1348312093",
+   "name": "The Corner Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.497673,
+   "lng": -0.636066,
+   "address": "1 Bell Lane, Windsor, SL4 6JP"
+  },
+  {
+   "osm": "way/144158805",
+   "name": "The Crown Café",
+   "sector": "Coffee shop",
+   "lat": 51.483927,
+   "lng": -0.608593,
+   "address": "21 Thames Street, Windsor, SL4 1LP"
+  },
+  {
+   "osm": "way/95567992",
+   "name": "The Dragonfly Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.440349,
+   "lng": -0.87219,
+   "address": "Davis Street, Hirst, RG10 0TH"
+  },
+  {
+   "osm": "node/11901119392",
+   "name": "The Eaten Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.487619,
+   "lng": -0.60885,
+   "address": "45 High Street, Windsor, SL4 6BL"
+  },
+  {
+   "osm": "way/301158384",
+   "name": "The Empire Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.399083,
+   "lng": -1.322495
+  },
+  {
+   "osm": "node/6780635411",
+   "name": "The Foxes Den",
+   "sector": "Coffee shop",
+   "lat": 51.429978,
+   "lng": -0.79296,
+   "website": "https://foxesden.co.uk/"
+  },
+  {
+   "osm": "node/3885393906",
+   "name": "The Garden Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.484405,
+   "lng": -1.086041,
+   "address": "14 Whitchurch Road, Reading, RG8 7BP",
+   "website": "http://www.thegardencafee.co.uk/"
+  },
+  {
+   "osm": "way/191236577",
+   "name": "The Good Brothers",
+   "sector": "Coffee shop",
+   "lat": 51.442872,
+   "lng": -0.931852,
+   "address": "183 Wokingham Road, Reading, RG6 1LT"
+  },
+  {
+   "osm": "way/77516215",
+   "name": "The Gorge Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.464642,
+   "lng": -0.977824,
+   "address": "227 Caversham Road, Reading, RG1 8BB"
+  },
+  {
+   "osm": "node/12105470632",
+   "name": "The Green Parrot",
+   "sector": "Coffee shop",
+   "lat": 51.521971,
+   "lng": -0.720257
+  },
+  {
+   "osm": "node/5114971230",
+   "name": "The Grove",
+   "sector": "Coffee shop",
+   "lat": 51.449783,
+   "lng": -1.01708,
+   "address": "Honey End Lane, Reading, RG30 4AA"
+  },
+  {
+   "osm": "node/2527840257",
+   "name": "The Hive",
+   "sector": "Coffee shop",
+   "lat": 51.452408,
+   "lng": -1.283451
+  },
+  {
+   "osm": "node/6697871911",
+   "name": "The Hive cafe",
+   "sector": "Coffee shop",
+   "lat": 51.525505,
+   "lng": -0.641142,
+   "address": "875 Plymouth Road, Slough, SL1 4LP"
+  },
+  {
+   "osm": "node/8930438019",
+   "name": "The Hive Craft Beer & Coffee Shop",
+   "sector": "Coffee shop",
+   "lat": 51.367291,
+   "lng": -0.818159,
+   "address": "208-210 Duke's Ride, Crowthorne, RG45 6DS",
+   "website": "https://www.thehivecraft.co.uk/"
+  },
+  {
+   "osm": "way/1169424326",
+   "name": "The Honesty Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.415256,
+   "lng": -1.332048,
+   "website": "https://www.honestygroup.co.uk/"
+  },
+  {
+   "osm": "node/9110927008",
+   "name": "The Mad Duck Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.482211,
+   "lng": -1.038473,
+   "address": "82 - 84 Wintringham Way, Reading, RG8 8BG",
+   "website": "https://themadduckcafe.co.uk/"
+  },
+  {
+   "osm": "node/4945803237",
+   "name": "The Market Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.458404,
+   "lng": -0.979646
+  },
+  {
+   "osm": "node/4423469597",
+   "name": "The Pantry",
+   "sector": "Coffee shop",
+   "lat": 51.466705,
+   "lng": -1.205656,
+   "address": "The Square, RG18 0UF",
+   "website": "https://www.thepantryyattendon.co.uk/"
+  },
+  {
+   "osm": "node/5638077226",
+   "name": "The Pantry",
+   "sector": "Coffee shop",
+   "lat": 51.456837,
+   "lng": -0.969818,
+   "address": "Blagrave Street, Reading, RG1 1QH"
+  },
+  {
+   "osm": "node/12091084949",
+   "name": "The Parlour",
+   "sector": "Coffee shop",
+   "lat": 51.449591,
+   "lng": -0.576799
+  },
+  {
+   "osm": "node/12063159587",
+   "name": "The Range Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.51362,
+   "lng": -0.621034
+  },
+  {
+   "osm": "node/2281852813",
+   "name": "The Rolling Feast",
+   "sector": "Coffee shop",
+   "lat": 51.366935,
+   "lng": -0.794682
+  },
+  {
+   "osm": "way/1251787077",
+   "name": "The Snugg",
+   "sector": "Coffee shop",
+   "lat": 51.436343,
+   "lng": -1.334142,
+   "address": "Wantage Road, RG14 3BQ",
+   "website": "https://the-snugg-cafe.business.site/"
+  },
+  {
+   "osm": "node/5631898343",
+   "name": "The Spark",
+   "sector": "Coffee shop",
+   "lat": 51.457851,
+   "lng": -0.965776
+  },
+  {
+   "osm": "node/12167387703",
+   "name": "The Sun Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.401032,
+   "lng": -0.656075,
+   "address": "17-19 High Street, Ascot, SL5 9NG"
+  },
+  {
+   "osm": "way/302819529",
+   "name": "The Sweet Box Café",
+   "sector": "Coffee shop",
+   "lat": 51.404201,
+   "lng": -1.324416,
+   "address": "Newbury"
+  },
+  {
+   "osm": "way/70463488",
+   "name": "The Switch",
+   "sector": "Coffee shop",
+   "lat": 51.457797,
+   "lng": -1.040656,
+   "address": "19 The Triangle, Reading, RG30 4RN"
+  },
+  {
+   "osm": "node/1935567819",
+   "name": "The Tea Kiosk",
+   "sector": "Coffee shop",
+   "lat": 51.467706,
+   "lng": -0.979705
+  },
+  {
+   "osm": "node/650708532",
+   "name": "The Tea Pot Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.521525,
+   "lng": -0.723861,
+   "address": "King Street, Maidenhead, SL6 1DS"
+  },
+  {
+   "osm": "way/944325058",
+   "name": "The Tuk In",
+   "sector": "Coffee shop",
+   "lat": 51.525177,
+   "lng": -0.720467,
+   "address": "Cookham Road, Maidenhead, SL6 8AJ"
+  },
+  {
+   "osm": "node/6419118486",
+   "name": "the tux shop",
+   "sector": "Coffee shop",
+   "lat": 51.529219,
+   "lng": -0.7435
+  },
+  {
+   "osm": "way/304111055",
+   "name": "The Ugly Duckling Pottery Painting Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.40068,
+   "lng": -1.324574,
+   "address": "2-3 Bartholomew Street, Newbury, RG14 5LL"
+  },
+  {
+   "osm": "node/7231487996",
+   "name": "Three Tuns Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.512184,
+   "lng": -0.61284,
+   "address": "109 Bath Road, Slough, SL1 3UW"
+  },
+  {
+   "osm": "node/366687684",
+   "name": "Tiny Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.405349,
+   "lng": -1.324964,
+   "address": "The Broadway"
+  },
+  {
+   "osm": "node/12288421696",
+   "name": "Tinytowne",
+   "sector": "Coffee shop",
+   "lat": 51.489882,
+   "lng": -0.609258,
+   "address": "7 High Street, Windsor, SL4 6AS"
+  },
+  {
+   "osm": "node/12116368388",
+   "name": "Top Twenty Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.47148,
+   "lng": -0.617261,
+   "address": "154 - 156 St Leonards Road, Windsor, SL4 3DL"
+  },
+  {
+   "osm": "node/11901119380",
+   "name": "Tudors",
+   "sector": "Coffee shop",
+   "lat": 51.490171,
+   "lng": -0.609296,
+   "address": "3 High Street, Windsor, SL4 6AS"
+  },
+  {
+   "osm": "way/77979896",
+   "name": "Tutu's Ethiopian Table",
+   "sector": "Coffee shop",
+   "lat": 51.45178,
+   "lng": -0.940513,
+   "address": "Wokingham Road, Reading, RG6 1LF",
+   "website": "https://www.tutus-ethiopian-table.com/"
+  },
+  {
+   "osm": "node/11753956184",
+   "name": "U. Bakery",
+   "sector": "Coffee shop",
+   "lat": 51.367342,
+   "lng": -0.817926,
+   "website": "https://www.ubakery.co.uk/"
+  },
+  {
+   "osm": "node/5625413296",
+   "name": "V&A Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.364207,
+   "lng": -0.806051
+  },
+  {
+   "osm": "node/6481667247",
+   "name": "Val's Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.46228,
+   "lng": -1.013858
+  },
+  {
+   "osm": "way/137044477",
+   "name": "Victoria Park Café",
+   "sector": "Coffee shop",
+   "lat": 51.403481,
+   "lng": -1.320269
+  },
+  {
+   "osm": "node/5045273235",
+   "name": "Waitrose Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.482669,
+   "lng": -0.61089,
+   "address": "Bridgewater Way, Windsor"
+  },
+  {
+   "osm": "node/5592108773",
+   "name": "Waitrose Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.466068,
+   "lng": -1.01936
+  },
+  {
+   "osm": "node/5981491952",
+   "name": "Whitley Social Club & Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.432146,
+   "lng": -0.962742
+  },
+  {
+   "osm": "node/9081322842",
+   "name": "Wild Bean Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.48957,
+   "lng": -0.536227
+  },
+  {
+   "osm": "node/9794666055",
+   "name": "Wild Bean Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.425394,
+   "lng": -1.031294
+  },
+  {
+   "osm": "way/72625326",
+   "name": "Wild Bean Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.424267,
+   "lng": -0.866634
+  },
+  {
+   "osm": "node/4750704117",
+   "name": "Willow",
+   "sector": "Coffee shop",
+   "lat": 51.486191,
+   "lng": -0.608805,
+   "address": "75 High Street, Windsor, SL4 6BT"
+  },
+  {
+   "osm": "node/12819090084",
+   "name": "Wolseley Street Bakery",
+   "sector": "Coffee shop",
+   "lat": 51.442575,
+   "lng": -0.970554,
+   "address": "Unit 12 Britten Road, Reading, RG2 0AU",
+   "website": "https://www.wolseleystreetbakery.co.uk/"
+  },
+  {
+   "osm": "node/699755713",
+   "name": "Woody's Cafe and Tea Room",
+   "sector": "Coffee shop",
+   "lat": 51.42738,
+   "lng": -1.206641
+  },
+  {
+   "osm": "node/429501931",
+   "name": "Workhouse Coffee",
+   "sector": "Coffee shop",
+   "lat": 51.45612,
+   "lng": -0.993467,
+   "address": "335 Oxford Road, Reading, RG30 1AY",
+   "website": "https://workhousecoffee.co.uk/"
+  },
+  {
+   "osm": "node/4424005215",
+   "name": "Wysipig Farm Cafe",
+   "sector": "Coffee shop",
+   "lat": 51.403686,
+   "lng": -0.894271
+  },
+  {
+   "osm": "node/6580176305",
+   "name": "Yaadgaar Reading",
+   "sector": "Coffee shop",
+   "lat": 51.457239,
+   "lng": -0.99855
+  },
+  {
+   "osm": "node/5799225139",
+   "name": "YayLo coffee and cake",
+   "sector": "Coffee shop",
+   "lat": 51.455902,
+   "lng": -0.971583,
+   "address": "26 Cross Street, Reading, RG1 1SN"
+  },
+  {
+   "osm": "node/5924062324",
+   "name": "Zotta Deli",
+   "sector": "Coffee shop",
+   "lat": 51.433369,
+   "lng": -0.968076,
+   "address": "279 Basingstoke Road, Reading, RG2 0JA"
+  },
+  {
+   "osm": "node/1797462466",
+   "name": "365 Gym",
+   "sector": "Gym",
+   "lat": 51.449907,
+   "lng": -1.017889
+  },
+  {
+   "osm": "node/6481322466",
+   "name": "9Round",
+   "sector": "Gym",
+   "lat": 51.45684,
+   "lng": -0.973862
+  },
+  {
+   "osm": "node/5596870601",
+   "name": "Absolutely Fitness",
+   "sector": "Gym",
+   "lat": 51.415284,
+   "lng": -0.762512,
+   "address": "Easthampstead Road, Bracknell"
+  },
+  {
+   "osm": "way/459600804",
+   "name": "Absolutely Fitness",
+   "sector": "Gym",
+   "lat": 51.522181,
+   "lng": -0.622831,
+   "address": "15-17 Liverpool Road, Slough, SL1 4QZ",
+   "website": "www.absolutely-group.co.uk"
+  },
+  {
+   "osm": "node/3059637339",
+   "name": "Abstract Bodyworks Newbury",
+   "sector": "Gym",
+   "lat": 51.399213,
+   "lng": -1.321686,
+   "address": "11 Kings Road West, RG14 5BY",
+   "website": "https://www.pe-newbury.co.uk/"
+  },
+  {
+   "osm": "way/756762725",
+   "name": "Activ8 Gym",
+   "sector": "Gym",
+   "lat": 51.513126,
+   "lng": -0.590464,
+   "address": "64 Mill Street, Slough, SL2 5DH"
+  },
+  {
+   "osm": "way/61031516",
+   "name": "Anytime Fitness",
+   "sector": "Gym",
+   "lat": 51.459924,
+   "lng": -0.920604,
+   "address": "Reading, RG6 1FE",
+   "website": "https://www.anytimefitness.co.uk/gyms/uk-0187/woodley-south-east-rg6-1fe/"
+  },
+  {
+   "osm": "way/619756414",
+   "name": "Arborfield Green Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.379731,
+   "lng": -0.893808
+  },
+  {
+   "osm": "way/1453863259",
+   "name": "Barn Built Fitness",
+   "sector": "Gym",
+   "lat": 51.42139,
+   "lng": -0.809932,
+   "address": "Binfield Road, Wokingham, RG40 5PR",
+   "website": "https://www.barnbuiltfitness.co.uk/"
+  },
+  {
+   "osm": "node/12105470655",
+   "name": "Bodyfit Gym",
+   "sector": "Gym",
+   "lat": 51.520929,
+   "lng": -0.720039
+  },
+  {
+   "osm": "way/103023750",
+   "name": "Bracknell Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.401684,
+   "lng": -0.74808,
+   "website": "https://www.everyoneactive.com/centre/bracknell-leisure-centre/"
+  },
+  {
+   "osm": "way/80963581",
+   "name": "Bulmershe Gymnastics Club",
+   "sector": "Gym",
+   "lat": 51.455191,
+   "lng": -0.918264,
+   "address": "Reading",
+   "website": "https://www.bulmershegymnastics.co.uk/"
+  },
+  {
+   "osm": "node/2688357765",
+   "name": "Caversham Health Club",
+   "sector": "Gym",
+   "lat": 51.466894,
+   "lng": -0.973113,
+   "address": "Archway Road, Reading, RG4 8HX",
+   "website": "https://www.cavershamhealthclub.co.uk/"
+  },
+  {
+   "osm": "way/1157396569",
+   "name": "Charters Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.391796,
+   "lng": -0.651604
+  },
+  {
+   "osm": "node/12227823990",
+   "name": "CrossFit",
+   "sector": "Gym",
+   "lat": 51.419565,
+   "lng": -1.515796
+  },
+  {
+   "osm": "node/5630402620",
+   "name": "Curves",
+   "sector": "Gym",
+   "lat": 51.458293,
+   "lng": -0.994296
+  },
+  {
+   "osm": "node/2421932504",
+   "name": "David Lloyd",
+   "sector": "Gym",
+   "lat": 51.520296,
+   "lng": -0.722317,
+   "address": "Grenfell Place, Maidenhead, SL6 1HJ",
+   "website": "https://www.davidlloyd.co.uk/clubs/maidenhead/"
+  },
+  {
+   "osm": "way/846954598",
+   "name": "David Lloyd Clubs",
+   "sector": "Gym",
+   "lat": 51.380813,
+   "lng": -1.336523
+  },
+  {
+   "osm": "way/65465781",
+   "name": "David Lloyd Leisure",
+   "sector": "Gym",
+   "lat": 51.462254,
+   "lng": -0.9321,
+   "address": "Thames Valley Park Drive, Reading, RG6 1PT"
+  },
+  {
+   "osm": "way/174000251",
+   "name": "David Lloyd Royal Berkshire",
+   "sector": "Gym",
+   "lat": 51.389234,
+   "lng": -0.741992
+  },
+  {
+   "osm": "node/11062885063",
+   "name": "F45 Training",
+   "sector": "Gym",
+   "lat": 51.523531,
+   "lng": -0.717465
+  },
+  {
+   "osm": "node/12811765947",
+   "name": "Fitness Space",
+   "sector": "Gym",
+   "lat": 51.410107,
+   "lng": -0.672251,
+   "address": "High Street, Ascot, SL5 7HD",
+   "website": "https://fsascot.co.uk"
+  },
+  {
+   "osm": "node/7859068499",
+   "name": "Ftiness4Women",
+   "sector": "Gym",
+   "lat": 51.458325,
+   "lng": -0.994398
+  },
+  {
+   "osm": "node/9981882846",
+   "name": "GoPerform",
+   "sector": "Gym",
+   "lat": 51.442034,
+   "lng": -0.970456
+  },
+  {
+   "osm": "node/5924062317",
+   "name": "Gymfinity Kids",
+   "sector": "Gym",
+   "lat": 51.432468,
+   "lng": -0.970068
+  },
+  {
+   "osm": "node/11749891934",
+   "name": "GymHippie Holistic Personal Training",
+   "sector": "Gym",
+   "lat": 51.454779,
+   "lng": -0.963753,
+   "address": "100 Kings Road, Reading, RG1 3BY",
+   "website": "https://gymhippie.co.uk/"
+  },
+  {
+   "osm": "node/5198354562",
+   "name": "Gymnasium",
+   "sector": "Gym",
+   "lat": 51.343245,
+   "lng": -0.766277
+  },
+  {
+   "osm": "way/532179175",
+   "name": "Gymnasium",
+   "sector": "Gym",
+   "lat": 51.432131,
+   "lng": -0.877598
+  },
+  {
+   "osm": "way/41666344",
+   "name": "Herongate Leisure",
+   "sector": "Gym",
+   "lat": 51.41966,
+   "lng": -1.518402,
+   "website": "https://herongate.club/"
+  },
+  {
+   "osm": "node/12409333823",
+   "name": "Hungerford Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.40519,
+   "lng": -1.515073,
+   "address": "Priory Road, Hungerford"
+  },
+  {
+   "osm": "node/11808335639",
+   "name": "ICON",
+   "sector": "Gym",
+   "lat": 51.518528,
+   "lng": -0.725172
+  },
+  {
+   "osm": "way/475233207",
+   "name": "Kennet Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.400591,
+   "lng": -1.248565
+  },
+  {
+   "osm": "node/6324071321",
+   "name": "Lake Fitness @ No.10",
+   "sector": "Gym",
+   "lat": 51.436247,
+   "lng": -1.060564,
+   "website": "https://www.arlingtonbusinesspark.co.uk/community/gym/"
+  },
+  {
+   "osm": "node/12078335475",
+   "name": "Leaf Leisure",
+   "sector": "Gym",
+   "lat": 51.449532,
+   "lng": -0.575468
+  },
+  {
+   "osm": "node/6133270166",
+   "name": "LivingWell Health Club",
+   "sector": "Gym",
+   "lat": 51.430818,
+   "lng": -0.977383
+  },
+  {
+   "osm": "way/50822753",
+   "name": "Loddon Valley Leisure",
+   "sector": "Gym",
+   "lat": 51.42596,
+   "lng": -0.932215
+  },
+  {
+   "osm": "relation/942602",
+   "name": "Loddon Valley Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.425459,
+   "lng": -0.931963,
+   "address": "Rushey Way, Reading, RG6 4GD",
+   "website": "https://www.placesleisure.org/centres/loddon-valley-leisure-centre"
+  },
+  {
+   "osm": "way/59965089",
+   "name": "Longridge Activity Centre",
+   "sector": "Gym",
+   "lat": 51.564856,
+   "lng": -0.760917,
+   "address": "Quarry Wood Road",
+   "website": "https://www.adventurelearning.org.uk/longridge/"
+  },
+  {
+   "osm": "node/13944419621",
+   "name": "MGFitness",
+   "sector": "Gym",
+   "lat": 51.455007,
+   "lng": -0.963267,
+   "address": "100 Kings Road, Reading, RG1 3BY",
+   "website": "https://www.mgfitness.org.uk"
+  },
+  {
+   "osm": "node/2364897631",
+   "name": "Monkey Muay Thai",
+   "sector": "Gym",
+   "lat": 51.523222,
+   "lng": -0.720147,
+   "address": "Market Street, Maidenhead, SL6 8AA",
+   "website": "https://www.monkeymuaythai.co.uk/"
+  },
+  {
+   "osm": "node/12866796064",
+   "name": "Movement Workshop",
+   "sector": "Gym",
+   "lat": 51.393002,
+   "lng": -0.627913,
+   "address": "1a-2 Broomfield Hall Buildings, London Road, Ascot, SL5 0DH",
+   "website": "https://www.mvmtworkshop.com/"
+  },
+  {
+   "osm": "way/548468336",
+   "name": "New Gym",
+   "sector": "Gym",
+   "lat": 51.50746,
+   "lng": -0.573141
+  },
+  {
+   "osm": "way/632505807",
+   "name": "Newbury Better Health & Fitness",
+   "sector": "Gym",
+   "lat": 51.405297,
+   "lng": -1.322161
+  },
+  {
+   "osm": "way/42993008",
+   "name": "Nirvana Spa",
+   "sector": "Gym",
+   "lat": 51.420975,
+   "lng": -0.88985
+  },
+  {
+   "osm": "way/109744892",
+   "name": "Northcroft Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.403126,
+   "lng": -1.33264,
+   "address": "Northcroft Lane, RG14 1RS"
+  },
+  {
+   "osm": "node/4572933691",
+   "name": "Nuffield Health Fitness & Wellbeing",
+   "sector": "Gym",
+   "lat": 51.409618,
+   "lng": -0.836378,
+   "website": "https://www.nuffieldhealth.com/gyms/wokingham"
+  },
+  {
+   "osm": "way/65235894",
+   "name": "Nuffield Health Fitness & Wellbeing",
+   "sector": "Gym",
+   "lat": 51.420286,
+   "lng": -0.98653,
+   "address": "240 South Oak Way, Reading, RG2 6UL",
+   "website": "https://www.nuffieldhealth.com/gyms/reading"
+  },
+  {
+   "osm": "way/121064794",
+   "name": "Nuffield Health Fitness & Wellbeing",
+   "sector": "Gym",
+   "lat": 51.397386,
+   "lng": -1.298669,
+   "address": "RG14 7PN",
+   "website": "https://www.nuffieldhealth.com/gyms/newbury"
+  },
+  {
+   "osm": "way/1473377106",
+   "name": "Old Gym",
+   "sector": "Gym",
+   "lat": 51.506622,
+   "lng": -0.573631
+  },
+  {
+   "osm": "way/77979921",
+   "name": "Palmer Park Leisure Centre & Stadium",
+   "sector": "Gym",
+   "lat": 51.451617,
+   "lng": -0.937934,
+   "address": "Wokingham Road, Reading, RG6 1LF",
+   "website": "https://www.better.org.uk/leisure-centre/reading/palmer-park"
+  },
+  {
+   "osm": "way/204059538",
+   "name": "Pinewood Gymnastics Club Ltd",
+   "sector": "Gym",
+   "lat": 51.386952,
+   "lng": -0.796363,
+   "address": "Old Wokingham Road, Wokingham, RG40 3AQ",
+   "website": "https://www.pinewoodgymnastics.co.uk/"
+  },
+  {
+   "osm": "node/5818162184",
+   "name": "Ping Pong Parlour",
+   "sector": "Gym",
+   "lat": 51.454918,
+   "lng": -0.976473
+  },
+  {
+   "osm": "node/7415563299",
+   "name": "progressive fitness unit",
+   "sector": "Gym",
+   "lat": 51.453369,
+   "lng": -1.014881
+  },
+  {
+   "osm": "node/3111764567",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.460561,
+   "lng": -0.976016,
+   "website": "https://www.puregym.com/gyms/reading-caversham-road/"
+  },
+  {
+   "osm": "node/9513832239",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.442902,
+   "lng": -1.060587,
+   "address": "Bath Road, Calcot, Reading, RG31 7SA",
+   "website": "https://www.puregym.com/gyms/reading-calcot/"
+  },
+  {
+   "osm": "node/14017045853",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.518404,
+   "lng": -0.717847,
+   "address": "Stafferton Way, Maidenhead, SL6 1AY",
+   "website": "https://www.puregym.com/gyms/maidenhead/"
+  },
+  {
+   "osm": "way/393239080",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.523941,
+   "lng": -0.641506,
+   "address": "Slough, SL1 4JB"
+  },
+  {
+   "osm": "way/616118644",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.432972,
+   "lng": -0.969851,
+   "address": "350 Basingstoke Road, RG2 0NT"
+  },
+  {
+   "osm": "way/1016574801",
+   "name": "PureGym",
+   "sector": "Gym",
+   "lat": 51.397293,
+   "lng": -1.319837
+  },
+  {
+   "osm": "node/5319203683",
+   "name": "Reading Amateur Boxing & Fitness Club",
+   "sector": "Gym",
+   "lat": 51.456561,
+   "lng": -0.981713,
+   "website": "https://www.readingboxingclub.co.uk/"
+  },
+  {
+   "osm": "node/6476666374",
+   "name": "Revive",
+   "sector": "Gym",
+   "lat": 51.465244,
+   "lng": -0.977825,
+   "website": "https://www.cp-reading.co.uk/relax/"
+  },
+  {
+   "osm": "way/1178370318",
+   "name": "Rivermead Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.465224,
+   "lng": -0.983069
+  },
+  {
+   "osm": "way/690817691",
+   "name": "Rivermead Leisure Complex",
+   "sector": "Gym",
+   "lat": 51.465238,
+   "lng": -0.984218,
+   "website": "https://www.better.org.uk/leisure-centre/reading/rivermead-leisure-complex"
+  },
+  {
+   "osm": "way/701854498",
+   "name": "Snap Fitness",
+   "sector": "Gym",
+   "lat": 51.344521,
+   "lng": -0.801128,
+   "address": "1 Vulcan Way, Sandhurst",
+   "website": "https://www.snapfitness.com/uk/gyms/sandhurst"
+  },
+  {
+   "osm": "way/83589916",
+   "name": "South Reading Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.42721,
+   "lng": -0.959838,
+   "website": "http://www.readingleisure.co.uk/leisure-sites/"
+  },
+  {
+   "osm": "way/621781373",
+   "name": "South Reading Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.427152,
+   "lng": -0.959434,
+   "address": "Northumberland Avenue, Reading, RG2 8DF",
+   "website": "http://www.readingleisure.co.uk/leisure-sites/south-reading/"
+  },
+  {
+   "osm": "way/56045846",
+   "name": "St Crispin's Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.4114,
+   "lng": -0.822997
+  },
+  {
+   "osm": "node/12066785388",
+   "name": "Strong Womens Club",
+   "sector": "Gym",
+   "lat": 51.467749,
+   "lng": -0.975934
+  },
+  {
+   "osm": "node/13357221906",
+   "name": "Studio 9",
+   "sector": "Gym",
+   "lat": 51.403191,
+   "lng": -0.850988,
+   "address": "Oaklands Park, Wokingham, RG41 2AN",
+   "website": "https://www.studio9fitness.com/"
+  },
+  {
+   "osm": "node/11218342628",
+   "name": "The Atrium Health Club",
+   "sector": "Gym",
+   "lat": 51.465282,
+   "lng": -1.009158,
+   "website": "https://www.theatriumhealthclub.co.uk/"
+  },
+  {
+   "osm": "way/36819061",
+   "name": "The Atrium Health Club",
+   "sector": "Gym",
+   "lat": 51.465249,
+   "lng": -1.009838
+  },
+  {
+   "osm": "way/81633487",
+   "name": "The centre",
+   "sector": "Gym",
+   "lat": 51.519621,
+   "lng": -0.614514,
+   "address": "Slough, SL1 4UT"
+  },
+  {
+   "osm": "node/13273198413",
+   "name": "The Community Gym",
+   "sector": "Gym",
+   "lat": 51.424975,
+   "lng": -1.069847
+  },
+  {
+   "osm": "node/440616752",
+   "name": "The Gym",
+   "sector": "Gym",
+   "lat": 51.460636,
+   "lng": -1.013465,
+   "address": "Oxford Road, Reading, RG30 1PR",
+   "website": "https://www.thegymgroup.com/find-a-gym/reading-gyms/reading-west/"
+  },
+  {
+   "osm": "node/6256088500",
+   "name": "The Gym",
+   "sector": "Gym",
+   "lat": 51.454946,
+   "lng": -0.975193,
+   "website": "https://www.thegymgroup.com/find-a-gym/reading-gyms/reading-central/"
+  },
+  {
+   "osm": "way/210931310",
+   "name": "The Gym",
+   "sector": "Gym",
+   "lat": 51.414633,
+   "lng": -0.761049,
+   "website": "https://www.thegymgroup.com/find-a-gym/bracknell-gyms/bracknell/"
+  },
+  {
+   "osm": "way/705065002",
+   "name": "The Gym",
+   "sector": "Gym",
+   "lat": 51.51805,
+   "lng": -0.6136,
+   "website": "https://www.thegymgroup.com/find-a-gym/slough-gyms/slough/"
+  },
+  {
+   "osm": "way/934485076",
+   "name": "The Little Gym",
+   "sector": "Gym",
+   "lat": 51.480239,
+   "lng": -0.61088
+  },
+  {
+   "osm": "node/7352436167",
+   "name": "The Shredquarters",
+   "sector": "Gym",
+   "lat": 51.467163,
+   "lng": -1.021548
+  },
+  {
+   "osm": "node/14002410501",
+   "name": "The Swan at Streatley Gym",
+   "sector": "Gym",
+   "lat": 51.52399,
+   "lng": -1.144075,
+   "website": "http://coppaclub.co.uk/theswanatstreatley/gym"
+  },
+  {
+   "osm": "node/5480771373",
+   "name": "TNT Gym",
+   "sector": "Gym",
+   "lat": 51.461059,
+   "lng": -1.006558
+  },
+  {
+   "osm": "node/13614726509",
+   "name": "Unleashed Performance Gym",
+   "sector": "Gym",
+   "lat": 51.458111,
+   "lng": -0.970305
+  },
+  {
+   "osm": "way/492645552",
+   "name": "Waitrose Sports and Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.410071,
+   "lng": -0.76609,
+   "address": "Willoughby Road, Bracknell, RG12 8FZ"
+  },
+  {
+   "osm": "node/5630864220",
+   "name": "Wellington College Health and Fitness Club",
+   "sector": "Gym",
+   "lat": 51.365964,
+   "lng": -0.812645
+  },
+  {
+   "osm": "way/589667858",
+   "name": "Wellington Health and Fitness Club",
+   "sector": "Gym",
+   "lat": 51.366175,
+   "lng": -0.81236
+  },
+  {
+   "osm": "way/114709119",
+   "name": "Windsor Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.485914,
+   "lng": -0.62149,
+   "address": "SL4 5JB Stovell Road"
+  },
+  {
+   "osm": "way/170414865",
+   "name": "Wokingham Leisure Centre",
+   "sector": "Gym",
+   "lat": 51.407719,
+   "lng": -0.838336,
+   "address": "Wellington Road, RG40 2AF",
+   "website": "https://www.placesleisure.org/centres/wokingham-leisure-centre/"
+  },
+  {
+   "osm": "node/4341596199",
+   "name": "Wren's Club",
+   "sector": "Gym",
+   "lat": 51.485115,
+   "lng": -0.607671,
+   "address": "Thames Street, Windsor, SL4 1PX",
+   "website": "https://www.wrensclub.com/"
+  },
+  {
+   "osm": "node/12071755776",
+   "name": "21Hair",
+   "sector": "Hair salon",
+   "lat": 51.518385,
+   "lng": -0.644944
+  },
+  {
+   "osm": "node/4826866858",
+   "name": "A1 Hairdresser",
+   "sector": "Hair salon",
+   "lat": 51.456735,
+   "lng": -0.995199
+  },
+  {
+   "osm": "way/313482033",
+   "name": "Ad-Hoc",
+   "sector": "Hair salon",
+   "lat": 51.418166,
+   "lng": -1.512235,
+   "address": "3 Charnham Street, Hungerford"
+  },
+  {
+   "osm": "way/70517066",
+   "name": "Adam and Eve",
+   "sector": "Hair salon",
+   "lat": 51.469582,
+   "lng": -1.044807,
+   "address": "Reading"
+  },
+  {
+   "osm": "way/67559095",
+   "name": "Afro Hair Design",
+   "sector": "Hair salon",
+   "lat": 51.513581,
+   "lng": -0.594622,
+   "address": "71, Slough"
+  },
+  {
+   "osm": "node/7295242379",
+   "name": "AGA hairdressers",
+   "sector": "Hair salon",
+   "lat": 51.513028,
+   "lng": -0.614262
+  },
+  {
+   "osm": "way/982177784",
+   "name": "Air Hair Co.",
+   "sector": "Hair salon",
+   "lat": 51.401316,
+   "lng": -1.32459
+  },
+  {
+   "osm": "node/9605995371",
+   "name": "Alchemy Dreadlocks",
+   "sector": "Hair salon",
+   "lat": 51.47157,
+   "lng": -0.959705,
+   "address": "Banbury Gardens, Reading, RG4 5HX"
+  },
+  {
+   "osm": "node/3111764555",
+   "name": "Alison Hair",
+   "sector": "Hair salon",
+   "lat": 51.46627,
+   "lng": -0.968932
+  },
+  {
+   "osm": "node/5764225646",
+   "name": "Alternate Salon",
+   "sector": "Hair salon",
+   "lat": 51.46756,
+   "lng": -0.975172
+  },
+  {
+   "osm": "node/4829122712",
+   "name": "Amazing Grace",
+   "sector": "Hair salon",
+   "lat": 51.456657,
+   "lng": -0.995895
+  },
+  {
+   "osm": "node/5874110135",
+   "name": "Amy Lika",
+   "sector": "Hair salon",
+   "lat": 51.455518,
+   "lng": -0.969881,
+   "address": "Market Place, Reading"
+  },
+  {
+   "osm": "node/6286718801",
+   "name": "Ansar",
+   "sector": "Hair salon",
+   "lat": 51.438017,
+   "lng": -0.962758,
+   "address": "110 Northumberland Avenue, Reading, RG2 7PP"
+  },
+  {
+   "osm": "node/12114725421",
+   "name": "Aria Hair",
+   "sector": "Hair salon",
+   "lat": 51.478179,
+   "lng": -0.647173
+  },
+  {
+   "osm": "way/72660074",
+   "name": "Atlantis",
+   "sector": "Hair salon",
+   "lat": 51.417539,
+   "lng": -0.824898
+  },
+  {
+   "osm": "way/938185281",
+   "name": "BB's Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.468486,
+   "lng": -0.971495,
+   "address": "33 Prospect Street, Reading, RG4 8JB"
+  },
+  {
+   "osm": "node/9693390229",
+   "name": "Beachcombers",
+   "sector": "Hair salon",
+   "lat": 51.345328,
+   "lng": -0.797483,
+   "address": "76 Yorktown Road, Sandhurst, GU47 9BT",
+   "website": "http://www.beachcombershair.co.uk/"
+  },
+  {
+   "osm": "node/5840333888",
+   "name": "Belle Hair",
+   "sector": "Hair salon",
+   "lat": 51.439606,
+   "lng": -0.967076,
+   "address": "73 Basingstoke Road, Reading, RG2 0ER"
+  },
+  {
+   "osm": "node/5842107301",
+   "name": "BK's Hair Studio",
+   "sector": "Hair salon",
+   "lat": 51.436373,
+   "lng": -0.967385,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/1991673491",
+   "name": "Bloc. Hair",
+   "sector": "Hair salon",
+   "lat": 51.453816,
+   "lng": -0.973367,
+   "address": "2 Gun Street, Reading, RG1 2JR",
+   "website": "https://www.bloc-hair.com"
+  },
+  {
+   "osm": "node/5245899243",
+   "name": "Bodrum",
+   "sector": "Hair salon",
+   "lat": 51.453746,
+   "lng": -0.974396
+  },
+  {
+   "osm": "node/4573041389",
+   "name": "Bosphorus",
+   "sector": "Hair salon",
+   "lat": 51.411667,
+   "lng": -0.8369,
+   "address": "2 Shute End"
+  },
+  {
+   "osm": "way/301158390",
+   "name": "bravo",
+   "sector": "Hair salon",
+   "lat": 51.399036,
+   "lng": -1.321707
+  },
+  {
+   "osm": "way/222053353",
+   "name": "Brothers Hairdressers",
+   "sector": "Hair salon",
+   "lat": 51.448444,
+   "lng": -0.935697,
+   "address": "11 Pitcroft Avenue, Reading, RG6 1NH"
+  },
+  {
+   "osm": "node/7295242378",
+   "name": "BSG ladies only salon",
+   "sector": "Hair salon",
+   "lat": 51.513063,
+   "lng": -0.614244
+  },
+  {
+   "osm": "way/304111024",
+   "name": "busby's hair & beauty",
+   "sector": "Hair salon",
+   "lat": 51.400548,
+   "lng": -1.324734,
+   "address": "8 Bartholomew Street, Newbury"
+  },
+  {
+   "osm": "node/5640312960",
+   "name": "Celly's",
+   "sector": "Hair salon",
+   "lat": 51.455778,
+   "lng": -0.975363
+  },
+  {
+   "osm": "way/302819560",
+   "name": "CHAKRA Hair and Beauty Studio",
+   "sector": "Hair salon",
+   "lat": 51.405419,
+   "lng": -1.324618,
+   "address": "10 The Broadway, Newbury, RG14 1BA"
+  },
+  {
+   "osm": "node/8027640199",
+   "name": "Champions Barner Lounge",
+   "sector": "Hair salon",
+   "lat": 51.419101,
+   "lng": -0.959763
+  },
+  {
+   "osm": "way/477853459",
+   "name": "Charles Hairdressing",
+   "sector": "Hair salon",
+   "lat": 51.403689,
+   "lng": -1.259371
+  },
+  {
+   "osm": "node/4697949062",
+   "name": "Clarissa",
+   "sector": "Hair salon",
+   "lat": 51.400307,
+   "lng": -1.250799
+  },
+  {
+   "osm": "node/12105470629",
+   "name": "Clipso",
+   "sector": "Hair salon",
+   "lat": 51.522103,
+   "lng": -0.720237,
+   "address": "20 Queen Street"
+  },
+  {
+   "osm": "node/5799225135",
+   "name": "Cocoon Salon",
+   "sector": "Hair salon",
+   "lat": 51.456088,
+   "lng": -0.971515
+  },
+  {
+   "osm": "way/727325964",
+   "name": "Colors",
+   "sector": "Hair salon",
+   "lat": 51.345757,
+   "lng": -0.801324,
+   "address": "Yorktown Road, Sandhurst"
+  },
+  {
+   "osm": "node/5626786706",
+   "name": "Colourhouse Hairdressing",
+   "sector": "Hair salon",
+   "lat": 51.410707,
+   "lng": -0.672716,
+   "address": "53 High Street, Ascot, SL5 7HP"
+  },
+  {
+   "osm": "node/5606949432",
+   "name": "Coronet Hair Design",
+   "sector": "Hair salon",
+   "lat": 51.442359,
+   "lng": -1.010494
+  },
+  {
+   "osm": "way/742842127",
+   "name": "Cream Hair Design & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.507849,
+   "lng": -1.531441
+  },
+  {
+   "osm": "way/313497725",
+   "name": "Cut & Shave",
+   "sector": "Hair salon",
+   "lat": 51.397518,
+   "lng": -1.326565
+  },
+  {
+   "osm": "node/12068029136",
+   "name": "Cutz",
+   "sector": "Hair salon",
+   "lat": 51.515823,
+   "lng": -0.591111
+  },
+  {
+   "osm": "node/4808445627",
+   "name": "Déjà Vue",
+   "sector": "Hair salon",
+   "lat": 51.456272,
+   "lng": -0.994199,
+   "address": "359 Oxford Road"
+  },
+  {
+   "osm": "node/4934219147",
+   "name": "Diamond Scissors",
+   "sector": "Hair salon",
+   "lat": 51.457774,
+   "lng": -1.000889
+  },
+  {
+   "osm": "way/313488642",
+   "name": "Duo Hair Company",
+   "sector": "Hair salon",
+   "lat": 51.40095,
+   "lng": -1.323851
+  },
+  {
+   "osm": "way/951576654",
+   "name": "Earley Cut",
+   "sector": "Hair salon",
+   "lat": 51.449256,
+   "lng": -0.93836,
+   "address": "138 Wokingham Road, Reading, RG6 1JL"
+  },
+  {
+   "osm": "node/4341748615",
+   "name": "Egoli",
+   "sector": "Hair salon",
+   "lat": 51.484823,
+   "lng": -0.607641,
+   "address": "Thames Avenue, Windsor, SL4 1QP",
+   "website": "https://www.egolihairdressing.co.uk/"
+  },
+  {
+   "osm": "node/5615020004",
+   "name": "Electric",
+   "sector": "Hair salon",
+   "lat": 51.45483,
+   "lng": -0.968486
+  },
+  {
+   "osm": "node/7857127418",
+   "name": "Elegent Hair & Nails",
+   "sector": "Hair salon",
+   "lat": 51.456428,
+   "lng": -0.973532
+  },
+  {
+   "osm": "node/13460277188",
+   "name": "Envy",
+   "sector": "Hair salon",
+   "lat": 51.402717,
+   "lng": -1.256735
+  },
+  {
+   "osm": "node/800477754",
+   "name": "Exclussive4u",
+   "sector": "Hair salon",
+   "lat": 51.341005,
+   "lng": -0.777915
+  },
+  {
+   "osm": "node/6256714083",
+   "name": "Faded",
+   "sector": "Hair salon",
+   "lat": 51.459082,
+   "lng": -1.005651
+  },
+  {
+   "osm": "node/12109494861",
+   "name": "Figaro 4 Hair",
+   "sector": "Hair salon",
+   "lat": 51.49505,
+   "lng": -0.691412,
+   "address": "81a"
+  },
+  {
+   "osm": "node/12151853256",
+   "name": "Figoli",
+   "sector": "Hair salon",
+   "lat": 51.400308,
+   "lng": -0.656619,
+   "address": "29 High Street, Ascot, SL5 9NP",
+   "website": "https://figolihair.co.uk/"
+  },
+  {
+   "osm": "node/714169017",
+   "name": "Finn Hair",
+   "sector": "Hair salon",
+   "lat": 51.445734,
+   "lng": -0.899584
+  },
+  {
+   "osm": "way/70037955",
+   "name": "Finn Hair",
+   "sector": "Hair salon",
+   "lat": 51.43664,
+   "lng": -0.925502,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/6786186773",
+   "name": "Fiona Povey",
+   "sector": "Hair salon",
+   "lat": 51.367263,
+   "lng": -0.818512,
+   "address": "216 Duke's Ride, RG45 6DS",
+   "website": "https://www.fionapovey.co.uk/"
+  },
+  {
+   "osm": "node/638980458",
+   "name": "Foresters4Hair",
+   "sector": "Hair salon",
+   "lat": 51.427054,
+   "lng": -0.946227,
+   "address": "227 Shinfield Road, Reading",
+   "website": "https://www.forresters4hair.com/"
+  },
+  {
+   "osm": "node/8961121052",
+   "name": "Forresters",
+   "sector": "Hair salon",
+   "lat": 51.467241,
+   "lng": -0.974853
+  },
+  {
+   "osm": "way/70463493",
+   "name": "Forresters4Hair.com",
+   "sector": "Hair salon",
+   "lat": 51.457838,
+   "lng": -1.040594,
+   "address": "Reading"
+  },
+  {
+   "osm": "way/941115785",
+   "name": "Funky Barnet",
+   "sector": "Hair salon",
+   "lat": 51.452419,
+   "lng": -0.947014,
+   "address": "26 Wokingham Road, Reading, RG6 1JQ"
+  },
+  {
+   "osm": "node/4917778868",
+   "name": "Gabriel's Cuts",
+   "sector": "Hair salon",
+   "lat": 51.455775,
+   "lng": -0.988713
+  },
+  {
+   "osm": "way/1385970250",
+   "name": "Gennaro's",
+   "sector": "Hair salon",
+   "lat": 51.479129,
+   "lng": -0.612665,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "node/7231487988",
+   "name": "Gents hairdresser",
+   "sector": "Hair salon",
+   "lat": 51.512463,
+   "lng": -0.6133
+  },
+  {
+   "osm": "node/12102866529",
+   "name": "George's",
+   "sector": "Hair salon",
+   "lat": 51.506672,
+   "lng": -0.604873
+  },
+  {
+   "osm": "node/4973748915",
+   "name": "Giorgio",
+   "sector": "Hair salon",
+   "lat": 51.444801,
+   "lng": -0.964922
+  },
+  {
+   "osm": "node/4808445630",
+   "name": "Glo salon",
+   "sector": "Hair salon",
+   "lat": 51.456196,
+   "lng": -0.993836,
+   "website": "http://www.glosalon.co.uk"
+  },
+  {
+   "osm": "node/6658310254",
+   "name": "Gould",
+   "sector": "Hair salon",
+   "lat": 51.510354,
+   "lng": -0.591252,
+   "website": "https://www.gouldbarbers.co.uk/locations/slough"
+  },
+  {
+   "osm": "node/5799225132",
+   "name": "H:Room",
+   "sector": "Hair salon",
+   "lat": 51.456178,
+   "lng": -0.971486
+  },
+  {
+   "osm": "node/5167713731",
+   "name": "H2O",
+   "sector": "Hair salon",
+   "lat": 51.411104,
+   "lng": -0.833574,
+   "address": "5 Old Row Court, RG40 1XZ"
+  },
+  {
+   "osm": "node/2281873326",
+   "name": "Hair Affairs",
+   "sector": "Hair salon",
+   "lat": 51.370409,
+   "lng": -0.792968
+  },
+  {
+   "osm": "way/171693011",
+   "name": "Hair Art Salon",
+   "sector": "Hair salon",
+   "lat": 51.439261,
+   "lng": -0.91411,
+   "address": "345 Wokingham Road, Reading"
+  },
+  {
+   "osm": "way/1447531731",
+   "name": "Hair By S & L",
+   "sector": "Hair salon",
+   "lat": 51.484704,
+   "lng": -0.528215,
+   "address": "2 High Street, Slough, SL3 0NF"
+  },
+  {
+   "osm": "way/1348312358",
+   "name": "Hair By Us",
+   "sector": "Hair salon",
+   "lat": 51.497209,
+   "lng": -0.636157
+  },
+  {
+   "osm": "way/1304108369",
+   "name": "Hair Studio",
+   "sector": "Hair salon",
+   "lat": 51.516679,
+   "lng": -0.600003
+  },
+  {
+   "osm": "node/11803394492",
+   "name": "Hairbay",
+   "sector": "Hair salon",
+   "lat": 51.459913,
+   "lng": -1.037584,
+   "address": "7a School Road, Tilehurst, RG31 5AR"
+  },
+  {
+   "osm": "node/9358173717",
+   "name": "Haircuts",
+   "sector": "Hair salon",
+   "lat": 51.367423,
+   "lng": -0.817926,
+   "address": "202 Duke's Ride, RG45 6DS"
+  },
+  {
+   "osm": "way/285620302",
+   "name": "Hamilton Hair",
+   "sector": "Hair salon",
+   "lat": 51.422198,
+   "lng": -0.85472,
+   "address": "64"
+  },
+  {
+   "osm": "node/4934131001",
+   "name": "Happy Base",
+   "sector": "Hair salon",
+   "lat": 51.457394,
+   "lng": -0.999278
+  },
+  {
+   "osm": "node/12105470623",
+   "name": "Harringtons",
+   "sector": "Hair salon",
+   "lat": 51.521784,
+   "lng": -0.719941
+  },
+  {
+   "osm": "way/436371650",
+   "name": "Harringtons Hairdressing",
+   "sector": "Hair salon",
+   "lat": 51.483153,
+   "lng": -0.610683,
+   "address": "Jubilee Arch"
+  },
+  {
+   "osm": "node/1935548583",
+   "name": "Harris & Paul",
+   "sector": "Hair salon",
+   "lat": 51.467629,
+   "lng": -0.973089
+  },
+  {
+   "osm": "way/70478132",
+   "name": "Headcase",
+   "sector": "Hair salon",
+   "lat": 51.462326,
+   "lng": -1.038516,
+   "address": "Reading"
+  },
+  {
+   "osm": "node/6256088499",
+   "name": "Headmasters",
+   "sector": "Hair salon",
+   "lat": 51.455,
+   "lng": -0.975209
+  },
+  {
+   "osm": "way/313622187",
+   "name": "Headroom Hairdressing",
+   "sector": "Hair salon",
+   "lat": 51.398873,
+   "lng": -1.325614
+  },
+  {
+   "osm": "node/2281870440",
+   "name": "Heads Up",
+   "sector": "Hair salon",
+   "lat": 51.367753,
+   "lng": -0.793805
+  },
+  {
+   "osm": "node/3292721196",
+   "name": "Heddingtons",
+   "sector": "Hair salon",
+   "lat": 51.524308,
+   "lng": -0.753376,
+   "address": "Farm Road"
+  },
+  {
+   "osm": "node/5799225129",
+   "name": "Hobson & Quinn",
+   "sector": "Hair salon",
+   "lat": 51.456375,
+   "lng": -0.971441
+  },
+  {
+   "osm": "node/12143240804",
+   "name": "Hyper Fadez",
+   "sector": "Hair salon",
+   "lat": 51.509901,
+   "lng": -0.597088
+  },
+  {
+   "osm": "way/556866297",
+   "name": "Icon",
+   "sector": "Hair salon",
+   "lat": 51.480058,
+   "lng": -0.611851,
+   "address": "71 Peascod Street, Windsor, SL4 1DE"
+  },
+  {
+   "osm": "node/4561279178",
+   "name": "Image",
+   "sector": "Hair salon",
+   "lat": 51.407305,
+   "lng": -0.762699,
+   "address": "7 Wildridings Square, Bracknell, RG12 7SJ",
+   "website": "http://www.imagehairandbeauty.com/"
+  },
+  {
+   "osm": "node/5764226367",
+   "name": "Indigo Rye",
+   "sector": "Hair salon",
+   "lat": 51.467542,
+   "lng": -0.9772
+  },
+  {
+   "osm": "node/11702230194",
+   "name": "Indulge",
+   "sector": "Hair salon",
+   "lat": 51.382509,
+   "lng": -1.341004
+  },
+  {
+   "osm": "way/80217754",
+   "name": "Inspirations Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.452912,
+   "lng": -0.904864,
+   "address": "1-2 Library Parade, Woodley, RG5 3LX",
+   "website": "https://www.inspirationshairandbeauty.com/"
+  },
+  {
+   "osm": "node/11820267577",
+   "name": "Istanbul TR",
+   "sector": "Hair salon",
+   "lat": 51.52748,
+   "lng": -0.726728
+  },
+  {
+   "osm": "node/3419966268",
+   "name": "Jen Hair",
+   "sector": "Hair salon",
+   "lat": 51.503856,
+   "lng": -0.541862,
+   "address": "Meadfield Road, Slough, SL3 8HN",
+   "website": "http://jenhair.co.uk/"
+  },
+  {
+   "osm": "way/79872142",
+   "name": "Jo Joe's",
+   "sector": "Hair salon",
+   "lat": 51.453035,
+   "lng": -0.90533,
+   "address": "Crockhamwell Road, Reading"
+  },
+  {
+   "osm": "node/11756913072",
+   "name": "Jodies Tattoos & Salon",
+   "sector": "Hair salon",
+   "lat": 51.531693,
+   "lng": -0.631113
+  },
+  {
+   "osm": "node/12167343169",
+   "name": "John Jenkins",
+   "sector": "Hair salon",
+   "lat": 51.392425,
+   "lng": -0.627406,
+   "address": "63 Chobham Road, Ascot, SL5 0DT",
+   "website": "http://www.john-jenkins.co.uk"
+  },
+  {
+   "osm": "way/313622189",
+   "name": "Julian's Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.398815,
+   "lng": -1.324882,
+   "address": "Market Street, RG14 5DP"
+  },
+  {
+   "osm": "node/2040049666",
+   "name": "Kajo Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.422944,
+   "lng": -0.850272
+  },
+  {
+   "osm": "way/1341887925",
+   "name": "KIit Couture",
+   "sector": "Hair salon",
+   "lat": 51.377148,
+   "lng": -0.799517,
+   "address": "19 Greenwood Road, Crowthorne, RG45 6QX"
+  },
+  {
+   "osm": "node/12061045114",
+   "name": "King Kutz",
+   "sector": "Hair salon",
+   "lat": 51.517043,
+   "lng": -0.578893
+  },
+  {
+   "osm": "way/1305331736",
+   "name": "Kool Kidz Kutz",
+   "sector": "Hair salon",
+   "lat": 51.452432,
+   "lng": -0.947098,
+   "address": "26 Wokingham Road, Reading, RG6 1JQ",
+   "website": "https://www.koolkidzkutz.co.uk/"
+  },
+  {
+   "osm": "way/1334229994",
+   "name": "L&A Hair Lounge",
+   "sector": "Hair salon",
+   "lat": 51.396439,
+   "lng": -1.251955
+  },
+  {
+   "osm": "node/12139994219",
+   "name": "Laura Neal Hairdressing",
+   "sector": "Hair salon",
+   "lat": 51.415045,
+   "lng": -1.5145
+  },
+  {
+   "osm": "node/1904553897",
+   "name": "Le Masseur Personnel",
+   "sector": "Hair salon",
+   "lat": 51.467464,
+   "lng": -0.976809,
+   "address": "3 Church Rd, RG4 7AA",
+   "website": "https://www.le-masseur-personnel.com/"
+  },
+  {
+   "osm": "way/606156662",
+   "name": "Legend",
+   "sector": "Hair salon",
+   "lat": 51.346321,
+   "lng": -0.802477
+  },
+  {
+   "osm": "way/313497733",
+   "name": "Legends",
+   "sector": "Hair salon",
+   "lat": 51.398637,
+   "lng": -1.326437
+  },
+  {
+   "osm": "node/3420001203",
+   "name": "Loaf Langley",
+   "sector": "Hair salon",
+   "lat": 51.504483,
+   "lng": -0.543007,
+   "address": "3 Harrow Market, Slough, SL3 8HJ",
+   "website": "http://www.loafhair.co.uk/sub-page/7/langley-salon.html"
+  },
+  {
+   "osm": "way/933664404",
+   "name": "Look Sharp",
+   "sector": "Hair salon",
+   "lat": 51.480872,
+   "lng": -0.610456,
+   "address": "10 William Street, Windsor"
+  },
+  {
+   "osm": "node/12068029126",
+   "name": "Looks 4 you",
+   "sector": "Hair salon",
+   "lat": 51.513675,
+   "lng": -0.593593
+  },
+  {
+   "osm": "node/12064061841",
+   "name": "Lucas Hairdressers",
+   "sector": "Hair salon",
+   "lat": 51.528514,
+   "lng": -0.616402
+  },
+  {
+   "osm": "node/8164913903",
+   "name": "Lux Lounge",
+   "sector": "Hair salon",
+   "lat": 51.459384,
+   "lng": -1.005886,
+   "website": "https://www.luxloungehairbeauty.com/"
+  },
+  {
+   "osm": "node/13110414665",
+   "name": "LWRNC. Hair & Styling",
+   "sector": "Hair salon",
+   "lat": 51.401253,
+   "lng": -0.655896,
+   "address": "9 High Street, Ascot, SL5 9NQ"
+  },
+  {
+   "osm": "node/11964140837",
+   "name": "Macs",
+   "sector": "Hair salon",
+   "lat": 51.410829,
+   "lng": -0.830877,
+   "address": "41 Peach Street"
+  },
+  {
+   "osm": "node/12367061405",
+   "name": "Magic Touch Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.509044,
+   "lng": -0.579775
+  },
+  {
+   "osm": "node/4934219149",
+   "name": "Makafui",
+   "sector": "Hair salon",
+   "lat": 51.457982,
+   "lng": -1.000653
+  },
+  {
+   "osm": "node/11616260953",
+   "name": "Mancave",
+   "sector": "Hair salon",
+   "lat": 51.382482,
+   "lng": -1.341503,
+   "address": "Essex Street, Newbury",
+   "website": "mancavebarbers2.booksy.com"
+  },
+  {
+   "osm": "way/79872132",
+   "name": "Marc Antoni",
+   "sector": "Hair salon",
+   "lat": 51.452779,
+   "lng": -0.905965,
+   "address": "99 Crockhamwell Road, Woodley, RG5 3JP"
+  },
+  {
+   "osm": "node/12064089181",
+   "name": "Marian & Son",
+   "sector": "Hair salon",
+   "lat": 51.523618,
+   "lng": -0.615066
+  },
+  {
+   "osm": "way/933664472",
+   "name": "Marino",
+   "sector": "Hair salon",
+   "lat": 51.479807,
+   "lng": -0.61184,
+   "address": "Victoria Street, Windsor"
+  },
+  {
+   "osm": "node/12064061845",
+   "name": "Marino Hair Stylist",
+   "sector": "Hair salon",
+   "lat": 51.526384,
+   "lng": -0.615708
+  },
+  {
+   "osm": "node/12114768907",
+   "name": "Mario's",
+   "sector": "Hair salon",
+   "lat": 51.479604,
+   "lng": -0.62901
+  },
+  {
+   "osm": "node/10700661450",
+   "name": "Mark Cooke Hair",
+   "sector": "Hair salon",
+   "lat": 51.403682,
+   "lng": -0.671767
+  },
+  {
+   "osm": "node/12061045130",
+   "name": "Menz Cutz",
+   "sector": "Hair salon",
+   "lat": 51.517681,
+   "lng": -0.578081
+  },
+  {
+   "osm": "way/1304105080",
+   "name": "Michael's",
+   "sector": "Hair salon",
+   "lat": 51.520277,
+   "lng": -0.599621
+  },
+  {
+   "osm": "node/12105470659",
+   "name": "Moda Capelli",
+   "sector": "Hair salon",
+   "lat": 51.520627,
+   "lng": -0.720294
+  },
+  {
+   "osm": "node/3080330334",
+   "name": "MODA HAIR Unisex Salon",
+   "sector": "Hair salon",
+   "lat": 51.421458,
+   "lng": -0.764585
+  },
+  {
+   "osm": "node/12102866518",
+   "name": "Moe's",
+   "sector": "Hair salon",
+   "lat": 51.506234,
+   "lng": -0.602907
+  },
+  {
+   "osm": "node/12143209851",
+   "name": "Mojeezy",
+   "sector": "Hair salon",
+   "lat": 51.507476,
+   "lng": -0.591605
+  },
+  {
+   "osm": "node/12183846127",
+   "name": "Montagues Hair Design",
+   "sector": "Hair salon",
+   "lat": 51.413247,
+   "lng": -1.515879,
+   "address": "94 High Street, Hungerford"
+  },
+  {
+   "osm": "node/11901119385",
+   "name": "Murrays",
+   "sector": "Hair salon",
+   "lat": 51.489129,
+   "lng": -0.609097,
+   "address": "19"
+  },
+  {
+   "osm": "node/11848632783",
+   "name": "Natasha",
+   "sector": "Hair salon",
+   "lat": 51.527478,
+   "lng": -0.649199
+  },
+  {
+   "osm": "way/303538859",
+   "name": "Natures Corner",
+   "sector": "Hair salon",
+   "lat": 51.403559,
+   "lng": -1.32477,
+   "address": "Northbrook Street, Newbury"
+  },
+  {
+   "osm": "node/5818550516",
+   "name": "New View Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.444707,
+   "lng": -0.965388
+  },
+  {
+   "osm": "node/4973749343",
+   "name": "Nylon",
+   "sector": "Hair salon",
+   "lat": 51.454607,
+   "lng": -0.968685
+  },
+  {
+   "osm": "node/4808445623",
+   "name": "Oasis Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.456514,
+   "lng": -0.994128
+  },
+  {
+   "osm": "way/85419033",
+   "name": "Paparazzi Salon",
+   "sector": "Hair salon",
+   "lat": 51.458879,
+   "lng": -0.908754,
+   "address": "47 Western Avenue, Reading, RG5 3BJ"
+  },
+  {
+   "osm": "node/12102866512",
+   "name": "Pari",
+   "sector": "Hair salon",
+   "lat": 51.506069,
+   "lng": -0.601831
+  },
+  {
+   "osm": "node/4690082488",
+   "name": "Paul Charles",
+   "sector": "Hair salon",
+   "lat": 51.401985,
+   "lng": -1.256992
+  },
+  {
+   "osm": "way/70463492",
+   "name": "Paul Francis Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.458281,
+   "lng": -1.041226,
+   "address": "86 School Road, Reading, RG31 5AW"
+  },
+  {
+   "osm": "node/1745973048",
+   "name": "Peter's Gents Hairdrassers",
+   "sector": "Hair salon",
+   "lat": 51.444566,
+   "lng": -0.898875
+  },
+  {
+   "osm": "node/12077104276",
+   "name": "Pimp My Hair",
+   "sector": "Hair salon",
+   "lat": 51.518156,
+   "lng": -0.590111
+  },
+  {
+   "osm": "node/12143249182",
+   "name": "Prism",
+   "sector": "Hair salon",
+   "lat": 51.509048,
+   "lng": -0.594157
+  },
+  {
+   "osm": "node/7295242377",
+   "name": "pro edge salon",
+   "sector": "Hair salon",
+   "lat": 51.51311,
+   "lng": -0.614221
+  },
+  {
+   "osm": "node/4860664651",
+   "name": "Raj",
+   "sector": "Hair salon",
+   "lat": 51.456955,
+   "lng": -0.997199
+  },
+  {
+   "osm": "way/301158381",
+   "name": "Raj Golden Fingers Hairdressers",
+   "sector": "Hair salon",
+   "lat": 51.399284,
+   "lng": -1.322018,
+   "address": "53 Cheap Steet"
+  },
+  {
+   "osm": "way/1304169466",
+   "name": "Ramzee Hairdresser",
+   "sector": "Hair salon",
+   "lat": 51.522909,
+   "lng": -0.574379
+  },
+  {
+   "osm": "node/11848632797",
+   "name": "Ravishing",
+   "sector": "Hair salon",
+   "lat": 51.519652,
+   "lng": -0.644239
+  },
+  {
+   "osm": "node/7083984027",
+   "name": "redmill hair salon",
+   "sector": "Hair salon",
+   "lat": 51.521217,
+   "lng": -0.624712
+  },
+  {
+   "osm": "way/824388276",
+   "name": "ReVamp",
+   "sector": "Hair salon",
+   "lat": 51.534956,
+   "lng": -0.73023,
+   "address": "25 Gloucester Road, Maidenhead, SL6 7SN"
+  },
+  {
+   "osm": "node/4934130999",
+   "name": "Revelation Unisex Salon",
+   "sector": "Hair salon",
+   "lat": 51.457447,
+   "lng": -0.999524
+  },
+  {
+   "osm": "way/222053854",
+   "name": "Rezga's Cut",
+   "sector": "Hair salon",
+   "lat": 51.448911,
+   "lng": -0.937212,
+   "address": "71 Wokingham Road, Reading, RG6 1LH",
+   "website": "https://www.rezgascut.co.uk/"
+  },
+  {
+   "osm": "node/2321275566",
+   "name": "Ritzy's Hair Workshop",
+   "sector": "Hair salon",
+   "lat": 51.479399,
+   "lng": -0.612521,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "way/303532384",
+   "name": "Roderick Anthony",
+   "sector": "Hair salon",
+   "lat": 51.405654,
+   "lng": -1.32537,
+   "address": "Newbury"
+  },
+  {
+   "osm": "node/5764225651",
+   "name": "Rolands Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.467609,
+   "lng": -0.973509
+  },
+  {
+   "osm": "way/376168907",
+   "name": "Roma",
+   "sector": "Hair salon",
+   "lat": 51.48356,
+   "lng": -0.580039
+  },
+  {
+   "osm": "node/6458067399",
+   "name": "Ruby Reds",
+   "sector": "Hair salon",
+   "lat": 51.457559,
+   "lng": -0.973306
+  },
+  {
+   "osm": "node/2364940682",
+   "name": "Rush Hair",
+   "sector": "Hair salon",
+   "lat": 51.522894,
+   "lng": -0.721192
+  },
+  {
+   "osm": "way/933664439",
+   "name": "Rush Hair",
+   "sector": "Hair salon",
+   "lat": 51.480462,
+   "lng": -0.611742,
+   "address": "Peascod Street, Windsor, SL4 1DE",
+   "website": "https://www.rush.co.uk/salons/windsor"
+  },
+  {
+   "osm": "node/5914091208",
+   "name": "Sally Ann’s Hair Salon",
+   "sector": "Hair salon",
+   "lat": 51.396597,
+   "lng": -0.90584
+  },
+  {
+   "osm": "node/7694696920",
+   "name": "Salon 16",
+   "sector": "Hair salon",
+   "lat": 51.455273,
+   "lng": -1.049706
+  },
+  {
+   "osm": "way/606156661",
+   "name": "Salon 31",
+   "sector": "Hair salon",
+   "lat": 51.346296,
+   "lng": -0.802426
+  },
+  {
+   "osm": "way/313622191",
+   "name": "Salon 46",
+   "sector": "Hair salon",
+   "lat": 51.398469,
+   "lng": -1.326835,
+   "address": "46 Bartholomew Street"
+  },
+  {
+   "osm": "node/5764226362",
+   "name": "Salon e",
+   "sector": "Hair salon",
+   "lat": 51.466754,
+   "lng": -0.976965
+  },
+  {
+   "osm": "node/4949098769",
+   "name": "Salvo & Alex",
+   "sector": "Hair salon",
+   "lat": 51.456624,
+   "lng": -0.971949,
+   "address": "4 Queen Victoria Street, Reading, RG1 1TG"
+  },
+  {
+   "osm": "node/2281869681",
+   "name": "Sarai",
+   "sector": "Hair salon",
+   "lat": 51.367495,
+   "lng": -0.794277
+  },
+  {
+   "osm": "node/6223314934",
+   "name": "Short, Back & Vibes",
+   "sector": "Hair salon",
+   "lat": 51.438695,
+   "lng": -0.962226,
+   "address": "89 Northumberland Avenue, Reading, RG2 7PT"
+  },
+  {
+   "osm": "node/4950899438",
+   "name": "Shotz Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.453947,
+   "lng": -0.972986,
+   "address": "8 Gun Street, Reading, RG1 2JR"
+  },
+  {
+   "osm": "node/12457465042",
+   "name": "Silcress Hair Design",
+   "sector": "Hair salon",
+   "lat": 51.460284,
+   "lng": -0.586075
+  },
+  {
+   "osm": "node/11901119381",
+   "name": "Simon James",
+   "sector": "Hair salon",
+   "lat": 51.490125,
+   "lng": -0.60928,
+   "website": "https://simonjameshair.com/"
+  },
+  {
+   "osm": "node/12111723131",
+   "name": "Source Hair",
+   "sector": "Hair salon",
+   "lat": 51.502918,
+   "lng": -0.762702
+  },
+  {
+   "osm": "way/222053363",
+   "name": "Spicy Chulla",
+   "sector": "Hair salon",
+   "lat": 51.44829,
+   "lng": -0.936298,
+   "address": "115 Wokingham Road, Reading, RG6 1LH"
+  },
+  {
+   "osm": "node/12105470634",
+   "name": "Square Roots",
+   "sector": "Hair salon",
+   "lat": 51.52188,
+   "lng": -0.720239
+  },
+  {
+   "osm": "node/1394136764",
+   "name": "Stone Hair Design",
+   "sector": "Hair salon",
+   "lat": 51.428406,
+   "lng": -0.913518
+  },
+  {
+   "osm": "node/3765158642",
+   "name": "Studio 108",
+   "sector": "Hair salon",
+   "lat": 51.532572,
+   "lng": -0.724467,
+   "address": "108 Cookham Road"
+  },
+  {
+   "osm": "way/1304167771",
+   "name": "Style",
+   "sector": "Hair salon",
+   "lat": 51.518881,
+   "lng": -0.634024
+  },
+  {
+   "osm": "node/2388722444",
+   "name": "Style Guru",
+   "sector": "Hair salon",
+   "lat": 51.437018,
+   "lng": -1.076487
+  },
+  {
+   "osm": "node/4826866849",
+   "name": "Style Nation",
+   "sector": "Hair salon",
+   "lat": 51.456626,
+   "lng": -0.994672
+  },
+  {
+   "osm": "node/7124679590",
+   "name": "Style Nation",
+   "sector": "Hair salon",
+   "lat": 51.45791,
+   "lng": -1.000357
+  },
+  {
+   "osm": "node/12358831230",
+   "name": "Styles & Fades",
+   "sector": "Hair salon",
+   "lat": 51.509638,
+   "lng": -0.596228
+  },
+  {
+   "osm": "node/4829122709",
+   "name": "Ten 10",
+   "sector": "Hair salon",
+   "lat": 51.456698,
+   "lng": -0.996083
+  },
+  {
+   "osm": "node/5030785027",
+   "name": "Ten 10",
+   "sector": "Hair salon",
+   "lat": 51.457702,
+   "lng": -0.992345
+  },
+  {
+   "osm": "node/11901086064",
+   "name": "Thaxter and Lovelock",
+   "sector": "Hair salon",
+   "lat": 51.487505,
+   "lng": -0.609064
+  },
+  {
+   "osm": "node/4838686631",
+   "name": "The 5th Element Hair & Beauty Salon",
+   "sector": "Hair salon",
+   "lat": 51.46033,
+   "lng": -1.037576,
+   "address": "24 School Road, RG31 5AL",
+   "website": "https://the5thelement.uk/"
+  },
+  {
+   "osm": "node/6786186744",
+   "name": "The Colour Palette",
+   "sector": "Hair salon",
+   "lat": 51.367492,
+   "lng": -0.81751
+  },
+  {
+   "osm": "node/2388722691",
+   "name": "The Cutting Room",
+   "sector": "Hair salon",
+   "lat": 51.437287,
+   "lng": -1.076347
+  },
+  {
+   "osm": "node/6540731209",
+   "name": "The Cutting Room",
+   "sector": "Hair salon",
+   "lat": 51.376115,
+   "lng": -1.066278
+  },
+  {
+   "osm": "way/135110052",
+   "name": "The Cutting Room",
+   "sector": "Hair salon",
+   "lat": 51.462489,
+   "lng": -0.585925
+  },
+  {
+   "osm": "node/3646467960",
+   "name": "The Factory",
+   "sector": "Hair salon",
+   "lat": 51.455302,
+   "lng": -0.986262,
+   "address": "209 Oxford Road, Reading, RG1 7PX"
+  },
+  {
+   "osm": "node/12077104277",
+   "name": "The Goddess",
+   "sector": "Hair salon",
+   "lat": 51.518189,
+   "lng": -0.590057
+  },
+  {
+   "osm": "node/14075193931",
+   "name": "The Hair & Beauty Studio",
+   "sector": "Hair salon",
+   "lat": 51.516487,
+   "lng": -0.743658,
+   "address": "37 Wootton Way, Maidenhead, SL6 4QZ"
+  },
+  {
+   "osm": "node/1705543498",
+   "name": "The Hair Shop",
+   "sector": "Hair salon",
+   "lat": 51.446283,
+   "lng": -0.914395,
+   "address": "1A Kingfisher Drive, Woodley, RG5 3SJ",
+   "website": "https://www.thehairshopreading.co.uk/"
+  },
+  {
+   "osm": "node/12167343151",
+   "name": "The Salon Sunningdale",
+   "sector": "Hair salon",
+   "lat": 51.391385,
+   "lng": -0.632908,
+   "address": "8 Station Parade London Road, Ascot, SL5 0EP"
+  },
+  {
+   "osm": "node/1800313538",
+   "name": "The Sopranos",
+   "sector": "Hair salon",
+   "lat": 51.456557,
+   "lng": -0.554718
+  },
+  {
+   "osm": "way/304117836",
+   "name": "Tiffanys Hair & Beauty Boutique",
+   "sector": "Hair salon",
+   "lat": 51.40338,
+   "lng": -1.259553
+  },
+  {
+   "osm": "node/12143240818",
+   "name": "TJ's Unisex Hair & Beauty",
+   "sector": "Hair salon",
+   "lat": 51.509286,
+   "lng": -0.595705
+  },
+  {
+   "osm": "node/4572999092",
+   "name": "Toni & Guy",
+   "sector": "Hair salon",
+   "lat": 51.409391,
+   "lng": -0.834736
+  },
+  {
+   "osm": "node/5799225133",
+   "name": "Toni & Guy",
+   "sector": "Hair salon",
+   "lat": 51.456133,
+   "lng": -0.971503
+  },
+  {
+   "osm": "node/6313183328",
+   "name": "Toni & Guy",
+   "sector": "Hair salon",
+   "lat": 51.416492,
+   "lng": -0.750103
+  },
+  {
+   "osm": "node/12592853645",
+   "name": "Toni & Guy",
+   "sector": "Hair salon",
+   "lat": 51.404157,
+   "lng": -1.323774
+  },
+  {
+   "osm": "way/556866295",
+   "name": "Toni & Guy",
+   "sector": "Hair salon",
+   "lat": 51.480211,
+   "lng": -0.611806,
+   "address": "Peascod Street, Windsor, SL4 1DE"
+  },
+  {
+   "osm": "node/1092333421",
+   "name": "Top Cut",
+   "sector": "Hair salon",
+   "lat": 51.433509,
+   "lng": -0.967979,
+   "address": "46 Buckland Road, Reading"
+  },
+  {
+   "osm": "node/5105672586",
+   "name": "Top Cut",
+   "sector": "Hair salon",
+   "lat": 51.450114,
+   "lng": -1.046517
+  },
+  {
+   "osm": "node/5586723747",
+   "name": "Trilogy",
+   "sector": "Hair salon",
+   "lat": 51.45513,
+   "lng": -0.980011
+  },
+  {
+   "osm": "way/1031821465",
+   "name": "Tweasles",
+   "sector": "Hair salon",
+   "lat": 51.399673,
+   "lng": -1.448911
+  },
+  {
+   "osm": "way/547090026",
+   "name": "Vanilla",
+   "sector": "Hair salon",
+   "lat": 51.557323,
+   "lng": -0.721184
+  },
+  {
+   "osm": "way/76809077",
+   "name": "Varga's",
+   "sector": "Hair salon",
+   "lat": 51.443204,
+   "lng": -0.932185,
+   "address": "173 Wokingham Road, Reading, RG6 1LT"
+  },
+  {
+   "osm": "way/64654514",
+   "name": "WKD Hair & Body",
+   "sector": "Hair salon",
+   "lat": 51.429421,
+   "lng": -0.879675,
+   "address": "422 Reading Road, RG41 5GP"
+  },
+  {
+   "osm": "way/80217761",
+   "name": "Woodley Scissors",
+   "sector": "Hair salon",
+   "lat": 51.452175,
+   "lng": -0.905265,
+   "address": "116 Crockhamwell Road, Woodley, RG5 3JH"
+  },
+  {
+   "osm": "node/4934219155",
+   "name": "WS Academy",
+   "sector": "Hair salon",
+   "lat": 51.45767,
+   "lng": -1.000448
+  },
+  {
+   "osm": "node/11964140840",
+   "name": "Zappas",
+   "sector": "Hair salon",
+   "lat": 51.410446,
+   "lng": -0.831882,
+   "address": "23 Peach Street"
+  },
+  {
+   "osm": "node/6742421562",
+   "name": "American Nails",
+   "sector": "Nail bar",
+   "lat": 51.455634,
+   "lng": -0.975246
+  },
+  {
+   "osm": "node/7246811626",
+   "name": "Amy Nails",
+   "sector": "Nail bar",
+   "lat": 51.456666,
+   "lng": -0.972412
+  },
+  {
+   "osm": "way/313497747",
+   "name": "Anh Nails",
+   "sector": "Nail bar",
+   "lat": 51.397459,
+   "lng": -1.327089,
+   "address": "59 Bartholomew Street, Newbury, RG14 5QH"
+  },
+  {
+   "osm": "way/938185278",
+   "name": "Bliss Natty",
+   "sector": "Nail bar",
+   "lat": 51.468552,
+   "lng": -0.971294,
+   "address": "39 Prospect Street, Reading, RG4 8JB"
+  },
+  {
+   "osm": "way/838578603",
+   "name": "Cookham Nail Bar",
+   "sector": "Nail bar",
+   "lat": 51.557202,
+   "lng": -0.721415,
+   "address": "Maidenhead, SL6 9BR"
+  },
+  {
+   "osm": "way/304117806",
+   "name": "Diamond Nails",
+   "sector": "Nail bar",
+   "lat": 51.403448,
+   "lng": -1.257463,
+   "address": "RG19 3JA"
+  },
+  {
+   "osm": "node/12288288169",
+   "name": "Five Star",
+   "sector": "Nail bar",
+   "lat": 51.504352,
+   "lng": -0.543021
+  },
+  {
+   "osm": "node/11901119372",
+   "name": "Five Star Nail",
+   "sector": "Nail bar",
+   "lat": 51.489669,
+   "lng": -0.609493
+  },
+  {
+   "osm": "node/2364966132",
+   "name": "Five Star Nails",
+   "sector": "Nail bar",
+   "lat": 51.522512,
+   "lng": -0.723213
+  },
+  {
+   "osm": "node/12113617529",
+   "name": "Five Star Nails",
+   "sector": "Nail bar",
+   "lat": 51.456603,
+   "lng": -0.554688
+  },
+  {
+   "osm": "node/12064045206",
+   "name": "FiveStarNails",
+   "sector": "Nail bar",
+   "lat": 51.5249,
+   "lng": -0.61595
+  },
+  {
+   "osm": "node/5197941279",
+   "name": "Flamingo Beauty",
+   "sector": "Nail bar",
+   "lat": 51.455669,
+   "lng": -0.977284,
+   "address": "7 Cheapside, Reading, RG1 7AG",
+   "website": "https://www.flamingobeauty.co.uk/"
+  },
+  {
+   "osm": "node/2321266724",
+   "name": "Glamorous Nails",
+   "sector": "Nail bar",
+   "lat": 51.479719,
+   "lng": -0.612069,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "node/12151853255",
+   "name": "Glamorous Nails",
+   "sector": "Nail bar",
+   "lat": 51.400259,
+   "lng": -0.656651,
+   "address": "29 High Street, Ascot, SL5 9NP",
+   "website": "https://sunninghillnails.setmore.com/"
+  },
+  {
+   "osm": "node/4973749341",
+   "name": "Grand Lux Nail Spa",
+   "sector": "Nail bar",
+   "lat": 51.454516,
+   "lng": -0.968622,
+   "address": "11 Duke Street, Reading, RG1 4SA",
+   "website": "https://www.grandluxnailspa.co.uk/"
+  },
+  {
+   "osm": "node/4573003291",
+   "name": "H&A Nails Spa",
+   "sector": "Nail bar",
+   "lat": 51.411263,
+   "lng": -0.830537,
+   "address": "66 Peach Street"
+  },
+  {
+   "osm": "node/1076002135",
+   "name": "Harmony Nails",
+   "sector": "Nail bar",
+   "lat": 51.434055,
+   "lng": -0.968199,
+   "address": "265 Basingstoke Road, Reading, RG2 0HY"
+  },
+  {
+   "osm": "node/2364995710",
+   "name": "Hollywood Nails",
+   "sector": "Nail bar",
+   "lat": 51.522476,
+   "lng": -0.720036
+  },
+  {
+   "osm": "way/313323262",
+   "name": "Hungerford Nails",
+   "sector": "Nail bar",
+   "lat": 51.415444,
+   "lng": -1.515561,
+   "address": "18 High Street, Hungerford",
+   "website": "https://www.facebook.com/HungerfordNails/"
+  },
+  {
+   "osm": "node/4934219154",
+   "name": "Kai's Nails & Beauty",
+   "sector": "Nail bar",
+   "lat": 51.457923,
+   "lng": -1.000422
+  },
+  {
+   "osm": "way/303532382",
+   "name": "Luxe Nail Lounge",
+   "sector": "Nail bar",
+   "lat": 51.404202,
+   "lng": -1.32478,
+   "address": "63a Northbrook Street, Newbury, RG14 1AE"
+  },
+  {
+   "osm": "way/313497734",
+   "name": "Manhattan Nails",
+   "sector": "Nail bar",
+   "lat": 51.398562,
+   "lng": -1.326442
+  },
+  {
+   "osm": "way/934485066",
+   "name": "My's Nails",
+   "sector": "Nail bar",
+   "lat": 51.480638,
+   "lng": -0.610601
+  },
+  {
+   "osm": "node/4949098768",
+   "name": "Nails & Beauty Spa",
+   "sector": "Nail bar",
+   "lat": 51.456586,
+   "lng": -0.971947
+  },
+  {
+   "osm": "node/11848632780",
+   "name": "New York Nails",
+   "sector": "Nail bar",
+   "lat": 51.527362,
+   "lng": -0.648942
+  },
+  {
+   "osm": "way/264890357",
+   "name": "New York Nails",
+   "sector": "Nail bar",
+   "lat": 51.479728,
+   "lng": -0.61179,
+   "address": "85 Victoria Street, Windsor, SL4 1EH"
+  },
+  {
+   "osm": "node/3111764565",
+   "name": "Perfection Nail & Beauty Spa",
+   "sector": "Nail bar",
+   "lat": 51.468725,
+   "lng": -0.971623,
+   "address": "52 Prospect Street"
+  },
+  {
+   "osm": "way/938185280",
+   "name": "Perfection Nail and Beauty Spa",
+   "sector": "Nail bar",
+   "lat": 51.468547,
+   "lng": -0.971394,
+   "address": "37 Prospect Street, Reading, RG4 8JB",
+   "website": "https://perfection-spa-reading.edan.io/"
+  },
+  {
+   "osm": "node/1923777999",
+   "name": "Planet Nails",
+   "sector": "Nail bar",
+   "lat": 51.467542,
+   "lng": -0.975025
+  },
+  {
+   "osm": "node/2364947091",
+   "name": "Planet Nails",
+   "sector": "Nail bar",
+   "lat": 51.522266,
+   "lng": -0.723692
+  },
+  {
+   "osm": "node/9688594681",
+   "name": "Regal Nails",
+   "sector": "Nail bar",
+   "lat": 51.36704,
+   "lng": -0.794363
+  },
+  {
+   "osm": "way/304111031",
+   "name": "Star Nails & Beauty",
+   "sector": "Nail bar",
+   "lat": 51.40062,
+   "lng": -1.324651,
+   "address": "4 Bartholomew Street, Newbury"
+  },
+  {
+   "osm": "node/6339963917",
+   "name": "T&T Nails Studio",
+   "sector": "Nail bar",
+   "lat": 51.454358,
+   "lng": -0.97623
+  },
+  {
+   "osm": "node/13460280701",
+   "name": "Thatcham Nails & Beauty",
+   "sector": "Nail bar",
+   "lat": 51.402727,
+   "lng": -1.256875
+  },
+  {
+   "osm": "way/932663858",
+   "name": "The Nail Art Salon",
+   "sector": "Nail bar",
+   "lat": 51.479724,
+   "lng": -0.610691
+  },
+  {
+   "osm": "way/303532372",
+   "name": "The Nail Bar",
+   "sector": "Nail bar",
+   "lat": 51.404474,
+   "lng": -1.324833,
+   "address": "60a Northbrook Street, Newbury, RG14 1AH"
+  },
+  {
+   "osm": "node/6742421559",
+   "name": "The Nail Lounge",
+   "sector": "Nail bar",
+   "lat": 51.455827,
+   "lng": -0.975394
+  },
+  {
+   "osm": "node/12064089203",
+   "name": "Top Nails",
+   "sector": "Nail bar",
+   "lat": 51.528204,
+   "lng": -0.61688
+  },
+  {
+   "osm": "node/12117621764",
+   "name": "Windsor Nails",
+   "sector": "Nail bar",
+   "lat": 51.476864,
+   "lng": -0.612973,
+   "address": "St Leonards Road, Windsor"
+  },
+  {
+   "osm": "way/79675580",
+   "name": "Berkshire Physiotherapy Centre",
+   "sector": "Physio",
+   "lat": 51.438562,
+   "lng": -0.908415,
+   "address": "2;4 Pond Head Lane, Reading, RG6 7ET",
+   "website": "https://berkshirephysio.co.uk/"
+  },
+  {
+   "osm": "way/303532397",
+   "name": "Bodyset",
+   "sector": "Physio",
+   "lat": 51.405501,
+   "lng": -1.325181,
+   "address": "Newbury"
+  },
+  {
+   "osm": "node/8850023554",
+   "name": "Complete Physiotherapy",
+   "sector": "Physio",
+   "lat": 51.468077,
+   "lng": -0.974614,
+   "address": "Hemdean Road, Caversham, Reading, RG4 7QF",
+   "website": "https://www.completephysiotherapy.co.uk"
+  },
+  {
+   "osm": "way/722705152",
+   "name": "PhysioFitness Physiotherapy Maidenhead",
+   "sector": "Physio",
+   "lat": 51.54266,
+   "lng": -0.703526,
+   "address": "Widbrook Road, Maidenhead, SL6 8HS",
+   "website": "https://www.physiotherapymaidenhead.co.uk/"
+  },
+  {
+   "osm": "node/11324174172",
+   "name": "West Berkshire Therapy Centre",
+   "sector": "Physio",
+   "lat": 51.409057,
+   "lng": -1.24728,
+   "website": "https://www.westberkshiretherapycentre.org.uk/"
+  },
+  {
+   "osm": "node/4860664641",
+   "name": "Body & Brain",
+   "sector": "Yoga and pilates",
+   "lat": 51.457147,
+   "lng": -0.998086
+  },
+  {
+   "osm": "node/13335865402",
+   "name": "Cultivate Fitness | Indoor & Outdoor Gym",
+   "sector": "Yoga and pilates",
+   "lat": 51.559484,
+   "lng": -0.773153,
+   "address": "Town Farm, Marlow, SL7 1RR",
+   "website": "https://cultivate-fitness.com/"
+  },
+  {
+   "osm": "node/7471708675",
+   "name": "easyGym",
+   "sector": "Yoga and pilates",
+   "lat": 51.507894,
+   "lng": -0.588332
+  },
+  {
+   "osm": "way/1184649044",
+   "name": "Hotpod Yoga Reading",
+   "sector": "Yoga and pilates",
+   "lat": 51.455919,
+   "lng": -0.97973,
+   "address": "2-4 Chatham Place, Reading, RG1 7AR",
+   "website": "https://hotpodyoga.com/studios/reading/"
+  },
+  {
+   "osm": "way/653621661",
+   "name": "Pilates of Berkshire",
+   "sector": "Yoga and pilates",
+   "lat": 51.451182,
+   "lng": -0.967104,
+   "address": "101 London Street, Reading, RG1 4QD"
+  },
+  {
+   "osm": "node/5626786702",
+   "name": "Reforma Studios",
+   "sector": "Yoga and pilates",
+   "lat": 51.410761,
+   "lng": -0.67329,
+   "address": "49 High Street, Ascot, SL5 7HG",
+   "website": "https://reformastudios.co.uk/"
+  },
+  {
+   "osm": "way/838578601",
+   "name": "Unwind Yoga Studio",
+   "sector": "Yoga and pilates",
+   "lat": 51.557331,
+   "lng": -0.721093,
+   "address": "Maidenhead, SL6 9BR"
+  }
+ ]
+}

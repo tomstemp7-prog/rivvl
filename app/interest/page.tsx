@@ -7,13 +7,13 @@ import { WaitlistForm } from "@/components/waitlist-form";
 import { placeFor } from "@/lib/postcode";
 import { profileQuery } from "@/lib/profile";
 import { pluralFor, SECTORS } from "@/lib/sectors";
-import { LAUNCHED_TOWNS } from "@/lib/towns";
+import { PRICED_TOWNS, REGIONS } from "@/lib/towns";
 
 export const metadata: Metadata = { title: "Register interest · Rivl" };
 
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
 
-/** Where postcodes outside a launched town land: register interest, or explore the sample demo. */
+/** Where postcodes outside a covered region land: register interest, or explore the sample demo. */
 export default async function InterestPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const sectorParam = first(params.sector);
@@ -22,7 +22,8 @@ export default async function InterestPage({ searchParams }: { searchParams: Pro
   const business = first(params.name);
   const place = postcode ? await placeFor(postcode) : null;
   const town = place?.district || null;
-  const launched = LAUNCHED_TOWNS.map((t) => t.name).join(" and ");
+  const launched = REGIONS.map((r) => r.name).join(" and ");
+  const priced = PRICED_TOWNS.join(" and ");
   const demoQuery = profileQuery({ sector, postcode: place?.postcode ?? postcode, name: business || undefined });
 
   return (
@@ -37,7 +38,7 @@ export default async function InterestPage({ searchParams }: { searchParams: Pro
             {town ? `Rivl isn’t in ${town} yet.` : "Rivl isn’t in your area yet."}
           </h1>
           <p className="m-0 text-lg leading-[1.55] text-body">
-            We’re live in {launched} first, with real local businesses and their published prices. Register your interest and
+            We’re live across {launched} first, with real local businesses, and published prices in {priced}. Register your interest and
             we’ll tell you as soon as {town ?? "your area"} goes live. The more {pluralFor(sector)} that sign up, the sooner we
             launch there.
           </p>

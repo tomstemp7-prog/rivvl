@@ -76,7 +76,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
         <div className="flex flex-col gap-1.5">
           <p className="m-0 text-sm font-semibold text-muted">
             {rivals.length} {plural} within {radius} of {areaLabel(profile.postcode, place)} ·{" "}
-            {market.real ? `real ${market.town} prices` : "illustrative data"}
+            {market.real ? `real ${market.town} ${rivals.some(hasPrices) ? "prices" : "businesses"}` : "illustrative data"}
           </p>
           <h1 className="m-0 font-display text-4xl font-semibold tracking-[-0.8px]">Where you sit</h1>
         </div>
@@ -108,7 +108,7 @@ export default async function BenchmarkPage({ searchParams }: { searchParams: Pr
             ) : (
               <>
                 <p className="m-0 font-display text-2xl leading-[1.25] font-semibold sm:text-[28px]">
-                  {rows.length ? "Share your prices to see where you sit on each item." : `We haven’t collected ${plural} prices near you yet.`}
+                  {rows.length ? "Share your prices to see where you sit on each item." : `We haven’t collected prices for ${plural} near you yet.`}
                 </p>
                 <p className="m-0 text-base leading-normal text-on-dark-2">
                   {rows.length

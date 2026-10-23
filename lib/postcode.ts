@@ -10,6 +10,8 @@ export type Place = {
   district: string;
   ward: string;
   region: string;
+  /** The local council, e.g. "Windsor and Maidenhead": decides whether Rivl covers it (lib/towns.ts). */
+  council: string;
 };
 
 export type Lookup = { status: "found"; place: Place } | { status: "invalid" } | { status: "unavailable" };
@@ -54,6 +56,7 @@ export async function lookupPostcode(raw: string, init?: RequestInit): Promise<L
         district: (r.bua ?? r.admin_district ?? r.region ?? r.country ?? "").replace(/^(.+) \(\1\)$/, "$1"),
         ward: r.admin_ward ?? "",
         region: r.region ?? r.country ?? "",
+        council: r.admin_district ?? "",
       },
     };
   } catch {

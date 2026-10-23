@@ -89,9 +89,10 @@ export function MarketView({ profile, place, market, pooled = {} }: { profile: P
   const rivals = nearby.filter((r) => r.prices[item.id] !== undefined);
   // Real businesses that don't publish this price still belong on the map, just without a price.
   const unpriced = market.real ? nearby.filter((r) => r.prices[item.id] === undefined) : [];
-  const anyPrices = market.rivals.some((r) => Object.keys(r.prices).length > 0);
+  // Within the chosen distance: a town with no prices nearby reads as "businesses", not "prices".
+  const anyPrices = nearby.some((r) => Object.keys(r.prices).length > 0);
   const latestCheck = market.real && anyPrices
-    ? market.rivals.filter((r) => r.real?.priceUrl).map((r) => r.checked).sort().at(-1) ?? market.fetched
+    ? nearby.filter((r) => r.real?.priceUrl).map((r) => r.checked).sort().at(-1) ?? market.fetched
     : null;
   const entries: Entry[] = rivals.map((r) => ({
     id: r.id,
@@ -191,7 +192,7 @@ export function MarketView({ profile, place, market, pooled = {} }: { profile: P
           <strong className="text-ink">Real {market.town} businesses.</strong>{" "}
           {anyPrices
             ? `Prices are each business’s own published prices, from its website or booking page, with the source on its page. ${unpriced.length ? "Businesses that don’t publish this price show as grey dots." : ""}`
-            : `We haven’t collected ${plural} prices in ${market.town} yet, so this shows who’s near you. Prices are coming soon.`}
+            : `We haven’t collected prices for ${plural} in ${market.town} yet, so this shows who’s near you. Prices are coming soon.`}
         </p>
       )}
 

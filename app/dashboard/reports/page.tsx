@@ -152,12 +152,12 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
               {market.town} · {pluralFor(profile.sector)} within {profile.radius} of {areaLabel(profile.postcode, place)}
             </p>
             <h2 className="m-0 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.6px]">
-              Your first {market.town} report arrives on {fmt(firstReport)}.
+              {priced ? `Your first ${market.town} report arrives on ${fmt(firstReport)}.` : `Reports start once we’re tracking prices near ${market.town}.`}
             </h2>
             <p className="m-0 text-[17px] leading-normal text-body">
-              We started tracking real {market.town} prices on {fmt(started)}. Reports show what changed from one month to the next,
-              so the first one needs a month of data.{" "}
-              {priced ? `Right now we’re tracking published prices for ${priced} ${pluralFor(profile.sector)} in and around ${market.town}.` : ""}
+              {priced
+                ? `We started tracking real prices on ${fmt(started)}. Reports show what changed from one month to the next, so the first one needs a month of data. Right now we’re tracking published prices for ${priced} ${priced === 1 ? profile.sector.toLowerCase() : pluralFor(profile.sector)} within 10 miles of you.`
+                : `We know the ${market.rivals.length} ${pluralFor(profile.sector)} within 10 miles of you, but haven’t collected their prices yet. Reports show what changed from one month to the next, so they start a month after we do.`}
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href={`/dashboard?${profileQuery(profile)}`} className="rounded-xl bg-ink px-5 py-3 font-bold text-paper hover:bg-ink-3">

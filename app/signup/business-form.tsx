@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { lookupPostcode, normalisePostcode, POSTCODE_SHAPE, type Lookup } from "@/lib/postcode";
 import { profileQuery, type Profile } from "@/lib/profile";
-import { launchedTownFor } from "@/lib/towns";
+import { regionFor } from "@/lib/towns";
 import { pluralFor, RADII, SECTORS } from "@/lib/sectors";
 
 const input =
@@ -78,8 +78,9 @@ export function BusinessForm({ initial, demo = false }: { initial: Profile; demo
     // If postcodes.io is unreachable, don't block sign-up; the shape check still applies.
     if (!name.trim() || !shaped || checking || current?.status === "invalid") return;
     const pc = place?.postcode ?? normalised;
-    // Outside a launched town, register interest unless they chose the demo or are coming back with the same postcode.
-    if (!demo && !launchedTownFor(pc) && pc !== initial.postcode) {
+    // Outside a covered region, register interest unless they chose the demo or are coming back with the same postcode.
+    // (If the postcode couldn't be checked, carry on.)
+    if (!demo && place && !regionFor(place.council) && pc !== initial.postcode) {
       router.push(`/interest?${profileQuery({ name: name.trim(), sector, postcode: pc })}`);
       return;
     }
